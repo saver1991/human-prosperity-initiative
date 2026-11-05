@@ -2,7 +2,7 @@ import {cp,mkdir,readFile,readdir,rm,writeFile} from "node:fs/promises";
 import path from "node:path";
 import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,renderCsv,parseCsv,sourceTitle} from "./site-content.mjs";
 import {buildPublicRoadmap} from "./roadmap-model.mjs";
-import {renderRoadmapOverview} from "./roadmap-pages.mjs";
+import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -105,9 +105,21 @@ await publish("/roadmap",shell({
  description:"Explore HPI's scientific and website initiatives, current stages, open decision gates and published work, without leaving the website.",
  route:"/roadmap",stylesheet:"/roadmap.css",
  breadcrumb:'<a href="/">Home</a> / Roadmap',
- body:renderRoadmapOverview(publicRoadmap)
+ body:renderRoadmapOverview(publicRoadmap,{detailsEnabled:true})
 }));
 await writeFile(ROOT+"/public-roadmap.json",JSON.stringify(publicRoadmap,null,2)+"\n");
+// Every published initiative has its own canonical, read-only status page.
+// The science/ethics gates remain editorial snapshots, not live approvals.
+for(const initiative of publicRoadmap.initiatives){
+ const detailRoute="/initiatives/"+slug(initiative.id);
+ await publish(detailRoute,shell({
+  title:initiative.name,section:"Initiative "+initiative.id,
+  description:initiative.summary,route:detailRoute,stylesheet:"/roadmap.css",
+  breadcrumb:'<a href="/">Home</a> / <a href="/roadmap">Roadmap</a> / '+safe(initiative.id),
+  body:renderInitiativeDetail(initiative,publicRoadmap)
+ }));
+}
+
 
 function cards(items){
  return '<div class="catalog-grid">'+items.map(doc=>
@@ -191,7 +203,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source"])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';

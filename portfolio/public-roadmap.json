@@ -487,45 +487,50 @@
         {
           "id": "WEB-02.2",
           "title": "Roadmap UX and navigation",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 31,
           "tasks": [
             {
               "id": "WEB-02.2-T01",
               "title": "Audit current /roadmap, /activity and /library: navigation, dead ends, external GitHub departures, clarity, mobile usability and assistive technology.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/38"
             },
             {
               "id": "WEB-02.2-T02",
               "title": "Design Now / Next / Later roadmap overview with initiative cards, current statuses, meaningful blockers, review gates and workstream counts only where independently verifiable.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/38"
             },
             {
               "id": "WEB-02.2-T03",
               "title": "Show scientific programme milestones separately from website/platform delivery, and label date/priority as indicative, not promised.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/38"
             },
             {
               "id": "WEB-02.2-T04",
               "title": "Define navigation: roadmap → initiative → epic/task → canonical HPI docs; GitHub external only for contribution/source history, never as default content reading.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/38"
             },
             {
               "id": "WEB-02.2-T05",
               "title": "Specify responsive/mobile layout, readable empty/error/loading states and accessible filtering/search only if useful at current scale.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/38"
             }
           ]
         },
         {
           "id": "WEB-02.3",
           "title": "Initiative, epic and task detail pages",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 32,
           "tasks": [
             {
