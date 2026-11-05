@@ -21,6 +21,14 @@ const distRoot=resolve("dist");
 const server=createServer(async(req,res)=>{
  try{
   const url=new URL(req.url||"/","http://127.0.0.1");
+  if(url.pathname==="/api/freshness"){
+   const publicInfo=JSON.parse(await readFile(resolve(distRoot,"publication.json"),"utf8"));
+   res.writeHead(200,{"content-type":"application/json; charset=utf-8"});
+   res.end(JSON.stringify({source:"public_hpi_github_main_and_production",status:"current",checkedLive:true,
+    latestMainRevision:publicInfo.revision,publishedRevision:publicInfo.revision,
+    checkedAt:new Date().toISOString(),note:"Local test fixture confirms public provenance shape."}));
+   return;
+  }
   if(url.pathname==="/api/issues"){
    res.writeHead(200,{"content-type":"application/json; charset=utf-8"});
    res.end(JSON.stringify(fixture));return;
@@ -47,7 +55,7 @@ const widths=[
  {name:"desktop",width:1440,height:900}
 ];
 const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
- "/library","/activity","/contribute","/governance"];
+ "/library","/activity","/status","/contribute","/governance"];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress"};
 let browser;
@@ -85,7 +93,7 @@ try{
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      ["/","/mission","/research","/activity"].includes(route)){
+      ["/","/mission","/research","/activity","/status"].includes(route)){
     const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21a","wcag21aa"]).analyze();
     const serious=result.violations.filter(v=>["critical","serious"].includes(v.impact));
     for(const violation of result.violations){
@@ -108,6 +116,9 @@ try{
    record("keyboard skip-link target",new URL(page.url()).hash==="#main");
    await page.getByRole("navigation",{name:"Main navigation"}).getByRole("link",{name:"Research"}).click();
    record("on-site primary navigation",new URL(page.url()).pathname==="/research");
+   await page.goto(base+"/status");
+   await page.waitForFunction(()=>document.getElementById("freshness-status")?.classList.contains("is-current"),{timeout:10000});
+   record("on-site publication freshness rendering",await page.locator("#freshness-source").textContent()!=="not verified");
    await page.goto(base+"/activity");
    await page.locator("#issue-list .issue-row").first().waitFor({timeout:10000});
    record("on-site public task feed",await page.locator("#issue-list .issue-row").count()===1);
