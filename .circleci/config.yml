@@ -1,0 +1,19 @@
+version: 2.1
+jobs:
+  website-quality:
+    docker:
+      - image: cimg/node:22.11
+    resource_class: small
+    steps:
+      - checkout
+      - run:
+          name: Build and test HPI website
+          command: npm run check
+      - store_artifacts:
+          path: dist
+          destination: public-site
+workflows:
+  check:
+    jobs:
+      - website-quality
+# CircleCI quality checks only. Vercel Git integration handles deployments.
