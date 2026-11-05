@@ -36,3 +36,13 @@ The editor/reviewer must still review scientific claims and their ethical implic
 - Continuous integration: CircleCI `npm run check`, followed by Vercel build/test gate on every linked deployment.
 
 When a GitHub PR is merged, verify CircleCI, Vercel deployment READY, the actual public source commit and representative research and task routes before announcing completion.
+
+
+## Public source-parity inspection and accessibility release gate
+
+- The [publication-status page](https://human-prosperity-initiative.vercel.app/status) uses a public, read-only Vercel API that compares the **latest GitHub main SHA** to the **current Vercel production publication SHA**, with a five-minute CDN cache.
+- It reports *current*, *awaiting publication*, or *unverified*. Provider outages and malformed upstream metadata are reported as **unverified**, never silently shown as current. It does not trigger or approve deployments.
+- The page displays timestamps and short revision IDs for transparent human review. Main-branch changes are still published only after a successful Vercel build; the status page detects a gap but does not itself fix one.
+- **Browser QA:** CircleCI runs real Chromium desktop and mobile checks in a separate job after source/build tests. The checks cover keyboard skip link, first-party navigation, viewport overflow, issue-title escaping and automated axe-core WCAG 2.2 AA checks on high-traffic pages. Failures retain screenshots and traces. This is **automated accessibility checking, not manual screen-reader certification**.
+- **Current release caveat:** Vercel Git deployments are independent of CircleCI status. The Vercel build runs the same Node source tests, but the Chromium browser checks are not yet configured as a hard deployment-protection gate. Work on a Vercel deployment check and rollback/alert ownership remains part of WEB-01. Never claim that passing CircleCI is a prerequisite for automatic Vercel promotion until explicitly verified.
+- Browser QA dependencies are pinned within CircleCI, not shipped to the public client. No browser audit credentials, API keys or participant data are needed.

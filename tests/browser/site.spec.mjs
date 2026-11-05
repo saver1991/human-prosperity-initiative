@@ -24,9 +24,10 @@ for(const route of coreRoutes){
  });
 }
 
-for(const route of ["/","/roadmap","/research/evidence-ledger","/library","/activity"]){
+for(const route of ["/","/roadmap","/research/evidence-ledger","/library","/activity","/status"]){
  test("WCAG accessibility audit "+route,async({page})=>{
   if(route==="/activity")await page.route("**/api/issues",r=>r.fulfill({json:{source:"github_public_issues",fetchedAt:"2026-11-05T18:00:00Z",limitedToRecent:false,issues:[]}}));
+  if(route==="/status")await page.route("**/api/source-status",r=>r.fulfill({json:{status:"current",githubRevision:"a".repeat(40),publishedRevision:"a".repeat(40),publishedAt:"2026-11-05T18:00:00Z",checkedAt:"2026-11-05T18:00:00Z"}}));
   await page.goto(route);
   const audit=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
   expect(audit.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)}))).toEqual([]);
