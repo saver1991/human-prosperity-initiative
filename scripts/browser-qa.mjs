@@ -55,7 +55,8 @@ const widths=[
  {name:"desktop",width:1440,height:900}
 ];
 const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
- "/library","/activity","/status","/contribute","/governance"];
+ "/library","/activity","/status","/contribute","/governance",
+ "/initiatives/web-02","/initiatives/f0-02","/initiatives/f0-03-1","/initiatives/web-01"];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
  automationScope:"Chromium axe WCAG 2.2 AA; zoom-equivalent reflow; CSS text-resize stress; ARIA snapshots; keyboard traversal. Not a real screen reader or OS zoom audit."};
@@ -88,13 +89,13 @@ try{
    record(viewport.name+" "+route+" no horizontal document overflow",
     layout.docWidth<=layout.viewportWidth+2,JSON.stringify(layout));
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
-   if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/roadmap","/activity"].includes(route)){
-    const screenshot=viewport.name+"-"+(route==="/"? "home":route.slice(1))+".png";
+   if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/roadmap","/activity","/initiatives/web-02"].includes(route)){
+    const screenshot=viewport.name+"-"+(route==="/"? "home":route.slice(1).replaceAll("/","-"))+".png";
     await page.screenshot({path:resolve(output,screenshot),fullPage:true});
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      ["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)){
+      ["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status","/initiatives/web-02","/initiatives/f0-03-1"].includes(route)){
     const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
     const serious=result.violations;
     for(const violation of result.violations){
@@ -123,8 +124,10 @@ try{
    await page.goto(base+"/activity");
    await page.locator("#issue-list .issue-row").first().waitFor({timeout:10000});
    record("on-site public task feed",await page.locator("#issue-list .issue-row").count()===1);
-   const href=await page.locator("#issue-list .issue-row a").first().getAttribute("href");
+   const href=await page.locator("#issue-list .issue-row a.issue-discuss").first().getAttribute("href");
    record("external discussion clearly linked",href==="https://github.com/saver1991/human-prosperity-initiative/issues/9");
+   const local=await page.locator("#issue-list .issue-row a.issue-local").first().getAttribute("href");
+   record("on-site issue to initiative navigation",local==="/initiatives/web-01");
    await page.close();
   }
   await context.close();
@@ -142,7 +145,7 @@ try{
    viewport:{width:scenario.width,height:900},reducedMotion:"reduce",deviceScaleFactor:1
   });
   for(const route of ["/","/mission","/research","/research/evidence-ledger",
-   "/library","/activity","/status","/contribute","/governance"]){
+   "/library","/activity","/status","/contribute","/governance","/initiatives/web-02"]){
    const page=await context.newPage();
    const response=await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
    record(scenario.name+" "+route+" HTTP 200",response?.status()===200);
@@ -214,7 +217,7 @@ try{
  // technology's semantic tree. It is not NVDA/VoiceOver speech validation.
  const keyboardContext=await browser.newContext({viewport:{width:1440,height:900},
   reducedMotion:"reduce",deviceScaleFactor:1});
- for(const route of ["/","/research","/status"]){
+ for(const route of ["/","/research","/status","/initiatives/web-02"]){
   const page=await keyboardContext.newPage();
   await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
   const mainSnapshot=await page.locator("main").ariaSnapshot();
