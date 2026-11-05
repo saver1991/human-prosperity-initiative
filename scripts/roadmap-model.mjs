@@ -7,7 +7,7 @@ const KINDS=new Set(["research","platform"]);
 const ISSUE=/^https:\/\/github\.com\/saver1991\/human-prosperity-initiative\/issues\/\d+$/;
 const PROOF=/^https:\/\/github\.com\/saver1991\/human-prosperity-initiative\/pull\/\d+$/;
 const FIRST_PARTY=/^\/(?:[a-z0-9-]+\/?)*$/;
-const ID=/^[A-Z][A-Z0-9-]*(?:\.[0-9]+)*$/;
+const ID=/^[A-Z][A-Z0-9-]*(?:\.[0-9]+)*(?:-T[0-9]{2})?$/;
 function fail(message){throw new Error("Public roadmap contract: "+message)}
 function object(v,name){if(!v||Array.isArray(v)||typeof v!=="object")fail(name+" must be an object");return v;}
 function only(v,allowed,name){
