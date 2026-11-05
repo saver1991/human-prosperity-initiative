@@ -36,3 +36,8 @@ The editor/reviewer must still review scientific claims and their ethical implic
 - Continuous integration: CircleCI `npm run check`, followed by Vercel build/test gate on every linked deployment.
 
 When a GitHub PR is merged, verify CircleCI, Vercel deployment READY, the actual public source commit and representative research and task routes before announcing completion.
+
+
+## Public freshness verification
+
+The internal [publication status page](https://human-prosperity-initiative.vercel.app/status) calls a GET-only, anonymous same-origin Vercel API to compare `/publication.json` on production with the **public** GitHub `main` commit. It reports either matching revisions, a mismatch that requires inspection, or `unknown` during provider failure. Both sources are read without credentials or database access. The result is cached for about five minutes and is **not** a proactive alert, uptime service, or guarantee of instantaneous publication. See the implementation in `api/freshness.js` and `site/freshness.js`.
