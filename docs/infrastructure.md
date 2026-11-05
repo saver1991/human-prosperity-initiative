@@ -1,5 +1,8 @@
 # HPI — public infrastructure
 
+**Verified production URL:** https://human-prosperity-initiative.vercel.app/ (Vercel production READY, HTTP 200 on 5 November 2026). **Database:** Neon project noisy-credit-27738761, region aws-eu-west-2, database hpi. **CircleCI:** gh/saver1991/human-prosperity-initiative, public-site build and tests. No database connection is needed by the current static frontend.
+
+
 **Implementation:** November 2026. GitHub is the canonical source for documents, research, code, backlog and contributions.
 
 ## Architecture

@@ -1,5 +1,8 @@
 # Human Prosperity Initiative (HPI)
 
+🌐 **Public website:** [human-prosperity-initiative.vercel.app](https://human-prosperity-initiative.vercel.app/) — live, first public version (November 2026).
+
+
 > **Working name · Early-stage public initiative · Not yet a registered foundation or legal entity**
 
 **Vision:** A world where prosperity is possible for everyone.
