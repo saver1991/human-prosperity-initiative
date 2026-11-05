@@ -1,3 +1,4 @@
+import {inspectPublicIssueFeed,reconcilePublicIssue} from "../site/progress-policy.js";
 // Versioned public HPI progress contract. This module never performs network access,
 // copies participant records, infers scientific impact or executes issue text.
 // Public GitHub issue states remain authoritative; materialized content is a dated editorial snapshot.
@@ -139,13 +140,12 @@ export function buildPublicRoadmap(project,details,{revision="local-build"}={}){
   initiatives:result
  };
 }
+// Compatibility interface for original WEB-02.1 callers; source policy is centralised.
 export function publicIssueSignal(feed,issue,now=new Date()){
  issueNumber(issue,"issue");
- if(!feed||feed.source!=="github_public_issues"||!Array.isArray(feed.issues))return {state:"unavailable",live:false};
- const at=Date.parse(feed.fetchedAt);
- const age=now.getTime()-at;
- if(!Number.isFinite(at)||age<0||age>86400000)return {state:"stale",live:false};
- const item=feed.issues.find(x=>x.number===issue);
- if(!item||!["open","closed"].includes(item.state))return {state:"unknown",live:false};
- return {state:item.state,live:true,scientificApproval:false};
+ const source=inspectPublicIssueFeed(feed,now);
+ const state=reconcilePublicIssue(source,issue,"unknown");
+ if(state.state==="open"||state.state==="closed")
+  return {state:state.state,live:true,scientificApproval:false};
+ return {state:["unavailable","stale"].includes(state.state)?state.state:"unknown",live:false};
 }

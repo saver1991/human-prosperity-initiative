@@ -137,3 +137,17 @@
 .rp-related-links a:hover{background:#ebf2e9;border-color:#8bad84}
 @media(max-width:1050px){.rp-detail-overview{grid-template-columns:minmax(0,1fr)}.rp-detail-grid{grid-template-columns:minmax(0,1fr)}.rp-detail-sidebar{grid-template-columns:repeat(2,minmax(0,1fr));position:static}.rp-related{grid-template-columns:1fr}}
 @media(max-width:730px){.rp-detail-intro{padding:26px 23px}.rp-detail-metadata{grid-template-columns:repeat(2,minmax(0,1fr))}.rp-detail-sidebar{grid-template-columns:1fr}.rp-review-gate{padding:23px}.rp-epic{padding:22px}.rp-related-links{grid-template-columns:1fr}.rp-task-row{grid-template-columns:25px minmax(0,1fr);gap:10px}.rp-task-icon{width:24px;height:24px}}
+
+/* WEB-02.4: source verification is a separate, accessible signal; not impact. */
+.rp-live-feed{display:flex;justify-content:space-between;align-items:center;gap:25px;flex-wrap:wrap;margin:18px 0 5px;padding:21px 24px;border:1px solid #bbd2bd;border-radius:10px;background:#eff5ef;color:#234536}
+.rp-live-feed>div{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rp-live-feed .rp-overline{color:#386347}
+.rp-live-feed strong{font-size:15px;line-height:1.4;color:#244a36}
+.rp-live-feed [data-feed-fetched]{font-size:11px;color:#455e56}
+.rp-live-feed p{margin:0;font-size:12px;line-height:1.6;max-width:320px;color:#3e5950}
+.rp-issue-marker{font-size:11px;line-height:1.55;color:#415a5e;margin:9px 0 4px;overflow-wrap:anywhere}
+.rp-issue-marker[data-issue-signal="closed"]{color:#2d6149}
+.rp-issue-marker[data-issue-drift="true"]{color:#7b4726;font-weight:750}
+.rp-issue-marker--dark{color:#e1edea!important;margin-top:16px!important}
+.rp-issue-marker--dark[data-issue-drift="true"]{color:#ffdab7!important}
+@media(max-width:700px){.rp-live-feed{padding:19px 18px}.rp-live-feed p{max-width:100%}}
