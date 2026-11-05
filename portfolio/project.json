@@ -88,6 +88,14 @@
       "measurementDraft": "https://human-prosperity-initiative.vercel.app/research/f0-03-prosperity-measurement-framework-v0-1"
     },
     {
+      "id": "F0-03.1",
+      "name": "Independent methodology and community review",
+      "status": "review",
+      "priority": "P1",
+      "horizon": "Next",
+      "issue": 19
+    },
+    {
       "id": "F0-04",
       "name": "Governance and community operations",
       "status": "in_progress",
@@ -95,9 +103,17 @@
       "issue": 6
     },
     {
+      "id": "WEB-01",
+      "name": "Public website production hardening",
+      "status": "in_progress",
+      "priority": "P0",
+      "horizon": "Now",
+      "issue": 9
+    },
+    {
       "id": "WEB-02",
       "name": "Public Roadmap & Progress Transparency",
-      "status": "planned",
+      "status": "in_progress",
       "priority": "P1",
       "horizon": "Next",
       "issue": 29,
@@ -140,7 +156,7 @@
         }
       ],
       "plannedTasks": 31,
-      "implementationApproved": false,
+      "implementationApproved": true,
       "siteFeatureImplemented": false
     },
     {
@@ -179,5 +195,13 @@
     "hubos": "production_record_verified_2026-11-05_ui_review_open",
     "solos": "read_only_profile_and_pinned_evidence_inventory",
     "githubIssues": "authoritative_for_public_tasks"
+  },
+  "publicRoadmap": {
+    "schemaVersion": "1.0",
+    "detailSource": "portfolio/public-roadmap.json",
+    "publicStatus": "editorial_snapshot",
+    "liveGitHubIssueStateAuthoritative": true,
+    "taskStatusSyncEnabled": false,
+    "reviewedAt": "2026-11-05"
   }
 }
