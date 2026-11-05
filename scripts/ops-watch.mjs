@@ -59,15 +59,18 @@ export async function inspect({fetchImpl=fetch,now=new Date()}={}){
   }catch(error){report.routes.push({path:route,status:"error"});report.issues.push(route+": "+error.message);}
  }
  let mainSha=null;
+ let mainAgeMs=NaN;
  try{
   const latest=await (await request(REPO+"/commits/main",fetchImpl)).json();
   if(!SHA.test(String(latest.sha)))throw Error("Unexpected main SHA");
   mainSha=latest.sha;
   report.publication.githubMainSha=mainSha;
+  mainAgeMs=now.getTime()-Date.parse(
+   latest.commit?.committer?.date||latest.commit?.author?.date||report.publication.generatedAt);
+  const recentlyUpdated=Number.isFinite(mainAgeMs)&&mainAgeMs>=0&&mainAgeMs<20*60*1000;
   const deployed=report.publication.revision;
   if(SHA.test(String(deployed))&&mainSha!==deployed){
-   const age=Date.parse(now)-Date.parse(report.publication.generatedAt);
-   if(Number.isFinite(age)&&age>=0&&age<20*60*1000){
+   if(recentlyUpdated){
     report.warnings.push("New main commit within 20-minute deploy propagation window");
    }else report.issues.push("Published SHA differs from GitHub main SHA beyond propagation tolerance");
   }
@@ -79,7 +82,12 @@ export async function inspect({fetchImpl=fetch,now=new Date()}={}){
    for(const context of STATUS_CONTEXTS){
     const status=statuses.get(context)||"missing";
     report.ci[context]=status;
-    if(status!=="success")report.issues.push(context+": "+status);
+    if(status!=="success"){
+     const ciMayStillBeRunning=(status==="pending"||status==="missing")&&
+      Number.isFinite(mainAgeMs)&&mainAgeMs>=0&&mainAgeMs<20*60*1000;
+     if(ciMayStillBeRunning)report.warnings.push(context+": "+status+" (fresh commit: CI grace window)");
+     else report.issues.push(context+": "+status);
+    }
    }
   }catch(error){report.issues.push("GitHub commit status verification: "+error.message);}
   try{
