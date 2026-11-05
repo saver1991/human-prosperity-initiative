@@ -15,13 +15,13 @@ The machine-readable version is [`portfolio/project.json`](../portfolio/project.
 | System | Authority |
 |---|---|
 | **HPI GitHub** | Public science: charter, roadmap, evidence, protocols, issues, contributions, version history |
-| **HubOS** | Portfolio governance and product/initiative tracking, once an authorised HPI record is registered (not yet assumed) |
+| **HubOS** | Portfolio governance and product/initiative tracking, registered HPI programme and task status (production Neon snapshot verified 5 Nov 2026; authenticated UI acceptance remains open) |
 | **SolOS** | Research-oriented workflows and approved execution, not governance or automatic publication |
 | **Neon HPI** | HPI-only research metadata, with independent access policy; not a shared HubOS/SolOS database |
 | **Vercel HPI** | Public website publishing; not evidence of intervention success |
 | **CircleCI HPI** | Tested code/website builds; not a peer review of scientific claims |
 
-SolOS includes a read-only HPI project profile; its roadmap statuses are an explicitly dated snapshot and link back to this repository. **No synchronisation or external research execution is active by virtue of adding the profile.**
+SolOS includes a read-only HPI project profile; its roadmap statuses are an explicitly dated snapshot and link back to this repository. A separately permission-free, **read-only pinned evidence inventory** in SolOS verifies a published GitHub blob and exposes counts/provenance only. It is **not live status synchronisation, scientific peer review or authorised autonomous research execution.**
 
 ## Progress discipline
 
@@ -38,9 +38,10 @@ SolOS includes a read-only HPI project profile; its roadmap statuses are an expl
 
 ## Cross-system implementation tracking
 
-- [HubOS #125 — register HPI as a distinct public-interest programme](https://github.com/saver1991/the-hub-os/issues/125). **Open:** not a verified live HubOS portfolio record.
+- [HubOS #125 — register HPI as a distinct public-interest programme](https://github.com/saver1991/the-hub-os/issues/125). **Production database registered:** one public-interest programme, eight initiatives, five epics, eleven tasks, with an additive CAS update, backup and full old-record preservation. Authenticated browser/UI acceptance remains open.
 - [SolOS PR #74 — public HPI project catalogue](https://github.com/saver1991/solOS-core/pull/74). **Merged:** dated read-only profile.
-- [SolOS #75 — optional approved research integration](https://github.com/saver1991/solOS-core/issues/75). **Open:** no automated research execution or status sync.
+- [SolOS PR #78 — pinned evidence inventory](https://github.com/saver1991/solOS-core/pull/78). **Merged:** read-only GitHub source count/provenance API, no external actions.
+- [SolOS #75 — optional approved research integration](https://github.com/saver1991/solOS-core/issues/75). **Open:** scientific methodology review, browser acceptance and future autonomy approval remain required.
 
 SolOS's production console currently uses Vercel SSO protection. The independently hosted HPI website and GitHub repository remain public.
 

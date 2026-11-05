@@ -12,7 +12,7 @@
   "researchExecutionSystem": "SolOS",
   "sourceOfTruth": "GitHub HPI",
   "reviewedAt": "2026-11-05",
-  "portfolioRecordId": null,
+  "portfolioRecordId": "human-prosperity-initiative",
   "mode": "applied_poverty_reduction_with_long_term_systems_research",
   "currentInitiative": "F0-02",
   "publicUrls": {
@@ -126,8 +126,8 @@
     "noSharedDatabaseAcrossProducts": true
   },
   "sync": {
-    "hubos": "not_established",
-    "solos": "versioned_read_only_snapshot",
+    "hubos": "production_record_verified_2026-11-05_ui_review_open",
+    "solos": "read_only_profile_and_pinned_evidence_inventory",
     "githubIssues": "authoritative_for_public_tasks"
   }
 }
