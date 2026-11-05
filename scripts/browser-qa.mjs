@@ -128,6 +128,39 @@ try{
    record("external discussion clearly linked",href==="https://github.com/saver1991/human-prosperity-initiative/issues/9");
    const local=await page.locator("#issue-list .issue-row a.issue-local").first().getAttribute("href");
    record("on-site issue to initiative navigation",local==="/initiatives/web-01");
+   await page.goto(base+"/roadmap",{waitUntil:"networkidle"});
+   record("read-only public issue feed status visible",
+    (await page.locator("[data-feed-health]").textContent()).includes("Public issue feed available"));
+   const sample={source:"github_public_issues",fetchedAt:new Date().toISOString(),limitedToRecent:false,
+    issues:[
+     {number:29,state:"open",title:"WEB-02 initiative",updatedAt:new Date().toISOString()},
+     {number:33,state:"closed",title:"WEB-02.4 epic",updatedAt:new Date().toISOString()}
+    ]};
+   await page.route("**/api/issues",route=>route.fulfill({
+    status:200,contentType:"application/json",body:JSON.stringify(sample)
+   }));
+   await page.goto(base+"/initiatives/web-02",{waitUntil:"networkidle"});
+   record("closed issue does not silently approve a pending epic",
+    await page.locator('[data-public-issue="33"]').getAttribute("data-issue-drift")==="true");
+   record("closed issue explicitly says independent science not approved",
+    (await page.locator('[data-public-issue="33"]').textContent()).includes("not an independent science approval"));
+   await page.unroute("**/api/issues");
+   await page.route("**/api/issues",route=>route.fulfill({
+    status:503,contentType:"application/json",body:'{"error":"provider_unavailable"}'
+   }));
+   await page.goto(base+"/initiatives/web-02",{waitUntil:"networkidle"});
+   record("provider outage displays unknown source, never false completion",
+    (await page.locator("[data-feed-health]").textContent()).includes("unavailable")&&
+    await page.locator('[data-public-issue="29"]').getAttribute("data-issue-signal")==="unavailable");
+   await page.unroute("**/api/issues");
+   await page.route("**/api/issues",route=>route.fulfill({
+    status:200,contentType:"application/json",
+    body:JSON.stringify({...sample,fetchedAt:new Date(Date.now()-3600000).toISOString()})
+   }));
+   await page.goto(base+"/roadmap",{waitUntil:"networkidle"});
+   record("stale GitHub feed clearly labeled and not accepted",
+    (await page.locator("[data-feed-health]").textContent()).includes("stale"));
+   await page.unroute("**/api/issues");
    await page.close();
   }
   await context.close();
