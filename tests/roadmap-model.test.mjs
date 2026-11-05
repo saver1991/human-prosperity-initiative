@@ -32,7 +32,7 @@ test("untrusted deliverable links are rejected",()=>{
 });
 test("documented tasks require concrete public evidence",()=>{
  const v=copy(details);const t=v.initiatives.find(x=>x.id==="WEB-02").epics[0].tasks[0];
- t.status="documented";
+ t.status="documented";delete t.evidence;
  assert.throws(()=>buildPublicRoadmap(project,v),/needs public acceptance evidence/);
 });
 test("planned task counts cannot be fabricated or inflated",()=>{
