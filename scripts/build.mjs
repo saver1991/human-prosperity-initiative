@@ -1,6 +1,8 @@
 import {cp,mkdir,readFile,readdir,rm,writeFile} from "node:fs/promises";
 import path from "node:path";
 import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,renderCsv,parseCsv,sourceTitle} from "./site-content.mjs";
+import {buildPublicRoadmap} from "./roadmap-model.mjs";
+import {renderRoadmapOverview} from "./roadmap-pages.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -25,6 +27,7 @@ if(routes.size!==sources.length)throw new Error("A public document has no genera
 const content=new Map(await Promise.all(sources.map(async source=>[source,await readFile(source,"utf8")])));
 const descriptor=JSON.parse(await readFile("portfolio/project.json","utf8"));
 if(descriptor.id!=="human-prosperity-initiative"||descriptor.visibility!=="public")throw new Error("Invalid public project manifest");
+const publicRoadmap=buildPublicRoadmap(descriptor,JSON.parse(await readFile("portfolio/public-roadmap.json","utf8")),{revision});
 const evidence=parseCsv(content.get("research/evidence-ledger.csv"));
 const assessment=content.get("research/F0-02-opportunity-assessment.md");
 const researchTopics=[...assessment.matchAll(/^### ([A-Z])\.\s+(.+)$/gm)]
@@ -34,7 +37,7 @@ const docLinks=[...routes].map(([source,url])=>({source,url,title:sourceTitle(so
 const safe=escapeHtml;
 const stamp='Published from GitHub '+safe(revision==="local-build"?"working tree":revision.slice(0,9))+" · "+safe(publishedAt.slice(0,16).replace("T"," "))+" UTC";
 const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/research">Research</a><a href="/roadmap">Roadmap</a><a href="/library">Library</a><a href="/contribute">Get involved</a></nav>';
-function shell({title,description,section,body,route,lang="en",script=""}){
+function shell({title,description,section,body,route,lang="en",script="",stylesheet="",breadcrumb=""}){
  return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8">'+
   '<meta name="viewport" content="width=device-width, initial-scale=1">'+
   '<meta name="theme-color" content="#101c29">'+
@@ -43,13 +46,13 @@ function shell({title,description,section,body,route,lang="en",script=""}){
   '<meta property="og:title" content="'+safe(title)+' — Human Prosperity Initiative">'+
   '<meta property="og:url" content="'+ORIGIN+route+'">'+
   '<title>'+safe(title)+' — Human Prosperity Initiative</title>'+
-  '<link rel="stylesheet" href="/styles.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">'+
+  '<link rel="stylesheet" href="/styles.css">'+(stylesheet?'<link rel="stylesheet" href="'+safe(stylesheet)+'">':"")+'<link rel="icon" type="image/svg+xml" href="/favicon.svg">'+
   (script?'<script src="'+script+'" defer></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
   nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
   '<main id="main" class="content-page"><section class="content-hero"><div class="wrap">'+
-  '<div class="content-breadcrumb"><a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section)+'</div>'+
+  '<div class="content-breadcrumb">'+(breadcrumb||'<a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section))+'</div>'+
   '<span class="section-label">'+safe(section)+'</span><h1>'+safe(title)+'</h1>'+
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
   '<div class="wrap content-layout">'+body+'</div></main>'+
@@ -64,6 +67,7 @@ async function publish(route,html){
 }
 await rm(ROOT,{recursive:true,force:true});await mkdir(ROOT,{recursive:true});
 await cp("site/styles.css","dist/styles.css");
+await cp("site/roadmap.css","dist/roadmap.css");
 await cp("site/favicon.svg","dist/favicon.svg");
 await cp("site/activity.js","dist/activity.js");
 await cp("site/freshness.js","dist/freshness.js");
@@ -85,6 +89,26 @@ for(const entry of docLinks){
  await publish(entry.url,shell({title:entry.title,description,section:sectionFor(entry.source),
   body:article,route:entry.url,lang:entry.source==="docs/charter.it.md"?"it":"en"}));
 }
+// Preserve a readable, first-party copy of the authored Markdown source when
+// /roadmap becomes the navigable dashboard. GitHub remains the edit/history path.
+await publish("/library/docs/roadmap-source",shell({
+ title:"Roadmap source & decisions",section:"Canonical programme plan",
+ description:"Read the complete source-based HPI programme roadmap, scientific stages and planning boundaries on this website.",
+ route:"/library/docs/roadmap-source",
+ body:'<article class="doc-content">'+renderMarkdown(content.get("docs/roadmap.md"),"docs/roadmap.md",routes,{skipFirstHeading:true})+'</article>'+
+ '<aside class="doc-side"><div class="doc-side-card"><strong>Canonical source</strong><p>docs/roadmap.md · versioned public repository</p>'+
+ '<a href="/roadmap">Return to the visual roadmap ↗</a>'+
+ '<a href="https://github.com/saver1991/human-prosperity-initiative/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer">Edit or inspect source on GitHub ↗</a></div></aside>'
+}));
+await publish("/roadmap",shell({
+ title:"Our public roadmap",section:"Project roadmap",
+ description:"Explore HPI's scientific and website initiatives, current stages, open decision gates and published work, without leaving the website.",
+ route:"/roadmap",stylesheet:"/roadmap.css",
+ breadcrumb:'<a href="/">Home</a> / Roadmap',
+ body:renderRoadmapOverview(publicRoadmap)
+}));
+await writeFile(ROOT+"/public-roadmap.json",JSON.stringify(publicRoadmap,null,2)+"\n");
+
 function cards(items){
  return '<div class="catalog-grid">'+items.map(doc=>
   '<a class="catalog-card" href="'+doc.url+'"><span class="catalog-type">'+safe(sectionFor(doc.source))+'</span>'+
@@ -167,7 +191,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values()])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source"])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';

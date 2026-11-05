@@ -88,7 +88,7 @@ try{
    record(viewport.name+" "+route+" no horizontal document overflow",
     layout.docWidth<=layout.viewportWidth+2,JSON.stringify(layout));
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
-   if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/activity"].includes(route)){
+   if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/roadmap","/activity"].includes(route)){
     const screenshot=viewport.name+"-"+(route==="/"? "home":route.slice(1))+".png";
     await page.screenshot({path:resolve(output,screenshot),fullPage:true});
     report.screenshots.push(screenshot);

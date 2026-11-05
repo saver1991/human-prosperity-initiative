@@ -444,45 +444,50 @@
         {
           "id": "WEB-02.1",
           "title": "Canonical data contract and provenance",
-          "status": "planned",
+          "status": "complete",
           "issue": 30,
           "tasks": [
             {
               "id": "WEB-02.1-T01",
               "title": "Inventory existing HPI docs/roadmap.md, portfolio/project.json, issue titles/status, review gates, /activity endpoint and SolOS snapshot, identifying overlaps and stale fields.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/37"
             },
             {
               "id": "WEB-02.1-T02",
               "title": "Define versioned, typed public projection: stable IDs (WEB-02 etc.), names, owner *role if real*, phase, status, priority, dependencies, acceptance criteria, evidence URLs, last verified SHA/time and unavailable states.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/37"
             },
             {
               "id": "WEB-02.1-T03",
               "title": "Define authoritative mapping (HPI versioned roadmap for initiative taxonomy, GitHub issue state for task state, HubOS governance for portfolio, SolOS reads only); prevent feedback loops and private data.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/37"
             },
             {
               "id": "WEB-02.1-T04",
               "title": "Validate schema, provenance and allowlisted public fields; reject or hide malformed/private fields; status 'unknown' must not be presented as Done.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/37"
             },
             {
               "id": "WEB-02.1-T05",
               "title": "Write deterministic schema fixtures/tests including unlinked issues, closed issues, status drift, source outage and stale snapshots.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/37"
             }
           ]
         },
         {
           "id": "WEB-02.2",
           "title": "Roadmap UX and navigation",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 31,
           "tasks": [
             {

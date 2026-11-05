@@ -17,7 +17,9 @@ test("public source contract has one stable ID per roadmap initiative, epic and 
  const web=data.initiatives.find(x=>x.id==="WEB-02");
  assert.equal(web.epics.length,6);
  assert.equal(web.epics.flatMap(x=>x.tasks).length,31);
- assert.ok(web.epics.every(x=>x.tasks.every(t=>t.status==="planned")));
+ assert.ok(web.epics.find(x=>x.id==="WEB-02.1").tasks.every(t=>t.status==="complete"&&t.evidence));
+ assert.ok(web.epics.find(x=>x.id==="WEB-02.2").tasks.every(t=>t.status==="planned"));
+ assert.ok(web.epics.filter(x=>["WEB-02.3","WEB-02.4","WEB-02.5","WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
  assert.ok(data.initiatives.flatMap(x=>x.epics).every(x=>x.tasks.every(t=>t.sourceIssue===null||t.sourceIssue.startsWith("https://github.com/saver1991/human-prosperity-initiative/issues/"))));
 });
 test("sensitive or unrecognised keys cannot be published",()=>{
@@ -30,7 +32,7 @@ test("untrusted deliverable links are rejected",()=>{
 });
 test("documented tasks require concrete public evidence",()=>{
  const v=copy(details);const t=v.initiatives.find(x=>x.id==="WEB-02").epics[0].tasks[0];
- t.status="documented";
+ t.status="documented";delete t.evidence;
  assert.throws(()=>buildPublicRoadmap(project,v),/needs public acceptance evidence/);
 });
 test("planned task counts cannot be fabricated or inflated",()=>{
