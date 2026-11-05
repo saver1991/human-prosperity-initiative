@@ -18,8 +18,8 @@
   "publicUrls": {
     "website": "https://human-prosperity-initiative.vercel.app/",
     "repository": "https://github.com/saver1991/human-prosperity-initiative",
-    "roadmap": "https://github.com/saver1991/human-prosperity-initiative/blob/main/docs/roadmap.md",
-    "research": "https://github.com/saver1991/human-prosperity-initiative/tree/main/research",
+    "roadmap": "https://human-prosperity-initiative.vercel.app/roadmap",
+    "research": "https://human-prosperity-initiative.vercel.app/research",
     "community": "https://github.com/saver1991/human-prosperity-initiative/discussions"
   },
   "programmes": [
@@ -90,7 +90,7 @@
     {
       "id": "F0-04",
       "name": "Governance and community operations",
-      "status": "planned",
+      "status": "in_progress",
       "horizon": "Next",
       "issue": 6
     },
