@@ -87,3 +87,7 @@
 .doc-count { color:#405d43 }
 .issue-top { color:#4b5f63 }
 .footer-bottom a { text-decoration:underline; text-underline-offset:3px }
+
+/* Follow-up: ensure large italic headings and ethics prose meet the tested contrast ratios. */
+.section h2 i { color:#506f39 }
+.ethics p { color:#40545a }
