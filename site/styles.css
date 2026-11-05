@@ -105,3 +105,6 @@
 .freshness-versions small { display:block;font-size:11px;color:#4b6066;text-transform:uppercase;letter-spacing:.09em;font-weight:800;margin-bottom:6px }
 .freshness-versions strong { font-size:15px;overflow-wrap:anywhere }
 @media(max-width:700px){.freshness-panel{padding:23px}.freshness-versions{grid-template-columns:1fr;gap:8px}}
+
+/* Ensure breadcrumb actions are recognizable without relying on colour alone. */
+.content-breadcrumb a { text-decoration:underline; text-underline-offset:3px }
