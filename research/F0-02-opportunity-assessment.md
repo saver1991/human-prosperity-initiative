@@ -2,6 +2,10 @@
 
 **Version:** 0.1 • **Date:** 5 November 2026 • **Status:** Initial desk scan completed; systematic review, partner mapping, local feasibility and final selection are **open**.
 
+## New targeted study verification (5 November 2026)
+
+Three primary study records (one per domain) were checked against publisher/institutional abstracts, including a negative energy-efficiency result. See the [study note](F0-02-study-examples-2026-11-05.md) and [search log](search-log-2026-11-05.csv). This is a small, intentionally non-representative set — **not** evidence that a final policy or pilot has been selected.
+
 ## Scope and limitations
 This is an **illustrative, non-exhaustive initial scoping exercise**, not a systematic review, meta-analysis, evaluation of local service delivery, or proof an intervention will work. We searched for established public research and institutional reports across three candidate areas; the attached [ledger](evidence-ledger.csv) captures selected sources, claims and caveats. We have **not** interviewed affected people, consulted policymakers, obtained administrative data, assessed a specific jurisdiction or conducted a formal risk assessment.
 
