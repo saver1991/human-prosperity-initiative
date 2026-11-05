@@ -95,6 +95,55 @@
       "issue": 6
     },
     {
+      "id": "WEB-02",
+      "name": "Public Roadmap & Progress Transparency",
+      "status": "planned",
+      "priority": "P1",
+      "horizon": "Next",
+      "issue": 29,
+      "epics": [
+        {
+          "id": "WEB-02.1",
+          "name": "Canonical public data & provenance",
+          "issue": 30,
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-02.2",
+          "name": "Roadmap experience and navigation",
+          "issue": 31,
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-02.3",
+          "name": "Initiative/epic/task detail",
+          "issue": 32,
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-02.4",
+          "name": "Trustworthy progress and impact distinctions",
+          "issue": 33,
+          "tasksPlanned": 6
+        },
+        {
+          "id": "WEB-02.5",
+          "name": "SolOS/HubOS read-only alignment",
+          "issue": 34,
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-02.6",
+          "name": "Accessibility, QA and release",
+          "issue": 35,
+          "tasksPlanned": 5
+        }
+      ],
+      "plannedTasks": 31,
+      "implementationApproved": false,
+      "siteFeatureImplemented": false
+    },
+    {
       "id": "F0-05",
       "name": "First study concept",
       "status": "planned",
