@@ -38,9 +38,9 @@ The audited programme tree is **Programme → Initiative → Epic → Task**. St
 
 ## Decision and implementation sequence
 
-1. WEB-02.1: establish public model, test fixtures, provenance and source matrix (this document).
-2. WEB-02.2: accessible /roadmap dashboard with Now/Next/Later, thematic separation, first-party documentation and honest snapshot banner.
-3. WEB-02.3: stable initiative detail pages and nested epic/task lists with links back to first-party science and governance sources.
+1. WEB-02.1: **delivered** public model, test fixtures, provenance and source matrix ([PR #37](https://github.com/saver1991/human-prosperity-initiative/pull/37)).
+2. WEB-02.2: **delivered** accessible [/roadmap](/roadmap) dashboard with Now/Next/Later, thematic separation, first-party documentation and honest snapshot banner ([PR #38](https://github.com/saver1991/human-prosperity-initiative/pull/38)).
+3. WEB-02.3: **delivered** 11 stable [/initiatives/web-02](/initiatives/web-02) and sibling initiative detail pages with nested epic/task lists and first-party sources ([PR #39](https://github.com/saver1991/human-prosperity-initiative/pull/39)).
 4. WEB-02.4 (**not authorised in current iteration**): reconcile live issue event/status feed with source SHA and staleness, improving evidence-based progress reporting.
 5. WEB-02.5 (**deferred**): permission-gated SolOS read-only projection and actual HubOS registration after duplicate-check.
 6. WEB-02.6 (**deferred**): comprehensive release QA/maintenance work; existing CircleCI, Playwright and Vercel gates still apply during each stage.
