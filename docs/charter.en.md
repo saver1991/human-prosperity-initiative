@@ -1,5 +1,7 @@
 # Human Prosperity Initiative — Founding charter (English public summary)
 
+> **F0-01 review update (5 November 2026):** The [expanded V0.4 candidate](founding-charter-ratification-candidate-v0.4.md) and its [review register](charter-review-register-v0.4.md) are published for community/methodological challenge. **They have NOT been ratified into Charter V1.0.** This V0.3 summary remains historical context until the review decision.
+
 > **Draft v0.3 — 5 November 2026.** HPI is a working name, not a registered foundation. The [Italian charter](charter.it.md) is the more detailed migrated source document. This English summary is intended for international collaborators.
 
 ## Vision and mission
