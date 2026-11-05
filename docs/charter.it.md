@@ -1,5 +1,7 @@
 # Human Prosperity Initiative — Charter scientifico e roadmap V0.3
 
+> **Aggiornamento F0-01 (5 novembre 2026):** È disponibile una [proposta ampliata V0.4 in inglese](founding-charter-ratification-candidate-v0.4.md), con [registro delle revisioni](charter-review-register-v0.4.md). **Non è ancora stata ratificata come Charter V1.0.** Questa V0.3 italiana resta la base di confronto fino alla decisione pubblica di ratifica.
+
 > **BOZZA / DRAFT** — 5 novembre 2026. Nome di lavoro; nessuna fondazione o persona giuridica formalmente costituita. Questo documento è una proposta in revisione, non una decisione definitiva.
 
 ## 1. Visione e missione
