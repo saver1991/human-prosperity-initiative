@@ -82,9 +82,10 @@
     {
       "id": "F0-03",
       "name": "Prosperity measurement",
-      "status": "planned",
+      "status": "in_progress",
       "horizon": "Next",
-      "issue": 5
+      "issue": 5,
+      "measurementDraft": "https://human-prosperity-initiative.vercel.app/research/f0-03-prosperity-measurement-framework-v0-1"
     },
     {
       "id": "F0-04",
