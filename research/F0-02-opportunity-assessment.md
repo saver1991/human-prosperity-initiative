@@ -71,3 +71,7 @@ Use the charter's six criteria only after gathering local evidence: need severit
 - [3ie, Evidence Gap Maps](https://www.3ieimpact.org/evidence-hub/evidence-gap-maps)
 
 External sources are linked for reference; their copyright and data licences remain with their owners.
+
+## Related F0-03 measurement work (draft)
+
+The proposed [multidimensional prosperity measurement framework v0.1](F0-03-prosperity-measurement-v0.1.md) includes outcome definitions and a [public candidate indicator registry](outcomes-candidate-registry.csv) to support future comparisons. **These are not chosen primary outcomes**; F0-02 has not selected a study, population or intervention. An independently reviewed measurement plan remains a separate gate.
