@@ -5,7 +5,7 @@ import {inspect,latestStates,BASE,REPO} from "../scripts/ops-watch.mjs";
 const SHA="a".repeat(40);
 const OLD_SHA="b".repeat(40);
 const NOW=new Date("2026-11-05T19:00:00Z");
-function fixture({published=SHA,status="success",generatedAt="2026-11-05T18:00:00Z",missingRoute=null}={}){
+function fixture({published=SHA,status="success",generatedAt="2026-11-05T18:00:00Z",mainCommittedAt=null,missingRoute=null}={}){
  return async url=>{
   const path=new URL(url).pathname;
   if(missingRoute&&path===missingRoute)return new Response("Not found",{status:404});
@@ -14,7 +14,7 @@ function fixture({published=SHA,status="success",generatedAt="2026-11-05T18:00:0
    return new Response("<!doctype html><main id=\"main\"><h1>HPI</h1></main>",{status:200});
   }
   if(path.endsWith("/commits/main"))
-   return new Response(JSON.stringify({sha:SHA}),{status:200});
+   return new Response(JSON.stringify({sha:SHA,commit:{committer:{date:mainCommittedAt||generatedAt}}}),{status:200});
   if(path.endsWith("/commits/"+SHA+"/status"))
    return new Response(JSON.stringify({statuses:[
     {context:"ci/circleci: website-quality",state:"success"},
@@ -61,4 +61,20 @@ test("broken public routes fail rather than silently reporting healthy",async()=
  const report=await inspect({fetchImpl:fixture({missingRoute:"/research"}),now:NOW});
  assert.equal(report.result,"failed");
  assert.ok(report.issues.some(x=>x.includes("/research")));
+});
+
+test("fresh pending CircleCI on the just-merged SHA is a warning, not an outage",async()=>{
+ const report=await inspect({fetchImpl:fixture({status:"pending",mainCommittedAt:"2026-11-05T18:55:00Z"}),now:NOW});
+ assert.equal(report.result,"passed");
+ assert.ok(report.warnings.some(x=>x.includes("CI grace window")));
+});
+test("CircleCI still pending beyond propagation window must fail",async()=>{
+ const report=await inspect({fetchImpl:fixture({status:"pending",mainCommittedAt:"2026-11-05T18:00:00Z"}),now:NOW});
+ assert.equal(report.result,"failed");
+ assert.ok(report.issues.some(x=>x.includes("browser-accessibility")));
+});
+test("recent GitHub change permits temporary publication lag even if published build is older",async()=>{
+ const report=await inspect({fetchImpl:fixture({published:OLD_SHA,generatedAt:"2026-11-01T00:00:00Z",mainCommittedAt:"2026-11-05T18:55:00Z"}),now:NOW});
+ assert.equal(report.result,"passed");
+ assert.ok(report.warnings.some(x=>x.includes("deploy propagation")));
 });
