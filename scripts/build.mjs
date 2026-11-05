@@ -54,7 +54,7 @@ function shell({title,description,section,body,route,lang="en",script=""}){
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
   '<div class="wrap content-layout">'+body+'</div></main>'+
   '<footer class="footer"><div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
-  '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · '+stamp+'</span></div></footer>'+
+  '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · <a href="/status">Publication status</a> · '+stamp+'</span></div></footer>'+
   '</body></html>';
 }
 async function publish(route,html){
@@ -66,6 +66,7 @@ await rm(ROOT,{recursive:true,force:true});await mkdir(ROOT,{recursive:true});
 await cp("site/styles.css","dist/styles.css");
 await cp("site/favicon.svg","dist/favicon.svg");
 await cp("site/activity.js","dist/activity.js");
+await cp("site/freshness.js","dist/freshness.js");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -119,6 +120,23 @@ await publish("/activity",shell({
  '<div id="issue-list" class="issue-list" aria-label="Current public issues"></div>'+
  '<noscript><p>Enable JavaScript for the latest issue statuses, or visit the public GitHub issue tracker.</p></noscript></div>'
 }));
+await publish("/status",shell({
+ title:"Publication freshness",section:"Transparency and release status",
+ description:"Verify whether the currently published HPI website matches the latest public GitHub main revision, with clear uncertainty during provider outages.",
+ route:"/status",script:"/freshness.js",
+ body:'<div class="index-content freshness-layout">'+
+ '<p class="status-note">HPI knowledge pages are built from the public repository. Publication may briefly lag a merge, or remain on the last working version if a build fails. This check compares two public sources with a short cache.</p>'+
+ '<div class="freshness-panel"><span class="section-label">LIVE PUBLICATION COMPARISON</span>'+
+ '<h2 id="freshness-status" role="status" aria-live="polite" class="freshness-state">Checking the public revision…</h2>'+
+ '<p id="freshness-detail">Reading the public site and canonical GitHub branch.</p>'+
+ '<div class="freshness-versions"><div><small>GitHub main</small><strong id="freshness-source">Checking…</strong></div>'+
+ '<div><small>Published website</small><strong id="freshness-published">Checking…</strong></div>'+
+ '<div><small>Last checked</small><strong id="freshness-checked">Checking…</strong></div></div></div>'+
+ '<p>The status check is not an uptime guarantee or scientific peer review. It updates on demand and is cached for approximately five minutes. No subscriber information, user identifiers or credentials are collected by this feature.</p>'+
+ '<p><a href="/publication.json">Inspect the exact public build provenance ↗</a> · <a href="/library/docs/publication-freshness">Read the monitoring method ↗</a></p>'+
+ '</div>'
+}));
+
 let homepage=await readFile("site/index.html","utf8");
 const topicsHtml='<div class="topics">'+researchTopics.map((topic,index)=>
  '<a href="/research/f0-02-opportunity-assessment#'+topic.anchor+'"><span>'+String(index+1).padStart(2,"0")+

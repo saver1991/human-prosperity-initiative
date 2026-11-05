@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {readFile,stat,readdir} from "node:fs/promises";
 import {resolveLink,routeForSource,buildRouteIndex,renderMarkdown,renderCsv,parseCsv} from "../scripts/site-content.mjs";
 import {getPublicIssueFeed} from "../api/issues.js";
+import {getPublicationFreshness} from "../api/freshness.js";
 
 const read=path=>readFile(path,"utf8");
 async function pages(dir="dist"){
@@ -43,10 +44,11 @@ test("every canonical route exists and sitemap covers dynamically published docu
  }
  for(const route of ["/mission","/mission/it","/roadmap","/governance","/research",
    "/research/evidence-ledger","/research/f0-02-opportunity-assessment",
-   "/contribute","/library","/activity"])await stat("dist"+route+".html");
+   "/contribute","/library","/activity","/status"])await stat("dist"+route+".html");
  const map=await read("dist/sitemap.xml");
  assert.match(map,/<urlset/);assert.match(map,/\/research\/evidence-ledger/);
  assert.match(map,/\/roadmap/);assert.match(map,/\/activity/);
+ assert.match(map,/\/status/);
  const robots=await read("dist/robots.txt");
  assert.match(robots,/Sitemap: https:\/\/human-prosperity-initiative\.vercel\.app\/sitemap\.xml/);
 });
@@ -138,4 +140,60 @@ test("Vercel fails publishing when validations fail, only local scripts are exec
  const activity=await read("dist/activity.js");
  assert.match(activity,/textContent/);
  assert.doesNotMatch(activity,/innerHTML|document\.write/);
+});
+
+
+test("public publication API compares only authenticated-by-provenance public commit identifiers",async()=>{
+ const current="a".repeat(40), earlier="b".repeat(40);
+ const publication={status:"published_from_git",revision:current,
+  generatedAt:"2026-11-05T15:00:00.000Z",sourceFileCount:20,routeCount:30};
+ const make=githubSha=>async(url,opts)=>{
+  assert.equal(opts.method,"GET");
+  assert.equal(opts.redirect,"error");
+  assert.equal(opts.headers.authorization,undefined);
+  assert.match(url,/^https:\/\//);
+  if(url.includes("publication.json"))return Response.json(publication);
+  if(url.includes("commits/main"))return Response.json({sha:githubSha});
+  throw new Error("Unexpected origin");
+ };
+ const checked=()=>new Date("2026-11-05T18:30:00.000Z");
+ const match=await getPublicationFreshness(make(current),checked);
+ assert.equal(match.status,"current");
+ assert.equal(match.checkedLive,true);
+ assert.equal(match.publishedRevision,current);
+ assert.equal(match.latestMainRevision,current);
+ const mismatch=await getPublicationFreshness(make(earlier),checked);
+ assert.equal(mismatch.status,"revision_mismatch");
+ assert.match(mismatch.note,/may be pending or blocked/);
+ assert.notEqual(mismatch.publishedRevision,mismatch.latestMainRevision);
+});
+test("publication API fails closed on rate limits, malformed SHA and bad provenance",async()=>{
+ await assert.rejects(()=>getPublicationFreshness(async(url)=>{
+  if(url.includes("publication.json"))return Response.json({
+   status:"published_from_git",revision:"a".repeat(40),sourceFileCount:20,
+   routeCount:30,generatedAt:"2026-11-05T15:00:00.000Z"
+  });
+  return new Response("rate limit",{status:429});
+ }),/unavailable/);
+ await assert.rejects(()=>getPublicationFreshness(async(url)=>{
+  if(url.includes("publication.json"))return Response.json({
+   status:"published_from_git",revision:"not-a-sha",sourceFileCount:20,
+   routeCount:30,generatedAt:"2026-11-05T15:00:00.000Z"
+  });
+  return Response.json({sha:"a".repeat(40)});
+ }),/Unexpected publication provenance/);
+ const api=await read("api/freshness.js");
+ assert.match(api,/export default async function handler/);
+ assert.match(api,/status: "unknown"|status:"unknown"/);
+ assert.doesNotMatch(api,/POST.*fetch|DATABASE_URL|authorization.*Bearer/i);
+});
+test("publication status client renders untrusted provider data using textContent only",async()=>{
+ const status=await read("dist/status.html");
+ assert.match(status,/id="freshness-status"/);
+ assert.match(status,/\/freshness.js/);
+ const client=await read("dist/freshness.js");
+ assert.match(client,/textContent/);
+ assert.doesNotMatch(client,/innerHTML|document\.write/);
+ const home=await read("dist/index.html");
+ assert.match(home,/href="\/status"/);
 });
