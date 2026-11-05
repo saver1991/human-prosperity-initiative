@@ -57,7 +57,8 @@ const widths=[
 const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance"];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
- checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress"};
+ checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
+ automationScope:"Chromium axe WCAG 2.2 AA; zoom-equivalent reflow; CSS text-resize stress; ARIA snapshots; keyboard traversal. Not a real screen reader or OS zoom audit."};
 let browser;
 let failures=[];
 function record(name,result,detail=""){
@@ -128,6 +129,118 @@ try{
   }
   await context.close();
  }
+
+ // WCAG 1.4.10 reflow: 1280 CSS-pixel desktop at 200%/400% browser zoom
+ // corresponds approximately to 640/320 CSS-pixel layout viewports.
+ // This is an automated layout-equivalence test, NOT an actual OS browser-zoom
+ // or screen-reader acceptance test.
+ for(const scenario of [
+  {name:"200pct-zoom-equivalent",width:640},
+  {name:"400pct-zoom-equivalent",width:320}
+ ]){
+  const context=await browser.newContext({
+   viewport:{width:scenario.width,height:900},reducedMotion:"reduce",deviceScaleFactor:1
+  });
+  for(const route of ["/","/mission","/research","/research/evidence-ledger",
+   "/library","/activity","/status","/contribute","/governance"]){
+   const page=await context.newPage();
+   const response=await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
+   record(scenario.name+" "+route+" HTTP 200",response?.status()===200);
+   const layout=await page.evaluate(()=>({
+    width:document.documentElement.scrollWidth,
+    viewport:document.documentElement.clientWidth,
+    headings:document.querySelectorAll("main h1").length,
+    main:!!document.querySelector("main"),
+    navigation:!!document.querySelector('nav[aria-label="Main navigation"]')
+   }));
+   record(scenario.name+" "+route+" reflow without document-level horizontal overflow",
+    layout.width<=layout.viewport+2,JSON.stringify(layout));
+   record(scenario.name+" "+route+" accessible landmarks",
+    layout.headings===1&&layout.main&&layout.navigation,JSON.stringify(layout));
+   const navSnapshot=await page.getByRole("navigation",{name:"Main navigation"}).ariaSnapshot();
+   const labels=["Mission","Research","Roadmap","Library","Get involved"];
+   record(scenario.name+" "+route+" navigation accessible names",
+    labels.every(label=>navSnapshot.includes('link "'+label+'"')),
+    navSnapshot.slice(0,420));
+   if(["/","/research"].includes(route)){
+    const suffix=route==="/"?"home":"research";
+    const screenshot=scenario.name+"-"+suffix+".png";
+    await page.screenshot({path:resolve(output,screenshot),fullPage:true});
+    report.screenshots.push(screenshot);
+   }
+   await page.close();
+  }
+  await context.close();
+ }
+
+ // WCAG 1.4.4 text-resize stress test: multiply computed typographic sizes
+ // without changing content or using external services. This is a browser
+ // DOM/CSS simulation; OS browser/text zoom and real AT remain distinct.
+ const textContext=await browser.newContext({viewport:{width:1280,height:900},
+  reducedMotion:"reduce",deviceScaleFactor:1});
+ for(const route of ["/","/research","/library","/status"]){
+  const page=await textContext.newPage();
+  await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
+  const before=await page.evaluate(()=>({
+   text:document.querySelector("main h1")?.textContent?.trim()||"",
+   viewport:document.documentElement.clientWidth
+  }));
+  await page.evaluate(()=>{
+   const nodes=[...document.querySelectorAll("h1,h2,h3,h4,h5,h6,p,li,dt,dd,blockquote,small,a,button,label")];
+   const sizes=nodes.map(el=>[el,Number.parseFloat(getComputedStyle(el).fontSize)]);
+   for(const [el,original] of sizes)
+    if(Number.isFinite(original))el.style.setProperty("font-size",original*2+"px","important");
+  });
+  const after=await page.evaluate(()=>({
+   scroll:document.documentElement.scrollWidth,
+   viewport:document.documentElement.clientWidth,
+   h1:document.querySelector("main h1")?.textContent?.trim()||"",
+   visibleMain:!!document.querySelector("main")?.getClientRects().length
+  }));
+  record("200pct-text-resize "+route+" semantic content preserved",
+   !!before.text&&before.text===after.h1&&after.visibleMain,JSON.stringify(after));
+  record("200pct-text-resize "+route+" no document overflow",
+   after.scroll<=after.viewport+2,JSON.stringify(after));
+  if(route==="/"){
+   const screenshot="text-resize-200pct-home.png";
+   await page.screenshot({path:resolve(output,screenshot),fullPage:true});
+   report.screenshots.push(screenshot);
+  }
+  await page.close();
+ }
+ await textContext.close();
+
+ // Accessible-name and tab-order inspection approximates an assistive
+ // technology's semantic tree. It is not NVDA/VoiceOver speech validation.
+ const keyboardContext=await browser.newContext({viewport:{width:1440,height:900},
+  reducedMotion:"reduce",deviceScaleFactor:1});
+ for(const route of ["/","/research","/status"]){
+  const page=await keyboardContext.newPage();
+  await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
+  const mainSnapshot=await page.locator("main").ariaSnapshot();
+  record("assistive-semantics "+route+" heading exposed",
+   /heading ".+" \[level=1\]/.test(mainSnapshot),mainSnapshot.slice(0,400));
+  const navSnapshot=await page.getByRole("navigation",{name:"Main navigation"}).ariaSnapshot();
+  record("assistive-semantics "+route+" named navigation",
+   navSnapshot.includes('link "Research"')&&navSnapshot.includes('link "Roadmap"'),
+   navSnapshot.slice(0,350));
+  const focus=[];
+  for(let i=0;i<12;i++){
+   await page.keyboard.press("Tab");
+   focus.push(await page.evaluate(()=>{
+    const el=document.activeElement;
+    const rect=el?.getBoundingClientRect();
+    const cs=el?getComputedStyle(el):null;
+    return {tag:el?.tagName||"",name:el?.getAttribute("aria-label")||el?.textContent?.trim().slice(0,70)||"",
+     visible:!!rect&&rect.width>0&&rect.height>0&&cs?.visibility!=="hidden"&&cs?.display!=="none",
+     focusable:!!el?.matches('a[href],button,input,textarea,select,[tabindex]:not([tabindex="-1"])')};
+   }));
+  }
+  record("keyboard "+route+" 12 sequential visible focus targets",
+   focus.every(f=>f.visible&&f.focusable),JSON.stringify(focus));
+  await page.close();
+ }
+ await keyboardContext.close();
 }finally{
  if(browser)await browser.close();
  await new Promise(resolve=>server.close(resolve));
