@@ -32,6 +32,7 @@ function card(item,{detailsEnabled}){
   '<span>Research horizon · no approved study</span>';
  return '<article class="rp-card" id="initiative-'+safe(slug(item.id))+'">'+
   '<div class="rp-card-top"><span class="rp-id">'+safe(item.id)+'</span>'+statusBadge(item.status)+'</div>'+
+  (item.issue?'<p class="rp-issue-marker" role="status" data-public-issue="'+item.issue+'" data-editorial-status="'+safe(item.status)+'">GitHub issue #'+item.issue+': not yet verified</p>':"")+
   '<div class="rp-card-type">'+safe(item.kind==="platform"?"Website & operations":"Science & governance")+'</div>'+
   '<h4>'+safe(item.name)+'</h4><p class="rp-card-desc">'+safe(item.summary)+'</p>'+
   '<div class="rp-card-gate"><span>DECISION GATE</span><p>'+safe(item.gate)+'</p></div>'+
@@ -70,6 +71,7 @@ export function renderRoadmapOverview(model,{detailsEnabled=false}={}){
  'GitHub Issues are authoritative for task state; this view does not automatically sync issue closures. '+
  'Independent research approval, ethical clearance and verified participant outcomes are <strong>not established</strong>. '+
  '<a href="/library/docs/web-02-public-roadmap-data-contract">How progress is reported ↗</a></div>'+
+ '<section class="rp-live-feed" aria-label="Current issue source"><div><span class="rp-overline">PUBLIC ISSUE TRACKER · READ ONLY</span><strong data-feed-health role="status">Checking public GitHub issue metadata…</strong><span data-feed-fetched>Last verified issue fetch: not yet available</span></div><p data-feed-disclaimer>Issue state is distinct from editorial delivery, independent review and participant impact.</p></section>'+
  '<nav class="rp-stage-nav" aria-label="Roadmap stages"><a href="#now">01 · Now</a><a href="#next">02 · Next</a><a href="#later">03 · Later</a></nav>'+
  LANES.map(lane=>section(lane,initiatives.filter(x=>x.horizon===lane.value),{detailsEnabled})).join("")+
  '<section class="rp-bottom" aria-labelledby="rp-bottom-title"><div><span class="rp-overline">OPEN RESEARCH · AUDITABLE WORK</span><h2 id="rp-bottom-title">Progress should withstand scrutiny.</h2><p>Read the original roadmap, examine published research, or review the underlying issue history. We distinguish software delivery, draft science, independent review and outcomes.</p>'+
@@ -100,6 +102,7 @@ function epicPanel(e){
  return '<article class="rp-epic" id="epic-'+safe(slug(e.id))+'">'+
  '<div class="rp-epic-heading"><div><span class="rp-epic-id">'+safe(e.id)+'</span>'+
  '<h3>'+safe(e.title)+'</h3></div>'+statusBadge(e.status)+'</div>'+
+ (e.issue?'<p class="rp-issue-marker" role="status" data-public-issue="'+e.issue+'" data-editorial-status="'+safe(e.status)+'">GitHub issue #'+e.issue+': not yet verified</p>':"")+
  '<p class="rp-epic-brief">'+e.tasks.length+' defined task'+(e.tasks.length===1?"":"s")+
   (done?"; "+done+" accepted technical task"+(done===1?"":"s"):"")+
   ' in the dated public snapshot. Issue checklists and discussion remain authoritative.</p>'+
@@ -130,11 +133,13 @@ export function renderInitiativeDetail(item,model){
  '<div><span>Defined tasks</span><strong>'+tasks+'</strong></div></div></div>'+
  '<aside class="rp-detail-state" aria-label="Current work status"><span class="rp-overline">PUBLIC STATUS</span>'+
  statusBadge(item.status)+
- '<p>This is an editorial status reviewed '+safe(model.reviewedAt)+'. It is not a live GitHub issue synchronisation.</p>'+
+ (item.issue?'<p class="rp-issue-marker rp-issue-marker--dark" role="status" data-public-issue="'+item.issue+'" data-editorial-status="'+safe(item.status)+'">GitHub issue #'+item.issue+': not yet verified</p>':"")+
+ '<p>This is an editorial status reviewed '+safe(model.reviewedAt)+'. Live issue metadata does not alter the accepted work snapshot.</p>'+
  '<div class="rp-detail-verified"><span>TECHNICAL ACCEPTANCE</span><strong>'+complete+' / '+tasks+'</strong>'+
  '<p>Tasks marked complete with linked acceptance evidence. Other task states are shown separately; this is not a scientific impact percentage.</p></div>'+
  '<div class="rp-detail-verified"><span>HUMAN PROSPERITY OUTCOMES</span><strong>Not verified</strong>'+
  '<p>No measured, independently established population impact is reported for this initiative.</p></div></aside></section>'+
+ '<section class="rp-live-feed" aria-label="Current issue source"><div><span class="rp-overline">PUBLIC ISSUE TRACKER · READ ONLY</span><strong data-feed-health role="status">Checking public GitHub issue metadata…</strong><span data-feed-fetched>Last verified issue fetch: not yet available</span></div><p data-feed-disclaimer>Closed issues and published papers are not independent scientific or human impact approval.</p></section>'+
  '<section class="rp-review-gate" aria-labelledby="rp-decision-heading"><span class="rp-overline">DECISION / REVIEW GATE</span>'+
  '<h2 id="rp-decision-heading">What still needs to be demonstrated</h2><p>'+safe(item.gate)+'</p></section>'+
  '<div class="rp-detail-grid"><div class="rp-epic-column"><div class="rp-section-head"><span class="rp-overline">DELIVERY WORK BREAKDOWN</span>'+
