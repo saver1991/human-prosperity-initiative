@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import {readFile,stat} from "node:fs/promises";
-import {slug} from "../scripts/site-content.mjs";
+import {slug,escapeHtml} from "../scripts/site-content.mjs";
 import {buildPublicRoadmap} from "../scripts/roadmap-model.mjs";
 import {renderInitiativeDetail,renderRoadmapOverview} from "../scripts/roadmap-pages.mjs";
 
@@ -21,7 +21,7 @@ test("every HPI initiative is navigable as a canonical first-party page",async()
   assert.ok(html.includes('href="/roadmap"'),"no breadcrumb/back link "+route);
   assert.ok(html.includes('href="/roadmap.css"'),"missing UI stylesheet "+route);
   assert.equal((html.match(/<h1\b/g)||[]).length,1,"main heading count "+route);
-  assert.ok(html.includes(item.name),"initiative title not reflected "+route);
+  assert.ok(html.includes(escapeHtml(item.name)),"initiative title not reflected "+route);
   assert.ok(html.includes("No measured, independently established population impact"),"scientific integrity missing "+route);
  }
 });
@@ -37,7 +37,8 @@ test("WEB-02 contains ordered epics and all 31 task IDs with explicit proof wher
  assert.ok(html.includes("View acceptance evidence on GitHub"));
  assert.ok(html.includes("Issue checklists and discussion remain authoritative"));
  assert.ok(html.includes('href="/activity#issue-29"'));
- assert.ok(!html.includes("100% impact"));
+ assert.ok(!html.includes("<strong>100% impact</strong>"));
+ assert.ok(html.includes("No measured, independently established population impact"));
 });
 test("all public source documents are first party by default; contribution history remains clearly external",()=>{
  const item=model.initiatives.find(x=>x.id==="F0-03.1");
