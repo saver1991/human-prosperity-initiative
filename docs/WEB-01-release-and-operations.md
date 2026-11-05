@@ -29,7 +29,9 @@ CircleCI has two jobs:
 
 The merged [PR #18](https://github.com/saver1991/human-prosperity-initiative/pull/18) hardened accessibility; its deployed commit `59cadc3` had both required CircleCI status contexts `success` and a successful Vercel status at the 5 November audit. The older consolidated QA baseline recorded 178/178 checks with zero axe violations; **do not transfer that exact count to future revisions without a new report**.
 
-Remaining manual/accessibility acceptance: representative screen reader testing, real browser zoom to 200%/400%, and qualitative screenshot review on desktop/mobile. Automated reflow at a 320px viewport does not conclusively replace these checks. Record browser, OS, assistive technology, route, finding and tested commit. Do not falsely mark manual testing complete.
+**Playwright extension (PR #21):** the real Chromium job now tests 640/320 CSS-pixel *zoom-equivalent* reflow for the main public routes (a 1280px layout viewed at nominal 200%/400%), the accessible main heading and named navigation via Playwright `ariaSnapshot()`, keyboard traversal across 12 consecutive focus targets on representative pages, and controlled 200% typographic-resize stress. Screenshots and `qa-artifacts/browser-report.json` are stored for auditing. These are automated checks for layout/semantics, **not actual browser UI zoom or spoken output from NVDA/VoiceOver**. Only mark them accepted after an exact-SHA CircleCI PASS.
+
+Remaining qualitative/accessibility acceptance: representative OS/browser zoom and screen reader observations (NVDA, VoiceOver, TalkBack, or equivalent) by a suitable tester, with browser/OS, assistive technology, route, finding and tested commit recorded. The automated layout-equivalence and ARIA checks substantially reduce manual coverage but **do not prove usability in a real screen reader**. If a suitable environment cannot be accessed, label that narrow part as independently unverified rather than blocking unrelated automated improvements.
 
 ## Safe operational inspection
 
