@@ -50,11 +50,11 @@ test("unknown and duplicate initiatives fail closed",()=>{
 });
 test("stale or missing public issue feed never becomes a completed task",()=>{
  assert.deepEqual(publicIssueSignal(null,29),{state:"unavailable",live:false});
- const feed={source:"github_public_issues",fetchedAt:"2026-11-01T12:00:00Z",issues:[{number:29,state:"closed"}]};
+ const feed={source:"github_public_issues",fetchedAt:"2026-11-01T12:00:00Z",limitedToRecent:false,issues:[{number:29,title:"Synthetic",state:"closed",updatedAt:"2026-11-01T12:00:00Z"}]};
  assert.deepEqual(publicIssueSignal(feed,29,new Date("2026-11-05T12:00:00Z")),{state:"stale",live:false});
 });
 test("live closed issue cannot be confused with research or participant impact approval",()=>{
- const feed={source:"github_public_issues",fetchedAt:"2026-11-05T12:00:00Z",issues:[{number:29,state:"closed"}]};
+ const feed={source:"github_public_issues",fetchedAt:"2026-11-05T12:00:00Z",limitedToRecent:false,issues:[{number:29,title:"Synthetic",state:"closed",updatedAt:"2026-11-05T12:00:00Z"}]};
  const result=publicIssueSignal(feed,29,new Date("2026-11-05T12:01:00Z"));
  assert.equal(result.state,"closed");
  assert.equal(result.scientificApproval,false);
@@ -64,8 +64,8 @@ test("live closed issue cannot be confused with research or participant impact a
 });
 test("invalid feed and malformed issue states never imply closure",()=>{
  const now=new Date("2026-11-05T12:01:00Z");
- assert.equal(publicIssueSignal({source:"untrusted",issues:[],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unavailable");
- assert.equal(publicIssueSignal({source:"github_public_issues",issues:[{number:29,state:"done"}],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unknown");
+ assert.equal(publicIssueSignal({source:"untrusted",limitedToRecent:false,issues:[],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unavailable");
+ assert.equal(publicIssueSignal({source:"github_public_issues",limitedToRecent:false,issues:[{number:29,title:"Synthetic",state:"done",updatedAt:"2026-11-05T12:00:00Z"}],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unavailable");
 });
 
 test("an epic awaiting approval cannot be mislabeled as accepted",()=>{
