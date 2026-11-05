@@ -1,4 +1,8 @@
 version: 2.1
+parameters:
+  ops_watch:
+    type: boolean
+    default: false
 jobs:
   website-quality:
     docker:
@@ -52,12 +56,41 @@ jobs:
           path: qa-artifacts
           destination: public-browser-quality
           when: always
+  public-operations-watch:
+    docker:
+      - image: cimg/node:22.11
+    resource_class: small
+    steps:
+      - run:
+          name: Fetch scheduled GitHub commit over HTTPS
+          command: |
+            set -euo pipefail
+            test -n "$CIRCLE_SHA1"
+            git init -q
+            git remote add origin https://github.com/saver1991/human-prosperity-initiative.git
+            git fetch -q --depth=1 origin "$CIRCLE_SHA1"
+            git checkout -q --detach FETCH_HEAD
+            test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"
+      - run:
+          name: Read-only public production and release status check
+          command: node scripts/ops-watch.mjs
+      - store_artifacts:
+          path: qa-artifacts/ops-watch-report.json
+          destination: public-operations-watch
+          when: always
 workflows:
+  operations:
+    when: << pipeline.parameters.ops_watch >>
+    jobs:
+      - public-operations-watch
   check:
+    unless: << pipeline.parameters.ops_watch >>
     jobs:
       - website-quality
       - browser-accessibility:
           requires:
             - website-quality
-# CircleCI only. Vercel Git integration deploys independently with npm run check.
+# CircleCI only. Scheduled operations run with ops_watch=true and do not run browser build.
+# CircleCI failure status is a monitoring signal; recipient email/push alerts are provider-account settings.
+# Vercel Git integration deploys independently with npm run check.
 # The browser test container and tools are version-pinned; no GitHub Actions.
