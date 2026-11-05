@@ -47,7 +47,7 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   '<meta property="og:url" content="'+ORIGIN+route+'">'+
   '<title>'+safe(title)+' — Human Prosperity Initiative</title>'+
   '<link rel="stylesheet" href="/styles.css">'+(stylesheet?'<link rel="stylesheet" href="'+safe(stylesheet)+'">':"")+'<link rel="icon" type="image/svg+xml" href="/favicon.svg">'+
-  (script?'<script src="'+script+'" defer></script>':"")+
+  (script?'<script src="'+safe(script)+'" '+(script==="/progress.js"?'type="module"':"defer")+'></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
   nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
@@ -71,6 +71,8 @@ await cp("site/roadmap.css","dist/roadmap.css");
 await cp("site/favicon.svg","dist/favicon.svg");
 await cp("site/activity.js","dist/activity.js");
 await cp("site/freshness.js","dist/freshness.js");
+await cp("site/progress.js","dist/progress.js");
+await cp("site/progress-policy.js","dist/progress-policy.js");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -103,7 +105,7 @@ await publish("/library/docs/roadmap-source",shell({
 await publish("/roadmap",shell({
  title:"Our public roadmap",section:"Project roadmap",
  description:"Explore HPI's scientific and website initiatives, current stages, open decision gates and published work, without leaving the website.",
- route:"/roadmap",stylesheet:"/roadmap.css",
+ route:"/roadmap",stylesheet:"/roadmap.css",script:"/progress.js",
  breadcrumb:'<a href="/">Home</a> / Roadmap',
  body:renderRoadmapOverview(publicRoadmap,{detailsEnabled:true})
 }));
@@ -114,7 +116,7 @@ for(const initiative of publicRoadmap.initiatives){
  const detailRoute="/initiatives/"+slug(initiative.id);
  await publish(detailRoute,shell({
   title:initiative.name,section:"Initiative "+initiative.id,
-  description:initiative.summary,route:detailRoute,stylesheet:"/roadmap.css",
+  description:initiative.summary,route:detailRoute,stylesheet:"/roadmap.css",script:"/progress.js",
   breadcrumb:'<a href="/">Home</a> / <a href="/roadmap">Roadmap</a> / '+safe(initiative.id),
   body:renderInitiativeDetail(initiative,publicRoadmap)
  }));
