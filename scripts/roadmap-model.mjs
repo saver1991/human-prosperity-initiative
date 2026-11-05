@@ -72,7 +72,7 @@ export function buildPublicRoadmap(project,details,{revision="local-build"}={}){
  if(sourceIds.length!==detailIds.length||sourceIds.some(x=>!detailIds.includes(x)))fail("public initiatives must match canonical project descriptor exactly");
  const byId=new Map(details.initiatives.map(x=>[x.id,x]));
  const result=project.initiatives.map((descriptor,i)=>{
-  only(descriptor,["id","name","status","horizon","priority","issue","epics","measurementDraft","plannedTasks","implementationApproved","siteFeatureImplemented"],"project.initiatives["+i+"]");
+  only(descriptor,["id","name","status","horizon","priority","issue","epics","measurementDraft","plannedTasks","implementationApproved","siteFeatureImplemented","deliveredEpics","pendingFounderApproval"],"project.initiatives["+i+"]");
   const item=byId.get(descriptor.id);
   only(item,["id","kind","summary","gate","deliverables","epics"],"initiatives."+descriptor.id);
   id(item.id,"initiative.id");str(descriptor.name,"initiative.name",240);
@@ -92,6 +92,18 @@ export function buildPublicRoadmap(project,details,{revision="local-build"}={}){
   if(Array.isArray(descriptor.epics)){
    const sourceEpicIds=descriptor.epics.map(e=>e.id);
    for(const key of sourceEpicIds)if(!item.epics.some(e=>e.id===key))fail("descriptor epic missing in public snapshot: "+key);
+  }
+  if(descriptor.deliveredEpics!==undefined||descriptor.pendingFounderApproval!==undefined){
+   const done=descriptor.deliveredEpics||[],pending=descriptor.pendingFounderApproval||[];
+   if(!Array.isArray(done)||!Array.isArray(pending))fail(item.id+" epic acceptance sets invalid");
+   uniq([...done,...pending],item.id+" epic acceptance sets");
+   const registered=new Map(item.epics.map(e=>[e.id,e]));
+   for(const key of done){
+    if(!registered.has(key)||registered.get(key).status!=="complete")fail("delivered epic needs completed source snapshot "+key);
+   }
+   for(const key of pending){
+    if(!registered.has(key)||registered.get(key).status==="complete")fail("pending approval epic cannot be completed "+key);
+   }
   }
   if(descriptor.plannedTasks!==undefined){
    const count=item.epics.reduce((n,e)=>n+e.tasks.length,0);
