@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0",
+  "id": "human-prosperity-initiative",
+  "shortId": "HPI",
+  "name": "Human Prosperity Initiative",
+  "workingName": true,
+  "projectType": "public_interest_research_initiative",
+  "legalEntityStatus": "not_incorporated",
+  "visibility": "public",
+  "lifecycleStage": "discovery",
+  "governanceSystem": "HubOS",
+  "researchExecutionSystem": "SolOS",
+  "sourceOfTruth": "GitHub HPI",
+  "reviewedAt": "2026-11-05",
+  "portfolioRecordId": null,
+  "mode": "applied_poverty_reduction_with_long_term_systems_research",
+  "currentInitiative": "F0-02",
+  "publicUrls": {
+    "website": "https://human-prosperity-initiative.vercel.app/",
+    "repository": "https://github.com/saver1991/human-prosperity-initiative",
+    "roadmap": "https://github.com/saver1991/human-prosperity-initiative/blob/main/docs/roadmap.md",
+    "research": "https://github.com/saver1991/human-prosperity-initiative/tree/main/research",
+    "community": "https://github.com/saver1991/human-prosperity-initiative/discussions"
+  },
+  "programmes": [
+    {
+      "id": "A",
+      "name": "Applied impact",
+      "horizon": "0-5 years (indicative)",
+      "priority": "Current",
+      "objective": "Reduce poverty and improve access to human prosperity through evidence-led interventions."
+    },
+    {
+      "id": "B",
+      "name": "Economic systems research",
+      "horizon": "5-20+ years (indicative)",
+      "priority": "Later with initial research now",
+      "objective": "Study and compare structural economic mechanisms transparently."
+    }
+  ],
+  "initiatives": [
+    {
+      "id": "F0-01",
+      "name": "Founding charter",
+      "status": "review",
+      "horizon": "Now",
+      "issue": 10
+    },
+    {
+      "id": "F0-02",
+      "name": "Evidence and opportunity assessment",
+      "status": "in_progress",
+      "horizon": "Now",
+      "epics": [
+        {
+          "id": "F0-02.1",
+          "name": "Search protocol",
+          "issue": 3
+        },
+        {
+          "id": "F0-02.2",
+          "name": "Evidence ledger",
+          "issue": 1
+        },
+        {
+          "id": "F0-02.3",
+          "name": "Jurisdiction shortlist",
+          "issue": 2
+        },
+        {
+          "id": "F0-02.4",
+          "name": "Consultation ethics",
+          "issue": 4
+        },
+        {
+          "id": "F0-02.5",
+          "name": "Prioritisation and go/no-go",
+          "issue": 7
+        }
+      ]
+    },
+    {
+      "id": "F0-03",
+      "name": "Prosperity measurement",
+      "status": "planned",
+      "horizon": "Next",
+      "issue": 5
+    },
+    {
+      "id": "F0-04",
+      "name": "Governance and community operations",
+      "status": "planned",
+      "horizon": "Next",
+      "issue": 6
+    },
+    {
+      "id": "F0-05",
+      "name": "First study concept",
+      "status": "planned",
+      "horizon": "Next",
+      "issue": 11
+    },
+    {
+      "id": "F1",
+      "name": "Applied evaluation",
+      "status": "aspirational",
+      "horizon": "Later"
+    },
+    {
+      "id": "F2",
+      "name": "Replication and systems research",
+      "status": "long_term",
+      "horizon": "Later"
+    },
+    {
+      "id": "F3",
+      "name": "Broader impact",
+      "status": "long_term",
+      "horizon": "Later"
+    }
+  ],
+  "dataPolicy": {
+    "participantDataStored": false,
+    "noAutonomousOutreach": true,
+    "requiresIndependentReview": true,
+    "noSharedDatabaseAcrossProducts": true
+  },
+  "sync": {
+    "hubos": "not_established",
+    "solos": "versioned_read_only_snapshot",
+    "githubIssues": "authoritative_for_public_tasks"
+  }
+}
