@@ -92,7 +92,7 @@ try{
      report.violations.push({viewport:viewport.name,route,
       id:violation.id,impact:violation.impact,description:violation.description,
       nodes:violation.nodes.length,
-      snippets:violation.nodes.slice(0,3).map(n=>n.target.join(" "))});
+      snippets:violation.nodes.slice(0,40).map(n=>n.target.join(" "))});
     }
     record(viewport.name+" "+route+" axe WCAG 2.1 AA severe violations",serious.length===0,
      serious.map(v=>v.id+"("+v.nodes.length+")").join(", "));
