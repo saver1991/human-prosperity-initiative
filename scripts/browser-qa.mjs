@@ -21,6 +21,12 @@ const distRoot=resolve("dist");
 const server=createServer(async(req,res)=>{
  try{
   const url=new URL(req.url||"/","http://127.0.0.1");
+  if(url.pathname==="/api/source-status"){
+   const sha="a".repeat(40);
+   res.writeHead(200,{"content-type":"application/json; charset=utf-8"});
+   res.end(JSON.stringify({status:"current",githubRevision:sha,publishedRevision:sha,
+     publishedAt:"2026-11-05T18:00:00Z",checkedAt:"2026-11-05T18:00:00Z"}));return;
+  }
   if(url.pathname==="/api/issues"){
    res.writeHead(200,{"content-type":"application/json; charset=utf-8"});
    res.end(JSON.stringify(fixture));return;
@@ -47,7 +53,7 @@ const widths=[
  {name:"desktop",width:1440,height:900}
 ];
 const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
- "/library","/activity","/contribute","/governance"];
+ "/library","/activity","/status","/contribute","/governance"];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress"};
 let browser;
@@ -85,16 +91,16 @@ try{
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      ["/","/mission","/research","/activity"].includes(route)){
-    const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21a","wcag21aa"]).analyze();
-    const serious=result.violations.filter(v=>["critical","serious"].includes(v.impact));
+      ["/","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)){
+    const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
+    const serious=result.violations;
     for(const violation of result.violations){
      report.violations.push({viewport:viewport.name,route,
       id:violation.id,impact:violation.impact,description:violation.description,
       nodes:violation.nodes.length,
       snippets:violation.nodes.slice(0,40).map(n=>n.target.join(" "))});
     }
-    record(viewport.name+" "+route+" axe WCAG 2.1 AA severe violations",serious.length===0,
+    record(viewport.name+" "+route+" axe WCAG 2.2 AA reported violations",serious.length===0,
      serious.map(v=>v.id+"("+v.nodes.length+")").join(", "));
    }
    await page.close();
@@ -113,6 +119,8 @@ try{
    record("on-site public task feed",await page.locator("#issue-list .issue-row").count()===1);
    const href=await page.locator("#issue-list .issue-row a").first().getAttribute("href");
    record("external discussion clearly linked",href==="https://github.com/saver1991/human-prosperity-initiative/issues/9");
+   await page.goto(base+"/status",{waitUntil:"networkidle"});
+   record("source status is internally available",await page.locator("#source-status").textContent().then(s=>s.includes("same published revision")));
    await page.close();
   }
   await context.close();
