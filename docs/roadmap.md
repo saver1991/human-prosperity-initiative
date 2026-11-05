@@ -33,7 +33,7 @@ HPI follows **Product / Programme → Initiative → Epic → Task**, with scien
 | --- | --- | --- | --- |
 | **Now** | F0-01 — Charter and founding principles | [Founding charter V0.3](charter.it.md), [review #10](https://github.com/saver1991/human-prosperity-initiative/issues/10) | Draft awaiting review |
 | **Now** | F0-02 — Evidence and opportunity assessment | [Research assessment](../research/F0-02-opportunity-assessment.md), [protocol](../research/research-protocol.md), [issues #1–4, #7](https://github.com/saver1991/human-prosperity-initiative/issues) | In progress; **not** a completed systematic review |
-| **Next** | F0-03 — Multidimensional measurement | [Issue #5](https://github.com/saver1991/human-prosperity-initiative/issues/5) | Planned |
+| **Next** | F0-03 — Multidimensional measurement | [Draft V0.1](../research/F0-03-prosperity-measurement-framework-v0.1.md), [15 proposed indicators](../research/F0-03-indicator-catalog-v0.1.csv), [Issue #5](https://github.com/saver1991/human-prosperity-initiative/issues/5) | Draft in progress; independent review outstanding |
 | **Next** | F0-04 — Governance and contributor operations | [Issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | Provisional guidance exists; comprehensive review open |
 | **Next** | F0-05 — First study concept | [Issue #11](https://github.com/saver1991/human-prosperity-initiative/issues/11) | Planned, conditional on F0-02 and partner/ethics gates |
 | **Later** | F1 — Applied impact evaluation | Independent, ethical study with partners and published outcomes | Aspirational; not authorised or funded |
