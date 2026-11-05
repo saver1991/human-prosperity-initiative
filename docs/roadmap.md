@@ -31,10 +31,11 @@ HPI follows **Product / Programme → Initiative → Epic → Task**, with scien
 
 | Horizon | Initiative | Current evidence / link | Status |
 | --- | --- | --- | --- |
-| **Now** | F0-01 — Charter and founding principles | [Founding charter V0.3](charter.it.md), [review #10](https://github.com/saver1991/human-prosperity-initiative/issues/10) | Draft awaiting review |
+| **Now** | F0-01 — Charter and founding principles | [Ratification candidate V0.4](founding-charter-ratification-candidate-v0.4.md), [review register](charter-review-register-v0.4.md), [issue #10](https://github.com/saver1991/human-prosperity-initiative/issues/10) | Candidate published; external review and ratification V1.0 pending |
 | **Now** | F0-02 — Evidence and opportunity assessment | [Research assessment](../research/F0-02-opportunity-assessment.md), [protocol](../research/research-protocol.md), [issues #1–4, #7](https://github.com/saver1991/human-prosperity-initiative/issues) | In progress; **not** a completed systematic review |
-| **Next** | F0-03 — Multidimensional measurement | [Draft V0.1](../research/F0-03-prosperity-measurement-framework-v0.1.md), [15 proposed indicators](../research/F0-03-indicator-catalog-v0.1.csv), [Issue #5](https://github.com/saver1991/human-prosperity-initiative/issues/5) | Draft in progress; independent review outstanding |
-| **Next** | F0-04 — Governance and contributor operations | [Issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | Provisional guidance exists; comprehensive review open |
+| **Next** | F0-03 — Multidimensional measurement | [Draft V0.1](../research/F0-03-prosperity-measurement-framework-v0.1.md), [15 proposed indicators](../research/F0-03-indicator-catalog-v0.1.csv), [critical pre-review](../research/F0-03-methodological-pre-review-2026-11-05.md), [review #19](https://github.com/saver1991/human-prosperity-initiative/issues/19) | V0.1 delivery completed; V1.0 independent method/community review outstanding |
+| **Next** | F0-04 — Governance and contributor operations | [Governance V0.2](../GOVERNANCE.md), [legal brief](governance/legal-options-brief.md), [issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | Provisional documentation complete; actual independent appointments and safeguarding channel open |
+| **Now (operations)** | WEB-01 — Public site release reliability | [Production runbook](WEB-01-release-and-operations.md), [issue #9](https://github.com/saver1991/human-prosperity-initiative/issues/9) | Merge checks and Playwright QA PASS; CircleCI daily public production watch activated; independent post-merge Vercel release gate and authenticated billed-cost automation remain open |
 | **Next** | F0-05 — First study concept | [Issue #11](https://github.com/saver1991/human-prosperity-initiative/issues/11) | Planned, conditional on F0-02 and partner/ethics gates |
 | **Later** | F1 — Applied impact evaluation | Independent, ethical study with partners and published outcomes | Aspirational; not authorised or funded |
 | **Later** | F2 — Replication and systems research | Open evidence, reproducibility and economic mechanisms research | Long-term |
@@ -57,7 +58,7 @@ The original six phases remain represented; later versions refined the prioritie
 
 ### Scientific programme and documentation provenance
 
-- Canonical roadmap: this document. **V0.3 remains provisional**, not final approval.
+- Canonical roadmap: this document. **V0.3 planning remains provisional**. The F0-01 Charter V0.4 candidate, F0-04 governance V0.2 and F0-03 measurement V0.1 have distinct **review/ratification gates** and are not institutionally or scientifically approved by being published.
 - Scientific questions and results: `research/` (including uncertainty and negative evidence).
 - Programme and task backlog: public [GitHub Issues](https://github.com/saver1991/human-prosperity-initiative/issues).
 - Execution view: [SolOS HPI project profile](https://solos-autonomous-poc.vercel.app/projects/human-prosperity-initiative) (protected and subject to independent deployment acceptance).
