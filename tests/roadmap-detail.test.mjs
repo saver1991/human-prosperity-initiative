@@ -47,7 +47,7 @@ test("all public source documents are first party by default; contribution histo
  assert.ok(html.includes('href="/research/f0-03-independent-review-form"'));
  assert.ok(html.includes('href="/activity#issue-19"'));
  assert.ok(html.includes('target="_blank" rel="noopener noreferrer"'));
- assert.ok(html.includes("not a live GitHub issue synchronisation"));
+ assert.ok(html.includes("Live issue metadata does not alter the accepted work snapshot."));
 });
 test("unknown aspirational horizons clearly do not have approved tasks or measured impact",()=>{
  const item=model.initiatives.find(x=>x.id==="F1");
