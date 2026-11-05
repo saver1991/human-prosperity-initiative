@@ -133,7 +133,7 @@ await publish("/status",shell({
  '<div><small>Published website</small><strong id="freshness-published">Checking…</strong></div>'+
  '<div><small>Last checked</small><strong id="freshness-checked">Checking…</strong></div></div></div>'+
  '<p>The status check is not an uptime guarantee or scientific peer review. It updates on demand and is cached for approximately five minutes. No subscriber information, user identifiers or credentials are collected by this feature.</p>'+
- '<p><a href="/publication.json">Inspect the exact public build provenance ↗</a> · <a href="/library/docs/publication-freshness">Read the monitoring method ↗</a></p>'+
+ '<p><a href="/publication.json">Inspect the exact public build provenance ↗</a> · <a href="/library/docs/website-publishing">Read the monitoring method ↗</a></p>'+
  '</div>'
 }));
 
