@@ -157,7 +157,17 @@
       ],
       "plannedTasks": 31,
       "implementationApproved": true,
-      "siteFeatureImplemented": false
+      "siteFeatureImplemented": true,
+      "deliveredEpics": [
+        "WEB-02.1",
+        "WEB-02.2",
+        "WEB-02.3"
+      ],
+      "pendingFounderApproval": [
+        "WEB-02.4",
+        "WEB-02.5",
+        "WEB-02.6"
+      ]
     },
     {
       "id": "F0-05",

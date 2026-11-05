@@ -429,7 +429,7 @@
       "id": "WEB-02",
       "kind": "platform",
       "summary": "Make the real HPI roadmap understandable on the website through initiative, epic and task pages, without misleading impact claims.",
-      "gate": "Only WEB-02.1, WEB-02.2 and WEB-02.3 are approved for implementation in this iteration. WEB-02.4–02.6 require subsequent founder approval.",
+      "gate": "WEB-02.1–WEB-02.3 are delivered and accepted. The remaining WEB-02.4–WEB-02.6 epics require separate founder approval; no further development has started.",
       "deliverables": [
         {
           "label": "Roadmap source document",
@@ -530,38 +530,43 @@
         {
           "id": "WEB-02.3",
           "title": "Initiative, epic and task detail pages",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 32,
           "tasks": [
             {
               "id": "WEB-02.3-T01",
               "title": "Define stable routes /initiatives/{id} and breadcrumbs; add canonical links from /roadmap and /activity.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/39"
             },
             {
               "id": "WEB-02.3-T02",
               "title": "Create initiative header model: mission/desired outcome, priority, phase, real status, dependencies, genuine decisions, deliverables and review gate.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/39"
             },
             {
               "id": "WEB-02.3-T03",
               "title": "Display epics with ordered task checklists and status history; avoid implying completion when only a PR or manuscript draft exists.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/39"
             },
             {
               "id": "WEB-02.3-T04",
               "title": "Add evidence/reference panel with HPI-hosted pages, source version, CI/PR proofs and explicit 'review pending' states.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/39"
             },
             {
               "id": "WEB-02.3-T05",
               "title": "Avoid duplicating a complex issue-editing UI: HPI pages are read-only; verified contribution/source edit links may point to GitHub.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/39"
             }
           ]
         },
