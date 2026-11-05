@@ -54,7 +54,9 @@ test("every canonical route exists and sitemap covers dynamically published docu
 });
 test("on-site document body is built directly from authoritative source",async()=>{
  const src=await read("docs/roadmap.md");
- const html=await read("dist/roadmap.html");
+ const html=await read("dist/library/docs/roadmap-source.html");
+ const dashboard=await read("dist/roadmap.html");
+ assert.match(dashboard,/Tracked initiatives/);
  assert.match(src,/Continuity from original roadmap V0\.1/);
  assert.match(html,/Continuity from original roadmap V0\.1/);
  assert.match(html,/F0-02/);
