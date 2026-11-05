@@ -36,4 +36,12 @@ SolOS includes a read-only HPI project profile; its roadmap statuses are an expl
 
 **F0-02** remains the research priority, with F0-01 charter review and F0-03 measurement as enabling work. SolOS should not reuse business-market validation scores to claim scientific efficacy for poverty interventions.
 
+## Cross-system implementation tracking
+
+- [HubOS #125 — register HPI as a distinct public-interest programme](https://github.com/saver1991/the-hub-os/issues/125). **Open:** not a verified live HubOS portfolio record.
+- [SolOS PR #74 — public HPI project catalogue](https://github.com/saver1991/solOS-core/pull/74). **Merged:** dated read-only profile.
+- [SolOS #75 — optional approved research integration](https://github.com/saver1991/solOS-core/issues/75). **Open:** no automated research execution or status sync.
+
+SolOS's production console currently uses Vercel SSO protection. The independently hosted HPI website and GitHub repository remain public.
+
 Public roadmap: [Roadmap V0.3](roadmap.md).
