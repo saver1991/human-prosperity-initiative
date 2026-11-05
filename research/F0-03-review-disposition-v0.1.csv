@@ -1,0 +1,11 @@
+finding_id,priority,review_type,disposition,change_or_followup,independent_validation_status
+"M01","high","internal_desk","editorial_corrected","Updated UNDP MPI reference to 2026 and clarified 108-country coverage","not_performed"
+"M02","high","internal_desk","open_context_dependent","Select one prespecified primary outcome after F0-02 jurisdiction and population choice","not_performed"
+"M03","high","internal_desk","open_context_dependent","Specify entitlement eligibility and payment verification with lawful data access","not_performed"
+"M04","high","internal_desk","open_context_dependent","Local energy hardship definition, confounders and tenant protections","not_performed"
+"M05","high","internal_desk","open_context_dependent","Sustained real earnings, job quality and labour displacement evaluation","not_performed"
+"M06","high","internal_desk","editorial_corrected","Avoid cost per outcome ratio when incremental effect is zero negative or uncertain; report costs and effects","not_performed"
+"M07","high","internal_desk","editorial_clarified","Distinguish ethical study consent from legal basis for personal data processing","not_performed"
+"M08","medium","internal_desk","open_context_dependent","Local instrument reliability, validity, translation and measurement invariance","not_performed"
+"M09","medium","internal_desk","open_context_dependent","Predefine multiplicity, subgroup uncertainty and nonparticipant harms","not_performed"
+"M10","medium","internal_desk","review_package_published","Publish independent review form and invite real reviewer participation","not_performed"
