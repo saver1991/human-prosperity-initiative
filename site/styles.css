@@ -74,3 +74,22 @@
 @media(max-width:1020px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:minmax(0,1fr) 220px;gap:35px}}
 @media(max-width:700px){.content-layout{display:block;padding:39px 0 70px}.doc-side{margin-top:35px;position:static}.catalog-grid{grid-template-columns:1fr}.catalog-card{min-height:155px}.content-hero{padding:52px 0}.content-hero h1{font-size:clamp(2.3rem,8vw,3.6rem)}.doc-content{font-size:14px}.doc-table-wrap{margin:17px -5px}.doc-table-wrap table{min-width:560px}}
 @media(prefers-reduced-motion:reduce){.catalog-card{transition:none}}
+
+
+/* WCAG 2.2 AA: dark foregrounds on light backgrounds, with distinguishable in-text links.
+   These contrast calibrations are verified by real Chromium/axe audits in CircleCI. */
+:root{--muted:#475a60}
+.section-label{color:#415e3d}
+.section h2 i{color:#4a6735}
+.cards article>span:first-child,.topics a>span:first-child{color:#53665a}
+.horizons small,.timeline small{color:#456641}
+.horizons article small{color:#456641}
+.topics a>span:last-child{color:#415e3d}
+.catalog-type,.doc-count{color:#415e3d}
+.catalog-card p,.issue-top{color:#475a60}
+.content-breadcrumb a,.footer-bottom a{
+ text-decoration:underline;
+ text-decoration-thickness:1px;
+ text-underline-offset:.2em;
+}
+.doc-table-wrap:focus-visible{outline:3px solid #285a85;outline-offset:3px}

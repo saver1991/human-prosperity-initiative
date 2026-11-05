@@ -122,7 +122,7 @@ export function renderMarkdown(markdown,source,routes,{skipFirstHeading=false}={
   if(i+1<lines.length&&trim.includes("|")&&isSeparator(lines[i+1])){
    close();const headings=splitTableRow(trim),rows=[];i+=2;
    while(i<lines.length&&lines[i].trim().includes("|")){rows.push(splitTableRow(lines[i]));i++}
-   result.push('<div class="doc-table-wrap"><table><thead><tr>'+
+   result.push('<div class="doc-table-wrap" role="region" aria-label="Scrollable data table" tabindex="0"><table><thead><tr>'+
     headings.map(v=>"<th>"+inline(v)+"</th>").join("")+"</tr></thead><tbody>"+
     rows.map(row=>"<tr>"+headings.map((_,j)=>"<td>"+inline(row[j]||"")+"</td>").join("")+"</tr>").join("")+
     "</tbody></table></div>");
@@ -177,7 +177,7 @@ export function renderCsv(csv){
  const rows=parseCsv(csv),head=rows[0],body=rows.slice(1);
  return '<p>This is a published source inventory, not an independently reviewed impact assessment.</p>'+
  '<p class="doc-count">'+body.length+" data rows · "+head.length+" fields</p>"+
- '<div class="doc-table-wrap"><table><thead><tr>'+
+ '<div class="doc-table-wrap" role="region" aria-label="Scrollable data table" tabindex="0"><table><thead><tr>'+
  head.map(v=>"<th>"+escapeHtml(v.replace(/_/g," ")).toUpperCase()+"</th>").join("")+
  '</tr></thead><tbody>'+body.map(row=>"<tr>"+row.map((cell,i)=>{
   if(head[i]==="url"&&/^https:\/\//.test(cell)){
