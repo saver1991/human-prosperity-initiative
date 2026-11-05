@@ -4,6 +4,7 @@ import { readFile, stat } from 'node:fs/promises';
 test('landing page: accessible, public, candid about scientific status',async()=>{
  const html=await readFile('dist/index.html','utf8');
  assert.match(html,/<html lang="en">/);
+ assert.match(html, /rel="canonical" href="https:\/\/human-prosperity-initiative\.vercel\.app\/"/);
  assert.match(html,/<main id="main">/);
  assert.match(html,/<nav aria-label="Main navigation">/);
  assert.match(html,/<a class="skip"/);
@@ -15,7 +16,7 @@ test('landing page: accessible, public, candid about scientific status',async()=
  assert.doesNotMatch(html,/<form|google-analytics|googletagmanager|facebook\.com\/tr/i);
 });
 test('static assets and CircleCI configuration',async()=>{
- await stat('dist/styles.css');await stat('dist/favicon.svg');
+ await stat('dist/styles.css');await stat('dist/favicon.svg');await stat('dist/sitemap.xml');
  const cfg=JSON.parse(await readFile('vercel.json','utf8'));
  assert.equal(cfg.outputDirectory,'dist');
  assert.ok(cfg.headers.length);
