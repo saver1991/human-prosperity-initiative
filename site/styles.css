@@ -96,3 +96,11 @@
 
 /* Ethics copy on the green panel clears 4.5:1 normal-text contrast. */
 .ethics p{color:#475a60}
+
+/* Public source-provenance status details. */
+.publication-details{max-width:720px;border:1px solid #d1dfd1;background:#fff;border-radius:10px;margin:25px 0}
+.publication-details>div{display:grid;grid-template-columns:1fr 2fr;gap:12px;padding:12px 16px;border-bottom:1px solid #e1e9e1}
+.publication-details>div:last-child{border:0}
+.publication-details dt{font-size:13px;font-weight:750;color:#365144}
+.publication-details dd{margin:0;color:#344e58;font-size:13px;overflow-wrap:anywhere}
+@media(max-width:540px){.publication-details>div{grid-template-columns:1fr;gap:3px}}

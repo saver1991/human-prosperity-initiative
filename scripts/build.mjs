@@ -54,7 +54,7 @@ function shell({title,description,section,body,route,lang="en",script=""}){
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
   '<div class="wrap content-layout">'+body+'</div></main>'+
   '<footer class="footer"><div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
-  '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · '+stamp+'</span></div></footer>'+
+  '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · <a href="/status">Status</a> · '+stamp+'</span></div></footer>'+
   '</body></html>';
 }
 async function publish(route,html){
@@ -66,6 +66,7 @@ await rm(ROOT,{recursive:true,force:true});await mkdir(ROOT,{recursive:true});
 await cp("site/styles.css","dist/styles.css");
 await cp("site/favicon.svg","dist/favicon.svg");
 await cp("site/activity.js","dist/activity.js");
+await cp("site/status.js","dist/status.js");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -109,6 +110,17 @@ await publish("/library",shell({
  '<h2>Foundations, governance and operations</h2>'+cards(docLinks.filter(x=>!x.source.startsWith("research/")))+
  '</div>'
 }));
+await publish("/status",shell({
+ title:"Publication status",section:"Publishing integrity",
+ description:"Compare the public HPI website against the current GitHub main revision, and inspect the last verified publication.",
+ route:"/status",script:"/status.js",
+ body:'<div class="index-content">'+
+ '<p class="status-note">Public source files update after the next successful Vercel deployment. This is a public revision check, not an uptime guarantee.</p>'+
+ '<p id="source-status" role="status" aria-live="polite">Checking current GitHub and public-site versions…</p>'+
+ '<dl id="status-details" class="publication-details" aria-label="Publication revision comparison"></dl>'+
+ '<p><a href="/library">Published library ↗</a> · <a href="/activity">Current project activity ↗</a></p></div>'
+}));
+
 await publish("/activity",shell({
  title:"Public roadmap activity",section:"Current work",
  description:"Live public GitHub issues are displayed here without leaving HPI. The list updates when this page is opened; collaboration still happens on GitHub.",

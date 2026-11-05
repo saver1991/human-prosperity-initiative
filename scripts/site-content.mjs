@@ -9,7 +9,7 @@ const ROOT_PAGES = new Map([
  ["CODE_OF_CONDUCT.md","/library/code-of-conduct"],
  ["LICENSE-DOCS.md","/library/documentation-license"],["LICENSE","/library/software-license"]
 ]);
-export const STATIC_ROUTES = ["/","/mission","/roadmap","/research","/governance","/contribute","/library","/activity"];
+export const STATIC_ROUTES = ["/","/mission","/roadmap","/research","/governance","/contribute","/library","/activity","/status"];
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, ch=>({
  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
 })[ch]);

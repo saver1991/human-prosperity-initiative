@@ -1,9 +1,10 @@
 import {test,expect} from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-const coreRoutes=["/","/mission","/mission/it","/roadmap","/research","/research/evidence-ledger","/library","/governance","/contribute","/activity"];
+const coreRoutes=["/","/mission","/mission/it","/roadmap","/research","/research/evidence-ledger","/library","/governance","/contribute","/activity","/status"];
 for(const route of coreRoutes){
  test("meaningful page and keyboard landmarks "+route,async({page})=>{
+  if(route==="/status")await page.route("**/api/source-status",r=>r.fulfill({json:{status:"current",githubRevision:"a".repeat(40),publishedRevision:"a".repeat(40),publishedAt:"2026-11-05T18:00:00Z",checkedAt:"2026-11-05T18:00:00Z"}}));
   if(route==="/activity"){
    await page.route("**/api/issues",async routing=>routing.fulfill({json:{
     source:"github_public_issues",fetchedAt:"2026-11-05T18:00:00Z",limitedToRecent:false,
