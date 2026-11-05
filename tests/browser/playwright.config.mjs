@@ -1,4 +1,5 @@
 import {defineConfig} from "@playwright/test";
+import {resolve} from "node:path";
 
 export default defineConfig({
  testDir:".",
@@ -24,6 +25,7 @@ export default defineConfig({
  ],
  webServer:{
   command:"node tests/browser/serve.mjs",
+  cwd:resolve(import.meta.dirname,"../.."),
   url:"http://127.0.0.1:4173/",
   reuseExistingServer:false,
   timeout:30000
