@@ -107,7 +107,7 @@ await publish("/roadmap",shell({
  breadcrumb:'<a href="/">Home</a> / Roadmap',
  body:renderRoadmapOverview(publicRoadmap)
 }));
-await writeFile(ROOT+"/public-roadmap.json",JSON.stringify(publicRoadmap,null,2)+"\\n");
+await writeFile(ROOT+"/public-roadmap.json",JSON.stringify(publicRoadmap,null,2)+"\n");
 
 function cards(items){
  return '<div class="catalog-grid">'+items.map(doc=>
