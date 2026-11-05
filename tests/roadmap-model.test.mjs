@@ -19,7 +19,10 @@ test("public source contract has one stable ID per roadmap initiative, epic and 
  assert.equal(web.epics.flatMap(x=>x.tasks).length,31);
  assert.ok(web.epics.find(x=>x.id==="WEB-02.1").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.find(x=>x.id==="WEB-02.2").tasks.every(t=>t.status==="complete"&&t.evidence));
- assert.ok(web.epics.filter(x=>["WEB-02.3","WEB-02.4","WEB-02.5","WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
+ assert.ok(web.epics.find(x=>x.id==="WEB-02.3").tasks.every(t=>t.status==="complete"&&t.evidence));
+ assert.ok(web.epics.filter(x=>["WEB-02.4","WEB-02.5","WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
+ assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").deliveredEpics,["WEB-02.1","WEB-02.2","WEB-02.3"]);
+ assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").pendingFounderApproval,["WEB-02.4","WEB-02.5","WEB-02.6"]);
  assert.ok(data.initiatives.flatMap(x=>x.epics).every(x=>x.tasks.every(t=>t.sourceIssue===null||t.sourceIssue.startsWith("https://github.com/saver1991/human-prosperity-initiative/issues/"))));
 });
 test("sensitive or unrecognised keys cannot be published",()=>{
@@ -63,4 +66,11 @@ test("invalid feed and malformed issue states never imply closure",()=>{
  const now=new Date("2026-11-05T12:01:00Z");
  assert.equal(publicIssueSignal({source:"untrusted",issues:[],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unavailable");
  assert.equal(publicIssueSignal({source:"github_public_issues",issues:[{number:29,state:"done"}],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unknown");
+});
+
+test("an epic awaiting approval cannot be mislabeled as accepted",()=>{
+ const p=copy(project);
+ const w=p.initiatives.find(x=>x.id==="WEB-02");
+ w.deliveredEpics.push("WEB-02.4");
+ assert.throws(()=>buildPublicRoadmap(p,details),/duplicate|delivered epic needs completed/);
 });
