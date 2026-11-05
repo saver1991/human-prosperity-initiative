@@ -130,3 +130,9 @@
 /* Ethics copy on the green panel clears 4.5:1 normal-text contrast. */
 .ethics p{color:#475a60}
 
+
+/* WEB-02.3: first-party activity navigation; GitHub remains for discussion/edits. */
+.issue-actions{display:flex;align-items:center;gap:11px 22px;flex-wrap:wrap;margin-top:13px}
+.issue-actions a{font-size:12px;font-weight:790;line-height:1.5;min-height:44px;display:inline-flex;align-items:center;overflow-wrap:anywhere;text-underline-offset:.18em}
+.issue-actions .issue-local{color:#285c42}
+.issue-actions .issue-discuss{color:#4b5e61}
