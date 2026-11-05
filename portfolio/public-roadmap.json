@@ -1,0 +1,737 @@
+{
+  "schemaVersion": "1.0",
+  "sourceKind": "versioned_public_editorial_snapshot",
+  "reviewedAt": "2026-11-05",
+  "statusAuthority": "Public GitHub issue states are authoritative; this snapshot is not a live issue-state sync.",
+  "scienceBoundary": "Project delivery is not evidence of improved prosperity, independent study approval or validated causal impact.",
+  "legalStatus": "not_incorporated",
+  "governanceAuthority": "HubOS portfolio governance; SolOS permission-gated read-only projection; HPI repository scientific work and public issues.",
+  "initiatives": [
+    {
+      "id": "F0-01",
+      "kind": "research",
+      "summary": "Founding principles and transparent ratification of the public-interest charter.",
+      "gate": "Charter V0.4 is published; independent/community review and an attributable V1.0 ratification decision remain outstanding.",
+      "deliverables": [
+        {
+          "label": "Charter V0.4 candidate",
+          "url": "/library/docs/founding-charter-ratification-candidate-v0-4"
+        },
+        {
+          "label": "Charter review register",
+          "url": "/library/docs/charter-review-register-v0-4"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-01.1",
+          "title": "Review and ratify the founding charter",
+          "status": "review",
+          "issue": 10,
+          "tasks": [
+            {
+              "id": "F0-01.1-T01",
+              "title": "Publish V0.4 draft with scientific and ethical safeguards",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/24"
+            },
+            {
+              "id": "F0-01.1-T02",
+              "title": "Obtain genuine independent/community critique",
+              "status": "planned"
+            },
+            {
+              "id": "F0-01.1-T03",
+              "title": "Publish reasoned ratification decision for V1.0",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F0-02",
+      "kind": "research",
+      "summary": "Identify the first defensible poverty-related opportunity through reproducible and critical evidence.",
+      "gate": "No priority population or programme selected; rapid exploratory scan is not a completed systematic review.",
+      "deliverables": [
+        {
+          "label": "Evidence search protocol",
+          "url": "/research/research-protocol"
+        },
+        {
+          "label": "Comparative evidence ledger",
+          "url": "/research/evidence-ledger"
+        },
+        {
+          "label": "Opportunity assessment",
+          "url": "/research/f0-02-opportunity-assessment"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-02.1",
+          "title": "Reproducible evidence search protocol",
+          "status": "planned",
+          "issue": 3,
+          "tasks": [
+            {
+              "id": "F0-02.1-T01",
+              "title": "Define databases, search strings, years, languages and inclusion/exclusion rules per domain.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+            },
+            {
+              "id": "F0-02.1-T02",
+              "title": "Add a public search log with queries, date, source, duplicates and screening outcomes.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+            },
+            {
+              "id": "F0-02.1-T03",
+              "title": "Identify risk-of-bias criteria and protocol registration needs for a future formal review.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+            },
+            {
+              "id": "F0-02.1-T04",
+              "title": "Include negative/null results and contradictory findings.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+            }
+          ]
+        },
+        {
+          "id": "F0-02.2",
+          "title": "Comparative evidence ledger",
+          "status": "planned",
+          "issue": 1,
+          "tasks": [
+            {
+              "id": "F0-02.2-T01",
+              "title": "Target at least 10 high-relevance rigorous studies/reviews per area where available (not a quota of positive studies).",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+            },
+            {
+              "id": "F0-02.2-T02",
+              "title": "Capture design, country, participants, comparator, primary outcome, effect size, confidence interval, follow-up and cost where reported.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+            },
+            {
+              "id": "F0-02.2-T03",
+              "title": "Compare benefit *applications* vs confirmed *receipt*; programme enrolment vs durable outcome.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+            },
+            {
+              "id": "F0-02.2-T04",
+              "title": "Capture transferability constraints, adverse effects, equity and potential displacement.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+            },
+            {
+              "id": "F0-02.2-T05",
+              "title": "Update research/evidence-ledger.csv and research/F0-02-opportunity-assessment.md.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+            }
+          ]
+        },
+        {
+          "id": "F0-02.3",
+          "title": "Population and jurisdiction shortlist",
+          "status": "planned",
+          "issue": 2,
+          "tasks": [
+            {
+              "id": "F0-02.3-T01",
+              "title": "Identify 1–2 feasible jurisdictions and affected populations from publicly available non-identifying data.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+            },
+            {
+              "id": "F0-02.3-T02",
+              "title": "Map existing public benefits/services, implementing organisations and eligibility barriers.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+            },
+            {
+              "id": "F0-02.3-T03",
+              "title": "Estimate data availability, legal constraints, accessibility, cultural and language issues and provisional cost.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+            },
+            {
+              "id": "F0-02.3-T04",
+              "title": "Evaluate whether HPI adds research/replication capacity others lack.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+            }
+          ]
+        },
+        {
+          "id": "F0-02.4",
+          "title": "Ethical partner and community consultation",
+          "status": "planned",
+          "issue": 4,
+          "tasks": [
+            {
+              "id": "F0-02.4-T01",
+              "title": "Define partner eligibility and independence criteria.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+            },
+            {
+              "id": "F0-02.4-T02",
+              "title": "Create a low-burden consultation plan for affected communities, including non-digital options.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+            },
+            {
+              "id": "F0-02.4-T03",
+              "title": "Identify lawful bases for any data access, participant consent and independent review.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+            },
+            {
+              "id": "F0-02.4-T04",
+              "title": "Identify safeguarding, language/accessibility, conflicts and grievance channels.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+            }
+          ]
+        },
+        {
+          "id": "F0-02.5",
+          "title": "Six-criterion prioritisation and go/no-go",
+          "status": "planned",
+          "issue": 7,
+          "tasks": [
+            {
+              "id": "F0-02.5-T01",
+              "title": "Score all candidate options with sources, uncertainties and independent input.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/7"
+            },
+            {
+              "id": "F0-02.5-T02",
+              "title": "Exclude those without lawful data access or with unmitigable ethical risks regardless of score.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/7"
+            },
+            {
+              "id": "F0-02.5-T03",
+              "title": "Document counterarguments and unresolved evidence.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/7"
+            },
+            {
+              "id": "F0-02.5-T04",
+              "title": "Publish go/no-go decision and first pilot concept note inputs.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/7"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F0-03",
+      "kind": "research",
+      "summary": "Define candidate dimensions and measures of prosperity without inventing a universal welfare score.",
+      "gate": "Measurement V0.1 is published, not independently validated; V1.0 requires qualified methodological and community review.",
+      "deliverables": [
+        {
+          "label": "Prosperity measurement V0.1",
+          "url": "/research/f0-03-prosperity-measurement-framework-v0-1"
+        },
+        {
+          "label": "Candidate indicator catalogue",
+          "url": "/research/f0-03-indicator-catalog-v0-1"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-03.0",
+          "title": "Publish V0.1 candidate framework",
+          "status": "documented",
+          "issue": 5,
+          "tasks": [
+            {
+              "id": "F0-03.0-T01",
+              "title": "Publish candidate multidimensional measurement framework",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/17"
+            },
+            {
+              "id": "F0-03.0-T02",
+              "title": "Independently validate the instrument before claiming a scientific V1.0",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F0-03.1",
+      "kind": "research",
+      "summary": "Subject candidate metrics to independent statistical, ethical and affected-community scrutiny.",
+      "gate": "An internal critical pre-review is published; genuinely independent scientific/community sign-off has not occurred.",
+      "deliverables": [
+        {
+          "label": "Critical methodological pre-review",
+          "url": "/research/f0-03-methodological-pre-review-2026-11-05"
+        },
+        {
+          "label": "Independent review form",
+          "url": "/research/f0-03-independent-review-form"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-03.1.1",
+          "title": "External review and method corrections",
+          "status": "review",
+          "issue": 19,
+          "tasks": [
+            {
+              "id": "F0-03.1.1-T01",
+              "title": "Publish internal critical pre-review and independent reviewer form",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/27"
+            },
+            {
+              "id": "F0-03.1.1-T02",
+              "title": "Obtain and record genuine qualified methods critique",
+              "status": "planned"
+            },
+            {
+              "id": "F0-03.1.1-T03",
+              "title": "Obtain appropriately safeguarded community input",
+              "status": "planned"
+            },
+            {
+              "id": "F0-03.1.1-T04",
+              "title": "Record evidence-based response to external review and go/no-go",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F0-04",
+      "kind": "research",
+      "summary": "Build accountable public operating rules, conflict safeguards, research independence and viable future legal options.",
+      "gate": "Governance V0.2 is provisional; no board, legal entity, safeguarding channel or appointed independent advisers exist.",
+      "deliverables": [
+        {
+          "label": "Provisional governance policy",
+          "url": "/governance"
+        },
+        {
+          "label": "Legal options brief",
+          "url": "/library/docs/governance/legal-options-brief"
+        },
+        {
+          "label": "Scientific and community review model",
+          "url": "/library/docs/governance/scientific-and-community-review-model"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-04.1",
+          "title": "Accountable governance and safeguarding",
+          "status": "in_progress",
+          "issue": 6,
+          "tasks": [
+            {
+              "id": "F0-04.1-T01",
+              "title": "Publish provisional decision rights, conflict and legal options policies",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/25"
+            },
+            {
+              "id": "F0-04.1-T02",
+              "title": "Arrange human-led independent governance review",
+              "status": "planned"
+            },
+            {
+              "id": "F0-04.1-T03",
+              "title": "Establish secure human-owned safeguarding channel",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/26"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WEB-01",
+      "kind": "platform",
+      "summary": "Keep the public website safe, accessible, reproducible and transparent about release and operational status.",
+      "gate": "GitHub merge checks, Playwright and scheduled monitoring work; independent post-merge production hold and attributable cost alerts remain open.",
+      "deliverables": [
+        {
+          "label": "Production operations runbook",
+          "url": "/library/docs/web-01-release-and-operations"
+        },
+        {
+          "label": "Public release freshness",
+          "url": "/status"
+        },
+        {
+          "label": "Current public activity",
+          "url": "/activity"
+        }
+      ],
+      "epics": [
+        {
+          "id": "WEB-01.1",
+          "title": "Reliability, accessibility and release operations",
+          "status": "in_progress",
+          "issue": 9,
+          "tasks": [
+            {
+              "id": "WEB-01.1-T01",
+              "title": "Protect main and verify CircleCI/Playwright site QA",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/21"
+            },
+            {
+              "id": "WEB-01.1-T02",
+              "title": "Run daily read-only production monitor",
+              "status": "documented",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/22"
+            },
+            {
+              "id": "WEB-01.1-T03",
+              "title": "Hold post-merge Vercel publication until final SHA tests pass",
+              "status": "planned"
+            },
+            {
+              "id": "WEB-01.1-T04",
+              "title": "Enable provider-attributed recurring cost/quota alerts",
+              "status": "planned"
+            },
+            {
+              "id": "WEB-01.1-T05",
+              "title": "Complete real assistive technology screen-reader acceptance",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "WEB-02",
+      "kind": "platform",
+      "summary": "Make the real HPI roadmap understandable on the website through initiative, epic and task pages, without misleading impact claims.",
+      "gate": "Only WEB-02.1, WEB-02.2 and WEB-02.3 are approved for implementation in this iteration. WEB-02.4–02.6 require subsequent founder approval.",
+      "deliverables": [
+        {
+          "label": "Roadmap source document",
+          "url": "/roadmap"
+        },
+        {
+          "label": "Public development activity",
+          "url": "/activity"
+        }
+      ],
+      "epics": [
+        {
+          "id": "WEB-02.1",
+          "title": "Canonical data contract and provenance",
+          "status": "planned",
+          "issue": 30,
+          "tasks": [
+            {
+              "id": "WEB-02.1-T01",
+              "title": "Inventory existing HPI docs/roadmap.md, portfolio/project.json, issue titles/status, review gates, /activity endpoint and SolOS snapshot, identifying overlaps and stale fields.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+            },
+            {
+              "id": "WEB-02.1-T02",
+              "title": "Define versioned, typed public projection: stable IDs (WEB-02 etc.), names, owner *role if real*, phase, status, priority, dependencies, acceptance criteria, evidence URLs, last verified SHA/time and unavailable states.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+            },
+            {
+              "id": "WEB-02.1-T03",
+              "title": "Define authoritative mapping (HPI versioned roadmap for initiative taxonomy, GitHub issue state for task state, HubOS governance for portfolio, SolOS reads only); prevent feedback loops and private data.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+            },
+            {
+              "id": "WEB-02.1-T04",
+              "title": "Validate schema, provenance and allowlisted public fields; reject or hide malformed/private fields; status 'unknown' must not be presented as Done.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+            },
+            {
+              "id": "WEB-02.1-T05",
+              "title": "Write deterministic schema fixtures/tests including unlinked issues, closed issues, status drift, source outage and stale snapshots.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/30"
+            }
+          ]
+        },
+        {
+          "id": "WEB-02.2",
+          "title": "Roadmap UX and navigation",
+          "status": "planned",
+          "issue": 31,
+          "tasks": [
+            {
+              "id": "WEB-02.2-T01",
+              "title": "Audit current /roadmap, /activity and /library: navigation, dead ends, external GitHub departures, clarity, mobile usability and assistive technology.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+            },
+            {
+              "id": "WEB-02.2-T02",
+              "title": "Design Now / Next / Later roadmap overview with initiative cards, current statuses, meaningful blockers, review gates and workstream counts only where independently verifiable.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+            },
+            {
+              "id": "WEB-02.2-T03",
+              "title": "Show scientific programme milestones separately from website/platform delivery, and label date/priority as indicative, not promised.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+            },
+            {
+              "id": "WEB-02.2-T04",
+              "title": "Define navigation: roadmap → initiative → epic/task → canonical HPI docs; GitHub external only for contribution/source history, never as default content reading.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+            },
+            {
+              "id": "WEB-02.2-T05",
+              "title": "Specify responsive/mobile layout, readable empty/error/loading states and accessible filtering/search only if useful at current scale.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/31"
+            }
+          ]
+        },
+        {
+          "id": "WEB-02.3",
+          "title": "Initiative, epic and task detail pages",
+          "status": "planned",
+          "issue": 32,
+          "tasks": [
+            {
+              "id": "WEB-02.3-T01",
+              "title": "Define stable routes /initiatives/{id} and breadcrumbs; add canonical links from /roadmap and /activity.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+            },
+            {
+              "id": "WEB-02.3-T02",
+              "title": "Create initiative header model: mission/desired outcome, priority, phase, real status, dependencies, genuine decisions, deliverables and review gate.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+            },
+            {
+              "id": "WEB-02.3-T03",
+              "title": "Display epics with ordered task checklists and status history; avoid implying completion when only a PR or manuscript draft exists.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+            },
+            {
+              "id": "WEB-02.3-T04",
+              "title": "Add evidence/reference panel with HPI-hosted pages, source version, CI/PR proofs and explicit 'review pending' states.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+            },
+            {
+              "id": "WEB-02.3-T05",
+              "title": "Avoid duplicating a complex issue-editing UI: HPI pages are read-only; verified contribution/source edit links may point to GitHub.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/32"
+            }
+          ]
+        },
+        {
+          "id": "WEB-02.4",
+          "title": "Verified progress and impact distinction",
+          "status": "planned",
+          "issue": 33,
+          "tasks": [
+            {
+              "id": "WEB-02.4-T01",
+              "title": "Separate work completion (merged PR/closed issue/acceptance) from research validation (reviewed/ratified/ethics approved) and human prosperity outcomes (not yet measured).",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            },
+            {
+              "id": "WEB-02.4-T02",
+              "title": "Define progress denominators: counts of specifically tracked, nonduplicate work items and evidence of acceptance; avoid arbitrary percentage indicators and deceptive '100% impact'.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            },
+            {
+              "id": "WEB-02.4-T03",
+              "title": "Display last verified Git revision/time, cached feed age and safe unknown/stale/error status for public GitHub sources.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            },
+            {
+              "id": "WEB-02.4-T04",
+              "title": "Reconcile roadmap status and GitHub issue events; support early phase / planned / in progress / draft published / review pending / blocked / done with clear user-facing rules.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            },
+            {
+              "id": "WEB-02.4-T05",
+              "title": "Accessibility-safe status badges, supporting text and source links; do not inject untrusted issue strings as HTML.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            },
+            {
+              "id": "WEB-02.4-T06",
+              "title": "Add tests for stale feed, false closure, missing CI, independent-review gates, sources that contradict summary and zero validated beneficiaries.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+            }
+          ]
+        },
+        {
+          "id": "WEB-02.5",
+          "title": "SolOS and HubOS read-only alignment",
+          "status": "planned",
+          "issue": 34,
+          "tasks": [
+            {
+              "id": "WEB-02.5-T01",
+              "title": "Register WEB-02 P1/NEXT in SolOS's HPI public roadmap snapshot and link the canonical HPI issue/roadmap; retain explicit snapshot date.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+            },
+            {
+              "id": "WEB-02.5-T02",
+              "title": "Document read-only/public contract for a future version-pinned status projection to SolOS, with allowed fields, source SHA, cache age, no writes and failure abstention.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+            },
+            {
+              "id": "WEB-02.5-T03",
+              "title": "Update the permission-gated SolOS HPI project profile to display new workstream *when reviewed and implemented*; avoid new autonomous agents, cross-DB joins or owner grants.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+            },
+            {
+              "id": "WEB-02.5-T04",
+              "title": "Map the initiative in HubOS's HPI portfolio tracking with exactly one record and avoid duplicate initiative ownership.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+            },
+            {
+              "id": "WEB-02.5-T05",
+              "title": "QA no private SolOS workspace leakage, no participant records, no unauthorised commands/ingestion from GitHub, and no claims that a pinned snapshot auto-refreshes.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+            }
+          ]
+        },
+        {
+          "id": "WEB-02.6",
+          "title": "Accessibility, release and maintenance",
+          "status": "planned",
+          "issue": 35,
+          "tasks": [
+            {
+              "id": "WEB-02.6-T01",
+              "title": "Add automated unit/contract tests and Playwright Chromium E2E for routes, issue states, filters, keyboard navigation, focus, 200% text enlargement and 400% reflow-equivalent.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+            },
+            {
+              "id": "WEB-02.6-T02",
+              "title": "Run axe-core WCAG 2.2 AA and accessible-name checks; record limitations of automation versus genuine screen-reader verification.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+            },
+            {
+              "id": "WEB-02.6-T03",
+              "title": "Test mobile/tablet/desktop layouts, canonical SEO, navigation of all first-party documents, screen reader semantics and safe provider outage.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+            },
+            {
+              "id": "WEB-02.6-T04",
+              "title": "Verify CircleCI (not GitHub Actions), Vercel Preview and exact production revision; keep WEB-01 release protections and monitoring intact.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+            },
+            {
+              "id": "WEB-02.6-T05",
+              "title": "Define ownership, staleness policy, independent content review needs, rollback and maintenance runbook with no invented progress counters.",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F0-05",
+      "kind": "research",
+      "summary": "Define a falsifiable, ethically viable first study concept only after quality-screened evidence and suitable research partners.",
+      "gate": "No population, study sponsor, ethics approval, human recruitment or budget is authorised.",
+      "deliverables": [
+        {
+          "label": "Research protocol foundations",
+          "url": "/research/research-protocol"
+        }
+      ],
+      "epics": [
+        {
+          "id": "F0-05.1",
+          "title": "Pre-pilot concept and safeguards",
+          "status": "planned",
+          "issue": 11,
+          "tasks": [
+            {
+              "id": "F0-05.1-T01",
+              "title": "Select an evidenced and ethically feasible question",
+              "status": "planned"
+            },
+            {
+              "id": "F0-05.1-T02",
+              "title": "Specify outcomes, design, costs, harms, approvals and go/no-go",
+              "status": "planned"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F1",
+      "kind": "research",
+      "summary": "Aspiration: independently assessed first applied intervention, subject to real partners and ethical approval.",
+      "gate": "Future ambition only; no study authorisation or actual measured welfare outcome.",
+      "deliverables": [],
+      "epics": []
+    },
+    {
+      "id": "F2",
+      "kind": "research",
+      "summary": "Long-term ambition: replicate defensible findings and examine economic-system mechanisms.",
+      "gate": "Not yet a validated programme or approved intervention.",
+      "deliverables": [],
+      "epics": []
+    },
+    {
+      "id": "F3",
+      "kind": "research",
+      "summary": "Long-term ambition: contribute reliable knowledge to wider institutions and public decision-making.",
+      "gate": "No policy adoption, verified beneficiary improvement or structural effect claimed.",
+      "deliverables": [],
+      "epics": []
+    }
+  ]
+}
