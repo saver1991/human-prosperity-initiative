@@ -93,3 +93,6 @@
  text-underline-offset:.2em;
 }
 .doc-table-wrap:focus-visible{outline:3px solid #285a85;outline-offset:3px}
+
+/* Ethics copy on the green panel clears 4.5:1 normal-text contrast. */
+.ethics p{color:#475a60}
