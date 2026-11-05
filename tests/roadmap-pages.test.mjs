@@ -24,7 +24,7 @@ test("landing view links only to existing first-party pages before initiative de
  const html=renderRoadmapOverview(model);
  assert.ok(html.includes('href="/library/docs/founding-charter-ratification-candidate-v0-4"'));
  assert.ok(html.includes('href="/research/f0-02-opportunity-assessment"'));
- assert.ok(html.includes('href="/status"'));
+ assert.ok(html.includes('href="/library/docs/web-01-release-and-operations"'));
  assert.ok(!html.includes('href="/initiatives/'));
  assert.ok(!html.includes('target="_blank"'));
 });
