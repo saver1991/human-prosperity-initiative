@@ -36,10 +36,26 @@ HPI follows **Product / Programme → Initiative → Epic → Task**, with scien
 | **Next** | F0-03 — Multidimensional measurement | [Draft V0.1](../research/F0-03-prosperity-measurement-framework-v0.1.md), [15 proposed indicators](../research/F0-03-indicator-catalog-v0.1.csv), [critical pre-review](../research/F0-03-methodological-pre-review-2026-11-05.md), [review #19](https://github.com/saver1991/human-prosperity-initiative/issues/19) | V0.1 delivery completed; V1.0 independent method/community review outstanding |
 | **Next** | F0-04 — Governance and contributor operations | [Governance V0.2](../GOVERNANCE.md), [legal brief](governance/legal-options-brief.md), [issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | Provisional documentation complete; actual independent appointments and safeguarding channel open |
 | **Now (operations)** | WEB-01 — Public site release reliability | [Production runbook](WEB-01-release-and-operations.md), [issue #9](https://github.com/saver1991/human-prosperity-initiative/issues/9) | Merge checks and Playwright QA PASS; CircleCI daily public production watch activated; independent post-merge Vercel release gate and authenticated billed-cost automation remain open |
+| **Next · P1** | **WEB-02 — Public Roadmap & Progress Transparency** | [Initiative #29](https://github.com/saver1991/human-prosperity-initiative/issues/29) · [6 epics, 31 planned tasks](https://github.com/saver1991/human-prosperity-initiative/issues/30) · [SolOS planning #87](https://github.com/saver1991/solOS-core/issues/87) | **Planned / not implemented** — first-party /roadmap dashboard and /initiatives/{id} pages; trustworthy status/provenance; permission-gated read-only SolOS alignment |
 | **Next** | F0-05 — First study concept | [Issue #11](https://github.com/saver1991/human-prosperity-initiative/issues/11) | Planned, conditional on F0-02 and partner/ethics gates |
 | **Later** | F1 — Applied impact evaluation | Independent, ethical study with partners and published outcomes | Aspirational; not authorised or funded |
 | **Later** | F2 — Replication and systems research | Open evidence, reproducibility and economic mechanisms research | Long-term |
 | **Later** | F3 — Broader institutional impact | Validated knowledge used more widely | Long-term ambition |
+
+### WEB-02 — Public roadmap transparency (P1 · NEXT · PLANNED)
+
+**Authority:** [HPI initiative WEB-02 #29](https://github.com/saver1991/human-prosperity-initiative/issues/29), with six source-tracked epics and **31 planned tasks**. The purpose is to let visitors understand progress **on the HPI website**, rather than navigating GitHub for ordinary information. This is a new website-experience initiative, not an implementation that has already shipped.
+
+| Epic | Purpose | Tracker |
+| --- | --- | --- |
+| WEB-02.1 | Public data contract, stable IDs, source-of-truth and provenance | [#30](https://github.com/saver1991/human-prosperity-initiative/issues/30) |
+| WEB-02.2 | Roadmap UX, first-party navigation and responsive design | [#31](https://github.com/saver1991/human-prosperity-initiative/issues/31) |
+| WEB-02.3 | Initiative, epic and task detail pages | [#32](https://github.com/saver1991/human-prosperity-initiative/issues/32) |
+| WEB-02.4 | Verified progress, research review/ethics gates and clear separation from measured human impact | [#33](https://github.com/saver1991/human-prosperity-initiative/issues/33) |
+| WEB-02.5 | Permission-gated SolOS read-only project projection and HubOS governance mapping | [#34](https://github.com/saver1991/human-prosperity-initiative/issues/34) |
+| WEB-02.6 | Playwright/axe WCAG 2.2 AA, CircleCI/Vercel delivery and runbook | [#35](https://github.com/saver1991/human-prosperity-initiative/issues/35) |
+
+**Scope boundary:** publishing a roadmap or closing engineering tickets is **not** evidence of reduced poverty, a validated outcome, a pilot, independent scientific review or a legally incorporated foundation. Task counts and completion indicators must be demonstrably sourced, with 'unavailable' if uncertain. SolOS is a read-only projection, HPI GitHub remains the scientific/task authority, and HubOS is the portfolio authority. [SolOS #87](https://github.com/saver1991/solOS-core/issues/87) and [HubOS #129](https://github.com/saver1991/the-hub-os/issues/129) track cross-system planning; neither authorises implementation before founder approval.
 
 ### Continuity from original roadmap V0.1
 
