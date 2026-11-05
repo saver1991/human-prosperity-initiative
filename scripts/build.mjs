@@ -117,7 +117,7 @@ await publish("/activity",shell({
  body:'<div class="index-content"><p class="status-note">Issue statuses are loaded on demand from the public project board and cached briefly. Research progress is not a measure of participant impact.</p>'+
  '<p><a href="/roadmap">Read the full roadmap ↗</a> · <a href="/contribute">How to contribute ↗</a></p>'+
  '<p id="issue-status" role="status" aria-live="polite">Loading current public tasks…</p>'+
- '<div id="issue-list" class="issue-list" aria-label="Current public issues"></div>'+
+ '<section id="issue-list" class="issue-list" aria-label="Current public issues"></section>'+
  '<noscript><p>Enable JavaScript for the latest issue statuses, or visit the public GitHub issue tracker.</p></noscript></div>'
 }));
 await publish("/status",shell({

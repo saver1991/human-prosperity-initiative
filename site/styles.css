@@ -108,3 +108,25 @@
 
 /* Ensure breadcrumb actions are recognizable without relying on colour alone. */
 .content-breadcrumb a { text-decoration:underline; text-underline-offset:3px }
+
+/* WCAG 2.2 AA: dark foregrounds on light backgrounds, with distinguishable in-text links.
+   These contrast calibrations are verified by real Chromium/axe audits in CircleCI. */
+:root{--muted:#475a60}
+.section-label{color:#415e3d}
+.section h2 i{color:#4a6735}
+.cards article>span:first-child,.topics a>span:first-child{color:#53665a}
+.horizons small,.timeline small{color:#456641}
+.horizons article small{color:#456641}
+.topics a>span:last-child{color:#415e3d}
+.catalog-type,.doc-count{color:#415e3d}
+.catalog-card p,.issue-top{color:#475a60}
+.content-breadcrumb a,.footer-bottom a{
+ text-decoration:underline;
+ text-decoration-thickness:1px;
+ text-underline-offset:.2em;
+}
+.doc-table-wrap:focus-visible{outline:3px solid #285a85;outline-offset:3px}
+
+/* Ethics copy on the green panel clears 4.5:1 normal-text contrast. */
+.ethics p{color:#475a60}
+

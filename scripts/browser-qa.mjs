@@ -93,16 +93,16 @@ try{
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      ["/","/mission","/research","/activity","/status"].includes(route)){
-    const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21a","wcag21aa"]).analyze();
-    const serious=result.violations.filter(v=>["critical","serious"].includes(v.impact));
+      ["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)){
+    const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
+    const serious=result.violations;
     for(const violation of result.violations){
      report.violations.push({viewport:viewport.name,route,
       id:violation.id,impact:violation.impact,description:violation.description,
       nodes:violation.nodes.length,
       snippets:violation.nodes.slice(0,40).map(n=>n.target.join(" "))});
     }
-    record(viewport.name+" "+route+" axe WCAG 2.1 AA severe violations",serious.length===0,
+    record(viewport.name+" "+route+" axe WCAG 2.2 AA all reported violations",serious.length===0,
      serious.map(v=>v.id+"("+v.nodes.length+")").join(", "));
    }
    await page.close();
