@@ -27,7 +27,7 @@ Track actionable work in [Issues](../../issues).
 
 ## Operating model — Now / Next / Later
 
-HPI follows **Product / Programme → Initiative → Epic → Task**, with scientific milestones, decisions and risks tracked separately. This is the same planning grammar used across the broader ecosystem, adapted to a **public-interest research initiative** rather than a commercial product. HubOS can govern the portfolio; SolOS supports bounded, independently approved research workflows; this public repository remains the source for research and community work.
+HPI follows **Product / Programme → Initiative → Epic → Task**, with scientific milestones, decisions and risks tracked separately. This is the same planning grammar used across the broader ecosystem, adapted to a **public-interest research initiative** rather than a commercial product. HubOS contains HPI as a non-commercial public-interest programme (production database registration verified 5 November 2026). SolOS provides an independently permission-gated, read-only project and evidence view; this public repository remains the source of truth for scientific research and community work.
 
 | Horizon | Initiative | Current evidence / link | Status |
 | --- | --- | --- | --- |
@@ -61,6 +61,6 @@ The original six phases remain represented; later versions refined the prioritie
 - Scientific questions and results: `research/` (including uncertainty and negative evidence).
 - Programme and task backlog: public [GitHub Issues](https://github.com/saver1991/human-prosperity-initiative/issues).
 - Execution view: [SolOS HPI project profile](https://solos-autonomous-poc.vercel.app/projects/human-prosperity-initiative) (protected and subject to independent deployment acceptance).
-- Portfolio governance: HubOS, if/when HPI is registered there with a distinct public-interest project type.
-- No automated sync among these systems is asserted. Databases remain isolated.
+- Portfolio governance: [HubOS programme registration](https://github.com/saver1991/the-hub-os/issues/125) verified in Neon; authenticated production UI acceptance remains open.
+- Publishing: the HPI website automatically renders these repository documents and its research catalogue after each successful merge/deployment. Its [public activity page](https://human-prosperity-initiative.vercel.app/activity) reads public issue statuses with a short cache. SolOS's evidence view is pinned to a reviewed GitHub commit rather than automatically changing. Databases remain isolated.
 

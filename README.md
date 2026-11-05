@@ -1,6 +1,8 @@
 # Human Prosperity Initiative (HPI)
 
-🌐 **Public website:** [human-prosperity-initiative.vercel.app](https://human-prosperity-initiative.vercel.app/) — live, first public version (November 2026).
+🌐 **Public website:** [human-prosperity-initiative.vercel.app](https://human-prosperity-initiative.vercel.app/).
+
+**Read the HPI project on our public website:** [Mission](https://human-prosperity-initiative.vercel.app/mission) · [Research](https://human-prosperity-initiative.vercel.app/research) · [Roadmap](https://human-prosperity-initiative.vercel.app/roadmap) · [Governance](https://human-prosperity-initiative.vercel.app/governance) · [Current tasks](https://human-prosperity-initiative.vercel.app/activity). The site generates its reading pages from this repository on every successful deployment; GitHub is for editing, review and contributions. See [publishing rules](docs/website-publishing.md).
 
 
 > **Working name · Early-stage public initiative · Not yet a registered foundation or legal entity**
