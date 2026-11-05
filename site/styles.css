@@ -1,4 +1,4 @@
-:root{--ink:#12212b;--navy:#101c29;--lime:#d1ef79;--paper:#f7f7f2;--sage:#e9ece6;--muted:#65747a}
+:root{--ink:#12212b;--navy:#101c29;--lime:#d1ef79;--paper:#f7f7f2;--sage:#e9ece6;--muted:#495d62}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);line-height:1.58;-webkit-font-smoothing:antialiased}a{color:inherit}a:focus-visible{outline:3px solid #7cbfe9;outline-offset:4px}.wrap{width:min(1220px,calc(100% - 76px));margin:auto}.skip{position:absolute;left:10px;top:-100px;padding:12px;background:var(--lime);z-index:5}.skip:focus{top:10px}
 .header{background:var(--navy);color:white;border-bottom:1px solid #ffffff21}.head-inner{min-height:94px;display:flex;align-items:center;gap:32px}.logo{display:flex;gap:6px;align-items:center;text-decoration:none;font-weight:820;font-size:29px;letter-spacing:-.08em;white-space:nowrap}.symbol,.lime{color:var(--lime)}.symbol{font-size:36px;line-height:.8}.logo small{font-size:10px;line-height:1.3;color:#b6c9cc;letter-spacing:.1em;text-transform:uppercase;margin-left:14px;padding-left:17px;border-left:1px solid #ffffff4d;font-weight:670}.head-inner nav{margin-left:auto;display:flex;gap:26px}.head-inner nav a{font-weight:650;text-decoration:none;font-size:13px;color:#c5d0d2;white-space:nowrap}.head-inner nav a:hover{color:var(--lime)}.nav-cta{text-decoration:none;border-radius:50px;border:1px solid #ffffff40;padding:10px 16px;font-size:13px;font-weight:730}
 .hero{background:var(--navy);color:white;overflow:hidden}.hero-inner{min-height:665px;display:grid;grid-template-columns:1.07fr .93fr;gap:28px;align-items:center;padding:85px 0 103px}.eyebrow,.section-label{font-weight:800;font-size:11px;letter-spacing:.17em;text-transform:uppercase}.eyebrow{color:var(--lime);display:inline-flex;align-items:center;gap:12px}.indicator{width:8px;height:8px;border-radius:50%;background:var(--lime);box-shadow:0 0 0 4px #d1ef7920}.hero h1{font-size:clamp(3.7rem,5.5vw,6rem);font-weight:640;letter-spacing:-.06em;line-height:1.08;margin:29px 0 24px}.hero h1 em,.section h2 i{color:var(--lime);font-style:normal}.hero-lede{font-size:17px;line-height:1.85;color:#beccd0;max-width:560px;margin:0 0 28px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.button{display:inline-flex;justify-content:center;align-items:center;text-decoration:none;border-radius:6px;padding:13px 19px;font-size:13px;min-height:50px;font-weight:800;transition:transform .2s}.button:hover{transform:translateY(-2px)}.lime-bg{background:var(--lime);color:var(--navy)}.outline{border:1px solid #ffffff5a}.micro{font-size:11px;color:#91a6b1;margin:28px 0 0}
@@ -74,3 +74,20 @@
 @media(max-width:1020px){.catalog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.content-layout{grid-template-columns:minmax(0,1fr) 220px;gap:35px}}
 @media(max-width:700px){.content-layout{display:block;padding:39px 0 70px}.doc-side{margin-top:35px;position:static}.catalog-grid{grid-template-columns:1fr}.catalog-card{min-height:155px}.content-hero{padding:52px 0}.content-hero h1{font-size:clamp(2.3rem,8vw,3.6rem)}.doc-content{font-size:14px}.doc-table-wrap{margin:17px -5px}.doc-table-wrap table{min-width:560px}}
 @media(prefers-reduced-motion:reduce){.catalog-card{transition:none}}
+
+
+/* WCAG 2.1 AA text contrast refinements, confirmed against real Chromium + axe.
+ * Keep subdued visual hierarchy without relying on low-contrast text. */
+.section-label { color:#48664a }
+.cards article>span:first-child { color:#4e6254 }
+.horizons small,.timeline small { color:#49683f }
+.topics a>span:first-child { color:#4f6651 }
+.catalog-type { color:#3f6942 }
+.catalog-card p { color:#4e6162 }
+.doc-count { color:#405d43 }
+.issue-top { color:#4b5f63 }
+.footer-bottom a { text-decoration:underline; text-underline-offset:3px }
+
+/* Follow-up: ensure large italic headings and ethics prose meet the tested contrast ratios. */
+.section h2 i { color:#506f39 }
+.ethics p { color:#40545a }

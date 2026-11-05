@@ -46,7 +46,7 @@ function shell({title,description,section,body,route,lang="en",script=""}){
   '<link rel="stylesheet" href="/styles.css"><link rel="icon" type="image/svg+xml" href="/favicon.svg">'+
   (script?'<script src="'+script+'" defer></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
-  '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
+  '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
   nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
   '<main id="main" class="content-page"><section class="content-hero"><div class="wrap">'+
   '<div class="content-breadcrumb"><a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section)+'</div>'+
