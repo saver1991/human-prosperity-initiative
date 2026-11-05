@@ -1,4 +1,5 @@
 version: 2.1
+
 jobs:
   website-quality:
     docker:
@@ -21,9 +22,43 @@ jobs:
       - store_artifacts:
           path: dist
           destination: public-site
+
+  browser-accessibility:
+    docker:
+      - image: mcr.microsoft.com/playwright:v1.64.1-noble
+    resource_class: medium
+    steps:
+      - run:
+          name: Fetch exact public GitHub commit over HTTPS
+          command: |
+            set -euo pipefail
+            test -n "$CIRCLE_SHA1"
+            git init -q
+            git remote add origin https://github.com/saver1991/human-prosperity-initiative.git
+            git fetch -q --depth=1 origin "$CIRCLE_SHA1"
+            git checkout -q --detach FETCH_HEAD
+            test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"
+      - run:
+          name: Build static pages and validate content
+          command: npm run check
+      - run:
+          name: Install pinned audit tools (CI only)
+          command: |
+            npm install --no-save --ignore-scripts --package-lock=false @playwright/test@1.64.1 @axe-core/playwright@4.14.0
+      - run:
+          name: Real Chromium desktop/mobile, keyboard and WCAG tests
+          command: ./node_modules/.bin/playwright test --config tests/browser/playwright.config.mjs
+      - store_artifacts:
+          path: test-results
+          destination: browser-failures
+
 workflows:
   check:
     jobs:
       - website-quality
-# CircleCI public repo HTTPS checkout avoids absent SSH deploy keys.
-# CI tests have no secrets and do not deploy; Vercel handles Git-linked deployments.
+      - browser-accessibility:
+          requires:
+            - website-quality
+
+# CircleCI only. No GitHub Actions. Browser tests use local pages, mock public issues,
+# and send no project secrets, real user records, or external study data to third parties.
