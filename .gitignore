@@ -1,0 +1,8 @@
+# Local build and CI artifacts — not versioned or uploaded as participant data
+dist/
+qa-artifacts/
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
