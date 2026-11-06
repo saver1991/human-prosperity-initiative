@@ -49,6 +49,9 @@ export function resolveLink(destination,source,routes){
   return {href:"https://github.com/"+HPI_REPO+"/discussions",external:true};
  if(/^https?:\/\//i.test(base)){
   let url;try{url=new URL(raw)}catch{return {href:"#",external:false}}
+  if(url.protocol==="https:"&&url.hostname==="human-prosperity-initiative.vercel.app"&&
+     !url.username&&!url.password)
+   return {href:url.pathname+url.search+url.hash,external:false};
   if(url.hostname==="github.com"&&url.pathname.startsWith("/"+HPI_REPO+"/")){
    const rest=url.pathname.slice(("/"+HPI_REPO+"/").length);
    if(rest.startsWith("blob/main/")){
