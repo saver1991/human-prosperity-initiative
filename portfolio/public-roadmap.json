@@ -324,8 +324,8 @@
     {
       "id": "F0-04",
       "kind": "research",
-      "summary": "Build accountable public operating rules, conflict safeguards, research independence and viable future legal options.",
-      "gate": "Governance V0.2 is provisional; no board, legal entity, safeguarding channel or appointed independent advisers exist.",
+      "summary": "Prepare a legally accountable, financially sustainable, internationally scoped HPI before funding, contracting or field projects.",
+      "gate": "Founder-approved planning only: no charity exists, no trustees appointed, no financial authority or grant awards, no international partner agreements. UK domicile is a possible legal base, not a UK-only beneficiary restriction.",
       "deliverables": [
         {
           "label": "Provisional governance policy",
@@ -338,6 +338,14 @@
         {
           "label": "Scientific and community review model",
           "url": "/library/docs/governance/scientific-and-community-review-model"
+        },
+        {
+          "label": "Founding and funding programme (proposal)",
+          "url": "/library/docs/governance/f0-04-founding-and-funding-readiness"
+        },
+        {
+          "label": "UK-based international operations (legal reference)",
+          "url": "/library/docs/governance/legal-options-brief"
         }
       ],
       "epics": [
@@ -365,8 +373,202 @@
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/26"
             }
           ]
+        },
+        {
+          "id": "F0-04.2",
+          "title": "Legal entity, charity-purpose fit & constitutional options",
+          "status": "planned",
+          "issue": 47,
+          "tasks": [
+            {
+              "id": "F0-04.2-T01",
+              "title": "Compare CIO, charitable company, CIC and qualified fiscal-host options",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47"
+            },
+            {
+              "id": "F0-04.2-T02",
+              "title": "Draft international charitable purposes and constitution for legal review",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47"
+            },
+            {
+              "id": "F0-04.2-T03",
+              "title": "Map governance, tax, founder-employment and formation legal questions",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47"
+            },
+            {
+              "id": "F0-04.2-T04",
+              "title": "Publish reasoned legal-option choice for founder review",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.3",
+          "title": "Independent board, governance and financial authority",
+          "status": "planned",
+          "issue": 48,
+          "tasks": [
+            {
+              "id": "F0-04.3-T01",
+              "title": "Specify trustee/board capability and independence matrix",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48"
+            },
+            {
+              "id": "F0-04.3-T02",
+              "title": "Draft delegation, spending approvals and conflict-of-interest controls",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48"
+            },
+            {
+              "id": "F0-04.3-T03",
+              "title": "Prepare finance, anti-fraud, procurement and scientific independence policies",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48"
+            },
+            {
+              "id": "F0-04.3-T04",
+              "title": "Plan responsible safeguarding/accountability appointments without claiming they exist",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.4",
+          "title": "12–24 month budget and sustainability scenarios",
+          "status": "planned",
+          "issue": 52,
+          "tasks": [
+            {
+              "id": "F0-04.4-T01",
+              "title": "Model lean/base/expanded organisational and delivery costs",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52"
+            },
+            {
+              "id": "F0-04.4-T02",
+              "title": "Separate unrestricted core support from restricted grants and in-kind resources",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52"
+            },
+            {
+              "id": "F0-04.4-T03",
+              "title": "Model reserves, FX exposure, cash runway and zero-awards case",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52"
+            },
+            {
+              "id": "F0-04.4-T04",
+              "title": "Prepare documentation and accounting review gate",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.5",
+          "title": "Institutional grants, donors and partnership eligibility",
+          "status": "planned",
+          "issue": 49,
+          "tasks": [
+            {
+              "id": "F0-04.5-T01",
+              "title": "Build dated, source-verified grant and funder eligibility pipeline",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49"
+            },
+            {
+              "id": "F0-04.5-T02",
+              "title": "Check geographic and organisation eligibility, overheads and deadlines",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49"
+            },
+            {
+              "id": "F0-04.5-T03",
+              "title": "Draft-only case for support and proposal/readiness templates",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49"
+            },
+            {
+              "id": "F0-04.5-T04",
+              "title": "Research potential fiscal hosts and research partners without outreach",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.6",
+          "title": "Worldwide operations and local compliance model",
+          "status": "planned",
+          "issue": 50,
+          "tasks": [
+            {
+              "id": "F0-04.6-T01",
+              "title": "Document UK-headquartered global grant and service delivery pathways",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50"
+            },
+            {
+              "id": "F0-04.6-T02",
+              "title": "Write country-specific due diligence and legal/privacy safeguards checklist",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50"
+            },
+            {
+              "id": "F0-04.6-T03",
+              "title": "Specify partners, end-use of funds, impact monitoring and audit controls",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50"
+            },
+            {
+              "id": "F0-04.6-T04",
+              "title": "Compare UK/Brazil/Italy regulatory examples without choosing a pilot location",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.7",
+          "title": "Incorporate / fiscal host / hold founder decision gate",
+          "status": "planned",
+          "issue": 51,
+          "tasks": [
+            {
+              "id": "F0-04.7-T01",
+              "title": "Assemble independent legal, finance and ethics review questions",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+            },
+            {
+              "id": "F0-04.7-T02",
+              "title": "Publish go/no-go and founder decision record with dissent and uncertainties",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+            },
+            {
+              "id": "F0-04.7-T03",
+              "title": "Prepare conditional registration or fiscal-host setup checklist",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+            },
+            {
+              "id": "F0-04.7-T04",
+              "title": "Confirm funding, signing authority, safeguarding and partner gates before outreach",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+            }
+          ]
         }
-      ]
+      ],
+      "priority": "P0",
+      "horizon": "Now"
     },
     {
       "id": "WEB-01",
