@@ -15,7 +15,7 @@ test("roadmap renders three navigable horizons with separate scientific and plat
  assert.ok(html.includes('id="stage-later"'));
  assert.ok(html.includes("Scientific programme"));
  assert.ok(html.includes("Public website &amp; operations"));
- assert.ok(html.includes("11</strong><span>Tracked initiatives"));
+ assert.ok(html.includes("12</strong><span>Tracked initiatives"));
  assert.ok(html.includes("31</strong><span>WEB-02 defined tasks"));
  assert.ok(html.includes('href="/library/docs/roadmap-source"'));
  assert.ok(html.includes('href="/library/docs/web-02-public-roadmap-data-contract"'));
@@ -52,7 +52,7 @@ test("built site has an accessible public roadmap, versioned source and valid pr
  assert.ok(html.includes('<link rel="canonical" href="https://human-prosperity-initiative.vercel.app/roadmap">'));
  assert.ok(html.includes('href="/roadmap.css"'));
  assert.ok(source.includes("Canonical programme plan"));
- assert.equal(published.initiatives.length,11);
+ assert.equal(published.initiatives.length,12);
  assert.equal(published.issueSync,"not_live");
  assert.equal(published.validatedHumanImpact,false);
 });
