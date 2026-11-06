@@ -32,7 +32,8 @@ const counts=(input,label,publicData)=>{
 const group=(input,label,publicData)=>{
  exactKeys(input,["eligible","received","missingFollowup","harmsReported","costMinorUnits",
   "baseline","strata"],label);
- const main=counts(input,label,publicData);
+ const main=counts({eligible:input.eligible,received:input.received,
+  missingFollowup:input.missingFollowup},label,publicData);
  if(main.observed===0)throw Error(label+" has no observed follow-up");
  const harmsReported=nonnegative(input.harmsReported??0,label+" harmsReported");
  if(harmsReported>main.observed)throw Error(label+" harms exceed observed follow-up");
@@ -48,7 +49,8 @@ const group=(input,label,publicData)=>{
   if(!/^[\p{L}\p{N} _./-]+$/u.test(category)||seen.has(category))
    throw Error(label+" duplicate or unsafe strata label");
   seen.add(category);
-  const c=counts(s,label+" stratum "+category,publicData);
+  const c=counts({eligible:s.eligible,received:s.received,
+   missingFollowup:s.missingFollowup},label+" stratum "+category,publicData);
   return {category,...c,observedRate:c.observed?c.received/c.observed:null};
  });
  if(strata.length&&
