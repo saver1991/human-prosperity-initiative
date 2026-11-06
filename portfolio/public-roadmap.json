@@ -566,9 +566,7 @@
             }
           ]
         }
-      ],
-      "priority": "P0",
-      "horizon": "Now"
+      ]
     },
     {
       "id": "WEB-01",
