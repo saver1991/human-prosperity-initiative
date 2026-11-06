@@ -1,8 +1,14 @@
 # F0-02 — Rapid evidence scan & opportunity assessment
 
-**Version:** 0.1 • **Date:** 5 November 2026 • **Status:** Initial desk scan completed; systematic review, partner mapping, local feasibility and final selection are **open**.
+**Version:** 0.2 • **Date:** 6 November 2026 • **Status:** F0-02.1 reproducible *desk* protocol delivered; F0-02.2 expanded *abstract-level rapid evidence map* delivered (10/12/12 records). Independent full-text review, partner mapping, local feasibility and final selection **remain open**.
 
-## New targeted study verification (5 November 2026)
+## Expanded evidence and audit (6 November 2026)
+
+The 5 November three-primary-study pilot has been expanded to **34 purposefully curated research records**: **10 benefit-access, 12 essential-cost and 12 economic-opportunity** studies/reviews. This is not 34 independent experiments and is **not** a systematic review. Sources, designs, comparators, endpoints, selective numerical findings, missing fields, null/adverse outcomes, overlap of follow-up cohorts and limitations are recorded in the [structured extraction](F0-02-structured-evidence-2026-11-06.csv), [cumulative source ledger](evidence-ledger.csv), [6 November executed-query log](search-log-2026-11-06.csv) and [critical synthesis](F0-02-critical-synthesis-2026-11-06.md). See the [F0-02.1 reproducible desk protocol](research-protocol.md).
+
+**Evidence signal:** Benefit navigation may outperform information-only in some institutional settings, but outreach can increase applications without approvals. Energy savings can fall below modelling assumptions, while selected heating/insulation improvements yield health and comfort gains. Asset and training programmes can increase earnings but costs, spillovers and long-run dissipation matter. **No jurisdiction, population, intervention or human-prosperity impact has been approved or established by this screening.**
+
+## Original targeted study verification (5 November 2026)
 
 Three primary study records (one per domain) were checked against publisher/institutional abstracts, including a negative energy-efficiency result. See the [study note](F0-02-study-examples-2026-11-05.md) and [search log](search-log-2026-11-05.csv). This is a small, intentionally non-representative set — **not** evidence that a final policy or pilot has been selected.
 
@@ -54,8 +60,8 @@ Use the charter's six criteria only after gathering local evidence: need severit
 
 ## Next research tasks / F0-02 exit criteria
 
-1. Publish search protocol, inclusion/exclusion criteria and a reproducible evidence search log for all three domains.
-2. Extract at least 10 high-relevance studies/reviews per domain where available; capture effect, comparator, country and methodological limitations.
+1. **Delivered for targeted desk research:** Version 1.0 of the reproducible search/screen protocol and a dated actual-query log for all domains (not exhaustive systematic searching).
+2. **Delivered as preliminary abstract mapping:** 10 / 12 / 12 cited study/review records, with endpoint/comparator/source, limited extractable effect metrics, limitations and explicit full-text appraisal gaps. Formal independent risk-of-bias ratings remain open if a systematic review is commissioned.
 3. Map existing providers and opportunities in 1–2 candidate jurisdictions, without contacting vulnerable populations or collecting their personal data.
 4. Consult affected people and field experts through lawful, ethical partner-led processes.
 5. Apply the rubric with independent reviewers; document disagreements and a go/no-go choice.
