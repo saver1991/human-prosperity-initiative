@@ -1,0 +1,10 @@
+HPI — Responsible research and access, version 1.0 (6 Nov 2026)
+Public source: https://human-prosperity-initiative.vercel.app/research/responsible-tools
+
+Public HPI research tools currently permit public reference metadata and explicitly fictional scenarios only.
+DO NOT submit personal data, pseudonymised records, identifying poverty stories, beneficiary details or unlicensed source documents.
+No real human study has been authorised; no scientific intervention benefit has been demonstrated.
+Unknown copyright/data rights, re-identification risks, legal controller/basis, ethics, consent, international rules and real screen-reader accessibility require independent human review.
+Software MIT, HPI-authored documentation CC BY 4.0; neither licences third-party data.
+For detailed rules and all eight pending gates, see docs/RT-01-4-responsible-research-and-accessibility-v1.md in the public Git repository.
+This text file can be printed and used offline. It is not legal advice or an approved fieldwork protocol.
