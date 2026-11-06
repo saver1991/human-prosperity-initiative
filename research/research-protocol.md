@@ -1,63 +1,59 @@
-# F0-02 Research Evidence Protocol — version 0.2
+# F0-02.1 — Reproducible evidence search and screening protocol (desk review V1.0)
 
-**Date:** 5 November 2026. **Status:** Draft structured search and screening plan. Not preregistered, not yet applied exhaustively, and **not** a completed systematic review. Confirm dates, access and reviewer team before starting formal screening.
+**Version/date:** 1.0 / 6 November 2026. **Scope:** public-source, AI-assisted *rapid evidence mapping* for HPI F0-02. This is a fully specified **desk-search workflow**, **not** a registered or completed systematic review. A qualified independent research team must approve any future protocol registration, full-text risk-of-bias grades, GRADE assessment, or primary research.
 
-## Research objective
+## Questions, domains and primary outcomes
+For materially deprived or economically insecure people and households, which evaluated interventions (A) increase **verified successful benefit/service receipt**, (B) improve **realised affordability and access to essential household energy/housing needs**, or (C) improve **durable real earnings, job quality or resilience** relative to an explicit comparator? Record effects, costs, harms, who benefits and external validity. No preselection of a winning country or programme.
 
-For people experiencing poverty or economic insecurity, what rigorous evidence exists that interventions improve (A) receipt of eligible benefits or essential services, (B) affordability and lived conditions associated with essential costs, or (C) durable earnings and economic opportunities? Which groups benefit, at what cost, with what adverse consequences and in which settings?
+| Domain | Population | Included interventions | Preferred primary outcomes | Proxies not interchangeable |
+|---|---|---|---|---|
+| benefit_access | Income-eligible or likely-eligible nonparticipants, disadvantaged claimants | Outreach; reminders; applications help; simplification; enrolment process | Official approval; actual receipt; sustained retention and net financial gain | Website clicks, expressed interest, applications, referrals |
+| essential_costs | Households with high essential energy/housing burden, underheating or financial insecurity | Social tariffs; targeted assistance; retrofit; home energy coaching | Real bills as share of disposable income; sufficient warmth/comfort; health and debt | Modelled kWh, programme take-up, policy counts, carbon savings alone |
+| economic_opportunity | Low-income workers, jobseekers and livelihood-constrained households | Skills; jobs matching; wage subsidies; productive grants; entrepreneurship and graduation | Real income/earnings, job stability/quality, poverty and consumption after intervention | Training enrolment, business registrations, assets without consumption |
 
-The objective is **mapping evidence and gaps**, not assuming a preferred intervention or claiming causality from a descriptive review.
+## Eligibility (PICOS) and separate evidence lanes
+- **Population:** Directly eligible low-income/economically vulnerable people, or a clearly relevant subgroup; context and eligibility definition extracted without assuming generalisability.
+- **Intervention:** A/B/C above. Exclude interventions unrelated to household economic security or where outcome cannot be linked to the study population; log uncertain cases as 'pending', not silently exclude.
+- **Comparator:** RCT control/usual services, matched comparison or credible RD/DiD/ITS counterfactual for **causal lane**. A systematic review of these is an **evidence synthesis lane**. Descriptive policy reports and correlational/qualitative research remain in a distinct **context lane**, not counted as causal proof.
+- **Outcomes:** report exact measured endpoint, numerical effect **and units**, uncertainty interval/p-value when in checked source, follow-up and costs. Use 'not reported in checked abstract' instead of inventing values.
+- **Study design:** RCTs; defensible natural/quasi-experiments; rigorous systematic reviews/meta-analyses. Include null/negative studies and follow-up papers, labeling shared experiments so they are not counted as independent replications.
+- **Date:** no arbitrary lower publication cutoff; include studies available by **2026-11-06**, record publication and version date. **Languages:** English and Italian for desk verification; record language bias and translation needs. **Geography:** global; do not transfer impact estimates across jurisdictions without assessing institutions and population. **Material:** public article abstracts/publisher records and institutional primary summaries; use lawful accessible full text only, never claim full-text verification if not performed.
 
-## Eligibility and extraction — PICOS
+## Source-specific repeatable searches
+Search in this order, recording **actual execution** versus planned sources:
+1. Public indexed web, targeting original publisher/DOI, J-PAL/IPA/NBER/World Bank/3ie/IEA, and qualified research-institution repositories. Use these exact portable queries with the chosen date and quotation marks preserved; refine by domain and source if necessary and log each refinement.
+2. 3ie Development Evidence Portal; J-PAL evaluations; World Bank Open Knowledge/Research; Cochrane/Campbell for applicable reviews; OECD/IEA for relevant economic and energy outcomes; publication indexes (Crossref/Scholar) and trial registries where accessible.
+3. Citation chasing (backward references and forward citations), with a separate dated log row and link to parent study.
 
-- **Population:** Individuals or households facing material deprivation, low income, vulnerability to shocks or exclusion from essential services. Record original study eligibility and demographic restrictions; do not generalise to entire populations.
-- **Interventions:** (A) administrative simplification, outreach, navigation, reminders or benefit eligibility support; (B) energy-cost assistance, housing affordability and energy efficiency; (C) economic inclusion, employment services, skills, livelihood support and direct economic opportunity.
-- **Comparators:** control, usual practice, alternate intervention or defensible quasi-experimental counterfactual. Descriptive reports without comparators may enter background contextual evidence but **not** the causal impact evidence section.
-- **Outcomes:** distinguish forms started from confirmed successful benefit receipt; energy programme participation from affordability, thermal comfort and wellbeing; training participation from employment, earnings and quality of work. Record outcome units, measurement period, cost and possible adverse/displacement effects.
-- **Study designs:** systematic reviews; meta-analyses; randomised evaluations; credible difference-in-differences, regression discontinuity, interrupted time series or other well-justified designs. Keep qualitative and administrative studies in a separate contextual stream.
+**Canonical seed queries for public indexed web and metadata databases** (transcribe into the provider's supported search syntax; never describe an unexecuted provider search as complete):
 
-## Search sources and search expressions
+| Domain | Query IDs / exact seed expressions |
+|---|---|
+| benefit_access | A1: `"benefit take-up" randomized experiment applications receipt`; A2: `"SNAP" administrative burden randomized enrollment`; A3: `"tax credit" nudges experiment take-up null`; A4: `"minimum income" benefit outreach trial approvals`; A5: `"health insurance" enrollment intervention systematic review` |
+| essential_costs | B1: `"fuel poverty" intervention systematic review health comfort`; B2: `"weatherization" experimental evaluation energy savings costs`; B3: `"social electricity tariff" regression discontinuity affordability`; B4: `"electricity" subsidy difference in differences energy poverty`; B5: `"energy coaching" quasi experiment household bills comfort` |
+| economic_opportunity | C1: `"graduation programme" randomized trial consumption earnings`; C2: `"vocational training" experiment youth employment Uganda`; C3: `"microenterprise" cash grant randomized Uganda earnings`; C4: `"apprenticeship" field experiment Ghana earnings`; C5: `"active labor market" systematic review developing countries` |
 
-Sources to search: [3ie Development Evidence Portal](https://developmentevidence.3ieimpact.org/), [J-PAL](https://www.povertyactionlab.org/), World Bank Research, [UNDP](https://hdr.undp.org/), [OECD](https://www.oecd.org/), [IEA](https://www.iea.org/), relevant trial registries, Google Scholar or scholarly databases when access is lawful, reference lists and relevant grey literature. Do not claim that sources were searched unless the actual query and date appear in the log.
+The dated executed-query log is [search-log-2026-11-06.csv](search-log-2026-11-06.csv) (and [5 November pilot log](search-log-2026-11-05.csv)); provider, query, filters, records examined and source decisions can be reconstructed. Search hits/exports **unknown** where providers did not expose counts, rather than fabricated as zero. This is purposive citation tracing, not exhaustive retrieval. The 15 canonical queries are specified **for replication**; actual queries run and variations appear in the execution log. Coverage of 3ie/Cochrane/Scholar/registries is a later formal-review task unless a row attests execution.
 
-Example seed expressions (adapt syntax to each provider and document adapted form in the log):
+## Screening, deduplication and PRISMA readiness
+1. Record every search session using `date_utc,domain,provider,search_query,filters,reported_hits,records_exported,searcher,notes`; record unavailable counts as blank. Record study DOI (normalise lowercase and remove URL prefix) or stable primary URL.
+2. Deduplicate by DOI, then by title/authors/year. Retain *review versus primary study*, *working paper versus published version* and *later follow-up of the same trial* links; avoid counting these as independent causal experiments.
+3. Screen titles/abstracts against PICOS; inclusion tags `causal-primary`, `causal-synthesis`, `context-only`, `uncertain`, `excluded`. Explicit exclusion reasons: wrong population/intervention/outcome; no comparator for causal lane; duplicate version; inaccessible verification; publication after search cutoff. Record language and access limitations.
+4. Read publisher abstracts/institutional summaries first; extract only what is supported in the accessed material. Record the **researcher type and access depth** (AI-assisted abstract/summary versus full-text reviewed).
+5. If commissioned as a *formal systematic review*, freeze a registered protocol (e.g. OSF/PROSPERO only where actually eligible), have **two independent human screeners**, resolve disagreements with an adjudicator, archive lawful search exports, track PRISMA 2020 flow and run design-specific methods. **None of this has happened in V1.0.**
 
-**A. Benefit receipt:**
-- ("benefit take-up" OR "benefit non-take-up" OR "welfare take up") AND (randomized OR experiment OR evaluation)
-- ("administrative burden" OR "simplification") AND (social protection OR benefits) AND (impact OR receipt)
-- ("application assistance" OR "benefit navigation") AND (benefit receipt OR coverage)
+## Data extraction and appraisal
+Populate [extraction-template.csv](extraction-template.csv) with source, DOI/URL, year, country, population, intervention/comparator, design, outcome, exact estimate/CI/period, costs, harms, risk-of-bias, transferability, reviewer and evidence gap. For the 6 November rapid map use [F0-02-structured-evidence-2026-11-06.csv](F0-02-structured-evidence-2026-11-06.csv), which records an *abstract-level preliminary limitation flag*, NOT a formal RoB score. Save URLs to primary sources; never republish copyrighted text.
 
-**B. Essential costs:**
-- ("energy poverty" OR "fuel poverty") AND (subsidy OR "energy efficiency" OR retrofit) AND (evaluation OR trial)
-- ("housing affordability" OR "rent burden") AND (policy OR assistance) AND (impact evaluation)
-- ("thermal comfort" OR "energy burden") AND (randomized OR quasi-experimental)
+For subsequent independent full-text screening use **RoB 2** for randomised studies, **ROBINS-I** for nonrandomised causal estimates, **AMSTAR 2/ROBIS** where appropriate for reviews, and GRADE only after outcome-by-outcome assessment. Check selective reporting, baseline balance, attrition, interference/spillovers, power, measurement, funding and durability. Separate **positive, null, mixed and adverse** results; report CIs and precise baseline where available; avoid cross-domain meta-analysis or unlicensed effect-size averaging.
 
-**C. Economic opportunity:**
-- ("economic inclusion" OR "graduation programme") AND (randomized OR "impact evaluation")
-- ("employment services" OR "skills training") AND (earnings OR employment) AND (evaluation)
-- (livelihoods OR "income generation") AND (causal OR experimental) AND poverty
+## Quality checks and guardrails
+- Every included record must have source URL, year, domain, design, population, endpoint, finding, limitation, and an honest evidence-depth note; flag unknown cost/CI/follow-up.
+- Summarise **causal vs descriptive** evidence separately; do not treat reviews and their component studies as independent evidence counts. Avoid counting multi-country sites as separate publications.
+- Extraction and evidence ledger are a **nonexhaustive purposive catalogue**; 10 entries per area do not constitute methodological saturation or proof of generalisability.
+- Missing data, contradictions, programme ineligibility, nonparticipants' harms, cost displacement and possible digital exclusion should appear in any synthesis.
+- Never contact at-risk populations, access administrative case files, recommend eligibility determinations, claim partner participation, announce a pilot or select a territory during F0-02.1/02.2.
+- F0-02.3 geography/population shortlisting, F0-02.4 community consultation, F0-02.5 scoring and F0-05 pilot design **remain separate approval and ethics gates**.
 
-Dates: **no arbitrary exclusion by publication date** during preliminary mapping; record year, recency and relevance. Languages: English and Italian initially because those can currently be assessed reliably; translations in other languages are welcome with source-language verification. Record resulting language and database coverage bias. Country scope: worldwide, but document limits of cross-country transferability.
-
-## Search log and screening reproducibility
-
-Use [search-log-template.csv](search-log-template.csv) as the audit trail; one row per query per source, timestamp UTC, raw query, filters, hits reported, exported count, screen decision and operator. Capture DOI/URL, source record identifiers and duplications; for inaccessible full texts, record reason. Preserve saved search exports only if licences permit.
-
-For formal reviews, establish two independent screeners and adjudication rules; record title/abstract and full-text exclusion reasons, study flow and how disagreements were resolved. Follow [PRISMA 2020](https://www.prisma-statement.org/prisma-2020) reporting guidance if a systematic review is commissioned; an evidence gap map is **not automatically** a policy recommendation ([3ie methods](https://www.3ieimpact.org/evidence-hub/evidence-gap-maps)).
-
-## Evidence quality and synthesis
-
-Use a suitable risk-of-bias process by design, e.g., Cochrane RoB 2 for randomised studies and ROBINS-I for non-randomised intervention studies, with trained reviewers and transparent judgements. Predefine relevant confounders. Record study population, outcome estimate and uncertainty, follow-up, costs, conflicts of interest, potential harms and external validity. Separate the number of people reached from demonstrated participant benefit.
-
-Do not calculate pooled effects across incomparable interventions. Narrative synthesis must describe disagreements, missing evidence and study limitations. The initial [evidence ledger](evidence-ledger.csv) is a source inventory, not a quality-assessed dataset; use [extraction-template.csv](extraction-template.csv) only after formal screening.
-
-## Quality gates and open questions
-
-- [ ] Agree precise question and eligible target settings.
-- [ ] Record reproducible searches in all selected sources.
-- [ ] Screen all results using independent checks where available.
-- [ ] Complete study-quality ratings and evidence strength statements.
-- [ ] Consult independent experts and representatives of affected communities via ethical, consent-based processes.
-- [ ] Confirm lawful data access, safeguarding and partner feasibility **before** proposing a real-world pilot.
-
-**Outcome of this version:** a runnable search protocol and open templates, not a completed evidence review or evidence-backed ranking of the three domains.
+## Status and handoff
+**F0-02.1 desk protocol delivered**: an executable source/query/screen/extract/deduplication protocol and audit templates, with dated example executions. **Not delivered**: exhaustively completed bibliographic search, independent screening, formal study-quality ratings, registration or meta-analysis. These are distinct prerequisites if HPI commissions a formal review. This document is intentionally auditable rather than claiming systematic-review certification.
