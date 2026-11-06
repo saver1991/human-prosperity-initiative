@@ -143,10 +143,10 @@ try{
    await page.goto(base+"/initiatives/web-02",{waitUntil:"networkidle"});
    await page.goto(base+"/initiatives/f0-03-1",{waitUntil:"networkidle"});
    record("closed research issue does not override pending independent signoff",
-    await page.locator('[data-public-issue="19"]').getAttribute("data-issue-drift")==="true");
+    await page.locator('[data-public-issue="19"]').first().getAttribute("data-issue-drift")==="true");
    await page.goto(base+"/initiatives/web-02",{waitUntil:"networkidle"});
    record("closed issue explicitly says independent science not approved",
-    (await page.locator('[data-public-issue="33"]').textContent()).includes("not an independent science approval"));
+    (await page.locator('[data-public-issue="33"]').first().textContent()).includes("not an independent science approval"));
    await page.unroute("**/api/issues");
    await page.route("**/api/issues",route=>route.fulfill({
     status:503,contentType:"application/json",body:'{"error":"provider_unavailable"}'
