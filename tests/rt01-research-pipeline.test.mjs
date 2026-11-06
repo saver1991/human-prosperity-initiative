@@ -21,7 +21,7 @@ test("RT-01.3 all nine allowlisted sources yield deterministic exact-byte open s
  assert.equal(a.report.sourceAudit.structuredAbstractOrSummaryCount,34);
  assert.equal(a.report.sourceAudit.curatedDatasetCandidateCount,3);
  assert.equal(a.report.sourceAudit.formallyBiasReviewedCount,0);
- assert.equal(a.report.syntheticResult.observedDifferencePercentagePoints,5);
+ assert.ok(Math.abs(a.report.syntheticResult.observedDifferencePercentagePoints-5)<1e-10);
  assert.equal(a.report.syntheticResult.causalInterpretation,"NOT_SUPPORTED");
  assert.equal(a.report.caveats.realWorldImpactMeasured,false);
  assert.equal(a.report.caveats.participantDataProcessed,false);
