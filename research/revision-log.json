@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "policy": "append_only_reviewed_source_corrections",
+  "entries": [
+    {
+      "release": "rt01-3-v1",
+      "date": "2026-11-06",
+      "changeType": "initial_release",
+      "supersedes": null,
+      "description": "Initial technical open-science pipeline with public-source metadata, synthetic outcome auditing, content digests and explicit independent-review gates; no real participant data."
+    }
+  ]
+}
