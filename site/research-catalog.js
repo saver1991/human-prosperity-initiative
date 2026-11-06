@@ -2,6 +2,8 @@
  * No API calls, cookies, analytics, or research participant data.
  */
 (()=>{
+ const form=document.querySelector("form.source-search");
+ form?.addEventListener("submit",event=>event.preventDefault());
  const input=document.querySelector("#source-filter");
  const type=document.querySelector("#source-kind");
  const status=document.querySelector("#source-count");
