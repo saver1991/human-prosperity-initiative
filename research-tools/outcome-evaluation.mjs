@@ -127,6 +127,18 @@ export function analyzeOutcomeScenario(spec,indicator){
  const missingBounds=x=>({lower:x.received/x.eligible,
   upper:(x.received+x.missingFollowup)/x.eligible});
  const bounds0=missingBounds(c),bounds1=missingBounds(t);
+ if(c.strata.length!==t.strata.length||
+   c.strata.some(x=>!t.strata.some(y=>y.category===x.category)))
+  throw Error("Equity strata categories must match across groups");
+ const equityComparisons=c.strata.map(x=>{
+  const y=t.strata.find(z=>z.category===x.category);
+  return {category:x.category,referenceObservedRate:x.observedRate,
+   comparisonObservedRate:y.observedRate,
+   descriptiveDifferencePercentagePoints:x.observedRate===null||y.observedRate===null?
+    null:(y.observedRate-x.observedRate)*100,
+   causalInterpretation:"NOT_SUPPORTED"};
+ });
+
  const interval=spec.independentBinomialAssumption?{
   reference:wilson95(c.received,c.observed),
   comparison:wilson95(t.received,t.observed),
@@ -139,6 +151,7 @@ export function analyzeOutcomeScenario(spec,indicator){
   timeframe:spec.timeframe,currency:spec.currency,
   reference:r0,comparison:r1,
   observedDifferencePercentagePoints:diff*100,
+  equityComparisons,
   observedRiskRatio:p0===0?null:p1/p0,
   missingnessSensitivity:{
    reference:bounds0,comparison:bounds1,
