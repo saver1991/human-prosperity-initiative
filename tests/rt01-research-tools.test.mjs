@@ -4,6 +4,7 @@ import {readFile} from "node:fs/promises";
 import {auditEvidenceMetadata} from "../research-tools/evidence-provenance.mjs";
 import {compareAggregateOutcomes} from "../research-tools/aggregate-outcomes.mjs";
 import {runAudit} from "../scripts/rt01-repro-check.mjs";
+import {auditStructuredEvidence} from "../research-tools/structured-evidence.mjs";
 test("RT-01 source integrity validates current public ledger without declaring scientific quality",async()=>{
  const source=await readFile("research/evidence-ledger.csv","utf8");
  const a=auditEvidenceMetadata(source),b=auditEvidenceMetadata(source);
@@ -26,6 +27,22 @@ test("RT-01 source integrity refuses invalid IDs, duplicate IDs, unsafe sources 
  assert.throws(()=>auditEvidenceMetadata(hdr+row.replace("2025","nope")),/Bad study year/);
  assert.throws(()=>auditEvidenceMetadata("garbage"),/empty|schema/i);
 });
+
+test("RT-01 distinguishes abstract-level evidence records from distinct study families",async()=>{
+ const raw=await readFile("research/F0-02-structured-evidence-2026-11-06.csv","utf8");
+ const summary=auditStructuredEvidence(raw);
+ assert.equal(summary.recordCount,34);
+ assert.equal(summary.formallyRiskOfBiasAssessed,0);
+ assert.equal(summary.abstractsOrSummariesOnly,summary.recordCount);
+ assert.ok(summary.candidateStudyFamilyCount<=summary.recordCount);
+ assert.equal(summary.byDomain.benefit_access,10);
+ assert.equal(summary.byDomain.essential_costs,12);
+ assert.equal(summary.byDomain.economic_opportunity,12);
+ assert.equal(summary.scientificReviewCompleted,false);
+ assert.equal(summary.verifiedTreatmentEffects,false);
+ assert.throws(()=>auditStructuredEvidence(raw.replace("not_assessed","low_risk")),/Formal risk of bias/);
+});
+
 const scenario=(c={eligible:100,received:6,missingFollowup:0},t={eligible:100,received:11,missingFollowup:0})=>({
  name:"Synthetic welfare outreach example",sourceType:"synthetic",metric:"Award receipt",
  followupDescription:"Fixed synthetic follow-up; no real study",control:c,comparison:t
@@ -62,4 +79,6 @@ test("RT-01 offline entrypoint yields provenance and synthetic comparison only",
  assert.equal(report.participantRecordsUsed,false);
  assert.equal(report.synthetic.sourceType,"synthetic");
  assert.ok(report.evidence.recordCount>=30);
+ assert.equal(report.structuredEvidence.recordCount,34);
+ assert.equal(report.structuredEvidence.formallyRiskOfBiasAssessed,0);
 });
