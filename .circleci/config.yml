@@ -22,6 +22,13 @@ jobs:
       - run:
           name: Build and test HPI website
           command: npm run check
+      - run:
+          name: Archive exact public-source research artifact attestations (RT-01.3)
+          command: npm run research:pipeline:archive
+      - store_artifacts:
+          path: qa-artifacts/research-pipeline
+          destination: open-research-reproducibility
+          when: always
       - persist_to_workspace:
           root: .
           paths:
@@ -91,6 +98,7 @@ workflows:
           requires:
             - website-quality
 # CircleCI only. Scheduled operations run with ops_watch=true and do not run browser build.
+# Open-science report verification and archiving reuse website-quality; no external data or paid jobs.
 # CircleCI failure status is a monitoring signal; recipient email/push alerts are provider-account settings.
 # Vercel Git integration deploys independently with npm run check.
 # The browser test container and tools are version-pinned; no GitHub Actions.

@@ -90,7 +90,13 @@ test("research tools and deferred business hypotheses cannot be misrepresented a
  assert.equal(delivered[0].tasks.length+delivered[1].tasks.length,8);
  assert.ok(delivered[0].tasks.every(t=>t.evidence.endsWith("/pull/63")));
  assert.ok(delivered[1].tasks.every(t=>t.evidence.endsWith("/pull/64")));
- assert.ok(tools.epics.filter(e=>["RT-01.3","RT-01.4"].includes(e.id)).every(e=>e.status==="in_progress"));
+ const pipeline=tools.epics.find(e=>e.id==="RT-01.3");
+ assert.equal(pipeline.status,"complete");
+ assert.ok(pipeline.tasks.every(t=>t.status==="complete"&&t.evidence.endsWith("/pull/65")));
+ assert.equal(pipeline.tasks.length,4);
+ assert.equal(tools.epics.find(e=>e.id==="RT-01.4").status,"in_progress");
+ assert.equal(tools.epics.flatMap(e=>e.tasks).filter(t=>t.status==="complete").length,12);
+ assert.equal(model.validatedHumanImpact,false);
  const accepted=tools.epics.flatMap(e=>e.tasks).filter(t=>t.status==="documented");
  assert.deepEqual(accepted.map(t=>t.id),["RT-01.4-T04"]);
  assert.equal(accepted[0].evidence,"https://github.com/saver1991/human-prosperity-initiative/pull/62");

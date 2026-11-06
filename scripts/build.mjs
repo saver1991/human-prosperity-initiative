@@ -5,6 +5,7 @@ import {buildPublicRoadmap} from "./roadmap-model.mjs";
 import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
 import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
 import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
+import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -88,6 +89,10 @@ await cp("site/research-catalog.js","dist/research-catalog.js");
 await cp("site/outcome-lab.js","dist/outcome-lab.js");
 await cp("research-tools/outcome-evaluation.mjs","dist/research-outcome-evaluation.js");
 await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-outcome-template.json");
+await cp("research/notebooks/rt01-public-source-workflow.ipynb","dist/research-reproducibility-notebook.ipynb");
+const researchBundle=await generateResearchArtifacts({load:source=>readFile(source,"utf8")});
+for(const [name,filename] of Object.entries(PUBLIC_OUTPUTS))
+ await writeFile(ROOT+"/"+filename,researchBundle.outputs[name],"utf8");
 await writeFile(ROOT+"/research-source-catalog.json",JSON.stringify(sourceCatalog,null,2)+"\n");
 await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatalog));
 const sectionFor=source=>source.startsWith("research/")?"Research":
@@ -153,7 +158,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a></p>'+
+ '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -227,6 +232,38 @@ await publish("/research/outcome-lab",shell({
   '<a href="/library/docs/rt-01-2-outcome-evaluation-method-v1">Evaluation method and review gates</a> · '+
   '<a href="/research/source-catalog">Source provenance catalogue</a></p></div>'
 }));
+const manifestRows=researchBundle.manifest.sourceInputs.map(source=>
+ '<tr><td>'+safe(source.path)+'</td><td><code>'+
+ safe(source.sha256.slice(0,16))+'…</code></td><td>'+safe(String(source.bytes))+'</td></tr>').join("");
+await publish("/research/reproducibility",shell({
+ title:"Reproducible open-science pipeline",section:"Research instruments",
+ description:"Inspect source-to-output lineage, citations, synthetic calculations and research limitations with byte-addressable, versioned JSON artifacts.",
+ route:"/research/reproducibility",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Reproducibility',
+ body:'<div class="index-content">'+
+  '<p class="status-note"><strong>Technical reproducibility only.</strong> All public-source evidence is metadata and the outcome example is fictional. No independently reviewed treatment effect, legal permission to redistribute external datasets or human participant study is claimed.</p>'+
+  '<h2>Research pipeline checks</h2>'+
+  '<p>Existing public references: <strong>'+safe(String(researchBundle.report.sourceAudit.publicReferenceCount))+'</strong>. Abstract-level research records: <strong>'+
+  safe(String(researchBundle.report.sourceAudit.structuredAbstractOrSummaryCount))+'</strong>. Dataset candidates (not downloaded): <strong>'+
+  safe(String(researchBundle.report.sourceAudit.curatedDatasetCandidateCount))+'</strong>.</p>'+
+  '<p>Illustrative benefit-receipt comparison: <strong>'+safe(String(researchBundle.report.syntheticResult.observedDifferencePercentagePoints))+
+  ' percentage points</strong>; causal interpretation: <strong>'+safe(researchBundle.report.syntheticResult.causalInterpretation)+
+  '</strong>. The simulation is theoretical and can neither validate an outcome measure nor determine policy effectiveness.</p>'+
+  '<h2>Versioned, auditable artifacts</h2><ul>'+
+  '<li><a href="/research-pipeline-report.json">Pipeline report (JSON)</a></li>'+
+  '<li><a href="/research-pipeline-manifest.json">Source and output SHA-256 manifest (JSON)</a></li>'+
+  '<li><a href="/research-citation-manifest.json">Citation and source-rights manifest (JSON)</a></li>'+
+  '<li><a href="/research-data-dictionary.json">Data dictionary (JSON)</a></li>'+
+  '<li><a href="/research-revision-log.json">Correction and supersession history (JSON)</a></li>'+
+  '<li><a href="/research-reproducibility-notebook.ipynb">Optional example notebook (Jupyter format)</a></li>'+
+  '</ul>'+
+  '<h2>Public input provenance</h2><div class="doc-table-wrap" role="region" tabindex="0" aria-label="Content hashes for research pipeline inputs"><table>'+
+  '<thead><tr><th scope="col">Source</th><th scope="col">SHA-256 prefix</th><th scope="col">UTF-8 bytes</th></tr></thead><tbody>'+
+  manifestRows+'</tbody></table></div>'+
+  '<p>Full hashes and exact byte lengths are in the JSON manifest. Source code uses Node.js 22 standard-library utilities, CircleCI and the existing Git repository; no separate paid data pipeline or GitHub Actions are required.</p>'+
+  '<h2>Reuse and independent review</h2><p>Software is MIT; original HPI-authored documentation is CC BY 4.0. These licences <strong>do not cover third-party research or datasets</strong>. Source rights, scientific methods, human research consent and real-world impact still require separate review.</p>'+
+  '<p><a href="/library/docs/rt-01-3-reproducible-open-science-v1">Full method, reproduction and correction rules</a> · <a href="/research/source-catalog">Source catalogue</a> · <a href="/research/outcome-lab">Hypothetical outcomes lab</a> · <a href="/status">Published Git revision</a></p></div>'
+}));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -293,7 +330,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
@@ -302,7 +339,7 @@ await writeFile(ROOT+"/robots.txt","User-agent: *\nAllow: /\nSitemap: "+ORIGIN+"
 await writeFile(ROOT+"/publication.json",JSON.stringify({
  status:"published_from_git",revision,generatedAt:publishedAt,
  sourceFileCount:docLinks.length,sourcePaths:docLinks.map(x=>x.source),
- routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,activeInitiative:descriptor.currentInitiative
+ routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
 },null,2)+"\n");
 console.log("HPI published: "+docLinks.length+" document routes, "+allRoutes.length+
  " total routes, "+(evidence.length-1)+" evidence entries; revision "+revision);
