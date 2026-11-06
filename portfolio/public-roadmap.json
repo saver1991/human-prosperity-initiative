@@ -429,7 +429,7 @@
       "id": "WEB-02",
       "kind": "platform",
       "summary": "Make the real HPI roadmap understandable on the website through initiative, epic and task pages, without misleading impact claims.",
-      "gate": "WEB-02.1–WEB-02.5 have technical delivery evidence. WEB-02.6 final browser, accessibility and release acceptance is in progress. Scientific and participant impact approvals remain separate.",
+      "gate": "The six WEBSITE engineering epics and all 31 scoped technical tasks have PR-backed delivery evidence. This does not constitute any independently validated poverty reduction, ratified charter, human participant approval, actual screen-reader assessment or WEB-01 post-merge deployment hold.",
       "deliverables": [
         {
           "label": "Roadmap source document",
@@ -446,6 +446,10 @@
         {
           "label": "SolOS / HubOS governance integration",
           "url": "/library/docs/web-02-cross-system-integration"
+        },
+        {
+          "label": "Release, accessibility and maintenance runbook",
+          "url": "/library/docs/web-02-release-and-maintenance"
         }
       ],
       "epics": [
@@ -674,38 +678,43 @@
         {
           "id": "WEB-02.6",
           "title": "Accessibility, release and maintenance",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 35,
           "tasks": [
             {
               "id": "WEB-02.6-T01",
               "title": "Add automated unit/contract tests and Playwright Chromium E2E for routes, issue states, filters, keyboard navigation, focus, 200% text enlargement and 400% reflow-equivalent.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/43"
             },
             {
               "id": "WEB-02.6-T02",
               "title": "Run axe-core WCAG 2.2 AA and accessible-name checks; record limitations of automation versus genuine screen-reader verification.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/43"
             },
             {
               "id": "WEB-02.6-T03",
               "title": "Test mobile/tablet/desktop layouts, canonical SEO, navigation of all first-party documents, screen reader semantics and safe provider outage.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/43"
             },
             {
               "id": "WEB-02.6-T04",
               "title": "Verify CircleCI (not GitHub Actions), Vercel Preview and exact production revision; keep WEB-01 release protections and monitoring intact.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/43"
             },
             {
               "id": "WEB-02.6-T05",
               "title": "Define ownership, staleness policy, independent content review needs, rollback and maintenance runbook with no invented progress counters.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/35",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/43"
             }
           ]
         }

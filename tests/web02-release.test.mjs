@@ -29,12 +29,12 @@ test("task acceptance denominator never includes missing evidence or scientific 
  const web=model.initiatives.find(x=>x.id==="WEB-02");
  const result=acceptedTechnicalTasks(web);
  assert.equal(result.total,31);
- assert.equal(result.accepted,26);
+ assert.equal(result.accepted,31);
  assert.equal(result.evidenceMissing,0);
  assert.equal(result.impactVerified,false);
  assert.equal(model.validatedHumanImpact,false);
  const remaining=web.epics.find(x=>x.id==="WEB-02.6");
- assert.ok(remaining.tasks.every(t=>t.status==="planned"));
+ assert.ok(remaining.tasks.every(t=>t.status==="complete"&&t.evidence));
 });
 test("roadmap read-only source and safe outage states are linked from the live website",async()=>{
  const home=await readFile("dist/roadmap.html","utf8");

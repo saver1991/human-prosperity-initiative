@@ -113,7 +113,7 @@
     {
       "id": "WEB-02",
       "name": "Public Roadmap & Progress Transparency",
-      "status": "in_progress",
+      "status": "complete",
       "priority": "P1",
       "horizon": "Next",
       "issue": 29,
@@ -163,7 +163,8 @@
         "WEB-02.2",
         "WEB-02.3",
         "WEB-02.4",
-        "WEB-02.5"
+        "WEB-02.5",
+        "WEB-02.6"
       ],
       "pendingFounderApproval": []
     },
