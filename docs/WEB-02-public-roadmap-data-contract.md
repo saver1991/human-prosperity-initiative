@@ -10,7 +10,7 @@
 | `portfolio/project.json` | HPI GitHub | Stable workstream IDs, owners as **roles only**, provisional stage/horizon/issue number | Limited task detail and occasional planned statuses despite published drafts | Canonical **ID, title, phase, priority and editorial status** for the website |
 | `portfolio/public-roadmap.json` | HPI GitHub | **New** reviewable public enrichment: summary, gate, deliverables, epic/task *snapshot* | Can become stale without verification; must not be mistaken for live GitHub state | Include prominent snapshot date, public data provenance and no invented completion percentages |
 | GitHub Issues | HPI GitHub | Actual open/closed state, comments, checklists and source discussion | Closing an issue does not itself prove scientific/ethics approval | Authoritative source and action links. A future dynamic status overlay must fail closed, never reinterpret a closed issue as validated impact |
-| `/activity` and `/api/issues` | Public site | Cached, on-demand public issue feed (separate existing implementation) | Rate limits and partial top-100 feed; requires staleness handling | Keep source link; WEB-02.4 will add bounded reconciliation, **not** implemented by this epic |
+| `/activity` and `/api/issues` | Public site | Cached, on-demand public issue feed (separate existing implementation) | Rate limits and partial top-100 feed; requires staleness handling | Keep source link; WEB-02.4 added read-only, 15-minute bounded issue freshness and explicit drift states |
 | SolOS HPI profile | SolOS versioned project catalogue | Explicit read-only, possibly older snapshot; no task-sync API | Stale data or false implication of automatic status sync | SolOS displays pinned snapshot with age/revision, not source authority |
 | HubOS | Portfolio governance | HPI programme authority, technical ownership and broader tracking | Duplicates when a GitHub issue is mistaken for a new portfolio DB record | HubOS carries governance; never silently write an HPI/HubOS/SolOS database |
 | Scientific documents | HPI GitHub | F0-01 V0.4 candidate, F0-03 V0.1 candidate, F0-03.1 internal pre-review | A published paper/webpage can be mistaken for independently validated research | Display review gates, nonparticipants' harms and absence of measured impact explicitly |
@@ -41,9 +41,9 @@ The audited programme tree is **Programme → Initiative → Epic → Task**. St
 1. WEB-02.1: **delivered** public model, test fixtures, provenance and source matrix ([PR #37](https://github.com/saver1991/human-prosperity-initiative/pull/37)).
 2. WEB-02.2: **delivered** accessible [/roadmap](/roadmap) dashboard with Now/Next/Later, thematic separation, first-party documentation and honest snapshot banner ([PR #38](https://github.com/saver1991/human-prosperity-initiative/pull/38)).
 3. WEB-02.3: **delivered** 11 stable [/initiatives/web-02](/initiatives/web-02) and sibling initiative detail pages with nested epic/task lists and first-party sources ([PR #39](https://github.com/saver1991/human-prosperity-initiative/pull/39)).
-4. WEB-02.4 (**not authorised in current iteration**): reconcile live issue event/status feed with source SHA and staleness, improving evidence-based progress reporting.
-5. WEB-02.5 (**deferred**): permission-gated SolOS read-only projection and actual HubOS registration after duplicate-check.
-6. WEB-02.6 (**deferred**): comprehensive release QA/maintenance work; existing CircleCI, Playwright and Vercel gates still apply during each stage.
+4. WEB-02.4: **delivered** the read-only public issue freshness and contradiction overlay, without task writeback ([PR #41](https://github.com/saver1991/human-prosperity-initiative/pull/41)).
+5. WEB-02.5: **delivered** the GET-only SolOS HPI projection and an idempotent governance mirror under the existing HPI company in HubOS (see [cross-system record](WEB-02-cross-system-integration.md)).
+6. WEB-02.6: **approved and in progress** for final release QA, accessibility and the maintenance runbook; existing CircleCI, Playwright and Vercel gates still apply.
 
 ## Security and science boundaries
 
