@@ -85,11 +85,16 @@ test("research tools and deferred business hypotheses cannot be misrepresented a
  assert.equal(tools.status,"in_progress");
  assert.equal(tools.epics.length,4);
  assert.equal(tools.epics.flatMap(x=>x.tasks).length,16);
- assert.ok(tools.epics.every(e=>e.status==="in_progress"));
+ const delivered=tools.epics.filter(e=>["RT-01.1","RT-01.2"].includes(e.id));
+ assert.ok(delivered.every(e=>e.status==="complete"&&e.tasks.every(t=>t.status==="complete"&&t.evidence)));
+ assert.equal(delivered[0].tasks.length+delivered[1].tasks.length,8);
+ assert.ok(delivered[0].tasks.every(t=>t.evidence.endsWith("/pull/63")));
+ assert.ok(delivered[1].tasks.every(t=>t.evidence.endsWith("/pull/64")));
+ assert.ok(tools.epics.filter(e=>["RT-01.3","RT-01.4"].includes(e.id)).every(e=>e.status==="in_progress"));
  const accepted=tools.epics.flatMap(e=>e.tasks).filter(t=>t.status==="documented");
  assert.deepEqual(accepted.map(t=>t.id),["RT-01.4-T04"]);
  assert.equal(accepted[0].evidence,"https://github.com/saver1991/human-prosperity-initiative/pull/62");
- assert.ok(tools.epics.flatMap(e=>e.tasks).filter(t=>t.status!=="documented").every(t=>t.status==="planned"&&t.evidence===null));
+ assert.ok(tools.epics.flatMap(e=>e.tasks).filter(t=>t.status==="planned").every(t=>t.evidence===null));
  const governance=model.initiatives.find(x=>x.id==="F0-04");
  const deferred=governance.epics.find(x=>x.id==="F0-04.8");
  assert.ok(deferred);
