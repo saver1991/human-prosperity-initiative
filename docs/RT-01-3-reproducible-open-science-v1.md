@@ -2,6 +2,8 @@
 
 **Status:** Technical pipeline implemented for existing **public evidence metadata and synthetic examples**. It is **not** an approved study, a third-party data redistribution licence, a validated causal model or a tested international field intervention. HPI remains an unincorporated initiative.
 
+The [research pipeline architecture decision](decisions/0003-offline-research-pipeline.md) records the reason for keeping workflows in Node.js 22, CircleCI and Vercel rather than introducing paid platforms, GitHub Actions or duplicate SolOS research storage.
+
 ## Purpose and first-party outputs
 
 The pipeline makes our previous work independently auditable as **code and sources**, not merely published prose. It transforms versioned HPI source files into content-addressed reports and public reproducibility metadata with **no credentials, network requests, new paid APIs or participant records**.
