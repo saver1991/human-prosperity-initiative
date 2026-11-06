@@ -36,7 +36,9 @@ test("latest status wins if GitHub returns historical pending entries",()=>{
 test("daily public probe validates website, provenance, CI and estimates public commit velocity",async()=>{
  const report=await inspect({fetchImpl:fixture(),now:NOW});
  assert.equal(report.result,"passed");
- assert.equal(report.routes.length,7);
+ assert.equal(report.routes.length,9);
+ assert.ok(report.routes.some(x=>x.path==="/initiatives/web-02"));
+ assert.ok(report.routes.some(x=>x.path==="/initiatives/f0-03-1"));
  assert.equal(report.ci["ci/circleci: browser-accessibility"],"success");
  assert.equal(report.resourceSignals.publicMainCommitsLast7Days,1);
  assert.equal(report.resourceSignals.providerBilledCost,null);

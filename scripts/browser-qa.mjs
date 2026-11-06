@@ -54,9 +54,13 @@ const widths=[
  {name:"tablet",width:768,height:1024},
  {name:"desktop",width:1440,height:900}
 ];
+const publicModel=JSON.parse(await readFile(resolve(distRoot,"public-roadmap.json"),"utf8"));
+if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==11)
+ throw new Error("QA requires an explicit audited list of 11 first-party initiatives");
+const initiativeRoutes=publicModel.initiatives.map(x=>
+ "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
 const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
- "/library","/activity","/status","/contribute","/governance",
- "/initiatives/web-02","/initiatives/f0-02","/initiatives/f0-03-1","/initiatives/web-01"];
+ "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
  automationScope:"Chromium axe WCAG 2.2 AA; zoom-equivalent reflow; CSS text-resize stress; ARIA snapshots; keyboard traversal. Not a real screen reader or OS zoom audit."};
@@ -89,13 +93,27 @@ try{
    record(viewport.name+" "+route+" no horizontal document overflow",
     layout.docWidth<=layout.viewportWidth+2,JSON.stringify(layout));
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
+   if(route==="/roadmap"||route.startsWith("/initiatives/")){
+    const seo=await page.evaluate(()=>({
+     canonical:document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
+     title:document.title,
+     description:document.querySelector('meta[name="description"]')?.content,
+     linkCount:document.querySelectorAll('a[href^="/"]').length
+    }));
+    record(viewport.name+" "+route+" canonical SEO points to this first-party page",
+     seo.canonical==="https://human-prosperity-initiative.vercel.app"+route,
+     JSON.stringify(seo));
+    record(viewport.name+" "+route+" accessible page title, description and internal navigation",
+     Boolean(seo.title&&seo.description&&seo.linkCount>=4),JSON.stringify(seo));
+   }
    if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/roadmap","/activity","/initiatives/web-02"].includes(route)){
     const screenshot=viewport.name+"-"+(route==="/"? "home":route.slice(1).replaceAll("/","-"))+".png";
     await page.screenshot({path:resolve(output,screenshot),fullPage:true});
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      ["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status","/initiatives/web-02","/initiatives/f0-03-1"].includes(route)){
+      (["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)||
+      initiativeRoutes.includes(route))){
     const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
     const serious=result.violations;
     for(const violation of result.violations){
@@ -128,6 +146,19 @@ try{
    record("external discussion clearly linked",href==="https://github.com/saver1991/human-prosperity-initiative/issues/9");
    const local=await page.locator("#issue-list .issue-row a.issue-local").first().getAttribute("href");
    record("on-site issue to initiative navigation",local==="/initiatives/web-01");
+   await page.goto(base+"/roadmap",{waitUntil:"networkidle"});
+   await page.locator('.rp-shortcuts a[href="#next"]').focus();
+   await page.keyboard.press("Enter");
+   record("keyboard roadmap horizon navigation",
+    new URL(page.url()).hash==="#next");
+   await page.goto(base+"/roadmap",{waitUntil:"networkidle"});
+   await page.locator(".rp-card-action").first().click();
+   record("roadmap card opens canonical first-party initiative",
+    new URL(page.url()).pathname.startsWith("/initiatives/"));
+   await page.goto(base+"/initiatives/f0-03-1",{waitUntil:"networkidle"});
+   await page.locator(".rp-doc-links a").first().click();
+   record("scientific document opens on HPI without GitHub redirect",
+    new URL(page.url()).pathname==="/research/f0-03-methodological-pre-review-2026-11-05");
    await page.goto(base+"/roadmap",{waitUntil:"networkidle"});
    record("read-only public issue feed status visible",
     (await page.locator("[data-feed-health]").textContent()).includes("Public issue feed available"));
@@ -181,7 +212,7 @@ try{
    viewport:{width:scenario.width,height:900},reducedMotion:"reduce",deviceScaleFactor:1
   });
   for(const route of ["/","/mission","/research","/research/evidence-ledger",
-   "/library","/activity","/status","/contribute","/governance","/initiatives/web-02"]){
+   "/library","/activity","/status","/contribute","/governance","/roadmap","/initiatives/web-02","/initiatives/f0-03-1"]){
    const page=await context.newPage();
    const response=await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
    record(scenario.name+" "+route+" HTTP 200",response?.status()===200);
@@ -217,7 +248,7 @@ try{
  // DOM/CSS simulation; OS browser/text zoom and real AT remain distinct.
  const textContext=await browser.newContext({viewport:{width:1280,height:900},
   reducedMotion:"reduce",deviceScaleFactor:1});
- for(const route of ["/","/research","/library","/status"]){
+ for(const route of ["/","/research","/library","/status","/roadmap","/initiatives/web-02"]){
   const page=await textContext.newPage();
   await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
   const before=await page.evaluate(()=>({
@@ -253,7 +284,7 @@ try{
  // technology's semantic tree. It is not NVDA/VoiceOver speech validation.
  const keyboardContext=await browser.newContext({viewport:{width:1440,height:900},
   reducedMotion:"reduce",deviceScaleFactor:1});
- for(const route of ["/","/research","/status","/initiatives/web-02"]){
+ for(const route of ["/","/research","/status","/roadmap","/initiatives/web-02","/initiatives/f0-03-1"]){
   const page=await keyboardContext.newPage();
   await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
   const mainSnapshot=await page.locator("main").ariaSnapshot();
