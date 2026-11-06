@@ -72,7 +72,7 @@ test("all internal links resolve to generated local pages, including cross-docum
   for(const href of hrefs){
    if(!href.startsWith("/")||href.startsWith("//"))continue;
    const route=href.split(/[?#]/)[0];
-   const page=route==="/"?"dist/index.html":/\.(json|txt|xml|svg|js|css)$/.test(route)?"dist"+route:"dist"+route+".html";
+   const page=route==="/"?"dist/index.html":/\.(json|csv|txt|xml|svg|js|css)$/.test(route)?"dist"+route:"dist"+route+".html";
    await assert.doesNotReject(()=>stat(page),"Broken internal link "+href+" on "+file);
   }
  }
