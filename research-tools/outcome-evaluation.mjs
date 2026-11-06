@@ -67,7 +67,8 @@ export function wilson95(successes,observations){
  const p=successes/observations,z2=Z95*Z95,denom=1+z2/observations;
  const mid=(p+z2/(2*observations))/denom;
  const width=Z95*Math.sqrt((p*(1-p)+z2/(4*observations))/observations)/denom;
- return {lower:Math.max(0,mid-width),upper:Math.min(1,mid+width),
+ return {lower:successes===0?0:Math.max(0,mid-width),
+  upper:successes===observations?1:Math.min(1,mid+width),
   coverage:"95%",method:"Wilson score (conditional independent Bernoulli sample)"};
 }
 export function newcombeDifference95(reference,comparison){
@@ -142,7 +143,8 @@ export function analyzeOutcomeScenario(spec,indicator){
  const interval=spec.independentBinomialAssumption?{
   reference:wilson95(c.received,c.observed),
   comparison:wilson95(t.received,t.observed),
-  difference:newcombeDifference95(c,t)
+  difference:newcombeDifference95({received:c.received,observed:c.observed},
+   {received:t.received,observed:t.observed})
  }:null;
  return {
   schemaVersion:"1.0",kind:"hpi-descriptive-outcome-audit",
