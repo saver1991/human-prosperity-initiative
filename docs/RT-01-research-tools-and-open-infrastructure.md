@@ -1,6 +1,6 @@
 # RT-01 — Open Research Tools & Infrastructure
 
-**Status:** P1 · NEXT · PLANNING (no new deployed research engine or experimental tool implied). **Date:** 6 November 2026.
+**Status:** P1 · NEXT · IN PROGRESS — initial offline public-source prototype under review; no participant-linked tools, independent science approval, deployed autonomous engine or real outcomes implied. **Date:** 6 November 2026.
 **Source:** [RT-01 parent issue #55](https://github.com/saver1991/human-prosperity-initiative/issues/55). HPI is an international public-interest research initiative, not currently a legal nonprofit, foundation or company.
 
 ## Why research also needs tools
@@ -17,6 +17,17 @@ The following are proposed products/platform capabilities, NOT validated scienti
 | **RT-01.4** [#59](https://github.com/saver1991/human-prosperity-initiative/issues/59) | Data safeguards, open-source/licence/attribution checks, accessibility and independent reporting | External ethical/legal approval before real participant data or fieldwork |
 
 **Tasks currently:** four proposed tasks per epic (16 total); this is an *architecture and prioritisation plan*, not 16 implemented tools.
+
+## V0.1 offline implementation (6 November 2026)
+
+The [RT-01 reproducible validation tools V0.1](RT-01-reproducible-validation-tools-v0.1.md) describe **implemented source-level tooling** proposed through [PR #62](https://github.com/saver1991/human-prosperity-initiative/pull/62):
+
+- Metadata-only SHA-256 and schema/provenance checks for the existing public source ledger (`research-tools/evidence-provenance.mjs`).
+- Aggregate descriptive-rate and missing-follow-up comparison with explicit noncausal result labels (`research-tools/aggregate-outcomes.mjs`).
+- A local, offline `npm run research:verify` reproducibility command using **synthetic fixtures** and the public Git source ledger.
+- Unit tests for malformed source, unsafe primary URLs, duplicate IDs, bad counts, forbidden person-level fields, negative results and missing observations.
+
+**Software implementation does not validate an intervention or scientific method.** Broader RT-01 tasks — licences and source rights, complete data catalogues/adapters, independently justified uncertainty models, accessible hosted research tools, and actual methodological review — remain open. No personal data, external partner, funding, research protocol approval or causal effect has been introduced.
 
 ## Existing reusable foundations — already built, not counted again
 - Versioned [F0-02 search protocol](../research/research-protocol.md), [evidence ledger](../research/evidence-ledger.csv) and source-linked critical synthesis, with explicit limitations of abstract-level extraction.

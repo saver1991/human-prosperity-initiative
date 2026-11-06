@@ -1029,18 +1029,22 @@
       "id": "RT-01",
       "kind": "platform",
       "summary": "Create open-source datasets, evidence and evaluation instruments, reproducible workflows and ethical research tooling; research must be enabled by tools, not publications alone.",
-      "gate": "P1 NEXT planning only. No new research software deployed, no personal data ingested, no validated metric or experiment, no commercial model approved. F0-04 P0 remains the institutional focus.",
+      "gate": "Technical MVP V0.1 provenance + aggregate descriptive comparison code and tests under review. No production-validated research instrument, user data, statistical causal result, dataset acquisition, independent science signoff, or commercialisation. F0-04 P0 remains institutional priority.",
       "deliverables": [
         {
           "label": "Open research tools and infrastructure roadmap",
           "url": "/library/docs/rt-01-research-tools-and-open-infrastructure"
+        },
+        {
+          "label": "Research validation tools V0.1 — reproducible offline prototype",
+          "url": "/library/docs/rt-01-reproducible-validation-tools-v0-1"
         }
       ],
       "epics": [
         {
           "id": "RT-01.1",
           "title": "Evidence sources, datasets and provenance",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 56,
           "tasks": [
             {
@@ -1072,7 +1076,7 @@
         {
           "id": "RT-01.2",
           "title": "Outcome measurement, evaluation and simulation",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 57,
           "tasks": [
             {
@@ -1104,7 +1108,7 @@
         {
           "id": "RT-01.3",
           "title": "Reproducible research pipelines and open science",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 58,
           "tasks": [
             {
@@ -1136,7 +1140,7 @@
         {
           "id": "RT-01.4",
           "title": "Privacy, accessibility and responsible tool governance",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 59,
           "tasks": [
             {
@@ -1160,8 +1164,9 @@
             {
               "id": "RT-01.4-T04",
               "title": "Separate delivered code, scientific validation, hypothetical simulations and measured beneficiary impact",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/62"
             }
           ]
         }
