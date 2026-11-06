@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
  throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/evidence-ledger",
+const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -107,6 +107,17 @@ try{
     await page.locator("#run-synthetic-simulation").click();
     record(viewport.name+" seeded synthetic simulation is explicitly not a real-world CI",
      (await page.locator("#simulation-result").textContent()).includes("NOT a confidence interval"));
+   }
+
+   if(route==="/research/reproducibility"){
+    const body=(await page.locator("main").textContent())||"";
+    record(viewport.name+" research pipeline maintains scientific trust boundaries",
+      body.includes("Technical reproducibility only")&&body.includes("NOT_SUPPORTED")&&
+      body.includes("third-party research or datasets"));
+    record(viewport.name+" research pipeline publishes 5 first-party JSON outputs",
+      await page.locator('main a[href$=".json"]').count()>=5);
+    record(viewport.name+" research reproducibility source hash table is accessible",
+      await page.locator('main table th[scope="col"]').count()===3);
    }
 if(route==="/research/source-catalog"){
     await page.locator("#source-filter").fill("pension");
