@@ -39,6 +39,8 @@ The sample illustration is **not from an HPI field experiment**: one hundred fic
 
 The original offline V0.1 prototype has now been extended by [RT-01.1 source catalogue V1](RT-01-1-source-catalog-method-v1.md), including first-party source/rights metadata and SHA-pinned safe dataset handling, and [RT-01.2 outcomes V1](RT-01-2-outcome-evaluation-method-v1.md), including conditional Wilson/Newcombe uncertainty and a hypothetical browser simulation. These technical extensions do **not** retrofit causal validity or license/ethics approvals into the original evidence map.
 
+The current toolchain also includes [RT-01.3 reproducible open science V1.0](RT-01-3-reproducible-open-science-v1.md): a deterministic content-addressed public report, cited source metadata, data dictionary, append-only corrections and the same-commit CircleCI artifact archive. All outputs are technical/synthetic until independent research review.
+
 ## Next tool milestones
 
 - Add a **source-license ledger**, explicit retrieval date and study-family duplicate metadata with schema provenance before presenting source data as reusable.
