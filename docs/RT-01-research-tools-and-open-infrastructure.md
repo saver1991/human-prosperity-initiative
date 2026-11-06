@@ -1,6 +1,6 @@
 # RT-01 — Open Research Tools & Infrastructure
 
-**Status:** P1 · NEXT · IN PROGRESS — RT-01.1, RT-01.2 and RT-01.3 technically delivered; no participant-linked tools, independent science approval, deployed autonomous engine or real outcomes implied. **Date:** 6 November 2026.
+**Status:** P1 · NEXT · TECHNICAL ROADMAP COMPLETE — RT-01.1, RT-01.2, RT-01.3 and RT-01.4 delivered as bounded public tools; no participant-linked tools, independent science approval, deployed autonomous engine or real outcomes implied. **Date:** 6 November 2026.
 **Source:** [RT-01 parent issue #55](https://github.com/saver1991/human-prosperity-initiative/issues/55). HPI is an international public-interest research initiative, not currently a legal nonprofit, foundation or company.
 
 ## Why research also needs tools
@@ -16,7 +16,7 @@ The following are proposed products/platform capabilities, NOT validated scienti
 | **RT-01.3** [#58](https://github.com/saver1991/human-prosperity-initiative/issues/58) | Reproducible scripts/notebooks, deterministic CI fixtures, artifact versioning and accessible open publishing | Test reproducibility, protect human participant data, never duplicate SolOS's private systems |
 | **RT-01.4** [#59](https://github.com/saver1991/human-prosperity-initiative/issues/59) | Data safeguards, open-source/licence/attribution checks, accessibility and independent reporting | External ethical/legal approval before real participant data or fieldwork |
 
-**Task status:** three technical epics delivered (12 of 16 scoped tasks, PRs #63/#64/#65); RT-01.4 remains open. This does not mean 12 scientific results or validated external studies.
+**Task status:** four technical epics delivered (16 of 16 scoped engineering tasks, PRs #63/#64/#65/#66); this does not mean 16 independent scientific results, legal authorisations or validated external studies.
 
 ## V0.1 offline implementation (6 November 2026)
 
@@ -29,14 +29,16 @@ The [RT-01 reproducible validation tools V0.1](RT-01-reproducible-validation-too
 
 **Software implementation does not validate an intervention or scientific method.** Broader RT-01 tasks — licences and source rights, complete data catalogues/adapters, independently justified uncertainty models, accessible hosted research tools, and actual methodological review — remain open. No personal data, external partner, funding, research protocol approval or causal effect has been introduced.
 
-## Three technically delivered research-tools epics (6 November 2026)
+## Four technically delivered research-tools epics (6 November 2026)
 
 - **RT-01.1** — source catalogue, source rights metadata, provenance, bounded synthetic/public aggregate ingestion contract, searchable first-party [source catalogue](https://human-prosperity-initiative.vercel.app/research/source-catalog), [method and review gates](RT-01-1-source-catalog-method-v1.md); accepted source PR [#63](https://github.com/saver1991/human-prosperity-initiative/pull/63).
 - **RT-01.2** — F0-03-aligned *draft* indicators, baseline and follow-up, attrition sensitivity, harms/cost/equity summaries, conditional binomial uncertainty, deterministic hypothetical simulation, interactive [synthetic outcome lab](https://human-prosperity-initiative.vercel.app/research/outcome-lab), [method and review gates](RT-01-2-outcome-evaluation-method-v1.md); accepted source PR [#64](https://github.com/saver1991/human-prosperity-initiative/pull/64).
 
 - **RT-01.3** — byte-reproducible open-science CLI/CI workflows, content-addressed JSON reporting, safe source citations and data dictionary, reviewed correction log, optional notebook and [first-party public reproducibility portal](https://human-prosperity-initiative.vercel.app/research/reproducibility); [method and limits](RT-01-3-reproducible-open-science-v1.md) and accepted [PR #65](https://github.com/saver1991/human-prosperity-initiative/pull/65).
 
-These are technically implemented **research-enabling instruments**, not validated statistical estimators for real interventions, source redistribution permission, a completed peer review, real observed outcomes or approved causal conclusions. The RT-01 parent is **IN PROGRESS**, with **RT-01.4 still open** for fuller privacy, licence compliance, accessibility and governance, and independent research review outstanding.
+- **RT-01.4** — deny-by-default public research data classification, software/data licence provenance, human ethical/scientific decision gates, bilingual low-bandwidth static [research responsibility pages](https://human-prosperity-initiative.vercel.app/research/responsible-tools) ([Italian](https://human-prosperity-initiative.vercel.app/research/responsible-tools/it)), offline plain-text policy downloads and [governance method](RT-01-4-responsible-research-and-accessibility-v1.md); technical implementation [PR #66](https://github.com/saver1991/human-prosperity-initiative/pull/66).
+
+These are technically implemented **research-enabling instruments**, not validated statistical estimators for real interventions, source redistribution permission, a completed peer review, real observed outcomes or approved causal conclusions. The RT-01 *technical roadmap* is **COMPLETE**; independent GDPR/controller and third-party licence reviews, human assistive-tech acceptance, scientific methodology approval and ethical authority for real research remain **OPEN** in F0-02/F0-03/F0-04/WEB-01. These are not granted by RT-01 software.
 
 ## Existing reusable foundations — already built, not counted again
 - Versioned [F0-02 search protocol](../research/research-protocol.md), [evidence ledger](../research/evidence-ledger.csv) and source-linked critical synthesis, with explicit limitations of abstract-level extraction.
@@ -54,7 +56,7 @@ These are technically implemented **research-enabling instruments**, not validat
 
 ## Sequence
 - **P0 NOW:** F0-04 responsible organisational, legal and financial foundations (must not be confused with a mandatory condition to write open-source prototype code).
-- **P1 NEXT, currently delivering:** RT-01.1/.2/.3 tool implementations are source-reviewed; RT-01.4 privacy and external scientific/ethical review gates are next.
+- **P1 NEXT, technical delivery achieved:** RT-01.1/.2/.3/.4 source-level tools are delivered; subsequent independent research/ethical reviews and real participant approval are outside this technical milestone.
 - **P1 later implementation:** build small audited public-source prototypes after scoped approval; synthetic data only until permissions.
 - **After independent approvals:** optional partner-led studies and lawful sensitive-data integrations, governed separately under F0-02/F0-03/F0-05.
 

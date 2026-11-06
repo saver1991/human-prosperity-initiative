@@ -41,6 +41,8 @@ The original offline V0.1 prototype has now been extended by [RT-01.1 source cat
 
 The current toolchain also includes [RT-01.3 reproducible open science V1.0](RT-01-3-reproducible-open-science-v1.md): a deterministic content-addressed public report, cited source metadata, data dictionary, append-only corrections and the same-commit CircleCI artifact archive. All outputs are technical/synthetic until independent research review.
 
+The next technical milestone [RT-01.4 privacy, accessibility and responsible research](RT-01-4-responsible-research-and-accessibility-v1.md) now adds deny-by-default publication guards, bilingual/offline access and explicit still-unapproved legal/ethics/scientific gates. Technical delivery does **not** prove GDPR-compliant anonymisation, licence ownership or policy effectiveness.
+
 ## Next tool milestones
 
 - Add a **source-license ledger**, explicit retrieval date and study-family duplicate metadata with schema provenance before presenting source data as reusable.

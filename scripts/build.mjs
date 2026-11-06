@@ -6,6 +6,7 @@ import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs"
 import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
 import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
+import {governanceStatus,validateResearchGovernance} from "../research-tools/research-governance.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -35,6 +36,8 @@ const evidence=parseCsv(content.get("research/evidence-ledger.csv"));
 const outcomeIndicator=getCandidateIndicator(content.get("research/F0-03-indicator-catalog-v0.1.csv"),"HPI-B-01");
 if(outcomeIndicator.status!=="proposed_not_validated"||outcomeIndicator.unit!=="share")
  throw Error("Synthetic outcome lab cannot claim validated or non-share indicator");
+const governancePolicy=validateResearchGovernance(JSON.parse(await readFile("research/research-governance-gates.json","utf8")));
+const governance=governanceStatus(governancePolicy);
 const sourceRegistry=JSON.parse(await readFile("research/public-dataset-registry.json","utf8"));
 const sourceCatalog=buildSourceCatalog({
  ledgerCsv:content.get("research/evidence-ledger.csv"),
@@ -95,6 +98,9 @@ for(const [name,filename] of Object.entries(PUBLIC_OUTPUTS))
  await writeFile(ROOT+"/"+filename,researchBundle.outputs[name],"utf8");
 await writeFile(ROOT+"/research-source-catalog.json",JSON.stringify(sourceCatalog,null,2)+"\n");
 await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatalog));
+await writeFile(ROOT+"/research-governance-status.json",JSON.stringify(governance,null,2)+"\n");
+await cp("research/responsible-tools.en.txt","dist/responsible-tools.en.txt");
+await cp("research/responsible-tools.it.txt","dist/responsible-tools.it.txt");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -158,7 +164,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a></p>'+
+ '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a> · <a href="/research/responsible-tools">Responsible tools & privacy ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -264,6 +270,46 @@ await publish("/research/reproducibility",shell({
   '<h2>Reuse and independent review</h2><p>Software is MIT; original HPI-authored documentation is CC BY 4.0. These licences <strong>do not cover third-party research or datasets</strong>. Source rights, scientific methods, human research consent and real-world impact still require separate review.</p>'+
   '<p><a href="/library/docs/rt-01-3-reproducible-open-science-v1">Full method, reproduction and correction rules</a> · <a href="/research/source-catalog">Source catalogue</a> · <a href="/research/outcome-lab">Hypothetical outcomes lab</a> · <a href="/status">Published Git revision</a></p></div>'
 }));
+function trustRows(){
+ return governance.pendingExternalDecisions.map(d=>'<tr><th scope="row">'+safe(d.id)+
+ '</th><td>'+safe(d.topic.replaceAll("_"," "))+'</td><td>'+
+ safe(d.authority.replaceAll("_"," "))+'</td><td><strong>Pending / Da approvare</strong></td></tr>').join("");
+}
+await publish("/research/responsible-tools",shell({
+ title:"Research ethics & responsible tools",section:"Research governance",
+ description:"Public research-tool privacy, accessibility, open licence and scientific approval boundaries. Automated engineering safeguards never imply real participant approval.",
+ route:"/research/responsible-tools",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Trust & safety',
+ body:'<div class="index-content"><p><a lang="it" href="/research/responsible-tools/it" hreflang="it">Leggi in italiano</a></p>'+
+ '<p class="status-note"><strong>Public metadata and synthetic examples only.</strong> No real participants, no approved treatment effects, no independent research ethics approval, no established legal foundation and no legal/privacy certification.</p>'+
+ '<h2>Data safety by default</h2><p>Current HPI tools reject personal records, pseudonymised welfare data, unreviewed small cells, third-party content without redistribution rights and automated eligibility decisions. Even aggregate or pseudonymised records can allow re-identification; contextual human review is required.</p>'+
+ '<p><a href="/research-governance-status.json">Download machine-readable policy status (JSON)</a> · <a href="/responsible-tools.en.txt" download>Offline English text</a> · '+
+ '<a href="/library/docs/rt-01-4-responsible-research-and-accessibility-v1">Review the full methodology and approval checklist</a></p>'+
+ '<h2>Independent approvals still required</h2>'+
+ '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="External governance gates still pending">'+
+ '<table><thead><tr><th scope="col">Gate</th><th scope="col">Topic</th><th scope="col">Required reviewer</th><th scope="col">Status</th></tr></thead><tbody>'+trustRows()+'</tbody></table></div>'+
+ '<h2>What our software can demonstrate</h2><p><strong>Developed and automated-tested:</strong> source catalog, synthetic evaluation and reproducible workflow. <strong>Not established:</strong> clinical/social trial, validated causal effect, general legal rights to reuse external data, independent peer review or measured improvement in human prosperity.</p>'+
+ '<h2>Accessibility and inclusion</h2><p>English and Italian plain-text pages, no login or tracker, keyboard navigation, a download suitable for offline reading, responsive layouts and a no-JavaScript baseline. Our automated Playwright/axe checks cannot stand in for real VoiceOver, NVDA or TalkBack tests; screen-reader acceptance remains open under WEB-01.</p>'+
+ '<p><a href="/research/reproducibility">Reproducible open science</a> · <a href="/research/source-catalog">Source rights</a> · <a href="/research/outcome-lab">Synthetic outcome lab</a></p></div>'
+}));
+await publish("/research/responsible-tools/it",shell({
+ title:"Etica, privacy e strumenti di ricerca",section:"Governance della ricerca",
+ description:"Regole e limiti degli strumenti pubblici HPI: protezione dei dati, accessibilità, licenze e approvazioni scientifiche non ancora ottenute.",
+ route:"/research/responsible-tools/it",lang:"it",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Ricerca</a> / Responsabilità',
+ body:'<div class="index-content"><p><a href="/research/responsible-tools" hreflang="en" lang="en">Read in English</a></p>'+
+ '<p class="status-note"><strong>Soltanto metadati pubblici ed esempi sintetici.</strong> Nessun dato di partecipanti reali, nessun effetto causale validato, nessuna autorizzazione etica indipendente e nessuna certificazione di conformità legale.</p>'+
+ '<h2>Protezione dei dati per impostazione predefinita</h2><p>Gli strumenti pubblici non consentono dati personali, registrazioni pseudonimizzate, contenuti di terzi senza permessi verificati o decisioni sull’idoneità individuale a prestazioni. Anche i dati aggregati possono permettere la reidentificazione: serve una valutazione umana specifica.</p>'+
+ '<p><a href="/research-governance-status.json">Scarica lo stato delle regole (JSON)</a> · <a href="/responsible-tools.it.txt" download>Testo in italiano per uso offline</a> · '+
+ '<a href="/library/docs/rt-01-4-responsible-research-and-accessibility-v1">Leggi il protocollo e le condizioni di approvazione</a></p>'+
+ '<h2>Verifiche esterne ancora necessarie</h2>'+
+ '<p>Restano da definire la base giuridica e i responsabili, le autorizzazioni per utilizzare dati esterni, la valutazione dei rischi di reidentificazione, il controllo etico e scientifico indipendente, la conformità nei singoli paesi e la verifica con lettori di schermo reali.</p>'+
+ '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="Verifiche esterne in sospeso">'+
+ '<table><thead><tr><th scope="col">Controllo</th><th scope="col">Ambito</th><th scope="col">Revisore richiesto</th><th scope="col">Stato</th></tr></thead><tbody>'+trustRows()+'</tbody></table></div>'+
+ '<h2>Risultati tecnici e impatto reale sono distinti</h2><p><strong>Sviluppati e verificati automaticamente:</strong> catalogo delle fonti, simulazioni e riproducibilità. <strong>Non dimostrati:</strong> efficacia causale, ricerca sui beneficiari, compatibilità di tutte le licenze e miglioramento misurato della prosperità.</p>'+
+ '<h2>Accessibilità e inclusione</h2><p>Questa pagina è disponibile anche senza JavaScript, con struttura semantica, tabelle leggibili, link visibili e documenti scaricabili. I controlli automatici Playwright/axe non sostituiscono VoiceOver, NVDA o TalkBack. Nessun futuro beneficiario dovrebbe essere obbligato a possedere uno smartphone o usare un servizio digitale.</p>'+
+ '<p><a href="/research/reproducibility">Ricerca riproducibile</a> · <a href="/research/source-catalog">Fonti e licenze</a> · <a href="/research/outcome-lab">Simulazioni</a></p></div>'
+}));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -330,7 +376,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
@@ -339,7 +385,7 @@ await writeFile(ROOT+"/robots.txt","User-agent: *\nAllow: /\nSitemap: "+ORIGIN+"
 await writeFile(ROOT+"/publication.json",JSON.stringify({
  status:"published_from_git",revision,generatedAt:publishedAt,
  sourceFileCount:docLinks.length,sourcePaths:docLinks.map(x=>x.source),
- routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
+ routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,researchGovernanceVersion:governance.schemaVersion,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
 },null,2)+"\n");
 console.log("HPI published: "+docLinks.length+" document routes, "+allRoutes.length+
  " total routes, "+(evidence.length-1)+" evidence entries; revision "+revision);
