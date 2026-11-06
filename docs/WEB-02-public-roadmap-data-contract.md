@@ -43,7 +43,7 @@ The audited programme tree is **Programme → Initiative → Epic → Task**. St
 3. WEB-02.3: **delivered** 11 stable [/initiatives/web-02](/initiatives/web-02) and sibling initiative detail pages with nested epic/task lists and first-party sources ([PR #39](https://github.com/saver1991/human-prosperity-initiative/pull/39)).
 4. WEB-02.4: **delivered** the read-only public issue freshness and contradiction overlay, without task writeback ([PR #41](https://github.com/saver1991/human-prosperity-initiative/pull/41)).
 5. WEB-02.5: **delivered** the GET-only SolOS HPI projection and an idempotent governance mirror under the existing HPI company in HubOS (see [cross-system record](WEB-02-cross-system-integration.md)).
-6. WEB-02.6: **approved and in progress** for final release QA, accessibility and the maintenance runbook; existing CircleCI, Playwright and Vercel gates still apply.
+6. WEB-02.6: **technical delivery completed** with [PR #43](https://github.com/saver1991/human-prosperity-initiative/pull/43): 611/611 automated Chromium checks, zero reported axe WCAG 2.2 AA violations, 21 routes, extended scheduled watch and [release runbook](WEB-02-release-and-maintenance.md). Human screen-reader acceptance and Vercel post-merge publication hold remain separate WEB-01 items.
 
 ## Security and science boundaries
 
