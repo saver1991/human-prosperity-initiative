@@ -173,7 +173,7 @@ await publish("/research/source-catalog",shell({
   '<p>Source snapshot: <a href="/research-source-catalog.json">Download JSON metadata</a> · '+
   '<a href="/research-source-catalog.csv">Download safe CSV metadata</a> · '+
   '<a href="/library/docs/rt-01-1-source-catalog-method-v1">Read the method and limits</a></p>'+
-  '<form role="search" aria-label="Find research sources" onsubmit="return false" class="source-search">'+
+  '<form role="search" aria-label="Find research sources" class="source-search">'+
   '<label for="source-filter">Search metadata</label> '+
   '<input id="source-filter" type="search" maxlength="120" placeholder="Study, source, country or DOI"> '+
   '<label for="source-kind">Source type</label> '+
