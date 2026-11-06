@@ -14,7 +14,7 @@
   "reviewedAt": "2026-11-06",
   "portfolioRecordId": "human-prosperity-initiative",
   "mode": "applied_poverty_reduction_with_long_term_systems_research",
-  "currentInitiative": "F0-02",
+  "currentInitiative": "F0-04",
   "publicUrls": {
     "website": "https://human-prosperity-initiative.vercel.app/",
     "repository": "https://github.com/saver1991/human-prosperity-initiative",
@@ -50,7 +50,7 @@
       "id": "F0-02",
       "name": "Evidence and opportunity assessment",
       "status": "in_progress",
-      "horizon": "Now",
+      "horizon": "Next",
       "epics": [
         {
           "id": "F0-02.1",
@@ -97,10 +97,55 @@
     },
     {
       "id": "F0-04",
-      "name": "Governance and community operations",
+      "name": "Governance, international legal entity and funding readiness",
       "status": "in_progress",
-      "horizon": "Next",
-      "issue": 6
+      "horizon": "Now",
+      "issue": 6,
+      "priority": "P0",
+      "epics": [
+        {
+          "id": "F0-04.2",
+          "name": "Legal entity, charity-purpose fit & constitutional options",
+          "issue": 47,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.3",
+          "name": "Independent board, governance and financial authority",
+          "issue": 48,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.4",
+          "name": "12–24 month budget and sustainability scenarios",
+          "issue": 52,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.5",
+          "name": "Institutional grants, donors and partnership eligibility",
+          "issue": 49,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.6",
+          "name": "Worldwide operations and local compliance model",
+          "issue": 50,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.7",
+          "name": "Incorporate / fiscal host / hold founder decision gate",
+          "issue": 51,
+          "status": "planned",
+          "tasksPlanned": 4
+        }
+      ]
     },
     {
       "id": "WEB-01",
@@ -201,8 +246,8 @@
     "noSharedDatabaseAcrossProducts": true
   },
   "sync": {
-    "hubos": "one_existing_hpi_programme_one_web02_project_six_epics_31_tasks_verified_2026-11-06",
-    "solos": "source_verified_read_only_public_projection_pr90",
+    "hubos": "existing_HPI_portfolio__F0-04_P0_mirror_issue_130__DB_parity_pending",
+    "solos": "read_only_projection_with_F0-04_P0_roadmap_pending_solOS_review",
     "githubIssues": "authoritative_for_public_tasks"
   },
   "publicRoadmap": {

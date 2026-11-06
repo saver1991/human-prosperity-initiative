@@ -7,7 +7,7 @@
 | F0-01 Founding charter | Nov 2026 | Draft charter, values, scientific principles | Community review and v1.0 approval |
 | **F0-02 Evidence and opportunity assessment** | 0–60 days | Rapid evidence scan, shortlist, evidence ledger, opportunity assessment | Sources validated; gaps and ethical risks recorded |
 | F0-03 Prosperity measurement framework | 0–60 days | Outcome taxonomy, baseline and measurement guide | Independent methodological review |
-| F0-04 Governance and contributor operations | 0–90 days | Decision log, contribution review, safeguards and future legal-options brief | Transparent ownership, code of conduct |
+| **F0-04 Governance, international legal structure and funding readiness (P0 NOW)** | 0–90 days (indicative; subject to actual resources and external legal advice) | Charity/fiscal-host option comparison, governance, 12–24 month budget, funder prospectus, international operating rules and explicit decision | Competent legal/finance review, real human appointments and founder approval before any establishment, applications or contracts |
 | F0-05 First study concept | 61–90 days | Problem statement, theory of change, planned evaluation and feasibility | Partner, ethics, budget and data access before any pilot |
 | F1 Applied impact | 1–3 years | First ethically approved and independently assessed field study (aspirational) | Credible effect estimation, costs and harms |
 | F2 Replication and systems research | 3–10 years | Reproducible work, further studies, alternative models | Transferability and external review |
@@ -17,8 +17,8 @@
 
 ## First 90 days
 **Days 1–30:** Public repo and charter; evidence inventory; criteria and risk register.
-**Days 31–60:** Expand evidence mapping, engage stakeholders, score candidate contexts only when data are available.
-**Days 61–90:** Select one specific population/problem and write pre-pilot concept note with go/no-go criteria.
+**Days 31–60 (reprioritised 6 November 2026):** F0-04 institutional and funding desk planning is P0 NOW. Geography shortlisting research can be retained, but no final country or participant decision until founder reviews institutional options. Independent stakeholder outreach is not authorised automatically.
+**Days 61–90 (conditional):** Record the real founding/fiscal-host decision and legal/financial review gates; only then resume final population selection and a pre-pilot concept, subject to further independent ethics and partner approvals.
 
 **Not yet decided:** geography, target population, pilot partner, legal structure, funding model, validated composite metric. No participant recruitment should occur without ethics and data governance.
 
@@ -32,15 +32,23 @@ HPI follows **Product / Programme → Initiative → Epic → Task**, with scien
 | Horizon | Initiative | Current evidence / link | Status |
 | --- | --- | --- | --- |
 | **Now** | F0-01 — Charter and founding principles | [Ratification candidate V0.4](founding-charter-ratification-candidate-v0.4.md), [review register](charter-review-register-v0.4.md), [issue #10](https://github.com/saver1991/human-prosperity-initiative/issues/10) | Candidate published; external review and ratification V1.0 pending |
-| **Now** | F0-02 — Evidence and opportunity assessment | [Research assessment](../research/F0-02-opportunity-assessment.md), [protocol](../research/research-protocol.md), [issues #1–4, #7](https://github.com/saver1991/human-prosperity-initiative/issues) | In progress; **not** a completed systematic review |
+| **Next (geo selection on hold)** | F0-02 — Evidence and opportunity assessment | [Research assessment](../research/F0-02-opportunity-assessment.md), [protocol](../research/research-protocol.md), [issues #1–4, #7](https://github.com/saver1991/human-prosperity-initiative/issues) | In progress; **not** a completed systematic review |
 | **Next** | F0-03 — Multidimensional measurement | [Draft V0.1](../research/F0-03-prosperity-measurement-framework-v0.1.md), [15 proposed indicators](../research/F0-03-indicator-catalog-v0.1.csv), [critical pre-review](../research/F0-03-methodological-pre-review-2026-11-05.md), [review #19](https://github.com/saver1991/human-prosperity-initiative/issues/19) | V0.1 delivery completed; V1.0 independent method/community review outstanding |
-| **Next** | F0-04 — Governance and contributor operations | [Governance V0.2](../GOVERNANCE.md), [legal brief](governance/legal-options-brief.md), [issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | Provisional documentation complete; actual independent appointments and safeguarding channel open |
+| **NOW · P0** | **F0-04 — Institutional, Legal & Funding Readiness (international)** | [Founding and funding roadmap](governance/F0-04-founding-and-funding-readiness.md), [governance V0.2](../GOVERNANCE.md), [legal options](governance/legal-options-brief.md), [parent issue #6](https://github.com/saver1991/human-prosperity-initiative/issues/6) | **Planning approved, no incorporation or funds raised.** Six new planned epics F0-04.2–.7 + existing F0-04.1 safeguarding; legal home UK possible, worldwide beneficiaries and local partners permitted subject to law |
 | **Now (operations)** | WEB-01 — Public site release reliability | [Production runbook](WEB-01-release-and-operations.md), [issue #9](https://github.com/saver1991/human-prosperity-initiative/issues/9) | Merge checks and Playwright QA PASS; CircleCI daily public production watch activated; independent post-merge Vercel release gate and authenticated billed-cost automation remain open |
 | **Next · P1 (delivered)** | **WEB-02 — Public Roadmap & Progress Transparency** | [Initiative #29](https://github.com/saver1991/human-prosperity-initiative/issues/29) · [six scoped epics and 31 technical tasks](https://human-prosperity-initiative.vercel.app/initiatives/web-02) | **Technical delivery complete** — first-party roadmap, 11 initiative pages, read-only GitHub issue freshness, SolOS projection and HubOS mirror, 611/611 Playwright checks with zero axe violations. Source status remains a dated editorial snapshot; **no scientific impact approval, human screen-reader acceptance or WEB-01 post-merge Vercel hold is claimed.** |
 | **Next** | F0-05 — First study concept | [Issue #11](https://github.com/saver1991/human-prosperity-initiative/issues/11) | Planned, conditional on F0-02 and partner/ethics gates |
 | **Later** | F1 — Applied impact evaluation | Independent, ethical study with partners and published outcomes | Aspirational; not authorised or funded |
 | **Later** | F2 — Replication and systems research | Open evidence, reproducibility and economic mechanisms research | Long-term |
 | **Later** | F3 — Broader institutional impact | Validated knowledge used more widely | Long-term ambition |
+
+### F0-04 — Institutional, legal and funding readiness (P0 · NOW · PLANNING ONLY)
+
+The founder reprioritised HPI's organisational/legal/financial foundation ahead of final geographic intervention selection on **6 November 2026**. HPI aims to be **international**, even if ultimately constituted as an England/Wales CIO. Charity Commission guidance allows UK charities to work globally while requiring local legal compliance, partner due diligence, safeguarding and accountability for funds. No form is selected, no charity is incorporated and no grant/partnership application or human outreach is authorised.
+
+The [full founding/funding workplan](governance/F0-04-founding-and-funding-readiness.md) specifies six P0 epics: [F0-04.2 legal entity and charitable objects #47](https://github.com/saver1991/human-prosperity-initiative/issues/47), [F0-04.3 board and controls #48](https://github.com/saver1991/human-prosperity-initiative/issues/48), [F0-04.4 budget and sustainability #52](https://github.com/saver1991/human-prosperity-initiative/issues/52), [F0-04.5 grants/partners #49](https://github.com/saver1991/human-prosperity-initiative/issues/49), [F0-04.6 international operations #50](https://github.com/saver1991/human-prosperity-initiative/issues/50), and [F0-04.7 founder legal formation decision #51](https://github.com/saver1991/human-prosperity-initiative/issues/51). Existing [F0-04.1 safeguarding #26](https://github.com/saver1991/human-prosperity-initiative/issues/26) remains mandatory. HPI GitHub is the task authority, [SolOS #94](https://github.com/saver1991/solOS-core/issues/94) is a read-only operational projection plan, and [HubOS #130](https://github.com/saver1991/the-hub-os/issues/130) tracks portfolio governance.
+
+**F0-02.3 stays an unapproved desk shortlist**. This change neither selects UK/Brazil/Italy beneficiaries nor represents financial, legal or scientific approval.
 
 ### WEB-02 — Public roadmap transparency (P1 · NEXT · TECHNICAL DELIVERY COMPLETE)
 
