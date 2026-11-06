@@ -4,6 +4,7 @@ import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,rend
 import {buildPublicRoadmap} from "./roadmap-model.mjs";
 import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
 import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
+import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -30,6 +31,9 @@ const descriptor=JSON.parse(await readFile("portfolio/project.json","utf8"));
 if(descriptor.id!=="human-prosperity-initiative"||descriptor.visibility!=="public")throw new Error("Invalid public project manifest");
 const publicRoadmap=buildPublicRoadmap(descriptor,JSON.parse(await readFile("portfolio/public-roadmap.json","utf8")),{revision});
 const evidence=parseCsv(content.get("research/evidence-ledger.csv"));
+const outcomeIndicator=getCandidateIndicator(content.get("research/F0-03-indicator-catalog-v0.1.csv"),"HPI-B-01");
+if(outcomeIndicator.status!=="proposed_not_validated"||outcomeIndicator.unit!=="share")
+ throw Error("Synthetic outcome lab cannot claim validated or non-share indicator");
 const sourceRegistry=JSON.parse(await readFile("research/public-dataset-registry.json","utf8"));
 const sourceCatalog=buildSourceCatalog({
  ledgerCsv:content.get("research/evidence-ledger.csv"),
@@ -54,7 +58,7 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   '<meta property="og:url" content="'+ORIGIN+route+'">'+
   '<title>'+safe(title)+' — Human Prosperity Initiative</title>'+
   '<link rel="stylesheet" href="/styles.css">'+(stylesheet?'<link rel="stylesheet" href="'+safe(stylesheet)+'">':"")+'<link rel="icon" type="image/svg+xml" href="/favicon.svg">'+
-  (script?'<script src="'+safe(script)+'" '+(script==="/progress.js"?'type="module"':"defer")+'></script>':"")+
+  (script?'<script src="'+safe(script)+'" '+(["/progress.js","/outcome-lab.js"].includes(script)?'type="module"':"defer")+'></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
   nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
@@ -81,6 +85,9 @@ await cp("site/freshness.js","dist/freshness.js");
 await cp("site/progress.js","dist/progress.js");
 await cp("site/progress-policy.js","dist/progress-policy.js");
 await cp("site/research-catalog.js","dist/research-catalog.js");
+await cp("site/outcome-lab.js","dist/outcome-lab.js");
+await cp("research-tools/outcome-evaluation.mjs","dist/research-outcome-evaluation.js");
+await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-outcome-template.json");
 await writeFile(ROOT+"/research-source-catalog.json",JSON.stringify(sourceCatalog,null,2)+"\n");
 await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatalog));
 const sectionFor=source=>source.startsWith("research/")?"Research":
@@ -146,7 +153,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a></p>'+
+ '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -187,6 +194,38 @@ await publish("/research/source-catalog",shell({
   '<th scope="col">Retraction check</th><th scope="col">Publisher</th></tr></thead><tbody>'+
   sourceRows+'</tbody></table></div>'+
   '<p>Publishing a reference is not redistribution permission, peer review, full-text verification or proof of effectiveness.</p></div>'
+}));
+await publish("/research/outcome-lab",shell({
+ title:"Synthetic outcomes & uncertainty lab",section:"Research instruments",
+ description:"Explore draft F0-03 benefit-receipt measures, observed rates, missing follow-up and conditional uncertainty on entirely fictional group counts.",
+ route:"/research/outcome-lab",script:"/outcome-lab.js",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Synthetic outcome lab',
+ body:'<div class="index-content">'+
+  '<p class="status-note"><strong>SYNTHETIC ONLY. No HPI participant data, programme effectiveness, causal estimate or independently validated indicator.</strong></p>'+
+  '<p>The example uses draft indicator <strong>'+safe(outcomeIndicator.id)+
+  '</strong> (verified receipt; status: <strong>'+safe(outcomeIndicator.status)+
+  '</strong>). This lab runs in the browser only; submitted counts are not transmitted or retained.</p>'+
+  '<form id="outcome-demo" aria-label="Synthetic outcome comparison">'+
+  '<fieldset><legend>Fictional reference group</legend>'+
+  '<p><label for="ref-eligible">Eligible (synthetic)</label> <input id="ref-eligible" type="number" min="1" max="50000" value="100" required></p>'+
+  '<p><label for="ref-received">Observed receipts</label> <input id="ref-received" type="number" min="0" max="50000" value="6" required></p>'+
+  '<p><label for="ref-missing">Missing follow-up</label> <input id="ref-missing" type="number" min="0" max="50000" value="0" required></p>'+
+  '</fieldset>'+
+  '<fieldset><legend>Fictional comparison group</legend>'+
+  '<p><label for="comp-eligible">Eligible (synthetic)</label> <input id="comp-eligible" type="number" min="1" max="50000" value="100" required></p>'+
+  '<p><label for="comp-received">Observed receipts</label> <input id="comp-received" type="number" min="0" max="50000" value="11" required></p>'+
+  '<p><label for="comp-missing">Missing follow-up</label> <input id="comp-missing" type="number" min="0" max="50000" value="0" required></p>'+
+  '</fieldset>'+
+  '<button type="submit">Calculate synthetic comparison</button></form>'+
+  '<p id="outcome-demo-result" role="status" aria-live="polite">Example loads with JavaScript; no real data are processed.</p>'+
+  '<p><button id="run-synthetic-simulation" type="button">Run seeded hypothetical simulation</button></p>'+
+  '<p id="simulation-result" role="status" aria-live="polite">Simulation not yet requested.</p>'+
+  '<details><summary>Methodology, uncertainty and limits</summary>'+
+  '<p>Wilson intervals describe conditional binomial sampling uncertainty, and the Newcombe-Wilson interval compares two independently sampled proportions under that assumption. They do not correct selection, nonrandom assignment, missing outcomes, weak source rights or research design. Missingness bounds are worst/best case sensitivity checks, not confidence intervals. A seeded simulation demonstrates hypothetical model variability, not observed policy impact.</p>'+
+  '</details>'+
+  '<p><a href="/research-synthetic-outcome-template.json">Synthetic example JSON</a> · '+
+  '<a href="/library/docs/rt-01-2-outcome-evaluation-method-v1">Evaluation method and review gates</a> · '+
+  '<a href="/research/source-catalog">Source provenance catalogue</a></p></div>'
 }));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
@@ -254,7 +293,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
