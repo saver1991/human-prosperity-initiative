@@ -82,10 +82,14 @@ test("research tools and deferred business hypotheses cannot be misrepresented a
  assert.ok(tools);
  assert.equal(tools.priority,"P1");
  assert.equal(tools.horizon,"Next");
- assert.equal(tools.status,"planned");
+ assert.equal(tools.status,"in_progress");
  assert.equal(tools.epics.length,4);
  assert.equal(tools.epics.flatMap(x=>x.tasks).length,16);
- assert.ok(tools.epics.every(e=>e.status==="planned"&&e.tasks.every(t=>t.status==="planned"&&t.evidence===null)));
+ assert.ok(tools.epics.every(e=>e.status==="in_progress"));
+ const accepted=tools.epics.flatMap(e=>e.tasks).filter(t=>t.status==="documented");
+ assert.deepEqual(accepted.map(t=>t.id),["RT-01.4-T04"]);
+ assert.equal(accepted[0].evidence,"https://github.com/saver1991/human-prosperity-initiative/pull/62");
+ assert.ok(tools.epics.flatMap(e=>e.tasks).filter(t=>t.status!=="documented").every(t=>t.status==="planned"&&t.evidence===null));
  const governance=model.initiatives.find(x=>x.id==="F0-04");
  const deferred=governance.epics.find(x=>x.id==="F0-04.8");
  assert.ok(deferred);
