@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "sourceKind": "versioned_public_editorial_snapshot",
-  "reviewedAt": "2026-11-05",
+  "reviewedAt": "2026-11-06",
   "statusAuthority": "Public GitHub issue states are authoritative; this snapshot is not a live issue-state sync.",
   "scienceBoundary": "Project delivery is not evidence of improved prosperity, independent study approval or validated causal impact.",
   "legalStatus": "not_incorporated",
@@ -429,7 +429,7 @@
       "id": "WEB-02",
       "kind": "platform",
       "summary": "Make the real HPI roadmap understandable on the website through initiative, epic and task pages, without misleading impact claims.",
-      "gate": "WEB-02.1–WEB-02.3 are delivered and accepted. The remaining WEB-02.4–WEB-02.6 epics require separate founder approval; no further development has started.",
+      "gate": "WEB-02.1–WEB-02.5 have technical delivery evidence. WEB-02.6 final browser, accessibility and release acceptance is in progress. Scientific and participant impact approvals remain separate.",
       "deliverables": [
         {
           "label": "Roadmap source document",
@@ -438,6 +438,14 @@
         {
           "label": "Public development activity",
           "url": "/activity"
+        },
+        {
+          "label": "Progress integrity and source policy",
+          "url": "/library/docs/web-02-progress-integrity"
+        },
+        {
+          "label": "SolOS / HubOS governance integration",
+          "url": "/library/docs/web-02-cross-system-integration"
         }
       ],
       "epics": [
@@ -573,89 +581,100 @@
         {
           "id": "WEB-02.4",
           "title": "Verified progress and impact distinction",
-          "status": "planned",
+          "status": "complete",
           "issue": 33,
           "tasks": [
             {
               "id": "WEB-02.4-T01",
               "title": "Separate work completion (merged PR/closed issue/acceptance) from research validation (reviewed/ratified/ethics approved) and human prosperity outcomes (not yet measured).",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             },
             {
               "id": "WEB-02.4-T02",
               "title": "Define progress denominators: counts of specifically tracked, nonduplicate work items and evidence of acceptance; avoid arbitrary percentage indicators and deceptive '100% impact'.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             },
             {
               "id": "WEB-02.4-T03",
               "title": "Display last verified Git revision/time, cached feed age and safe unknown/stale/error status for public GitHub sources.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             },
             {
               "id": "WEB-02.4-T04",
               "title": "Reconcile roadmap status and GitHub issue events; support early phase / planned / in progress / draft published / review pending / blocked / done with clear user-facing rules.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             },
             {
               "id": "WEB-02.4-T05",
               "title": "Accessibility-safe status badges, supporting text and source links; do not inject untrusted issue strings as HTML.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             },
             {
               "id": "WEB-02.4-T06",
               "title": "Add tests for stale feed, false closure, missing CI, independent-review gates, sources that contradict summary and zero validated beneficiaries.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/33",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/41"
             }
           ]
         },
         {
           "id": "WEB-02.5",
           "title": "SolOS and HubOS read-only alignment",
-          "status": "planned",
+          "status": "complete",
           "issue": 34,
           "tasks": [
             {
               "id": "WEB-02.5-T01",
               "title": "Register WEB-02 P1/NEXT in SolOS's HPI public roadmap snapshot and link the canonical HPI issue/roadmap; retain explicit snapshot date.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/42"
             },
             {
               "id": "WEB-02.5-T02",
               "title": "Document read-only/public contract for a future version-pinned status projection to SolOS, with allowed fields, source SHA, cache age, no writes and failure abstention.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/42"
             },
             {
               "id": "WEB-02.5-T03",
               "title": "Update the permission-gated SolOS HPI project profile to display new workstream *when reviewed and implemented*; avoid new autonomous agents, cross-DB joins or owner grants.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/42"
             },
             {
               "id": "WEB-02.5-T04",
               "title": "Map the initiative in HubOS's HPI portfolio tracking with exactly one record and avoid duplicate initiative ownership.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/42"
             },
             {
               "id": "WEB-02.5-T05",
               "title": "QA no private SolOS workspace leakage, no participant records, no unauthorised commands/ingestion from GitHub, and no claims that a pinned snapshot auto-refreshes.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/34",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/42"
             }
           ]
         },
         {
           "id": "WEB-02.6",
           "title": "Accessibility, release and maintenance",
-          "status": "planned",
+          "status": "in_progress",
           "issue": 35,
           "tasks": [
             {
