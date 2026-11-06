@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "1.0",
+  "reviewedAt": "2026-11-06",
+  "scope": "technical_public_research_only",
+  "publicationPolicy": "deny_by_default",
+  "permittedClasses": [
+    {
+      "id": "synthetic",
+      "publication": "allowed_with_explicit_synthetic_label",
+      "identifiability": "no_real_person_data"
+    },
+    {
+      "id": "public_reference_metadata",
+      "publication": "allowed_metadata_only",
+      "identifiability": "no_person_level_records"
+    },
+    {
+      "id": "approved_public_aggregate",
+      "publication": "conditional_manual_license_and_disclosure_review",
+      "identifiability": "requires_reidentification_assessment"
+    }
+  ],
+  "prohibitedClasses": [
+    "direct_identifiers",
+    "pseudonymised_personal_data",
+    "sensitive_person_level",
+    "unlicensed_third_party_payload",
+    "unverified_nonpublic_aggregate",
+    "individual_entitlement_decisions"
+  ],
+  "reviewedSoftwareLicenses": [
+    {
+      "id": "MIT",
+      "path": "LICENSE",
+      "status": "repository_declaration_verified",
+      "scope": "HPI-authored source code only"
+    },
+    {
+      "id": "CC-BY-4.0",
+      "path": "LICENSE-DOCS.md",
+      "status": "repository_declaration_verified",
+      "scope": "Original HPI-authored documentation only"
+    }
+  ],
+  "thirdPartyRights": {
+    "status": "pending_individual_source_review",
+    "redistributionApproved": false,
+    "rightsOwnerVerified": false
+  },
+  "science": {
+    "frameworkStatus": "proposed_not_validated",
+    "peerReviewCompleted": false,
+    "causalClaimsApproved": false,
+    "measuredBeneficiaryImpact": false
+  },
+  "privacy": {
+    "dataControllerNamed": false,
+    "lawfulBasisApproved": false,
+    "dpiaCompleted": false,
+    "necessityAssessmentCompleted": false,
+    "crossBorderAssessmentCompleted": false,
+    "retentionPolicyApproved": false,
+    "breachResponseApproved": false
+  },
+  "safeguarding": {
+    "independentEthicsReview": false,
+    "participantRecruitmentApproved": false,
+    "localPartnerReview": false,
+    "harmEscalationApproved": false
+  },
+  "accessibility": {
+    "automatedPlaywrightAxe": true,
+    "realScreenReaderVerified": false,
+    "realBrowserZoomVerified": false,
+    "languageVersions": [
+      "en",
+      "it"
+    ],
+    "offlineDownloadOption": true,
+    "lowBandwidthStaticPages": true
+  },
+  "fundingAndInstitution": {
+    "registeredLegalEntity": false,
+    "trusteesApproved": false,
+    "externalGrantAuthority": false
+  },
+  "publicationStages": [
+    "software_built",
+    "technical_tests_passed",
+    "research_validated",
+    "real_world_effect_measured"
+  ],
+  "approvalPolicy": {
+    "software_built": "code_review",
+    "technical_tests_passed": "circleci_and_vercel",
+    "research_validated": "independent_qualified_scientific_and_ethics_review",
+    "real_world_effect_measured": "approved_protocol_field_outcomes_and_independent_review"
+  },
+  "publicAssets": [
+    {
+      "id": "source_catalogue",
+      "path": "/research/source-catalog",
+      "class": "public_reference_metadata",
+      "impactStage": "technical_tests_passed"
+    },
+    {
+      "id": "synthetic_lab",
+      "path": "/research/outcome-lab",
+      "class": "synthetic",
+      "impactStage": "technical_tests_passed"
+    },
+    {
+      "id": "reproducibility",
+      "path": "/research/reproducibility",
+      "class": "public_reference_metadata",
+      "impactStage": "technical_tests_passed"
+    }
+  ],
+  "decisionGates": [
+    {
+      "id": "G-01",
+      "topic": "identifiability_risk",
+      "authority": "qualified_data_protection_reviewer",
+      "state": "pending"
+    },
+    {
+      "id": "G-02",
+      "topic": "legal_basis_and_controller",
+      "authority": "responsible_legal_counsel",
+      "state": "pending"
+    },
+    {
+      "id": "G-03",
+      "topic": "source_license_compatibility",
+      "authority": "qualified_license_reviewer",
+      "state": "pending"
+    },
+    {
+      "id": "G-04",
+      "topic": "study_ethics_and_safeguarding",
+      "authority": "independent_ethics_committee",
+      "state": "pending"
+    },
+    {
+      "id": "G-05",
+      "topic": "methodological_validity",
+      "authority": "independent_scientific_reviewer",
+      "state": "pending"
+    },
+    {
+      "id": "G-06",
+      "topic": "real_at_accessibility",
+      "authority": "real_assistive_technology_testers",
+      "state": "pending"
+    },
+    {
+      "id": "G-07",
+      "topic": "cross_border_local_law",
+      "authority": "local_legal_and_data_protection_review",
+      "state": "pending"
+    },
+    {
+      "id": "G-08",
+      "topic": "institutional_authority",
+      "authority": "founder_and_registered_board_if_established",
+      "state": "pending"
+    }
+  ],
+  "policySources": [
+    "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/data-sharing/anonymisation/about-this-guidance",
+    "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/the-research-provisions/what-are-the-appropriate-safeguards/",
+    "https://www.w3.org/WAI/WCAG22/Understanding/language-of-page.html",
+    "https://creativecommons.org/licenses/by/4.0/"
+  ]
+}
