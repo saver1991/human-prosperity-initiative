@@ -53,7 +53,7 @@
       "id": "F0-02",
       "kind": "research",
       "summary": "Identify the first defensible poverty-related opportunity through reproducible and critical evidence.",
-      "gate": "No priority population or programme selected; rapid exploratory scan is not a completed systematic review.",
+      "gate": "F0-02.1 and .2 rapid desk mapping published; F0-02.3 provisional comparative shortlist awaits founder selection, paused for F0-04 institutional readiness. Full systematic review, independent ethics and impact approval remain open.",
       "deliverables": [
         {
           "label": "Evidence search protocol",
@@ -72,102 +72,115 @@
         {
           "id": "F0-02.1",
           "title": "Reproducible evidence search protocol",
-          "status": "planned",
+          "status": "complete",
           "issue": 3,
           "tasks": [
             {
               "id": "F0-02.1-T01",
               "title": "Define databases, search strings, years, languages and inclusion/exclusion rules per domain.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.1-T02",
               "title": "Add a public search log with queries, date, source, duplicates and screening outcomes.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.1-T03",
               "title": "Identify risk-of-bias criteria and protocol registration needs for a future formal review.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.1-T04",
               "title": "Include negative/null results and contradictory findings.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/3",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             }
           ]
         },
         {
           "id": "F0-02.2",
           "title": "Comparative evidence ledger",
-          "status": "planned",
+          "status": "complete",
           "issue": 1,
           "tasks": [
             {
               "id": "F0-02.2-T01",
               "title": "Target at least 10 high-relevance rigorous studies/reviews per area where available (not a quota of positive studies).",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.2-T02",
               "title": "Capture design, country, participants, comparator, primary outcome, effect size, confidence interval, follow-up and cost where reported.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.2-T03",
               "title": "Compare benefit *applications* vs confirmed *receipt*; programme enrolment vs durable outcome.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.2-T04",
               "title": "Capture transferability constraints, adverse effects, equity and potential displacement.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             },
             {
               "id": "F0-02.2-T05",
               "title": "Update research/evidence-ledger.csv and research/F0-02-opportunity-assessment.md.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/1",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/45"
             }
           ]
         },
         {
           "id": "F0-02.3",
           "title": "Population and jurisdiction shortlist",
-          "status": "planned",
+          "status": "review",
           "issue": 2,
           "tasks": [
             {
               "id": "F0-02.3-T01",
               "title": "Identify 1–2 feasible jurisdictions and affected populations from publicly available non-identifying data.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/46"
             },
             {
               "id": "F0-02.3-T02",
               "title": "Map existing public benefits/services, implementing organisations and eligibility barriers.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/46"
             },
             {
               "id": "F0-02.3-T03",
               "title": "Estimate data availability, legal constraints, accessibility, cultural and language issues and provisional cost.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/46"
             },
             {
               "id": "F0-02.3-T04",
               "title": "Evaluate whether HPI adds research/replication capacity others lack.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/2",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/46"
             }
           ]
         },
@@ -346,6 +359,10 @@
         {
           "label": "UK-based international operations (legal reference)",
           "url": "/library/docs/governance/legal-options-brief"
+        },
+        {
+          "label": "Business model alternatives — deferred, no selected legal form",
+          "url": "/library/docs/governance/f0-04-business-model-options-2026-11-06"
         }
       ],
       "epics": [
@@ -563,6 +580,38 @@
               "title": "Confirm funding, signing authority, safeguarding and partner gates before outreach",
               "status": "planned",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+            }
+          ]
+        },
+        {
+          "id": "F0-04.8",
+          "title": "Deferred nonprofit, for-profit and hybrid model comparison",
+          "status": "planned",
+          "issue": 54,
+          "tasks": [
+            {
+              "id": "F0-04.8-T01",
+              "title": "Compare nonprofit, CIC, mission-driven Ltd, fiscal host and dual-entity eligibility, taxes and funding pathways",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+            },
+            {
+              "id": "F0-04.8-T02",
+              "title": "Investigate institution-paid open research infrastructure/services, costs and actual customer evidence (not assumed)",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+            },
+            {
+              "id": "F0-04.8-T03",
+              "title": "Review mission lock, scientific independence, intellectual property and conflicts for any paid offer",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+            },
+            {
+              "id": "F0-04.8-T04",
+              "title": "Defer founder legal/commercial model choice pending qualified legal, finance and market evidence",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
             }
           ]
         }
@@ -975,6 +1024,148 @@
       "gate": "No policy adoption, verified beneficiary improvement or structural effect claimed.",
       "deliverables": [],
       "epics": []
+    },
+    {
+      "id": "RT-01",
+      "kind": "platform",
+      "summary": "Create open-source datasets, evidence and evaluation instruments, reproducible workflows and ethical research tooling; research must be enabled by tools, not publications alone.",
+      "gate": "P1 NEXT planning only. No new research software deployed, no personal data ingested, no validated metric or experiment, no commercial model approved. F0-04 P0 remains the institutional focus.",
+      "deliverables": [
+        {
+          "label": "Open research tools and infrastructure roadmap",
+          "url": "/library/docs/rt-01-research-tools-and-open-infrastructure"
+        }
+      ],
+      "epics": [
+        {
+          "id": "RT-01.1",
+          "title": "Evidence sources, datasets and provenance",
+          "status": "planned",
+          "issue": 56,
+          "tasks": [
+            {
+              "id": "RT-01.1-T01",
+              "title": "Catalogue lawfully reusable research sources and aggregate datasets with metadata and licence provenance",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+            },
+            {
+              "id": "RT-01.1-T02",
+              "title": "Design reproducible source ingestion and normalization with version pinning and deduplication",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+            },
+            {
+              "id": "RT-01.1-T03",
+              "title": "Specify exportable public evidence metadata, documented missingness and source/retraction tracking",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+            },
+            {
+              "id": "RT-01.1-T04",
+              "title": "Plan automated tests for malformed source, unknown rights, stale data and provenance drift",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+            }
+          ]
+        },
+        {
+          "id": "RT-01.2",
+          "title": "Outcome measurement, evaluation and simulation",
+          "status": "planned",
+          "issue": 57,
+          "tasks": [
+            {
+              "id": "RT-01.2-T01",
+              "title": "Design transparent outcome schema with denominators, comparators, follow-up, uncertainty and harms",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+            },
+            {
+              "id": "RT-01.2-T02",
+              "title": "Plan reusable evaluation and synthetic simulation modules with no claims of established causal impact",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+            },
+            {
+              "id": "RT-01.2-T03",
+              "title": "Align tools with F0-03 scientific review and independently assessed quality requirements",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+            },
+            {
+              "id": "RT-01.2-T04",
+              "title": "Define test fixtures for null/adverse effects, data leakage and synthetic-versus-observed labelling",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+            }
+          ]
+        },
+        {
+          "id": "RT-01.3",
+          "title": "Reproducible research pipelines and open science",
+          "status": "planned",
+          "issue": 58,
+          "tasks": [
+            {
+              "id": "RT-01.3-T01",
+              "title": "Specify pinned scripts/notebooks and deterministic, lightweight CI workflows",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+            },
+            {
+              "id": "RT-01.3-T02",
+              "title": "Design documented reusable methods, citation manifests and compatible open-source licences",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+            },
+            {
+              "id": "RT-01.3-T03",
+              "title": "Plan artifact provenance, correction history, transparent publishing and accessibility",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+            },
+            {
+              "id": "RT-01.3-T04",
+              "title": "Reuse CircleCI, Vercel, HPI public sources and SolOS read-only views; avoid redundant infrastructure",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+            }
+          ]
+        },
+        {
+          "id": "RT-01.4",
+          "title": "Privacy, accessibility and responsible tool governance",
+          "status": "planned",
+          "issue": 59,
+          "tasks": [
+            {
+              "id": "RT-01.4-T01",
+              "title": "Define aggregate/public-safe versus sensitive research data classification and access gates",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+            },
+            {
+              "id": "RT-01.4-T02",
+              "title": "Specify multilingual accessible, low-bandwidth and offline-inclusive research tooling interfaces",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+            },
+            {
+              "id": "RT-01.4-T03",
+              "title": "Audit software/data licensing, contribution governance, privacy and independent review requirements",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+            },
+            {
+              "id": "RT-01.4-T04",
+              "title": "Separate delivered code, scientific validation, hypothetical simulations and measured beneficiary impact",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

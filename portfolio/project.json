@@ -144,6 +144,13 @@
           "issue": 51,
           "status": "planned",
           "tasksPlanned": 4
+        },
+        {
+          "id": "F0-04.8",
+          "name": "Deferred nonprofit, for-profit and hybrid business model assessment",
+          "issue": 54,
+          "status": "planned",
+          "tasksPlanned": 4
         }
       ]
     },
@@ -237,6 +244,44 @@
       "name": "Broader impact",
       "status": "long_term",
       "horizon": "Later"
+    },
+    {
+      "id": "RT-01",
+      "name": "Open Research Tools & Infrastructure",
+      "status": "planned",
+      "priority": "P1",
+      "horizon": "Next",
+      "issue": 55,
+      "epics": [
+        {
+          "id": "RT-01.1",
+          "name": "Open evidence sources, datasets and provenance",
+          "issue": 56,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-01.2",
+          "name": "Outcome evaluation and simulations",
+          "issue": 57,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-01.3",
+          "name": "Reproducible research workflows and publishing",
+          "issue": 58,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-01.4",
+          "name": "Privacy, accessibility and licensing",
+          "issue": 59,
+          "status": "planned",
+          "tasksPlanned": 4
+        }
+      ]
     }
   ],
   "dataPolicy": {
@@ -246,8 +291,8 @@
     "noSharedDatabaseAcrossProducts": true
   },
   "sync": {
-    "hubos": "existing_HPI_portfolio__F0-04_P0_mirror_issue_130__DB_parity_pending",
-    "solos": "read_only_projection_with_F0-04_P0_roadmap_pending_solOS_review",
+    "hubos": "existing HPI programme; RT-01 and business-options portfolio mapping pending verified HubOS issue",
+    "solos": "HPI read-only projection of RT-01 and F0-04.8 subject to independent SolOS approval and release",
     "githubIssues": "authoritative_for_public_tasks"
   },
   "publicRoadmap": {

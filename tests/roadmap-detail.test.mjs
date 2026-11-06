@@ -11,7 +11,7 @@ const model=buildPublicRoadmap(project,data,{revision:"a".repeat(40)});
 test("every HPI initiative is navigable as a canonical first-party page",async()=>{
  const map=await readFile("dist/sitemap.xml","utf8");
  const overview=await readFile("dist/roadmap.html","utf8");
- assert.equal(model.initiatives.length,11);
+ assert.equal(model.initiatives.length,12);
  for(const item of model.initiatives){
   const route="/initiatives/"+slug(item.id);
   await stat("dist"+route+".html");
