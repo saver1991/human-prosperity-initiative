@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0",
+  "reviewedAt": "2026-11-06",
+  "scope": "public_source_metadata_only_no_data_ingested",
+  "datasets": [
+    {
+      "id": "WB-PIP",
+      "name": "World Bank Poverty and Inequality Platform (PIP)",
+      "publisher": "World Bank",
+      "url": "https://datacatalog.worldbank.org/search/dataset/0038020/poverty-and-equity-database-poverty-and-inequality-platform",
+      "geography": "Multiple countries (see source)",
+      "year": "various",
+      "doi": null,
+      "format": "API and tables (subject to provider terms)",
+      "licenseStatus": "verified_cc_by_4_0",
+      "licenseEvidenceUrl": "https://datacatalog.worldbank.org/search/dataset/0038020/poverty-and-equity-database-poverty-and-inequality-platform",
+      "rightsReviewStatus": "metadata_review_only",
+      "retrievedAt": null,
+      "expectedDataSha256": null,
+      "availability": "catalogue_page_confirmed",
+      "retraction": "not_checked",
+      "notes": "Public dataset catalogue indicates CC BY 4.0; no data file downloaded, licence terms for each reuse scenario not independently signed off."
+    },
+    {
+      "id": "UNDP-MPI-2026",
+      "name": "UNDP Global Multidimensional Poverty Index 2026 statistical tables",
+      "publisher": "United Nations Development Programme",
+      "url": "https://hdr.undp.org/content/2026-global-multidimensional-poverty-index",
+      "geography": "108 countries in 2026 edition",
+      "year": "2026",
+      "doi": null,
+      "format": "XLSX/PDF statistical tables (on publisher page)",
+      "licenseStatus": "unknown",
+      "licenseEvidenceUrl": null,
+      "rightsReviewStatus": "not_reviewed",
+      "retrievedAt": null,
+      "expectedDataSha256": null,
+      "availability": "catalogue_page_confirmed",
+      "retraction": "not_checked",
+      "notes": "Source page describes tables; downloading, dataset rights and reuse permission remain unreviewed."
+    },
+    {
+      "id": "DWP-PC-2023-24-LA",
+      "name": "DWP local-authority model of Pension Credit potential eligibility and receipt",
+      "publisher": "UK Department for Work and Pensions",
+      "url": "https://www.gov.uk/government/statistics/households-potentially-eligible-for-pension-credit-2023-to-2024/analysis-of-households-potentially-eligible-for-pension-credit-and-eligible-households-in-receipt-of-pension-credit-2023-to-2024",
+      "geography": "England local authorities (see methodology for actual coverage)",
+      "year": "2023–2024",
+      "doi": null,
+      "format": "Publication and accompanying official tables",
+      "licenseStatus": "unknown",
+      "licenseEvidenceUrl": null,
+      "rightsReviewStatus": "not_reviewed",
+      "retrievedAt": null,
+      "expectedDataSha256": null,
+      "availability": "publication_page_confirmed",
+      "retraction": "not_checked",
+      "notes": "Modeled potential eligibility is not verified individual entitlement or consent for case-level research; no person-level data imported."
+    }
+  ]
+}

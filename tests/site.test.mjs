@@ -72,7 +72,7 @@ test("all internal links resolve to generated local pages, including cross-docum
   for(const href of hrefs){
    if(!href.startsWith("/")||href.startsWith("//"))continue;
    const route=href.split(/[?#]/)[0];
-   const page=route==="/"?"dist/index.html":/\.(json|txt|xml|svg|js|css)$/.test(route)?"dist"+route:"dist"+route+".html";
+   const page=route==="/"?"dist/index.html":/\.(json|csv|txt|xml|svg|js|css)$/.test(route)?"dist"+route:"dist"+route+".html";
    await assert.doesNotReject(()=>stat(page),"Broken internal link "+href+" on "+file);
   }
  }
@@ -101,6 +101,18 @@ test("renderer sends repository file references to internal pages, not GitHub",(
  const outside=renderMarkdown("[Read official study](https://doi.org/10.1126/science.1260799)",
   "docs/example.md",routes);
  assert.match(outside,/target="_blank" rel="noopener noreferrer"/);
+});
+test("canonical HPI source catalogue links stay on site; publisher links remain external",()=>{
+ const routes=buildRouteIndex(["docs/RT-01-1-source-catalog-method-v1.md"]);
+ const internal=resolveLink("https://human-prosperity-initiative.vercel.app/research/source-catalog",
+  "docs/RT-01-1-source-catalog-method-v1.md",routes);
+ assert.deepEqual(internal,{href:"/research/source-catalog",external:false});
+ const raw=resolveLink("https://human-prosperity-initiative.vercel.app/research-source-catalog.json",
+  "docs/RT-01-1-source-catalog-method-v1.md",routes);
+ assert.deepEqual(raw,{href:"/research-source-catalog.json",external:false});
+ const fake=resolveLink("https://human-prosperity-initiative.vercel.app.attacker.test/phishing",
+  "docs/example.md",routes);
+ assert.equal(fake.external,true);
 });
 test("CSV tables escape untrusted values and reject malformed source",()=>{
  const csv='id,title,url\n"E01","<img src=x onerror=alert(1)>","https://example.org"\n';

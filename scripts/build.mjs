@@ -3,6 +3,7 @@ import path from "node:path";
 import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,renderCsv,parseCsv,sourceTitle} from "./site-content.mjs";
 import {buildPublicRoadmap} from "./roadmap-model.mjs";
 import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
+import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -29,6 +30,12 @@ const descriptor=JSON.parse(await readFile("portfolio/project.json","utf8"));
 if(descriptor.id!=="human-prosperity-initiative"||descriptor.visibility!=="public")throw new Error("Invalid public project manifest");
 const publicRoadmap=buildPublicRoadmap(descriptor,JSON.parse(await readFile("portfolio/public-roadmap.json","utf8")),{revision});
 const evidence=parseCsv(content.get("research/evidence-ledger.csv"));
+const sourceRegistry=JSON.parse(await readFile("research/public-dataset-registry.json","utf8"));
+const sourceCatalog=buildSourceCatalog({
+ ledgerCsv:content.get("research/evidence-ledger.csv"),
+ structuredCsv:content.get("research/F0-02-structured-evidence-2026-11-06.csv"),
+ registry:sourceRegistry
+});
 const assessment=content.get("research/F0-02-opportunity-assessment.md");
 const researchTopics=[...assessment.matchAll(/^### ([A-Z])\.\s+(.+)$/gm)]
  .map(match=>({letter:match[1],title:match[2],anchor:slug(match[1]+". "+match[2])}));
@@ -73,6 +80,9 @@ await cp("site/activity.js","dist/activity.js");
 await cp("site/freshness.js","dist/freshness.js");
 await cp("site/progress.js","dist/progress.js");
 await cp("site/progress-policy.js","dist/progress-policy.js");
+await cp("site/research-catalog.js","dist/research-catalog.js");
+await writeFile(ROOT+"/research-source-catalog.json",JSON.stringify(sourceCatalog,null,2)+"\n");
+await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatalog));
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -136,8 +146,47 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
+ '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
+}));
+const sourceRows=sourceCatalog.records.map(item=>{
+ const searchable=[item.id,item.kind,item.titleOrType,item.geography,item.domain,item.doi||""].join(" ");
+ return '<tr data-source-record data-source-kind="'+safe(item.kind)+
+  '" data-source-search="'+safe(searchable)+'">'+
+  '<td><strong>'+safe(item.id)+'</strong></td>'+
+  '<td>'+safe(item.kind==="evidence_reference"?"Research reference":"Dataset candidate")+'</td>'+
+  '<td>'+safe(item.titleOrType)+'</td>'+
+  '<td>'+safe(item.geography)+'</td>'+
+  '<td>'+safe(item.licenseStatus)+'<small> / '+safe(item.rightsReviewStatus)+'</small></td>'+
+  '<td>'+safe(item.retraction)+'</td>'+
+  '<td><a href="'+safe(item.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Publisher ↗</a></td></tr>';
+}).join("");
+await publish("/research/source-catalog",shell({
+ title:"Source catalogue & data rights",section:"Research instruments",
+ description:"Search versioned research references and candidate public datasets. The catalogue includes sources and licence uncertainty, not downloaded personal records or validated impact.",
+ route:"/research/source-catalog",script:"/research-catalog.js",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Source catalogue',
+ body:'<div class="index-content"><p class="status-note">Metadata only. '+safe(String(sourceCatalog.totals.evidenceReferences))+
+  ' evidence references + '+safe(String(sourceCatalog.totals.datasetCandidates))+
+  ' source candidates. <strong>No third-party datasets have been imported, and source licences/retractions are not universally verified.</strong></p>'+
+  '<p>Source snapshot: <a href="/research-source-catalog.json">Download JSON metadata</a> · '+
+  '<a href="/research-source-catalog.csv">Download safe CSV metadata</a> · '+
+  '<a href="/library/docs/rt-01-1-source-catalog-method-v1">Read the method and limits</a></p>'+
+  '<form role="search" aria-label="Find research sources" class="source-search">'+
+  '<label for="source-filter">Search metadata</label> '+
+  '<input id="source-filter" type="search" maxlength="120" placeholder="Study, source, country or DOI"> '+
+  '<label for="source-kind">Source type</label> '+
+  '<select id="source-kind"><option value="all">All sources</option><option value="evidence_reference">Evidence references</option>'+
+  '<option value="public_dataset_candidate">Dataset candidates</option></select></form>'+
+  '<p id="source-count" role="status" aria-live="polite">'+sourceCatalog.records.length+
+  ' source records available (not impact validations)</p>'+
+  '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="Searchable public source metadata">'+
+  '<table><thead><tr><th scope="col">ID</th><th scope="col">Type</th><th scope="col">Source</th>'+
+  '<th scope="col">Geography</th><th scope="col">Licence / Review</th>'+
+  '<th scope="col">Retraction check</th><th scope="col">Publisher</th></tr></thead><tbody>'+
+  sourceRows+'</tbody></table></div>'+
+  '<p>Publishing a reference is not redistribution permission, peer review, full-text verification or proof of effectiveness.</p></div>'
 }));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
@@ -205,7 +254,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
@@ -214,7 +263,7 @@ await writeFile(ROOT+"/robots.txt","User-agent: *\nAllow: /\nSitemap: "+ORIGIN+"
 await writeFile(ROOT+"/publication.json",JSON.stringify({
  status:"published_from_git",revision,generatedAt:publishedAt,
  sourceFileCount:docLinks.length,sourcePaths:docLinks.map(x=>x.source),
- routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,activeInitiative:descriptor.currentInitiative
+ routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,activeInitiative:descriptor.currentInitiative
 },null,2)+"\n");
 console.log("HPI published: "+docLinks.length+" document routes, "+allRoutes.length+
  " total routes, "+(evidence.length-1)+" evidence entries; revision "+revision);
