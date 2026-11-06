@@ -35,6 +35,10 @@ The sample illustration is **not from an HPI field experiment**: one hundred fic
 - RT-01.1 through RT-01.4 still require broader dataset adapters, external source validation, licensing/rights review, accessibility assessment and independent methodology review.
 - F0-04 institutional readiness remains P0. **WEB-01's Vercel release hold, actual cost alerts and human screen-reader acceptance remain independent unresolved gates**, even if these CLI modules and browser tests pass.
 
+## Subsequent V1.0 tools
+
+The original offline V0.1 prototype has now been extended by [RT-01.1 source catalogue V1](RT-01-1-source-catalog-method-v1.md), including first-party source/rights metadata and SHA-pinned safe dataset handling, and [RT-01.2 outcomes V1](RT-01-2-outcome-evaluation-method-v1.md), including conditional Wilson/Newcombe uncertainty and a hypothetical browser simulation. These technical extensions do **not** retrofit causal validity or license/ethics approvals into the original evidence map.
+
 ## Next tool milestones
 
 - Add a **source-license ledger**, explicit retrieval date and study-family duplicate metadata with schema provenance before presenting source data as reusable.
