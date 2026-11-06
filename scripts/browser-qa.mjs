@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
  throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/evidence-ledger",
+const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -93,6 +93,20 @@ try{
    record(viewport.name+" "+route+" no horizontal document overflow",
     layout.docWidth<=layout.viewportWidth+2,JSON.stringify(layout));
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
+   if(route==="/research/source-catalog"){
+    await page.locator("#source-filter").fill("pension");
+    record(viewport.name+" source catalogue filters dataset candidates by query",
+     await page.locator("[data-source-record]:visible").count()>=1);
+    await page.locator("#source-filter").fill("");
+    await page.locator("#source-kind").selectOption("public_dataset_candidate");
+    record(viewport.name+" source catalogue dataset filter shows three curated candidates",
+     await page.locator("[data-source-record]:visible").count()===3);
+    const status=(await page.locator("#source-count").textContent())||"";
+    record(viewport.name+" source catalogue announces filtered count",
+     status.includes("3 of 42"));
+    await page.locator("#source-kind").selectOption("all");
+   }
+
    if(route==="/roadmap"||route.startsWith("/initiatives/")){
     const seo=await page.evaluate(()=>({
      canonical:document.querySelector('link[rel="canonical"]')?.getAttribute("href"),
