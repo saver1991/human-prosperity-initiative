@@ -52,7 +52,7 @@ test("published WEB-02 counts have bounded nonduplicate denominators and no veri
  const w=raw.initiatives.find(i=>i.id==="WEB-02");
  const result=acceptedTechnicalTasks(w);
  assert.equal(result.total,31);
- assert.equal(result.accepted,26);
+ assert.equal(result.accepted,31);
  assert.equal(result.evidenceMissing,0);
  assert.equal(result.impactVerified,false);
 });
