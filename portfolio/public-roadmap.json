@@ -1029,7 +1029,7 @@
       "id": "RT-01",
       "kind": "platform",
       "summary": "Create open-source datasets, evidence and evaluation instruments, reproducible workflows and ethical research tooling; research must be enabled by tools, not publications alone.",
-      "gate": "RT-01.1 and RT-01.2 technically delivered as read-only source catalogue and synthetic/descriptive outcome lab (PRs #63/#64); independent source licensing, field research, scientific measurement validation and actual population impact remain unverified. RT-01.3/.4 and F0-04 P0 governance are still open.",
+      "gate": "RT-01.1/.2/.3 technical research instruments and open-science provenance pipeline delivered with PR evidence; RT-01.4 privacy/licensing/accessibility and independent F0-03 methodology/ethics review remain open. Zero verified real-world impact, no participant records or live licensed dataset imported.",
       "deliverables": [
         {
           "label": "Open research tools and infrastructure roadmap",
@@ -1054,6 +1054,14 @@
         {
           "label": "RT-01.2 Interactive synthetic outcome lab",
           "url": "/research/outcome-lab"
+        },
+        {
+          "label": "RT-01.3 Reproducible open-science pipeline",
+          "url": "/research/reproducibility"
+        },
+        {
+          "label": "RT-01.3 Method, artefacts and corrections V1.0",
+          "url": "/library/docs/rt-01-3-reproducible-open-science-v1"
         }
       ],
       "epics": [
@@ -1132,32 +1140,36 @@
         {
           "id": "RT-01.3",
           "title": "Reproducible research pipelines and open science",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 58,
           "tasks": [
             {
               "id": "RT-01.3-T01",
               "title": "Specify pinned scripts/notebooks and deterministic, lightweight CI workflows",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/65"
             },
             {
               "id": "RT-01.3-T02",
               "title": "Design documented reusable methods, citation manifests and compatible open-source licences",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/65"
             },
             {
               "id": "RT-01.3-T03",
               "title": "Plan artifact provenance, correction history, transparent publishing and accessibility",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/65"
             },
             {
               "id": "RT-01.3-T04",
               "title": "Reuse CircleCI, Vercel, HPI public sources and SolOS read-only views; avoid redundant infrastructure",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/58",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/65"
             }
           ]
         },
