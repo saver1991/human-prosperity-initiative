@@ -20,9 +20,10 @@ test("public source contract has one stable ID per roadmap initiative, epic and 
  assert.ok(web.epics.find(x=>x.id==="WEB-02.1").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.find(x=>x.id==="WEB-02.2").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.find(x=>x.id==="WEB-02.3").tasks.every(t=>t.status==="complete"&&t.evidence));
- assert.ok(web.epics.filter(x=>["WEB-02.4","WEB-02.5","WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
- assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").deliveredEpics,["WEB-02.1","WEB-02.2","WEB-02.3"]);
- assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").pendingFounderApproval,["WEB-02.4","WEB-02.5","WEB-02.6"]);
+ assert.ok(web.epics.filter(x=>["WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
+ assert.ok(web.epics.filter(x=>["WEB-02.4","WEB-02.5"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="complete"&&t.evidence)));
+ assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").deliveredEpics,["WEB-02.1","WEB-02.2","WEB-02.3","WEB-02.4","WEB-02.5"]);
+ assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").pendingFounderApproval,[]);
  assert.ok(data.initiatives.flatMap(x=>x.epics).every(x=>x.tasks.every(t=>t.sourceIssue===null||t.sourceIssue.startsWith("https://github.com/saver1991/human-prosperity-initiative/issues/"))));
 });
 test("sensitive or unrecognised keys cannot be published",()=>{
@@ -68,7 +69,7 @@ test("invalid feed and malformed issue states never imply closure",()=>{
  assert.equal(publicIssueSignal({source:"github_public_issues",limitedToRecent:false,issues:[{number:29,title:"Synthetic",state:"done",updatedAt:"2026-11-05T12:00:00Z"}],fetchedAt:"2026-11-05T12:00:00Z"},29,now).state,"unavailable");
 });
 
-test("an epic awaiting approval cannot be mislabeled as accepted",()=>{
+test("duplicated delivered epic status cannot be counted twice",()=>{
  const p=copy(project);
  const w=p.initiatives.find(x=>x.id==="WEB-02");
  w.deliveredEpics.push("WEB-02.4");
