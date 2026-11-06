@@ -1,0 +1,10 @@
+HPI — Ricerca responsabile e accessibilità, versione 1.0 (6 novembre 2026)
+Sito pubblico: https://human-prosperity-initiative.vercel.app/research/responsible-tools/it
+
+Gli strumenti HPI attuali ammettono soltanto metadati di fonti pubbliche ed esempi esplicitamente fittizi.
+NON inviare dati personali, registrazioni pseudonimizzate, storie identificabili sulla povertà, dati di beneficiari o materiale senza diritti di riutilizzo.
+Nessuno studio su persone reali è stato autorizzato; nessun miglioramento causale della prosperità è stato dimostrato.
+Diritti di terzi, rischi di reidentificazione, base legale, responsabilità del trattamento, etica, consenso, norme internazionali e accessibilità con lettori di schermo reali richiedono valutazioni umane indipendenti.
+Codice originale HPI MIT, documentazione originale HPI CC BY 4.0; tali licenze non autorizzano il riutilizzo automatico di dati di terzi.
+Per regole e otto verifiche ancora aperte, vedi docs/RT-01-4-responsible-research-and-accessibility-v1.md nel repository pubblico.
+Questo file è stampabile e utilizzabile offline. Non è consulenza legale né un protocollo approvato per attività sul campo.
