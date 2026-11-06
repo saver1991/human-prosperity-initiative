@@ -2,6 +2,17 @@
 
 **Initial operating baseline:** 5 November 2026. **Maintainer:** founding repository administrator until governance and an incident-response owner are delegated. This is a public technical runbook, **not** a guarantee of continuous uptime, an approved scientific study or a claim that monitoring automatically sends alerts.
 
+## 6 November 2026 acceptance tools and still-open gates
+
+See the [WEB-01 operational acceptance matrix](WEB-01-final-acceptance.md) for a reproducible distinction between **implemented** release-preflight checks and **unverified** actual Vercel post-merge alias holds, provider-specific cost/credit alerts, and true human-assistive-technology observation.
+
+- `scripts/release-preflight.mjs` checks the **candidate's** publication manifest against the exact merged SHA and all three *latest* GitHub status contexts. **No Vercel production promotion or check-setting mutation occurs.**
+- `scripts/focus-cost-audit.mjs` supports **offline FOCUS charge review** from authorised complete exports, detects untagged shared-team charges and incomplete sampled API data, and never reports team-wide shared charges as an HPI invoice.
+- Automated CI browser tests remain useful, but **cannot substitute for VoiceOver/NVDA/TalkBack user-level acceptance**. An explicit checklist and evidence requirements are maintained in the matrix.
+- The technical user can configure actual provider-native Deployment Checks with the CircleCI GitHub commit statuses in the Vercel project UI, or authorise an alternative staged-promote setup. **Do not claim a tested release hold until a merged failure/pending scenario is visibly blocked.**
+
+These changes **do not close WEB-01**. They reduce uncertainty and prepare human/provider-dependent acceptance without introducing paid services or secrets.
+
 ## Production and source of truth
 
 - Canonical public website: https://human-prosperity-initiative.vercel.app
