@@ -75,3 +75,29 @@ test("duplicated delivered epic status cannot be counted twice",()=>{
  w.deliveredEpics.push("WEB-02.4");
  assert.throws(()=>buildPublicRoadmap(p,details),/duplicate|delivered epic needs completed/);
 });
+
+test("research tools and deferred business hypotheses cannot be misrepresented as launched programmes",()=>{
+ const model=buildPublicRoadmap(project,details,{revision:"b".repeat(40)});
+ const tools=model.initiatives.find(x=>x.id==="RT-01");
+ assert.ok(tools);
+ assert.equal(tools.priority,"P1");
+ assert.equal(tools.horizon,"Next");
+ assert.equal(tools.status,"planned");
+ assert.equal(tools.epics.length,4);
+ assert.equal(tools.epics.flatMap(x=>x.tasks).length,16);
+ assert.ok(tools.epics.every(e=>e.status==="planned"&&e.tasks.every(t=>t.status==="planned"&&t.evidence===null)));
+ const governance=model.initiatives.find(x=>x.id==="F0-04");
+ const deferred=governance.epics.find(x=>x.id==="F0-04.8");
+ assert.ok(deferred);
+ assert.equal(deferred.status,"planned");
+ assert.ok(deferred.tasks.every(t=>t.status==="planned"&&t.evidence===null));
+ const evidence=model.initiatives.find(x=>x.id==="F0-02");
+ for(const id of ["F0-02.1","F0-02.2"]){
+  const e=evidence.epics.find(x=>x.id===id);
+  assert.equal(e.status,"complete");
+  assert.ok(e.tasks.every(t=>t.status==="complete"&&t.evidence?.endsWith("/pull/45")));
+ }
+ assert.equal(evidence.epics.find(x=>x.id==="F0-02.3").status,"review");
+ assert.equal(model.legalStatus,"not_incorporated");
+ assert.equal(model.validatedHumanImpact,false);
+});
