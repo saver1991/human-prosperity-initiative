@@ -20,9 +20,9 @@ test("public source contract has one stable ID per roadmap initiative, epic and 
  assert.ok(web.epics.find(x=>x.id==="WEB-02.1").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.find(x=>x.id==="WEB-02.2").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.find(x=>x.id==="WEB-02.3").tasks.every(t=>t.status==="complete"&&t.evidence));
- assert.ok(web.epics.filter(x=>["WEB-02.6"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="planned")));
+ assert.ok(web.epics.find(x=>x.id==="WEB-02.6").tasks.every(t=>t.status==="complete"&&t.evidence));
  assert.ok(web.epics.filter(x=>["WEB-02.4","WEB-02.5"].includes(x.id)).every(x=>x.tasks.every(t=>t.status==="complete"&&t.evidence)));
- assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").deliveredEpics,["WEB-02.1","WEB-02.2","WEB-02.3","WEB-02.4","WEB-02.5"]);
+ assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").deliveredEpics,["WEB-02.1","WEB-02.2","WEB-02.3","WEB-02.4","WEB-02.5","WEB-02.6"]);
  assert.deepEqual(project.initiatives.find(x=>x.id==="WEB-02").pendingFounderApproval,[]);
  assert.ok(data.initiatives.flatMap(x=>x.epics).every(x=>x.tasks.every(t=>t.sourceIssue===null||t.sourceIssue.startsWith("https://github.com/saver1991/human-prosperity-initiative/issues/"))));
 });
