@@ -6,9 +6,12 @@ import {readFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
 import {auditEvidenceMetadata} from "../research-tools/evidence-provenance.mjs";
 import {compareAggregateOutcomes} from "../research-tools/aggregate-outcomes.mjs";
+import {auditStructuredEvidence} from "../research-tools/structured-evidence.mjs";
 export async function runAudit({ledgerPath="research/evidence-ledger.csv"}={}){
  const source=await readFile(ledgerPath,"utf8");
  const evidence=auditEvidenceMetadata(source,{sourcePath:ledgerPath});
+ const structuredCsv=await readFile("research/F0-02-structured-evidence-2026-11-06.csv","utf8");
+ const structuredEvidence=auditStructuredEvidence(structuredCsv);
  const synthetic=compareAggregateOutcomes({
   name:"Synthetic benefits completion example",
   sourceType:"synthetic",
@@ -17,7 +20,7 @@ export async function runAudit({ledgerPath="research/evidence-ledger.csv"}={}){
   control:{eligible:100,received:6,missingFollowup:0},
   comparison:{eligible:100,received:11,missingFollowup:0}
  });
- return {kind:"hpi-rt01-local-reproducibility-report-v0.1",evidence,synthetic,
+ return {kind:"hpi-rt01-local-reproducibility-report-v0.1",evidence,structuredEvidence,synthetic,
   generatedWith:"node-standard-library-no-network",
   realWorldImpactMeasured:false,independentScientificReview:false,
   participantRecordsUsed:false};
