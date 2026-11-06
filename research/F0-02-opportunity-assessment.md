@@ -1,6 +1,10 @@
 # F0-02 — Rapid evidence scan & opportunity assessment
 
-**Version:** 0.2 • **Date:** 6 November 2026 • **Status:** F0-02.1 reproducible *desk* protocol delivered; F0-02.2 expanded *abstract-level rapid evidence map* delivered (10/12/12 records). Independent full-text review, partner mapping, local feasibility and final selection **remain open**.
+**Version:** 0.3 • **Date:** 6 November 2026 • **Status:** F0-02.1 desk protocol and F0-02.2 preliminary mapping delivered. F0-02.3 comparative **public-source desk shortlist drafted for founder discussion** — two options proposed (Newham UK and Recife Brazil), Naples Italy retained as reserve. **None selected or approved**; F0-02.4–02.5 independent consultation and scoring, full review, partner feasibility and intervention decision remain open.
+
+## F0-02.3 geographical/population comparison (6 November 2026)
+
+A [provisional comparative research report](F0-02-3-jurisdiction-population-shortlist-2026-11-06.md) and [source-linked candidate matrix](F0-02-3-geographic-comparison-2026-11-06.csv) examine **Newham (UK), Recife (Brazil) and Naples (Italy)**. Newham (older residents potentially eligible for Pension Credit) and Recife (very low-income families needing CadÚnico support and eventual actual Bolsa Família awards) are a **proposed two-option discussion shortlist**, with Naples (ADI applicants) a reserve. Different poverty definitions are not compared as if equivalent. No partner contacted, consent/data obtained, founder selection or pilot authorised. **F0-02.3 remains open for explicit founder review.**
 
 ## Expanded evidence and audit (6 November 2026)
 
@@ -62,7 +66,7 @@ Use the charter's six criteria only after gathering local evidence: need severit
 
 1. **Delivered for targeted desk research:** Version 1.0 of the reproducible search/screen protocol and a dated actual-query log for all domains (not exhaustive systematic searching).
 2. **Delivered as preliminary abstract mapping:** 10 / 12 / 12 cited study/review records, with endpoint/comparator/source, limited extractable effect metrics, limitations and explicit full-text appraisal gaps. Formal independent risk-of-bias ratings remain open if a systematic review is commissioned.
-3. Map existing providers and opportunities in 1–2 candidate jurisdictions, without contacting vulnerable populations or collecting their personal data.
+3. **Desk comparison drafted, founder approval pending:** Compare three contexts using official published data and map existing delivery and legal barriers; propose two alternatives (Newham and Recife) with Naples in reserve. Do not claim direct benefit data access, partner commitment or selected population.
 4. Consult affected people and field experts through lawful, ethical partner-led processes.
 5. Apply the rubric with independent reviewers; document disagreements and a go/no-go choice.
 6. Write a pre-pilot concept note only after steps 1–5.
