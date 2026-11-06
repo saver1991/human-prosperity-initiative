@@ -99,6 +99,8 @@ for(const [name,filename] of Object.entries(PUBLIC_OUTPUTS))
 await writeFile(ROOT+"/research-source-catalog.json",JSON.stringify(sourceCatalog,null,2)+"\n");
 await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatalog));
 await writeFile(ROOT+"/research-governance-status.json",JSON.stringify(governance,null,2)+"\n");
+await cp("research/responsible-tools.en.txt","dist/responsible-tools.en.txt");
+await cp("research/responsible-tools.it.txt","dist/responsible-tools.it.txt");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
@@ -162,7 +164,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a></p>'+
+ '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a> · <a href="/research/responsible-tools">Responsible tools & privacy ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -281,7 +283,7 @@ await publish("/research/responsible-tools",shell({
  body:'<div class="index-content"><p><a lang="it" href="/research/responsible-tools/it" hreflang="it">Leggi in italiano</a></p>'+
  '<p class="status-note"><strong>Public metadata and synthetic examples only.</strong> No real participants, no approved treatment effects, no independent research ethics approval, no established legal foundation and no legal/privacy certification.</p>'+
  '<h2>Data safety by default</h2><p>Current HPI tools reject personal records, pseudonymised welfare data, unreviewed small cells, third-party content without redistribution rights and automated eligibility decisions. Even aggregate or pseudonymised records can allow re-identification; contextual human review is required.</p>'+
- '<p><a href="/research-governance-status.json">Download machine-readable policy status (JSON)</a> · '+
+ '<p><a href="/research-governance-status.json">Download machine-readable policy status (JSON)</a> · <a href="/responsible-tools.en.txt" download>Offline English text</a> · '+
  '<a href="/library/docs/rt-01-4-responsible-research-and-accessibility-v1">Review the full methodology and approval checklist</a></p>'+
  '<h2>Independent approvals still required</h2>'+
  '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="External governance gates still pending">'+
@@ -298,7 +300,7 @@ await publish("/research/responsible-tools/it",shell({
  body:'<div class="index-content"><p><a href="/research/responsible-tools" hreflang="en" lang="en">Read in English</a></p>'+
  '<p class="status-note"><strong>Soltanto metadati pubblici ed esempi sintetici.</strong> Nessun dato di partecipanti reali, nessun effetto causale validato, nessuna autorizzazione etica indipendente e nessuna certificazione di conformità legale.</p>'+
  '<h2>Protezione dei dati per impostazione predefinita</h2><p>Gli strumenti pubblici non consentono dati personali, registrazioni pseudonimizzate, contenuti di terzi senza permessi verificati o decisioni sull’idoneità individuale a prestazioni. Anche i dati aggregati possono permettere la reidentificazione: serve una valutazione umana specifica.</p>'+
- '<p><a href="/research-governance-status.json">Scarica lo stato delle regole (JSON)</a> · '+
+ '<p><a href="/research-governance-status.json">Scarica lo stato delle regole (JSON)</a> · <a href="/responsible-tools.it.txt" download>Testo in italiano per uso offline</a> · '+
  '<a href="/library/docs/rt-01-4-responsible-research-and-accessibility-v1">Leggi il protocollo e le condizioni di approvazione</a></p>'+
  '<h2>Verifiche esterne ancora necessarie</h2>'+
  '<p>Restano da definire la base giuridica e i responsabili, le autorizzazioni per utilizzare dati esterni, la valutazione dei rischi di reidentificazione, il controllo etico e scientifico indipendente, la conformità nei singoli paesi e la verifica con lettori di schermo reali.</p>'+
