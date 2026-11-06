@@ -1029,7 +1029,7 @@
       "id": "RT-01",
       "kind": "platform",
       "summary": "Create open-source datasets, evidence and evaluation instruments, reproducible workflows and ethical research tooling; research must be enabled by tools, not publications alone.",
-      "gate": "RT-01.1/.2/.3 technical research instruments and open-science provenance pipeline delivered with PR evidence; RT-01.4 privacy/licensing/accessibility and independent F0-03 methodology/ethics review remain open. Zero verified real-world impact, no participant records or live licensed dataset imported.",
+      "gate": "Four technical open-research tooling epics delivered (16/16 engineering tasks: source metadata, synthetic outcomes, reproducible pipeline, privacy/accessibility/governance controls). External GDPR/privacy/data controller, dataset redistribution rights, real assistive-tech testing, F0-03 independent scientific/ethical approvals and any actual human impact remain unapproved.",
       "deliverables": [
         {
           "label": "Open research tools and infrastructure roadmap",
@@ -1062,6 +1062,18 @@
         {
           "label": "RT-01.3 Method, artefacts and corrections V1.0",
           "url": "/library/docs/rt-01-3-reproducible-open-science-v1"
+        },
+        {
+          "label": "RT-01.4 Responsible Research and Accessibility (EN)",
+          "url": "/research/responsible-tools"
+        },
+        {
+          "label": "RT-01.4 Governance e ricerca responsabile (IT)",
+          "url": "/research/responsible-tools/it"
+        },
+        {
+          "label": "RT-01.4 Full privacy, accessibility and review gates",
+          "url": "/library/docs/rt-01-4-responsible-research-and-accessibility-v1"
         }
       ],
       "epics": [
@@ -1176,33 +1188,36 @@
         {
           "id": "RT-01.4",
           "title": "Privacy, accessibility and responsible tool governance",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 59,
           "tasks": [
             {
               "id": "RT-01.4-T01",
               "title": "Define aggregate/public-safe versus sensitive research data classification and access gates",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/66"
             },
             {
               "id": "RT-01.4-T02",
               "title": "Specify multilingual accessible, low-bandwidth and offline-inclusive research tooling interfaces",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/66"
             },
             {
               "id": "RT-01.4-T03",
               "title": "Audit software/data licensing, contribution governance, privacy and independent review requirements",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/66"
             },
             {
               "id": "RT-01.4-T04",
               "title": "Separate delivered code, scientific validation, hypothetical simulations and measured beneficiary impact",
-              "status": "documented",
+              "status": "complete",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/62"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/66"
             }
           ]
         }
