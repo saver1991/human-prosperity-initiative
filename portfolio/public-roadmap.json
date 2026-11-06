@@ -1029,7 +1029,7 @@
       "id": "RT-01",
       "kind": "platform",
       "summary": "Create open-source datasets, evidence and evaluation instruments, reproducible workflows and ethical research tooling; research must be enabled by tools, not publications alone.",
-      "gate": "Technical MVP V0.1 provenance + aggregate descriptive comparison code and tests under review. No production-validated research instrument, user data, statistical causal result, dataset acquisition, independent science signoff, or commercialisation. F0-04 P0 remains institutional priority.",
+      "gate": "RT-01.1 and RT-01.2 technically delivered as read-only source catalogue and synthetic/descriptive outcome lab (PRs #63/#64); independent source licensing, field research, scientific measurement validation and actual population impact remain unverified. RT-01.3/.4 and F0-04 P0 governance are still open.",
       "deliverables": [
         {
           "label": "Open research tools and infrastructure roadmap",
@@ -1038,70 +1038,94 @@
         {
           "label": "Research validation tools V0.1 — reproducible offline prototype",
           "url": "/library/docs/rt-01-reproducible-validation-tools-v0-1"
+        },
+        {
+          "label": "RT-01.1 Source catalogue and licensing method V1.0",
+          "url": "/library/docs/rt-01-1-source-catalog-method-v1"
+        },
+        {
+          "label": "RT-01.1 Open source catalogue",
+          "url": "/research/source-catalog"
+        },
+        {
+          "label": "RT-01.2 Synthetic outcomes and evaluation method V1.0",
+          "url": "/library/docs/rt-01-2-outcome-evaluation-method-v1"
+        },
+        {
+          "label": "RT-01.2 Interactive synthetic outcome lab",
+          "url": "/research/outcome-lab"
         }
       ],
       "epics": [
         {
           "id": "RT-01.1",
           "title": "Evidence sources, datasets and provenance",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 56,
           "tasks": [
             {
               "id": "RT-01.1-T01",
               "title": "Catalogue lawfully reusable research sources and aggregate datasets with metadata and licence provenance",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/63"
             },
             {
               "id": "RT-01.1-T02",
               "title": "Design reproducible source ingestion and normalization with version pinning and deduplication",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/63"
             },
             {
               "id": "RT-01.1-T03",
               "title": "Specify exportable public evidence metadata, documented missingness and source/retraction tracking",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/63"
             },
             {
               "id": "RT-01.1-T04",
               "title": "Plan automated tests for malformed source, unknown rights, stale data and provenance drift",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/56",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/63"
             }
           ]
         },
         {
           "id": "RT-01.2",
           "title": "Outcome measurement, evaluation and simulation",
-          "status": "in_progress",
+          "status": "complete",
           "issue": 57,
           "tasks": [
             {
               "id": "RT-01.2-T01",
               "title": "Design transparent outcome schema with denominators, comparators, follow-up, uncertainty and harms",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/64"
             },
             {
               "id": "RT-01.2-T02",
               "title": "Plan reusable evaluation and synthetic simulation modules with no claims of established causal impact",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/64"
             },
             {
               "id": "RT-01.2-T03",
               "title": "Align tools with F0-03 scientific review and independently assessed quality requirements",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/64"
             },
             {
               "id": "RT-01.2-T04",
               "title": "Define test fixtures for null/adverse effects, data leakage and synthetic-versus-observed labelling",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57"
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/57",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/64"
             }
           ]
         },

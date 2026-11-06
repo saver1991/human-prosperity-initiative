@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
  throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/evidence-ledger",
+const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -93,7 +93,22 @@ try{
    record(viewport.name+" "+route+" no horizontal document overflow",
     layout.docWidth<=layout.viewportWidth+2,JSON.stringify(layout));
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
-   if(route==="/research/source-catalog"){
+   
+   if(route==="/research/outcome-lab"){
+    await page.locator("#comp-received").fill("2");
+    await page.locator('#outcome-demo button[type="submit"]').click();
+    record(viewport.name+" synthetic outcome lab reports negative findings without causal claims",
+     (await page.locator("#outcome-demo-result").textContent()).includes("-4.00%")&&
+     (await page.locator("#outcome-demo-result").textContent()).includes("No causal"));
+    await page.locator("#comp-received").fill("11");
+    await page.locator('#outcome-demo button[type="submit"]').click();
+    record(viewport.name+" synthetic lab restores reproducible +5pp observed difference",
+     (await page.locator("#outcome-demo-result").textContent()).includes("+5.00%"));
+    await page.locator("#run-synthetic-simulation").click();
+    record(viewport.name+" seeded synthetic simulation is explicitly not a real-world CI",
+     (await page.locator("#simulation-result").textContent()).includes("NOT a confidence interval"));
+   }
+if(route==="/research/source-catalog"){
     await page.locator("#source-filter").fill("pension");
     record(viewport.name+" source catalogue filters dataset candidates by query",
      await page.locator("[data-source-record]:visible").count()>=1);

@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "1.0",
+  "statement": "SYNTHETIC EXAMPLE ONLY. No HPI participants, causal effect, source dataset or real cost data.",
+  "scenario": {
+    "scenarioId": "SYNTHETIC_BENEFITS_F0_03",
+    "sourceType": "synthetic",
+    "indicatorId": "HPI-B-01",
+    "timeframe": "Illustrative nine-month follow-up",
+    "currency": "GBP",
+    "independentBinomialAssumption": true,
+    "reference": {
+      "eligible": 100,
+      "received": 6,
+      "missingFollowup": 0,
+      "harmsReported": 2,
+      "costMinorUnits": 4000,
+      "baseline": {
+        "eligible": 100,
+        "received": 3,
+        "missingFollowup": 0
+      },
+      "strata": [
+        {
+          "category": "Synthetic stratum A",
+          "eligible": 50,
+          "received": 2,
+          "missingFollowup": 0
+        },
+        {
+          "category": "Synthetic stratum B",
+          "eligible": 50,
+          "received": 4,
+          "missingFollowup": 0
+        }
+      ]
+    },
+    "comparison": {
+      "eligible": 100,
+      "received": 11,
+      "missingFollowup": 0,
+      "harmsReported": 1,
+      "costMinorUnits": 6000,
+      "baseline": {
+        "eligible": 100,
+        "received": 4,
+        "missingFollowup": 0
+      },
+      "strata": [
+        {
+          "category": "Synthetic stratum A",
+          "eligible": 50,
+          "received": 6,
+          "missingFollowup": 0
+        },
+        {
+          "category": "Synthetic stratum B",
+          "eligible": 50,
+          "received": 5,
+          "missingFollowup": 0
+        }
+      ]
+    }
+  },
+  "simulation": {
+    "seed": 17,
+    "iterations": 1000,
+    "reference": {
+      "eligible": 100,
+      "receiptProbability": 0.06,
+      "missingProbability": 0.05
+    },
+    "comparison": {
+      "eligible": 100,
+      "receiptProbability": 0.11,
+      "missingProbability": 0.05
+    }
+  }
+}

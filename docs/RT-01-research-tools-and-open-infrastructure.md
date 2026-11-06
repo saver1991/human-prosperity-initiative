@@ -1,6 +1,6 @@
 # RT-01 — Open Research Tools & Infrastructure
 
-**Status:** P1 · NEXT · IN PROGRESS — initial offline public-source prototype under review; no participant-linked tools, independent science approval, deployed autonomous engine or real outcomes implied. **Date:** 6 November 2026.
+**Status:** P1 · NEXT · IN PROGRESS — RT-01.1 and RT-01.2 technical tools delivered; no participant-linked tools, independent science approval, deployed autonomous engine or real outcomes implied. **Date:** 6 November 2026.
 **Source:** [RT-01 parent issue #55](https://github.com/saver1991/human-prosperity-initiative/issues/55). HPI is an international public-interest research initiative, not currently a legal nonprofit, foundation or company.
 
 ## Why research also needs tools
@@ -28,6 +28,13 @@ The [RT-01 reproducible validation tools V0.1](RT-01-reproducible-validation-too
 - Unit tests for malformed source, unsafe primary URLs, duplicate IDs, bad counts, forbidden person-level fields, negative results and missing observations.
 
 **Software implementation does not validate an intervention or scientific method.** Broader RT-01 tasks — licences and source rights, complete data catalogues/adapters, independently justified uncertainty models, accessible hosted research tools, and actual methodological review — remain open. No personal data, external partner, funding, research protocol approval or causal effect has been introduced.
+
+## Two technically delivered research-tools epics (6 November 2026)
+
+- **RT-01.1** — source catalogue, source rights metadata, provenance, bounded synthetic/public aggregate ingestion contract, searchable first-party [source catalogue](https://human-prosperity-initiative.vercel.app/research/source-catalog), [method and review gates](RT-01-1-source-catalog-method-v1.md); accepted source PR [#63](https://github.com/saver1991/human-prosperity-initiative/pull/63).
+- **RT-01.2** — F0-03-aligned *draft* indicators, baseline and follow-up, attrition sensitivity, harms/cost/equity summaries, conditional binomial uncertainty, deterministic hypothetical simulation, interactive [synthetic outcome lab](https://human-prosperity-initiative.vercel.app/research/outcome-lab), [method and review gates](RT-01-2-outcome-evaluation-method-v1.md); accepted source PR [#64](https://github.com/saver1991/human-prosperity-initiative/pull/64).
+
+These are technically implemented **research-enabling instruments**, not validated statistical estimators for real interventions, source redistribution permission, a completed peer review, real observed outcomes or approved causal conclusions. The RT-01 parent is **IN PROGRESS**, with **RT-01.3 and RT-01.4 still open** for open-science pipelines, licensing, accessibility and programme governance.
 
 ## Existing reusable foundations — already built, not counted again
 - Versioned [F0-02 search protocol](../research/research-protocol.md), [evidence ledger](../research/evidence-ledger.csv) and source-linked critical synthesis, with explicit limitations of abstract-level extraction.

@@ -10,6 +10,7 @@
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm run build && npm test",
-    "research:verify": "node scripts/rt01-repro-check.mjs"
+    "research:verify": "node scripts/rt01-repro-check.mjs",
+    "research:evaluate": "node scripts/rt01-outcome-check.mjs"
   }
 }

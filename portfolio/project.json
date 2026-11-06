@@ -257,14 +257,14 @@
           "id": "RT-01.1",
           "name": "Open evidence sources, datasets and provenance",
           "issue": 56,
-          "status": "planned",
+          "status": "complete",
           "tasksPlanned": 4
         },
         {
           "id": "RT-01.2",
           "name": "Outcome evaluation and simulations",
           "issue": 57,
-          "status": "planned",
+          "status": "complete",
           "tasksPlanned": 4
         },
         {
