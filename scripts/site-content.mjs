@@ -18,8 +18,8 @@ export const slug = value => String(value).toLowerCase().normalize("NFKD")
 export const routeForSource = input => {
  const src=input.replace(/\\/g,"/");
  if(ROOT_PAGES.has(src))return ROOT_PAGES.get(src);
- if(src.startsWith("docs/")&&src.endsWith(".md"))
-  return "/library/docs/"+src.slice(5,-3).split("/").map(slug).join("/");
+ if(src.startsWith("docs/")&&/\.(md|csv)$/.test(src))
+  return "/library/docs/"+src.slice(5).replace(/\.(md|csv)$/,"").split("/").map(slug).join("/");
  if(src.startsWith("research/")&&/\.(md|csv)$/.test(src))
   return "/research/"+slug(src.slice(9).replace(/\.(md|csv)$/,""));
  return null;
