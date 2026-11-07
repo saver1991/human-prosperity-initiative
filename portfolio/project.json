@@ -76,6 +76,11 @@
           "id": "F0-02.5",
           "name": "Prioritisation and go/no-go",
           "issue": 7
+        },
+        {
+          "id": "F0-02.6",
+          "name": "Newham desk-only six-criterion prioritisation",
+          "issue": 71
         }
       ]
     },
@@ -102,7 +107,14 @@
       "status": "review",
       "priority": "P1",
       "horizon": "Next",
-      "issue": 19
+      "issue": 19,
+      "epics": [
+        {
+          "id": "F0-03.1.2",
+          "name": "Newham external reviewer question dossier preparation",
+          "issue": 73
+        }
+      ]
     },
     {
       "id": "F0-04",
@@ -232,9 +244,16 @@
     {
       "id": "F0-05",
       "name": "First study concept",
-      "status": "planned",
+      "status": "in_progress",
       "horizon": "Next",
-      "issue": 11
+      "issue": 11,
+      "epics": [
+        {
+          "id": "F0-05.2",
+          "name": "Newham falsifiable initial study concept preparation",
+          "issue": 72
+        }
+      ]
     },
     {
       "id": "F1",
