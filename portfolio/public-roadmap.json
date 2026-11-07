@@ -53,7 +53,7 @@
       "id": "F0-02",
       "kind": "research",
       "summary": "Identify the first defensible poverty-related opportunity through reproducible and critical evidence.",
-      "gate": "Founder selected Newham, London, for a PUBLIC DESK VALIDATION of the Pension Credit measurement framework (F0-03.2 PR #69); Recife/Naples remain alternative contexts. F0-02.3 local eligible denominator, programme additionality and research partner remain unverified. Formal first study/pilot population, consultation, 6-criterion go/no-go and external legal/ethics approval remain open.",
+      "gate": "Founder chose Newham for public-source desk validation; official older-age income deprivation 46.7% is documented but not Pension Credit eligibility. A six-criterion unscored F0-02.5A desk gate is technically delivered (PR #74) with GO_DESK_ONLY / NO_GO_FIELD. No independent jurisdiction ranking, local eligibility denominator, partner, human research consent, ethics or formal pilot go/no-go. Core F0-02.3/.4/.5 remain OPEN.",
       "deliverables": [
         {
           "label": "Evidence search protocol",
@@ -66,6 +66,14 @@
         {
           "label": "Opportunity assessment",
           "url": "/research/f0-02-opportunity-assessment"
+        },
+        {
+          "label": "Newham 6-criterion no-field desk decision",
+          "url": "/research/f0-02-5-newham-prioritisation-desk-gate-v0-1"
+        },
+        {
+          "label": "Newham feasibility and concept dashboard",
+          "url": "/research/newham-prepilot"
         }
       ],
       "epics": [
@@ -247,6 +255,28 @@
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/7"
             }
           ]
+        },
+        {
+          "id": "F0-02.6",
+          "title": "Newham evidence-backed six-criterion public desk gate (not formal pilot decision)",
+          "status": "complete",
+          "issue": 71,
+          "tasks": [
+            {
+              "id": "F0-02.6-T01",
+              "title": "Apply official weighted rubric to Newham with verified 60+ income deprivation and no fabricated scoring",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/71",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
+            },
+            {
+              "id": "F0-02.6-T02",
+              "title": "Publish evidence conflicts, unapproved critical gates, counterarguments and desk-only go/no-go",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/71",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
+            }
+          ]
         }
       ]
     },
@@ -339,7 +369,7 @@
       "id": "F0-03.1",
       "kind": "research",
       "summary": "Subject candidate metrics to independent statistical, ethical and affected-community scrutiny.",
-      "gate": "An internal critical pre-review is published; genuinely independent scientific/community sign-off has not occurred.",
+      "gate": "Scientific candidate framework V0.1, local Newham case V0.2 and external review question packet are technically published; **no actual independent methods expert or community reviewer has participated or signed off**. True F0-03 V1.0 remains unapproved and #19 OPEN.",
       "deliverables": [
         {
           "label": "Critical methodological pre-review",
@@ -348,6 +378,10 @@
         {
           "label": "Independent review form",
           "url": "/research/f0-03-independent-review-form"
+        },
+        {
+          "label": "Newham independent reviewer challenge dossier (unsubmitted)",
+          "url": "/research/f0-03-1-newham-independent-review-challenge-pack-v0-1"
         }
       ],
       "epics": [
@@ -377,6 +411,21 @@
               "id": "F0-03.1.1-T04",
               "title": "Record evidence-based response to external review and go/no-go",
               "status": "planned"
+            }
+          ]
+        },
+        {
+          "id": "F0-03.1.2",
+          "title": "Prepare Newham-specific falsification and independent review input (not actual signoff)",
+          "status": "complete",
+          "issue": 73,
+          "tasks": [
+            {
+              "id": "F0-03.1.2-T01",
+              "title": "Provide source-specific review questions, scientific objections, governance and blank response protocol",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/73",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
             }
           ]
         }
@@ -1021,7 +1070,7 @@
       "id": "F0-05",
       "kind": "research",
       "summary": "Define a falsifiable, ethically viable first study concept only after quality-screened evidence and suitable research partners.",
-      "gate": "Newham Pension Credit has a dated source-backed public desk-pre-protocol, NOT a field-ready F0-05 protocol or authorised intervention; no partner, data controller, independent methods/ethics review, applicant outreach, funding or participant recruitment.",
+      "gate": "Newham F0-05.1A study concept V0.1 drafted and technically reviewed under PR #74. Parent F0-05 still OPEN/IN PROGRESS: no legal sponsor, partner, available verified study data, independent methodology, ethics, disability/community input, sample/power, real budget or founder field-go. Current field decision NO-GO.",
       "deliverables": [
         {
           "label": "Research protocol foundations",
@@ -1030,6 +1079,14 @@
         {
           "label": "Newham desk pre-protocol (not field approved)",
           "url": "/research/f0-03-newham-pension-credit-desk-validation-v0-2"
+        },
+        {
+          "label": "Newham falsifiable first-study concept V0.1 (no field authorisation)",
+          "url": "/research/f0-05-newham-pension-credit-first-study-concept-v0-1"
+        },
+        {
+          "label": "Newham pre-pilot status and safeguards",
+          "url": "/research/newham-prepilot"
         }
       ],
       "epics": [
@@ -1048,6 +1105,28 @@
               "id": "F0-05.1-T02",
               "title": "Specify outcomes, design, costs, harms, approvals and go/no-go",
               "status": "planned"
+            }
+          ]
+        },
+        {
+          "id": "F0-05.2",
+          "title": "First Newham study concept draft with alternatives and vetoes (not trial approval)",
+          "status": "complete",
+          "issue": 72,
+          "tasks": [
+            {
+              "id": "F0-05.2-T01",
+              "title": "Write falsifiable receipt-based question, study unit, ethical comparator alternatives and noncausal fallback",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/72",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
+            },
+            {
+              "id": "F0-05.2-T02",
+              "title": "Define potential harms, equity, costs, unknown power, lawful data requirements and seven field vetoes",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/72",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
             }
           ]
         }
