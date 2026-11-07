@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
  throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/evidence-ledger",
+const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -126,6 +126,20 @@ try{
     record(viewport.name+" "+language+" policy explicitly avoids scientific/ethics overclaims",
       language==="it"?body.includes("nessuna certificazione")&&body.includes("reidentificazione"):
       body.includes("No real participants")&&body.includes("not")&&body.includes("screen-reader"));
+   }
+
+   if(route==="/research/newham-pension-credit"){
+    const text=(await page.locator("main").textContent())||"";
+    record(viewport.name+" Newham figure labels preserve geography and year",
+      text.includes("39.0%")&&text.includes("ALL AGES")&&
+      text.includes("62%")&&text.includes("Great Britain")&&
+      text.includes("220 residents")&&text.includes("2024/25"));
+    record(viewport.name+" Newham cannot misrepresent council service as an approved pilot",
+      text.includes("No HPI intervention")&&text.includes("Not measured")&&
+      text.includes("NOT Newham")&&text.includes("not independently verified awards"));
+    record(viewport.name+" Newham shows public methods and machine-readable evidence",
+      await page.locator('main a[href="/research-newham-validation.json"]').count()===1&&
+      await page.locator('main a[href="/research/f0-03-newham-pension-credit-desk-validation-v0-2"]').count()===1);
    }
 if(route==="/research/reproducibility"){
     const body=(await page.locator("main").textContent())||"";
