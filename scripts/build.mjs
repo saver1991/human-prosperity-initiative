@@ -7,6 +7,7 @@ import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-cata
 import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
 import {governanceStatus,validateResearchGovernance} from "../research-tools/research-governance.mjs";
+import {validateNewhamDeskSources} from "../research-tools/newham-desk-validation.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -38,6 +39,10 @@ if(outcomeIndicator.status!=="proposed_not_validated"||outcomeIndicator.unit!=="
  throw Error("Synthetic outcome lab cannot claim validated or non-share indicator");
 const governancePolicy=validateResearchGovernance(JSON.parse(await readFile("research/research-governance-gates.json","utf8")));
 const governance=governanceStatus(governancePolicy);
+const newhamRaw=await readFile("research/newham-pension-credit-desk-source-audit-v0.2.json","utf8");
+const newhamDesk=validateNewhamDeskSources(
+ newhamRaw,content.get("research/F0-03-newham-indicator-feasibility-v0.2.csv"),
+ content.get("research/F0-03-indicator-catalog-v0.1.csv"));
 const sourceRegistry=JSON.parse(await readFile("research/public-dataset-registry.json","utf8"));
 const sourceCatalog=buildSourceCatalog({
  ledgerCsv:content.get("research/evidence-ledger.csv"),
@@ -93,6 +98,8 @@ await cp("site/outcome-lab.js","dist/outcome-lab.js");
 await cp("research-tools/outcome-evaluation.mjs","dist/research-outcome-evaluation.js");
 await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-outcome-template.json");
 await cp("research/notebooks/rt01-public-source-workflow.ipynb","dist/research-reproducibility-notebook.ipynb");
+await writeFile(ROOT+"/research-newham-validation.json",JSON.stringify(newhamDesk,null,2)+"\n");
+await writeFile(ROOT+"/research-newham-source-audit.json",newhamRaw,"utf8");
 const researchBundle=await generateResearchArtifacts({load:source=>readFile(source,"utf8")});
 for(const [name,filename] of Object.entries(PUBLIC_OUTPUTS))
  await writeFile(ROOT+"/"+filename,researchBundle.outputs[name],"utf8");
@@ -164,7 +171,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/source-catalog">Browse the source catalogue and licence status ↗</a> · <a href="/research/outcome-lab">Try the synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Inspect reproducible open science ↗</a> · <a href="/research/responsible-tools">Responsible tools & privacy ↗</a></p>'+
+ '<p><a href="/research/newham-pension-credit">Newham Pension Credit desk validation ↗</a> · <a href="/research/source-catalog">Source catalogue and rights ↗</a> · <a href="/research/outcome-lab">Synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Reproducible open science ↗</a> · <a href="/research/responsible-tools">Research governance ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -310,6 +317,36 @@ await publish("/research/responsible-tools/it",shell({
  '<h2>Accessibilità e inclusione</h2><p>Questa pagina è disponibile anche senza JavaScript, con struttura semantica, tabelle leggibili, link visibili e documenti scaricabili. I controlli automatici Playwright/axe non sostituiscono VoiceOver, NVDA o TalkBack. Nessun futuro beneficiario dovrebbe essere obbligato a possedere uno smartphone o usare un servizio digitale.</p>'+
  '<p><a href="/research/reproducibility">Ricerca riproducibile</a> · <a href="/research/source-catalog">Fonti e licenze</a> · <a href="/research/outcome-lab">Simulazioni</a></p></div>'
 }));
+const newhamFacts=newhamDesk.contextFacts;
+const newhamLink=value=>{
+ const item=newhamFacts.find(x=>x.id===value);
+ return '<a href="'+safe(item.sourceUrl)+'" rel="noopener noreferrer" target="_blank">Original public source ↗</a>';
+};
+await publish("/research/newham-pension-credit",shell({
+ title:"F0-03 Newham desk validation",section:"Newham · public data case study",
+ description:"A reproducible, non-participant Pension Credit measurement feasibility test in Newham: real published context, 15 draft indicators, missing outcome denominators and explicit scientific gates.",
+ route:"/research/newham-pension-credit",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Newham case study',
+ body:'<div class="index-content">'+
+  '<p class="status-note"><strong>PUBLIC DESK VALIDATION — NOT A FIELD PILOT.</strong> This is a technical check of HPI measurements against existing Newham evidence, not real local benefit take-up, a causal effect, scientifically approved methods or a new outreach service. No HPI intervention or participant recruitment has occurred.</p>'+
+  '<h2>Four different observations, four different denominators</h2>'+
+  '<div class="doc-table-wrap" role="region" aria-label="Context figures must never be conflated" tabindex="0"><table><thead><tr><th scope="col">Observation</th><th scope="col">Value</th><th scope="col">Actual geography and population</th><th scope="col">Source</th></tr></thead><tbody>'+
+  '<tr><th scope="row">Income deprivation (MHCLG 2025)</th><td><strong>39.0%</strong></td><td>Newham, ALL AGES. Not Pension Credit eligibility or pensioner-only deprivation.</td><td>'+newhamLink("MHCLG-IOD25-NEWHAM-INCOME")+'</td></tr>'+
+  '<tr><th scope="row">Pension Credit take-up (DWP FYE 2025)</th><td><strong>62%</strong></td><td>Great Britain, national pensioner benefit-unit estimate; NOT Newham.</td><td>'+newhamLink("DWP-PC-FYE2025-GB-TAKEUP")+'</td></tr>'+
+  '<tr><th scope="row">Council residents supported to claim (2024/25)</th><td><strong>220 residents</strong></td><td>Newham local service output, not independently verified awards.</td><td>'+newhamLink("NEWHAM-PC-SUPPORTED-FYE2025")+'</td></tr>'+
+  '<tr><th scope="row">Council-reported additional income (2024/25)</th><td><strong>£748,590</strong></td><td>Same council report, not audited HPI impact or costs of programme operation.</td><td>'+newhamLink("NEWHAM-PC-REPORTED-INCOME-FYE2025")+'</td></tr>'+
+  '</tbody></table></div>'+
+  '<h2>The primary HPI-B-01 outcome is not yet measurable</h2>'+
+  '<p><strong>Not measured:</strong> locally established eligible household denominator, verified receipt numerator, follow-up, comparator, accessibility and lawful equity groups. The DWP 2023/24 local potential-receipt tables are published but their precise Newham row has not been extracted for this exercise; they have a different model and period from the national DWP 62% rate.</p>'+
+  '<p>Audited <strong>'+safe(String(newhamDesk.indicatorReadiness.candidateCount))+' draft indicators</strong>; <strong>zero</strong> independently validated local primary outcome values. This is useful evidence of what information is still needed, not an effect size or failed social intervention.</p>'+
+  '<h2>Responsible next steps</h2><p>Maintain the existing Our Newham Money service as context, establish whether independent research would add value, and only later—subject to local partner rights and external methods/ethics review—consider a prespecified comparison of verified receipt versus existing support. No legally owed benefits may be withheld.</p>'+
+  '<p><a href="/research/f0-03-newham-pension-credit-desk-validation-v0-2">Full scientific desk report and possible protocol</a> · '+
+  '<a href="/research/f0-03-newham-indicator-feasibility-v0-2">15-indicator feasibility table</a> · '+
+  '<a href="/research-newham-validation.json">Reproducible readiness result (JSON)</a> · '+
+  '<a href="/research-newham-source-audit.json">Public-source provenance audit (JSON)</a> · '+
+  '<a href="/research/responsible-tools">Independent ethics and data gates</a></p>'+
+  '</div>'
+}));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -376,7 +413,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
@@ -385,7 +422,7 @@ await writeFile(ROOT+"/robots.txt","User-agent: *\nAllow: /\nSitemap: "+ORIGIN+"
 await writeFile(ROOT+"/publication.json",JSON.stringify({
  status:"published_from_git",revision,generatedAt:publishedAt,
  sourceFileCount:docLinks.length,sourcePaths:docLinks.map(x=>x.source),
- routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,researchGovernanceVersion:governance.schemaVersion,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
+ routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,newhamDeskValidationVersion:newhamDesk.schemaVersion,researchGovernanceVersion:governance.schemaVersion,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
 },null,2)+"\n");
 console.log("HPI published: "+docLinks.length+" document routes, "+allRoutes.length+
  " total routes, "+(evidence.length-1)+" evidence entries; revision "+revision);

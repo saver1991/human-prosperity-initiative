@@ -85,7 +85,16 @@
       "status": "in_progress",
       "horizon": "Next",
       "issue": 5,
-      "measurementDraft": "https://human-prosperity-initiative.vercel.app/research/f0-03-prosperity-measurement-framework-v0-1"
+      "measurementDraft": "https://human-prosperity-initiative.vercel.app/research/f0-03-prosperity-measurement-framework-v0-1",
+      "epics": [
+        {
+          "id": "F0-03.2",
+          "name": "Newham Pension Credit context-specific desk validation",
+          "issue": 68,
+          "status": "complete",
+          "tasksPlanned": 4
+        }
+      ]
     },
     {
       "id": "F0-03.1",

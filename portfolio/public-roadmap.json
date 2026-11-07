@@ -53,7 +53,7 @@
       "id": "F0-02",
       "kind": "research",
       "summary": "Identify the first defensible poverty-related opportunity through reproducible and critical evidence.",
-      "gate": "F0-02.1 and .2 rapid desk mapping published; F0-02.3 provisional comparative shortlist awaits founder selection, paused for F0-04 institutional readiness. Full systematic review, independent ethics and impact approval remain open.",
+      "gate": "Founder selected Newham, London, for a PUBLIC DESK VALIDATION of the Pension Credit measurement framework (F0-03.2 PR #69); Recife/Naples remain alternative contexts. F0-02.3 local eligible denominator, programme additionality and research partner remain unverified. Formal first study/pilot population, consultation, 6-criterion go/no-go and external legal/ethics approval remain open.",
       "deliverables": [
         {
           "label": "Evidence search protocol",
@@ -254,7 +254,7 @@
       "id": "F0-03",
       "kind": "research",
       "summary": "Define candidate dimensions and measures of prosperity without inventing a universal welfare score.",
-      "gate": "Measurement V0.1 is published, not independently validated; V1.0 requires qualified methodological and community review.",
+      "gate": "F0-03 V0.1 candidate framework and Newham context-specific public desk validation V0.2 technically delivered (PR #69). No eligible Newham population denominator, actual confirmed Pension Credit receipt rate, sampled participant outcome, validated causal effect or independent scientific/community signoff. Scientific F0-03 V1.0 remains blocked on F0-03.1 #19 and research ethics #67.",
       "deliverables": [
         {
           "label": "Prosperity measurement V0.1",
@@ -263,6 +263,18 @@
         {
           "label": "Candidate indicator catalogue",
           "url": "/research/f0-03-indicator-catalog-v0-1"
+        },
+        {
+          "label": "Newham Pension Credit validation — public results",
+          "url": "/research/newham-pension-credit"
+        },
+        {
+          "label": "F0-03 Newham context-specific scientific desk report V0.2",
+          "url": "/research/f0-03-newham-pension-credit-desk-validation-v0-2"
+        },
+        {
+          "label": "F0-03 Newham 15-indicator feasibility matrix",
+          "url": "/research/f0-03-newham-indicator-feasibility-v0-2"
         }
       ],
       "epics": [
@@ -282,6 +294,42 @@
               "id": "F0-03.0-T02",
               "title": "Independently validate the instrument before claiming a scientific V1.0",
               "status": "planned"
+            }
+          ]
+        },
+        {
+          "id": "F0-03.2",
+          "title": "Newham Pension Credit case-specific desk measurement validation",
+          "status": "complete",
+          "issue": 68,
+          "tasks": [
+            {
+              "id": "F0-03.2-T01",
+              "title": "Review public DWP/MHCLG/Newham evidence by original geography, population, date and legal source scope",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/68",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/69"
+            },
+            {
+              "id": "F0-03.2-T02",
+              "title": "Audit every one of the 15 F0-03 candidate measures, identify missing primary outcome and invalid proxies",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/68",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/69"
+            },
+            {
+              "id": "F0-03.2-T03",
+              "title": "Produce falsifiable Newham Pension Credit desk pre-protocol, harms, equity, additionality and legal/ethics stop criteria",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/68",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/69"
+            },
+            {
+              "id": "F0-03.2-T04",
+              "title": "Publish deterministic HPI readout, first-party evidence links, negative tests and Playwright safeguards",
+              "status": "complete",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/68",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/69"
             }
           ]
         }
@@ -973,11 +1021,15 @@
       "id": "F0-05",
       "kind": "research",
       "summary": "Define a falsifiable, ethically viable first study concept only after quality-screened evidence and suitable research partners.",
-      "gate": "No population, study sponsor, ethics approval, human recruitment or budget is authorised.",
+      "gate": "Newham Pension Credit has a dated source-backed public desk-pre-protocol, NOT a field-ready F0-05 protocol or authorised intervention; no partner, data controller, independent methods/ethics review, applicant outreach, funding or participant recruitment.",
       "deliverables": [
         {
           "label": "Research protocol foundations",
           "url": "/research/research-protocol"
+        },
+        {
+          "label": "Newham desk pre-protocol (not field approved)",
+          "url": "/research/f0-03-newham-pension-credit-desk-validation-v0-2"
         }
       ],
       "epics": [
