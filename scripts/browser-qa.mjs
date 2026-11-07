@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
  throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/evidence-ledger",
+const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -128,7 +128,20 @@ try{
       body.includes("No real participants")&&body.includes("not")&&body.includes("screen-reader"));
    }
 
-   if(route==="/research/newham-pension-credit"){
+   
+   if(route==="/research/newham-prepilot"){
+    const txt=(await page.locator("main").textContent())||"";
+    record(viewport.name+" Newham 60+ income deprivation does not imply Pension Credit eligibility",
+      txt.includes("46.7%")&&txt.includes("60+")&&txt.includes("39.0%")&&
+      txt.includes("Great Britain")&&txt.includes("NO-GO: FIELDWORK"));
+    record(viewport.name+" six unscored official weighted criteria, not a scientific signoff",
+      await page.locator('main tbody tr').count()===6&&
+      await page.locator('main tbody td').filter({hasText:"Not assessed"}).count()===6);
+    record(viewport.name+" Newham F0-05 concept and external-review dossier are first party",
+      await page.locator('main a[href="/research/f0-05-newham-pension-credit-first-study-concept-v0-1"]').count()===1&&
+      await page.locator('main a[href="/research/f0-03-1-newham-independent-review-challenge-pack-v0-1"]').count()===1);
+   }
+if(route==="/research/newham-pension-credit"){
     const text=(await page.locator("main").textContent())||"";
     record(viewport.name+" Newham figure labels preserve geography and year",
       text.includes("39.0%")&&text.includes("ALL AGES")&&

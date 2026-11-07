@@ -9,12 +9,13 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "test": "node --test tests/*.test.mjs",
-    "check": "npm run build && npm run research:pipeline:verify && npm run research:governance:verify && npm run newham:verify && npm test",
+    "check": "npm run build && npm run research:pipeline:verify && npm run research:governance:verify && npm run newham:verify && npm run newham:prepilot:verify && npm test",
     "research:verify": "node scripts/rt01-repro-check.mjs",
     "research:evaluate": "node scripts/rt01-outcome-check.mjs",
     "research:pipeline:verify": "node scripts/rt01-pipeline-verify.mjs",
     "research:pipeline:archive": "node scripts/rt01-pipeline-verify.mjs --archive",
     "research:governance:verify": "node scripts/rt01-governance-check.mjs",
-    "newham:verify": "node scripts/newham-desk-check.mjs"
+    "newham:verify": "node scripts/newham-desk-check.mjs",
+    "newham:prepilot:verify": "node scripts/newham-prepilot-check.mjs"
   }
 }

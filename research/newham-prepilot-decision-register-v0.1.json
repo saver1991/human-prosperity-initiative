@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "0.1",
+  "date": "2026-11-07",
+  "id": "NEWHAM-RESEARCH-PRE-PILOT",
+  "founderDecision": "NEWHAM_SELECTED_AS_PUBLIC_DESK_VALIDATION_ONLY",
+  "territory": {
+    "name": "London Borough of Newham",
+    "geoCode": "E09000025",
+    "country": "England"
+  },
+  "problem": "Pension Credit verified receipt among potentially entitled pension-age low-income households",
+  "populationStatus": "working_hypothesis_not_eligible_person_list",
+  "sourceContext": [
+    {
+      "id": "NEWHAM_OLDER_DEPRIVATION_2025",
+      "value": 46.7,
+      "unit": "percent",
+      "age": "60+",
+      "geography": "Newham",
+      "source": "MHCLG English Indices of Deprivation 2025 statistical release, Table 8",
+      "url": "https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025/english-indices-of-deprivation-2025-statistical-release",
+      "kind": "area_context_not_pension_credit_eligibility"
+    },
+    {
+      "id": "NEWHAM_ALL_AGE_DEPRIVATION_2025",
+      "value": 39,
+      "unit": "percent",
+      "age": "all ages",
+      "geography": "Newham",
+      "source": "MHCLG English Indices of Deprivation 2025 statistical release, Table 7",
+      "url": "https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025/english-indices-of-deprivation-2025-statistical-release",
+      "kind": "area_context_not_pension_credit_eligibility"
+    },
+    {
+      "id": "GB_PENSION_CREDIT_TAKEUP_FYE_2025",
+      "value": 62,
+      "unit": "percent",
+      "age": "pensioner families estimated eligible",
+      "geography": "Great Britain",
+      "source": "DWP Income-related benefits estimates of take-up FYE 2025",
+      "url": "https://www.gov.uk/government/statistics/income-related-benefits-estimates-of-take-up-financial-year-ending-2025/income-related-benefits-estimates-of-take-up-financial-year-ending-2025",
+      "kind": "national_survey_caseload_not_newham_rate"
+    },
+    {
+      "id": "NEWHAM_COUNCIL_SUPPORTED_2024_25",
+      "value": 220,
+      "unit": "residents supported to claim",
+      "age": "older programme users",
+      "geography": "Newham",
+      "source": "Newham Council Ageing Well 2024/25 progress",
+      "url": "https://www.newham.gov.uk/downloads/file/9654/2024-25-you-said-together-we-did-5-",
+      "kind": "service_delivery_not_verified_receipt"
+    }
+  ],
+  "criteria": [
+    {
+      "id": "NEED",
+      "weightPercent": 20,
+      "deskEvidence": "Official older-age income deprivation 46.7% ranks Newham third among local authorities; geographically and age-specific need is supported, but benefit eligibility is unmeasured.",
+      "deskStrength": "contextual_supported",
+      "reviewScore": null,
+      "gate": "Do not use income deprivation as eligibility denominator."
+    },
+    {
+      "id": "EVIDENCE",
+      "weightPercent": 20,
+      "deskEvidence": "F0-02 annotated benefit-take-up reviews are heterogeneous; no demonstrated Newham-specific incremental effect or independent meta-analytic answer.",
+      "deskStrength": "indirect_not_locally_validated",
+      "reviewScore": null,
+      "gate": "Review sources and policy transferability independently."
+    },
+    {
+      "id": "FEASIBILITY",
+      "weightPercent": 20,
+      "deskEvidence": "Existing Newham council service and public context can be described; DWP local model table row, claimant records, controller, approved comparator, costs and partner capacity not established.",
+      "deskStrength": "desk_only",
+      "reviewScore": null,
+      "gate": "Require lawful local data and accountable delivery partner before any field activity."
+    },
+    {
+      "id": "ETHICS",
+      "weightPercent": 15,
+      "deskEvidence": "Potential risk of older people's stigma, benefit misinformation, inaccessible outreach, inappropriate data use and diversion of existing local services.",
+      "deskStrength": "unreviewed_risks",
+      "reviewScore": null,
+      "gate": "Independent ethics/safeguarding and community review, non-digital access and no benefit withholding."
+    },
+    {
+      "id": "ADDITIONALITY",
+      "weightPercent": 15,
+      "deskEvidence": "Our Newham Money already reported 220 assisted claims and £748,590 attributed additional income in 2024/25; HPI incremental value over this pre-existing work remains unknown.",
+      "deskStrength": "unproven",
+      "reviewScore": null,
+      "gate": "Demonstrate novel research value; otherwise no outreach/no-go."
+    },
+    {
+      "id": "MEASURABLE_LEARNING",
+      "weightPercent": 10,
+      "deskEvidence": "A participant-level confirmed receipt denominator could be designed conceptually, but approved local numerator, denominator, follow-up, uncertainty and equity data are missing.",
+      "deskStrength": "method_feasibility_only",
+      "reviewScore": null,
+      "gate": "Prespecify and independently approve verified receipt endpoint and missingness before study."
+    }
+  ],
+  "alternatives": [
+    {
+      "place": "Newham",
+      "status": "selected_for_public_desk_test",
+      "fieldStudyApproved": false
+    },
+    {
+      "place": "Recife",
+      "status": "comparison_option_unassessed_in_this_round",
+      "fieldStudyApproved": false
+    },
+    {
+      "place": "Naples",
+      "status": "reserve_option_unassessed_in_this_round",
+      "fieldStudyApproved": false
+    }
+  ],
+  "scoreTotal": null,
+  "ranking": null,
+  "independentCommunityScoringCompleted": false,
+  "deskDecision": "GO_DESK_ONLY",
+  "fieldDecision": "NO_GO_UNTIL_INDEPENDENT_GATES",
+  "fieldGates": [
+    {
+      "id": "LEGAL_ENTITY",
+      "status": "not_approved",
+      "why": "No legally accountable institution or sponsor"
+    },
+    {
+      "id": "DATA_RIGHTS",
+      "status": "not_approved",
+      "why": "No local verified eligible denominator and confirmed benefit receipt record access"
+    },
+    {
+      "id": "INDEPENDENT_METHODS",
+      "status": "not_approved",
+      "why": "No independent pre-specified causal/statistical design sign-off"
+    },
+    {
+      "id": "ETHICS",
+      "status": "not_approved",
+      "why": "No ethics committee, safeguarding, consent and lawful basis package"
+    },
+    {
+      "id": "COMMUNITY",
+      "status": "not_approved",
+      "why": "No ethically conducted affected-community and accessibility participation"
+    },
+    {
+      "id": "LOCAL_PARTNER",
+      "status": "not_approved",
+      "why": "No Newham/DWP/qualified implementation partner or approved additionality"
+    },
+    {
+      "id": "BUDGET",
+      "status": "not_approved",
+      "why": "No verified 12–24 month delivery budget or funded research capacity"
+    }
+  ],
+  "decisions": {
+    "actualBeneficiariesContacted": false,
+    "personalRecordsCollected": false,
+    "thirdPartyDatasetImported": false,
+    "interventionDelivered": false,
+    "causalEffectMeasured": false,
+    "fieldAuthorised": false,
+    "externalReviewSigned": false
+  },
+  "sourceAuthority": "HPI F0-02.5 #7, F0-03.1 #19 and F0-05 #11 remain open",
+  "publicationClassification": "public_metadata_no_personal_data"
+}
