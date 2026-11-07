@@ -8,6 +8,7 @@ import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
 import {governanceStatus,validateResearchGovernance} from "../research-tools/research-governance.mjs";
 import {validateNewhamDeskSources} from "../research-tools/newham-desk-validation.mjs";
+import {evaluatePrepilotDecision} from "../research-tools/newham-prepilot-gate.mjs";
 
 const ROOT="dist";
 const publishedAt=new Date().toISOString();
@@ -43,6 +44,8 @@ const newhamRaw=await readFile("research/newham-pension-credit-desk-source-audit
 const newhamDesk=validateNewhamDeskSources(
  newhamRaw,content.get("research/F0-03-newham-indicator-feasibility-v0.2.csv"),
  content.get("research/F0-03-indicator-catalog-v0.1.csv"));
+const prepilotRaw=await readFile("research/newham-prepilot-decision-register-v0.1.json","utf8");
+const prepilotResult=evaluatePrepilotDecision(prepilotRaw);
 const sourceRegistry=JSON.parse(await readFile("research/public-dataset-registry.json","utf8"));
 const sourceCatalog=buildSourceCatalog({
  ledgerCsv:content.get("research/evidence-ledger.csv"),
@@ -100,6 +103,7 @@ await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-
 await cp("research/notebooks/rt01-public-source-workflow.ipynb","dist/research-reproducibility-notebook.ipynb");
 await writeFile(ROOT+"/research-newham-validation.json",JSON.stringify(newhamDesk,null,2)+"\n");
 await writeFile(ROOT+"/research-newham-source-audit.json",newhamRaw,"utf8");
+await writeFile(ROOT+"/research-newham-prepilot-decision.json",JSON.stringify(prepilotResult,null,2)+"\n");
 const researchBundle=await generateResearchArtifacts({load:source=>readFile(source,"utf8")});
 for(const [name,filename] of Object.entries(PUBLIC_OUTPUTS))
  await writeFile(ROOT+"/"+filename,researchBundle.outputs[name],"utf8");
@@ -171,7 +175,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/newham-pension-credit">Newham Pension Credit desk validation ↗</a> · <a href="/research/source-catalog">Source catalogue and rights ↗</a> · <a href="/research/outcome-lab">Synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Reproducible open science ↗</a> · <a href="/research/responsible-tools">Research governance ↗</a></p>'+
+ '<p><a href="/research/newham-pension-credit">Newham Pension Credit validation ↗</a> · <a href="/research/newham-prepilot">Newham priority and study concept ↗</a> · <a href="/research/source-catalog">Source catalogue and rights ↗</a> · <a href="/research/outcome-lab">Synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Reproducible open science ↗</a> · <a href="/research/responsible-tools">Research governance ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -347,6 +351,31 @@ await publish("/research/newham-pension-credit",shell({
   '<a href="/research/responsible-tools">Independent ethics and data gates</a></p>'+
   '</div>'
 }));
+await publish("/research/newham-prepilot",shell({
+ title:"Newham study readiness & no-go decision",section:"Newham · ethics and research planning",
+ description:"Evidence-anchored F0-02.5 priority criteria, 46.7% older-age income deprivation, F0-05 independent-reviewable concept and explicit fieldwork restrictions.",
+ route:"/research/newham-prepilot",
+ breadcrumb:'<a href="/">Home</a> / <a href="/research">Research</a> / Newham study readiness',
+ body:'<div class="index-content">'+
+ '<p class="status-note"><strong>GO: PUBLIC DESK RESEARCH ONLY. NO-GO: FIELDWORK.</strong> No HPI participants recruited or contacted; no legal controller, independent research ethics or scientific approval, data licence, budget or field partner has been established.</p>'+
+ '<h2>Newham need is documented; eligibility is not</h2>'+
+ '<p>In the 2025 English Indices of Deprivation, <strong>46.7%</strong> of Newham residents aged <strong>60+</strong> experience income deprivation; <strong>39.0%</strong> is the all-ages income deprivation proportion. Neither measures Pension Credit eligibility or local benefit receipt. The DWP <strong>62%</strong> take-up figure is for <strong>Great Britain</strong>, not Newham, and the council 2024/25 <strong>220</strong> supported claims is a service activity count, not verified awards.</p>'+
+ '<p><a href="'+safe(prepilotResult.officialContext[0].url)+'" target="_blank" rel="noopener noreferrer">MHCLG source and 60+ Table 8</a> · <a href="'+safe(prepilotResult.officialContext[2].url)+'" target="_blank" rel="noopener noreferrer">DWP national take-up series</a></p>'+
+ '<h2>Six-criterion assessment: no invented quantitative rating</h2>'+
+ '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="Unscored F0-02.5 criterion audit"><table><thead><tr><th scope="col">Criterion</th><th scope="col">Official weight</th><th scope="col">Independent score</th><th scope="col">Critical gate</th></tr></thead><tbody>'+
+ prepilotResult.criterionStatus.map(x=>'<tr><th scope="row">'+safe(x.id)+'</th><td>'+safe(String(x.weightPercent))+'%</td><td>Not assessed</td><td>'+safe(x.gate)+'</td></tr>').join("")+
+ '</tbody></table></div>'+
+ '<p>Scores and rankings remain <strong>unknown</strong> until actual external input; high need cannot compensate for missing rights, ethical safeguarding, feasible outcomes or additionality over existing council work.</p>'+
+ '<h2>Draft study question</h2><p>Could a qualified, ethically approved service addition raise <strong>confirmed first Pension Credit payments</strong> among independently verified eligible baseline nonrecipients, compared with existing support available to everyone? An approved comparator, endpoint, sample, power, participant-access rights and review remain missing. A purely descriptive audit or stopping is acceptable.</p>'+
+ '<h2>Decision material and source records</h2><ul>'+
+ '<li><a href="/research/f0-02-5-newham-prioritisation-desk-gate-v0-1">F0-02.5A — six-criterion documented desk decision</a></li>'+
+ '<li><a href="/research/f0-05-newham-pension-credit-first-study-concept-v0-1">F0-05.1A — falsifiable first study concept</a></li>'+
+ '<li><a href="/research/f0-03-1-newham-independent-review-challenge-pack-v0-1">F0-03.1A — external reviewer challenge dossier</a></li>'+
+ '<li><a href="/research-newham-prepilot-decision.json">Machine-readable evidence and no-go gates (JSON)</a></li>'+
+ '<li><a href="/research/newham-pension-credit">Original F0-03.2 measurement audit</a></li>'+
+ '</ul>'+
+ '<p><a href="/research/responsible-tools">Review independent legal, data, scientific and accessibility gates</a></p></div>'
+}));
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -413,7 +442,7 @@ for(const [placeholder,replacement] of substitutions){
  homepage=homepage.replaceAll(placeholder,replacement);
 }
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';
@@ -422,7 +451,7 @@ await writeFile(ROOT+"/robots.txt","User-agent: *\nAllow: /\nSitemap: "+ORIGIN+"
 await writeFile(ROOT+"/publication.json",JSON.stringify({
  status:"published_from_git",revision,generatedAt:publishedAt,
  sourceFileCount:docLinks.length,sourcePaths:docLinks.map(x=>x.source),
- routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,newhamDeskValidationVersion:newhamDesk.schemaVersion,researchGovernanceVersion:governance.schemaVersion,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
+ routeCount:allRoutes.length,ledgerEntryCount:evidence.length-1,sourceCatalogEntryCount:sourceCatalog.totals.all,newhamDeskValidationVersion:newhamDesk.schemaVersion,newhamPrepilotDecisionVersion:prepilotResult.schemaVersion,researchGovernanceVersion:governance.schemaVersion,researchPipelineVersion:researchBundle.manifest.pipelineVersion,activeInitiative:descriptor.currentInitiative
 },null,2)+"\n");
 console.log("HPI published: "+docLinks.length+" document routes, "+allRoutes.length+
  " total routes, "+(evidence.length-1)+" evidence entries; revision "+revision);
