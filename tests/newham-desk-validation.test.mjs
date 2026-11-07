@@ -36,7 +36,7 @@ test("F0-03 validation rejects use of national take-up as a Newham receipt rate"
  const c=JSON.parse(raw);c.sourceItems[2].denominatorValidatedForBenefitReceipt=true;
  assert.throws(()=>run(JSON.stringify(c)),/unapproved entitlement denominator/);
  const e=JSON.parse(raw);e.notExtractedSource.value=70;
- assert.throws(()=>run(JSON.stringify(e)),/different DWP local receipt series/);
+ assert.throws(()=>run(JSON.stringify(e)),/distinct DWP local receipt series/);
 });
 test("F0-03 validation refuses council output as confirmed award and invented welfare effects",()=>{
  const a=JSON.parse(raw);a.sourceItems[2].value=250;
