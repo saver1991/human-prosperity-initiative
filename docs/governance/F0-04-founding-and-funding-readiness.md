@@ -53,3 +53,14 @@ References: [Charity Commission international risk guidance](https://www.gov.uk/
 No collecting public donations or grant applications in the name of a nonexistent entity; no partner/grantee claims; no allocation of participant or donor data to open GitHub/Neon stores; no automatic bank account, contract, legal filing or international operations. A research/funding plan is **not** proof of charity status or an authorised scientific intervention. No country or population was approved by re-prioritising F0-04.
 
 **Current verdict (2026-11-06):** P0 founding and funding programme documented; all substantive legal, trustee, finance, compliance and founder decisions remain **planned/open**.
+
+
+## Documentary deliveries — 8 November 2026
+
+- F0-04.2 #47 — legal/form option brief and draft worldwide objects (PR #75): **desk scope evidenced; no legal decision**.
+- F0-04.3 #48 — [board and fiduciary controls V0.1](F0-04-3-board-independence-fiduciary-controls-v0.1.md), merged PR #76: **unratified policies; no trustees**.
+- F0-04.4 #52 — source-backed [illustrative operating budget](F0-04-4-operating-budget-and-sustainability-v0.1.md), PR #75: **no grants, liabilities or authorised spending**.
+- F0-04.5 #49 — [grant and institutional eligibility desk pack](F0-04-5-funding-and-institutional-prospecting-v0.1.md), [seven-source prospect CSV](F0-04-5-funder-prospect-register-v0.1.csv), [uncontacted institutions](F0-04-5-institutional-research-landscape-v0.1.csv), PR #77: **no eligible submitting applicant today**.
+- F0-04.6 #50 — [international safeguards/partner blueprint](F0-04-6-international-operations-and-partner-controls-v0.1.md), [3-country NO-GO status register](F0-04-6-country-readiness-controls-v0.1.csv), PR #77: **UK/Newham desk only; no Brazil or Italy activity authorised**.
+- Remaining mandatory human gates: F0-04.1 safeguarding #26, independent research #19, qualified counsel and appointments, actual recipient/host, country controls, and F0-04.7 #51 founder legal decision. Public CI success **does not** satisfy these gates.
+

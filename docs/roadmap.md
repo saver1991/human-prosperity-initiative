@@ -43,6 +43,13 @@ HPI follows **Product / Programme → Initiative → Epic → Task**, with scien
 | **Later** | F2 — Replication and systems research | Open evidence, reproducibility and economic mechanisms research | Long-term |
 | **Later** | F3 — Broader institutional impact | Validated knowledge used more widely | Long-term ambition |
 
+
+### 8 November 2026 — F0-04 desk research acceptance (NOT a legal/field release)
+
+F0-04.2 legal forms and charitable objects, F0-04.3 draft fiduciary governance (merged PR #76), and F0-04.4 illustrative 12–24 month budget have documented deliverables. F0-04.5 [7 source-verified funding/programme leads](governance/F0-04-5-funding-and-institutional-prospecting-v0.1.md) and [machine-readable non-eligibility register](governance/F0-04-5-funder-prospect-register-v0.1.csv) distinguish advertised calls from **HPI's current NO eligibility / NO applications**; possible academic counterparts are **uncontacted**, with no implied fiscal host. F0-04.6 [international UK/Brazil/Italy legal and partner controls](governance/F0-04-6-international-operations-and-partner-controls-v0.1.md) and [country NO-GO matrix](governance/F0-04-6-country-readiness-controls-v0.1.csv) detail safeguards and independent approvals for worldwide aims. Both proposed as PR #77, subject to CI and live acceptance.
+
+The **documentary tasks** may be evidenced and counted, **but** the statutory legal form, counsel review, board/trustees, independent methods/community review, secure safeguarding ownership/channel, funding recipient, donor eligibility, actual partner, local permits and F0-04.7 INCORPORATE/HOST/HOLD **remain unapproved**. No grant application or fieldwork is permitted. Public status is a dated editorial snapshot, not a replacement for public GitHub issue evidence.
+
 ### F0-04 — Institutional, legal and funding readiness (P0 · NOW · PLANNING ONLY)
 
 The founder reprioritised HPI's organisational/legal/financial foundation ahead of final geographic intervention selection on **6 November 2026**. The commercial versus charitable form is expressly **undecided**; a later comparison is registered as **F0-04.8 #54**. HPI aims to be **international**, even if ultimately constituted as an England/Wales CIO. Charity Commission guidance allows UK charities to work globally while requiring local legal compliance, partner due diligence, safeguarding and accountability for funds. No form is selected, no charity is incorporated and no grant/partnership application or human outreach is authorised.
