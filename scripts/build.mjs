@@ -240,6 +240,7 @@ await publish("/research/outcome-lab",shell({
   '</fieldset>'+
   '<button type="submit">Calculate synthetic comparison</button></form>'+
   '<p id="outcome-demo-result" role="status" aria-live="polite">Example loads with JavaScript; no real data are processed.</p>'+
+  '<section class="status-note" aria-label="Synthetic calculation breakdown"><strong>Calculation used (synthetic only)</strong><p id="outcome-method-detail">The denominator is eligible minus missing follow-up. Calculated values appear after the form loads.</p></section>'+
   '<p><button id="run-synthetic-simulation" type="button">Run seeded hypothetical simulation</button></p>'+
   '<p id="simulation-result" role="status" aria-live="polite">Simulation not yet requested.</p>'+
   '<details><summary>Methodology, uncertainty and limits</summary>'+
