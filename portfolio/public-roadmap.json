@@ -53,7 +53,7 @@
       "id": "F0-02",
       "kind": "research",
       "summary": "Identify the first defensible poverty-related opportunity through reproducible and critical evidence.",
-      "gate": "Founder chose Newham for bounded public-source desk validation. NEW-02 DWP official ODS 2023/24 local row now independently extracted as a publisher binary (modelled household receipt: 8,800 / 11,300, 78%, with 2,500 potentially eligible nonrecipient households); this is NOT actual verified eligibility, a current rate, a HPI participant HPI-B-01 denominator, or comparable to FYE2025 Great Britain 62%. Source-only NEW-02 desk audit complete; F0-02.3/.4/.5, scientific/ethics/community review, local partner/record access and formal pilot field go/no-go remain OPEN. NO_GO_FIELD.",
+      "gate": "Public-source evidence and NEW-02 official 2023/24 DWP Newham household model documented. F0-02.4 partner selection / protected community consultation / legal-ethics / safeguarding DESIGN published (PR #83), **no actual consultation or partnership obtained**. F0-02.4-HUMAN #82, science #19, safeguarding #26, data rights #67, institution #51 and formal F0-02.5 pilot decision remain OPEN. DWP 78% household administrative estimate not HPI cohort outcome. All real fieldwork/recruitment/data access NO_GO_FIELD.",
       "deliverables": [
         {
           "label": "Evidence search protocol",
@@ -78,6 +78,10 @@
         {
           "label": "NEW-02 — Official DWP Newham row and negative cohort feasibility V0.2",
           "url": "/research/new-02-newham-source-reconciliation-additionality-v0-2"
+        },
+        {
+          "label": "F0-02.4 — Ethical partner and community consultation design V0.1 (no outreach)",
+          "url": "/research/f0-02-4-ethical-partner-community-consultation-plan-v0-1"
         }
       ],
       "epics": [
@@ -199,32 +203,36 @@
         {
           "id": "F0-02.4",
           "title": "Ethical partner and community consultation",
-          "status": "planned",
+          "status": "documented",
           "issue": 4,
           "tasks": [
             {
               "id": "F0-02.4-T01",
               "title": "Define partner eligibility and independence criteria.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/83"
             },
             {
               "id": "F0-02.4-T02",
               "title": "Create a low-burden consultation plan for affected communities, including non-digital options.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/83"
             },
             {
               "id": "F0-02.4-T03",
               "title": "Identify lawful bases for any data access, participant consent and independent review.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/83"
             },
             {
               "id": "F0-02.4-T04",
               "title": "Identify safeguarding, language/accessibility, conflicts and grievance channels.",
-              "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4"
+              "status": "documented",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/4",
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/83"
             }
           ]
         },
@@ -279,6 +287,32 @@
               "status": "complete",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/71",
               "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/74"
+            }
+          ]
+        },
+        {
+          "id": "F0-02.7",
+          "title": "Human-authorised partner and community execution (not included in documentary F0-02.4 acceptance)",
+          "status": "planned",
+          "issue": 82,
+          "tasks": [
+            {
+              "id": "F0-02.7-T01",
+              "title": "Appoint and verify accountable lawful sponsor, qualified external reviewer and safeguarding lead",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/82"
+            },
+            {
+              "id": "F0-02.7-T02",
+              "title": "Obtain independent legal, ethics, privacy and community oversight before any person is approached",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/82"
+            },
+            {
+              "id": "F0-02.7-T03",
+              "title": "Conduct protected consultations only with real authorisation and record reasoned consented input and no-go decision",
+              "status": "planned",
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/82"
             }
           ]
         }
@@ -373,7 +407,7 @@
       "id": "F0-03.1",
       "kind": "research",
       "summary": "Subject candidate metrics to independent statistical, ethical and affected-community scrutiny.",
-      "gate": "Internal AI-assisted methodological challenge V0.2, dated original-source reconciliation and safe human-review process are PUBLISHED, not independently validated. NEW-02 verified 2023/24 DWP Newham modelled household caseload receipt of 78%, but no verified HPI-B-01 eligible participant cohort or first paid award records. Qualified independent methods review and protected community input: NOT OBTAINED (0 submitted). F0-03 scientific V1.0 NOT RATIFIED; F0-03.1 #19 remains OPEN. No ethics, legal/data, sponsor or field authority.",
+      "gate": "Internal AI-assisted methodological challenge V0.2, dated original-source reconciliation and safe human-review process are PUBLISHED, not independently validated. NEW-02 verified 2023/24 DWP Newham modelled household caseload receipt of 78%, but no verified HPI-B-01 eligible participant cohort or first paid award records. Qualified independent methods review and protected community input: NOT OBTAINED (0 submitted). F0-03 scientific V1.0 NOT RATIFIED; F0-03.1 #19 remains OPEN. No ethics, legal/data, sponsor or field authority. Adversarial AI-assisted internal methodology challenge with 10 objections published in PR #83; author-related and NOT an independent peer review.",
       "deliverables": [
         {
           "label": "Critical methodological pre-review",
@@ -394,6 +428,10 @@
         {
           "label": "External-methods review protocol V0.2 — public/non-sensitive only",
           "url": "/research/f0-03-1-external-review-protocol-v0-2"
+        },
+        {
+          "label": "Adversarial internal AI methods critique (NOT independent review)",
+          "url": "/research/f0-03-1-adversarial-internal-science-critique-v0-3"
         }
       ],
       "epics": [
