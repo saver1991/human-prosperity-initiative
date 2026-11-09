@@ -29,7 +29,8 @@
     "sampleSize": null,
     "statisticalPower": null,
     "causalEffect": null,
-    "measuredParticipantImpacts": 0
+    "measuredParticipantImpacts": null,
+    "measuredParticipantImpactsNote": "No participant outcome measurement conducted; not a measured zero effect"
   },
   "geographicalAggregateContext": {
     "source": "DWP official local administrative model for 2023/24, published 2025-10-30",
