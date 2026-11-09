@@ -103,6 +103,7 @@ await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-
 await cp("research/notebooks/rt01-public-source-workflow.ipynb","dist/research-reproducibility-notebook.ipynb");
 await writeFile(ROOT+"/research-newham-validation.json",JSON.stringify(newhamDesk,null,2)+"\n");
 await cp("research/NEW-02-dwp-newham-local-official-facts-v0.2.json","dist/research-newham-dwp-official-facts.json");
+await cp("research/F0-03-1-review-readiness-v0.2.json","dist/research-independent-review-readiness.json");
 await writeFile(ROOT+"/research-newham-source-audit.json",newhamRaw,"utf8");
 await writeFile(ROOT+"/research-newham-prepilot-decision.json",JSON.stringify(prepilotResult,null,2)+"\n");
 const researchBundle=await generateResearchArtifacts({load:source=>readFile(source,"utf8")});
@@ -176,7 +177,7 @@ await publish("/research",shell({
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
- '<p><a href="/research/newham-pension-credit">Newham Pension Credit validation ↗</a> · <a href="/research/newham-prepilot">Newham priority and study concept ↗</a> · <a href="/research/source-catalog">Source catalogue and rights ↗</a> · <a href="/research/outcome-lab">Synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Reproducible open science ↗</a> · <a href="/research/responsible-tools">Research governance ↗</a></p>'+
+ '<p><a href="/research/f0-03-1-newham-independent-review-readiness-v0-2">Independent methodology review readiness (not approved) ↗</a> · <a href="/research/newham-pension-credit">Newham Pension Credit validation ↗</a> · <a href="/research/newham-prepilot">Newham priority and study concept ↗</a> · <a href="/research/source-catalog">Source catalogue and rights ↗</a> · <a href="/research/outcome-lab">Synthetic outcome lab ↗</a> · <a href="/research/reproducibility">Reproducible open science ↗</a> · <a href="/research/responsible-tools">Research governance ↗</a></p>'+
  cards(docLinks.filter(x=>x.source.startsWith("research/")))+
  '<p><a href="/roadmap">See how this work fits into the roadmap ↗</a></p></div>'
 }));
@@ -375,7 +376,10 @@ await publish("/research/newham-prepilot",shell({
  '<h2>Decision material and source records</h2><ul>'+
  '<li><a href="/research/f0-02-5-newham-prioritisation-desk-gate-v0-1">F0-02.5A — six-criterion documented desk decision</a></li>'+
  '<li><a href="/research/f0-05-newham-pension-credit-first-study-concept-v0-1">F0-05.1A — falsifiable first study concept</a></li>'+
- '<li><a href="/research/f0-03-1-newham-independent-review-challenge-pack-v0-1">F0-03.1A — external reviewer challenge dossier</a></li>'+
+ '<li><a href="/research/f0-03-1-newham-independent-review-readiness-v0-2">F0-03.1 — updated external review readiness V0.2 (no independent reviewer yet)</a></li>'+
+ '<li><a href="/research-independent-review-readiness.json">Machine-readable independent review gates and questions (JSON)</a></li>'+
+ '<li><a href="/research/f0-03-1-external-review-protocol-v0-2">Public-methods-only independent review protocol</a></li>'+
+ '<li><a href="/research/f0-03-1-newham-independent-review-challenge-pack-v0-1">F0-03.1A — historical external reviewer challenge dossier</a></li>'+
  '<li><a href="/research-newham-prepilot-decision.json">Machine-readable evidence and no-go gates (JSON)</a></li>'+
  '<li><a href="/research/newham-pension-credit">Original F0-03.2 measurement audit</a></li>'+
  '</ul>'+
