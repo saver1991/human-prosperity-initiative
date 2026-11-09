@@ -74,7 +74,7 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
   nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
-  '<main id="main" class="content-page"><section class="content-hero"><div class="wrap">'+
+  '<main id="main" tabindex="-1" class="content-page"><section class="content-hero"><div class="wrap">'+
   '<div class="content-breadcrumb">'+(breadcrumb||'<a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section))+'</div>'+
   '<span class="section-label">'+safe(section)+'</span><h1>'+safe(title)+'</h1>'+
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
@@ -199,7 +199,7 @@ await publish("/research/source-catalog",shell({
  body:'<div class="index-content"><p class="status-note">Metadata only. '+safe(String(sourceCatalog.totals.evidenceReferences))+
   ' evidence references + '+safe(String(sourceCatalog.totals.datasetCandidates))+
   ' source candidates. <strong>No third-party datasets have been imported, and source licences/retractions are not universally verified.</strong></p>'+
-  '<p>Source snapshot: <a href="/research-source-catalog.json">Download JSON metadata</a> · '+
+  '<p>Source snapshot: <a href="/research-source-catalog.json" download="hpi-research-source-catalog.json">Download JSON metadata</a> · '+
   '<a href="/research-source-catalog.csv">Download safe CSV metadata</a> · '+
   '<a href="/library/docs/rt-01-1-source-catalog-method-v1">Read the method and limits</a></p>'+
   '<form role="search" aria-label="Find research sources" class="source-search">'+
