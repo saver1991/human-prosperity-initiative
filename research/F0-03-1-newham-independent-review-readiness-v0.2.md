@@ -9,7 +9,7 @@
 Review packet:
 - [15 candidate HPI measures](F0-03-indicator-catalog-v0.1.csv), [original framework V0.1](F0-03-prosperity-measurement-framework-v0.1.md), [pre-review M01–M10](F0-03-methodological-pre-review-2026-11-05.md), [original reviewer form](F0-03-independent-review-form.md), [disposition register](F0-03-review-disposition-v0.1.csv).
 - [Newham desk measurement V0.2](F0-03-newham-pension-credit-desk-validation-v0.2.md) and [F0-05 first-study concept V0.1](F0-05-newham-pension-credit-first-study-concept-v0.1.md).
-- [NEW-02 independently reproducible source extraction V0.2](NEW-02-newham-source-reconciliation-additionality-v0.2.md), [publisher-source minimal extract](https://human-prosperity-initiative.vercel.app/research-newham-dwp-official-facts.json), [reproducer](../scripts/verify_newham_dwp_ods.py).
+- [NEW-02 independently reproducible source extraction V0.2](NEW-02-newham-source-reconciliation-additionality-v0.2.md), [publisher-source minimal extract](https://human-prosperity-initiative.vercel.app/research-newham-dwp-official-facts.json), [reproducer source](https://github.com/saver1991/human-prosperity-initiative/blob/main/scripts/verify_newham_dwp_ods.py).
 - [HPI public-source reproducibility methods](../docs/RT-01-research-tools-and-open-infrastructure.md), [NO-GO ethical gates](../docs/governance/F0-04-6-international-operations-and-partner-controls-v0.1.md).
 
 ## 2. Updated source reconciliation — challenge without swapping units
