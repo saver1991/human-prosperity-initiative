@@ -219,6 +219,7 @@ if(route==="/research/source-catalog"){
    record("keyboard skip-link reachable",await page.evaluate(()=>document.activeElement?.classList.contains("skip")));
    await page.keyboard.press("Enter");
    record("keyboard skip-link target",new URL(page.url()).hash==="#main");
+   record("keyboard skip link actually moves focus into main",await page.evaluate(()=>document.activeElement?.id==="main"));
    await page.getByRole("navigation",{name:"Main navigation"}).getByRole("link",{name:"Research"}).click();
    record("on-site primary navigation",new URL(page.url()).pathname==="/research");
    await page.goto(base+"/status");
@@ -284,6 +285,77 @@ if(route==="/research/source-catalog"){
   }
   await context.close();
  }
+
+
+ // WEB-01-NET / RT-01-EXPORT: real Chromium request audit with a saved HAR
+ // and explicit API failure fixtures. This is local-build QA, not a capture
+ // of every request in the remote production browser or a full security audit.
+ const networkContext=await browser.newContext({
+  viewport:{width:1440,height:900},acceptDownloads:true,
+  recordHar:{path:resolve(output,"network-hpi.har"),mode:"minimal",content:"omit"}
+ });
+ const networkPage=await networkContext.newPage();
+ const unexpected=[],requests=[];
+ const intentionallyFailed=new Set();
+ networkPage.on("request",request=>requests.push({method:request.method(),url:request.url()}));
+ networkPage.on("requestfailed",request=>unexpected.push("failed: "+request.url()+" "+request.failure()?.errorText));
+ networkPage.on("response",response=>{
+  const url=new URL(response.url());
+  if(response.status()>=400&&!intentionallyFailed.has(url.pathname))
+   unexpected.push("HTTP "+response.status()+": "+url.pathname);
+ });
+ for(const route of ["/","/research/source-catalog","/research/outcome-lab","/status","/activity","/initiatives/f0-04"]){
+  const response=await networkPage.goto(base+route,{waitUntil:"networkidle",timeout:20000});
+  record("network "+route+" HTML success",response?.status()===200);
+ }
+ await networkPage.goto(base+"/research/source-catalog",{waitUntil:"networkidle"});
+ const jsonDownload=networkPage.waitForEvent("download");
+ await networkPage.locator('a[href="/research-source-catalog.json"]').click();
+ const download=await jsonDownload;
+ record("JSON metadata initiates a real browser download",
+  download.suggestedFilename()==="hpi-research-source-catalog.json");
+ await networkPage.goto(base+"/research/outcome-lab",{waitUntil:"networkidle"});
+ const initialRequestCount=requests.length;
+ await networkPage.locator("#comp-received").fill("17");
+ await networkPage.locator('#outcome-demo button[type="submit"]').click();
+ const formula=(await networkPage.locator("#outcome-method-detail").textContent())||"";
+ record("synthetic math exposes denominator and missingness",
+  formula.includes("eligible − missing follow-up")&&formula.includes("17 / 100")&&formula.includes("No causal inference"));
+ await networkPage.locator("#run-synthetic-simulation").click();
+ record("synthetic calculation sends no network requests",requests.length===initialRequestCount);
+ const matrix=await networkPage.goto(base+"/initiatives/f0-04",{waitUntil:"networkidle"});
+ const governanceText=(await networkPage.locator("main").textContent())||"";
+ record("F0-04 documentary status distinct from independent authority",
+  matrix?.status()===200&&governanceText.includes("DOCUMENTED DRAFTS")&&
+  governanceText.includes("21 / 31")&&governanceText.includes("TECHNICALLY COMPLETE")&&
+  governanceText.includes("Fieldwork authorised: no"));
+ intentionallyFailed.add("/api/issues");
+ await networkPage.route("**/api/issues",route=>route.fulfill({
+  status:503,contentType:"application/json",body:'{"error":"unavailable"}'
+ }));
+ await networkPage.goto(base+"/activity",{waitUntil:"networkidle"});
+ record("network 503 GitHub feed displays fail-closed fallback",
+  ((await networkPage.locator("#issue-status").textContent())||"").includes("temporarily unavailable"));
+ await networkPage.unroute("**/api/issues");
+ intentionallyFailed.delete("/api/issues");
+ intentionallyFailed.add("/api/freshness");
+ await networkPage.route("**/api/freshness",route=>route.fulfill({
+  status:503,contentType:"application/json",body:'{"error":"unavailable"}'
+ }));
+ await networkPage.goto(base+"/status",{waitUntil:"networkidle"});
+ record("network 503 freshness displays unknown, not current",
+  ((await networkPage.locator("#freshness-status").textContent())||"").includes("unknown"));
+ await networkPage.unroute("**/api/freshness");
+ intentionallyFailed.delete("/api/freshness");
+ record("no unexpected HTTP 4xx/5xx or failed requests",unexpected.length===0,unexpected.join(" | "));
+ await writeFile(resolve(output,"network-report.json"),JSON.stringify({
+  scope:"locally generated HPI site in real Chromium; not remote production HAR",
+  requests:requests.map(x=>({method:x.method,path:new URL(x.url).pathname})),
+  unexpected,expectedFailures:["GET /api/issues 503","GET /api/freshness 503"],
+  checks:"browser-report.json",har:"network-hpi.har"
+ },null,2)+"\n");
+ await networkPage.close();
+ await networkContext.close();
 
  // WCAG 1.4.10 reflow: 1280 CSS-pixel desktop at 200%/400% browser zoom
  // corresponds approximately to 640/320 CSS-pixel layout viewports.
