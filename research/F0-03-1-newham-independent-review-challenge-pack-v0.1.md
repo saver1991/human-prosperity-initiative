@@ -1,5 +1,7 @@
 # F0-03.1A — Newham independent methodological review challenge dossier V0.1
 
+**Historical note (9 November 2026):** NEW-02 has since verified the official 2023/24 DWP Newham local-model worksheet 3a (11,300 eligible modelled households; 8,800 modelled in receipt; 2,500 potentially eligible nonrecipient; 78% estimated administrative model rate), and distinct worksheet 3b expenditure share 86%. This V0.1 question packet is preserved as an earlier reviewer-preparation source, **not** an assertion that extraction is still missing. [Current F0-03.1 V0.2 methods and external reviewer readiness](F0-03-1-newham-independent-review-readiness-v0.2.md). Participant-level eligibility/first payment and genuine independent reviewer input remain unavailable; field NO-GO.
+
 **7 November 2026. PREPARATION ONLY — no genuine independent reviewer, participant, signed ethics opinion or approved HPI scientific V1.0.** The following questions are a transparent, AI-assisted reviewer-preparation package, not an actual peer review. Do not request identifiable hardship histories or private Pension Credit case details on public GitHub.
 
 ## Reviewer materials
