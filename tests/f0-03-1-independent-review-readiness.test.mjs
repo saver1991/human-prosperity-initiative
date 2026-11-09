@@ -31,7 +31,7 @@ test("F0-03.1 has exactly 15 unvalidated candidate measures including HPI-B-01",
  assert.equal(rows.length-1,15);
  assert.equal(m.methodology.candidateIndicatorCount,15);
  assert.equal(rows.filter(row=>row.startsWith('"HPI-B-01"')).length,1);
- for(const r of rows.slice(1))assert.match(r,/proposed_not_validated$/);
+ for(const r of rows.slice(1))assert.match(r,/"proposed_not_validated"$/);
 });
 
 test("F0-03.1 no fabricated reviewers, ethics, community, authorisation, sign-off or impact",()=>{
