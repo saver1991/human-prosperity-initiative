@@ -35,14 +35,16 @@ def parse_cells(row: ET.Element) -> list[str]:
         if cell.tag not in (T + "table-cell", T + "covered-table-cell"):
             continue
         repeated = int(cell.get(T + "number-columns-repeated", "1"))
-        if repeated > 1024:
-            if values:
-                break  # Unused blank trailing columns in an ODS document.
-            raise ValueError("Unexpected repeated columns before content")
         paragraphs = cell.findall(".//text:p", NAMESPACES)
         rendered = " ".join("".join(p.itertext()) for p in paragraphs).strip()
         content = rendered or cell.get(O + "value", "")
+        if repeated > 64:
+            if content:
+                raise ValueError("Unexpected repeated nonblank ODS cell")
+            break  # Official workbook pads empty row tails with thousands of blanks.
         values.extend([content] * repeated)
+        if len(values) > 64:
+            break
     while values and not values[-1]:
         values.pop()
     return values
