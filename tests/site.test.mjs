@@ -19,7 +19,7 @@ test("homepage provides internal first-party navigation and source-derived data"
  const home=await read("dist/index.html");
  assert.match(home,/<html lang="en">/);
  assert.match(home,/rel="canonical" href="https:\/\/human-prosperity-initiative.vercel.app\/"/);
- assert.match(home,/<main id="main">/);
+ assert.match(home,/<main id="main" tabindex="-1">/);
  assert.match(home,/<nav aria-label="Main navigation">/);
  assert.match(home,/<a class="skip"/);
  assert.equal((home.match(/<h1\b/g)||[]).length,1);
