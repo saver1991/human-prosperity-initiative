@@ -89,14 +89,17 @@ function humanTaskStatus(status){
 }
 function taskRow(t){
  const isAccepted=t.status==="complete"||t.status==="documented";
+ const assurance=t.assurance?
+  '<p class="rp-task-assurance">Independent review: <strong>not verified</strong> · Ratified: <strong>no</strong> · Operational: <strong>no</strong> · Fieldwork authorised: <strong>no</strong></p>':"";
  const proof=t.evidence?'<a href="'+safe(t.evidence)+'" target="_blank" rel="noopener noreferrer" class="rp-evidence-action">View acceptance evidence on GitHub ↗</a>':"";
  return '<li class="rp-task-row"><span aria-hidden="true" class="rp-task-icon '+(isAccepted?"is-accepted":"")+'">'+(isAccepted?"✓":"○")+'</span>'+
  '<div class="rp-task-body"><div class="rp-task-meta"><span class="rp-task-id">'+safe(t.id)+'</span>'+
  '<span class="rp-task-status">'+safe(humanTaskStatus(t.status))+'</span></div>'+
- '<p>'+safe(t.title)+'</p>'+proof+'</div></li>';
+ '<p>'+safe(t.title)+'</p>'+assurance+proof+'</div></li>';
 }
 function epicPanel(e){
  const done=e.tasks.filter(t=>t.status==="complete").length;
+ const documented=e.tasks.filter(t=>t.status==="documented").length;
  const activity=e.issue?'<a class="rp-epic-history" href="/activity#issue-'+e.issue+'">Read the latest public issue state on HPI ↗</a>':"";
  const external=e.issue?'<a class="rp-epic-edit" href="https://github.com/saver1991/human-prosperity-initiative/issues/'+e.issue+'" target="_blank" rel="noopener noreferrer">Discuss or propose edits on GitHub (external) ↗</a>':"";
  return '<article class="rp-epic" id="epic-'+safe(slug(e.id))+'">'+
@@ -104,7 +107,8 @@ function epicPanel(e){
  '<h3>'+safe(e.title)+'</h3></div>'+statusBadge(e.status)+'</div>'+
  (e.issue?'<p class="rp-issue-marker" role="status" data-public-issue="'+e.issue+'" data-editorial-status="'+safe(e.status)+'">GitHub issue #'+e.issue+': not yet verified</p>':"")+
  '<p class="rp-epic-brief">'+e.tasks.length+' defined task'+(e.tasks.length===1?"":"s")+
-  (done?"; "+done+" accepted technical task"+(done===1?"":"s"):"")+
+  (documented?"; "+documented+" documented draft"+(documented===1?"":"s"):"")+
+  (done?"; "+done+" technically complete task"+(done===1?"":"s"):"")+
   ' in the dated public snapshot. Issue checklists and discussion remain authoritative.</p>'+
  (e.tasks.length?'<ol class="rp-task-list">'+e.tasks.map(taskRow).join("")+'</ol>':
  '<p class="rp-no-tasks">No approved tasks have been defined for this horizon.</p>')+
@@ -113,6 +117,14 @@ function epicPanel(e){
 export function renderInitiativeDetail(item,model){
  const tasks=item.epics.reduce((n,e)=>n+e.tasks.length,0);
  const complete=item.epics.reduce((n,e)=>n+e.tasks.filter(t=>t.status==="complete").length,0);
+ const documented=item.epics.reduce((n,e)=>n+e.tasks.filter(t=>t.status==="documented").length,0);
+ const pending=tasks-documented-complete;
+ const hasAssurance=item.epics.some(e=>e.tasks.some(t=>t.assurance));
+ const assuranceSummary=hasAssurance?
+  '<div class="rp-approval-summary" role="group" aria-label="Institutional approval gates">'+
+  '<strong>Human approval gates — separate from delivery</strong>'+
+  '<p>Independent review: <b>not verified</b> · Ratified: <b>no</b> · Operational: <b>no</b> · Fieldwork authorised: <b>no</b>.</p>'+
+  '<p>These are explicit per-task limitations; a merged PR or closed GitHub issue does not approve any of these gates.</p></div>':"";
  const documents=item.deliverables.length?'<div class="rp-doc-links">'+item.deliverables.map(d=>
   '<a href="'+safe(d.url)+'"><span>'+safe(d.label)+'</span><span aria-hidden="true">↗</span></a>'
  ).join("")+'</div>':
@@ -135,11 +147,16 @@ export function renderInitiativeDetail(item,model){
  statusBadge(item.status)+
  (item.issue?'<p class="rp-issue-marker rp-issue-marker--dark" role="status" data-public-issue="'+item.issue+'" data-editorial-status="'+safe(item.status)+'">GitHub issue #'+item.issue+': not yet verified</p>':"")+
  '<p>This is an editorial status reviewed '+safe(model.reviewedAt)+'. Live issue metadata does not alter the accepted work snapshot.</p>'+
- '<div class="rp-detail-verified"><span>TECHNICAL ACCEPTANCE</span><strong>'+complete+' / '+tasks+'</strong>'+
- '<p>Tasks marked complete with linked acceptance evidence. Other task states are shown separately; this is not a scientific impact percentage.</p></div>'+
+ '<div class="rp-detail-verified"><span>DOCUMENTED DRAFTS</span><strong>'+documented+' / '+tasks+'</strong>'+
+ '<p>Published task evidence, still requiring any applicable human and institutional approvals.</p></div>'+
+ '<div class="rp-detail-verified"><span>TECHNICALLY COMPLETE</span><strong>'+complete+' tasks</strong>'+
+ '<p>Technical acceptance is different from a documented draft and from independent review.</p></div>'+
+ '<div class="rp-detail-verified"><span>OTHER TASKS</span><strong>'+pending+' pending</strong>'+
+ '<p>Neither documented nor marked technically complete in this dated snapshot.</p></div>'+
  '<div class="rp-detail-verified"><span>HUMAN PROSPERITY OUTCOMES</span><strong>Not verified</strong>'+
  '<p>No measured, independently established population impact is reported for this initiative.</p></div></aside></section>'+
  '<section class="rp-live-feed" aria-label="Current issue source"><div><span class="rp-overline">PUBLIC ISSUE TRACKER · READ ONLY</span><strong data-feed-health role="status">Checking public GitHub issue metadata…</strong><span data-feed-fetched>Last verified issue fetch: not yet available</span></div><p data-feed-disclaimer>Closed issues and published papers are not independent scientific or human impact approval.</p></section>'+
+ assuranceSummary+
  '<section class="rp-review-gate" aria-labelledby="rp-decision-heading"><span class="rp-overline">DECISION / REVIEW GATE</span>'+
  '<h2 id="rp-decision-heading">What still needs to be demonstrated</h2><p>'+safe(item.gate)+'</p></section>'+
  '<div class="rp-detail-grid"><div class="rp-epic-column"><div class="rp-section-head"><span class="rp-overline">DELIVERY WORK BREAKDOWN</span>'+

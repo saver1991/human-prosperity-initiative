@@ -43,11 +43,18 @@ function date(v,name){
 function status(v,name){if(!STATUS.has(v))fail(name+" unsupported status");return v}
 function uniq(items,name){const set=new Set();for(const item of items){if(set.has(item))fail(name+" duplicate "+item);set.add(item)}}
 function checkTask(t,name){
- only(t,["id","title","status","sourceIssue","evidence"],name);
+ only(t,["id","title","status","sourceIssue","evidence","assurance"],name);
  id(t.id,name+".id");str(t.title,name+".title",360);status(t.status,name+".status");
  if(t.sourceIssue!==undefined)issueUrl(t.sourceIssue,name+".sourceIssue");
  if(t.evidence!==undefined)proofUrl(t.evidence,name+".evidence");
  if(["documented","complete"].includes(t.status)&&!t.evidence)fail(name+" documented/complete task needs public acceptance evidence");
+ if(t.assurance!==undefined){
+  only(t.assurance,["independentReview","ratified","operational","fieldAuthorised"],name+".assurance");
+  if(t.assurance.independentReview!=="not_verified"||
+     t.assurance.ratified!==false||t.assurance.operational!==false||
+     t.assurance.fieldAuthorised!==false)
+   fail(name+" cannot claim independent ratification, operations or field authorisation without separately approved authority");
+ }
  // A closed issue or merged PR never authorises a scientific validity claim.
 }
 function checkEpic(e,name){
@@ -118,7 +125,7 @@ export function buildPublicRoadmap(project,details,{revision="local-build"}={}){
    epics:item.epics.map(e=>({
     id:e.id,title:e.title,status:e.status,issue:e.issue||null,
     tasks:e.tasks.map(t=>({id:t.id,title:t.title,status:t.status,
-     sourceIssue:t.sourceIssue||null,evidence:t.evidence||null}))
+     sourceIssue:t.sourceIssue||null,evidence:t.evidence||null,assurance:t.assurance||null}))
    }))
   };
  });

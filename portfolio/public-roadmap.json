@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "sourceKind": "versioned_public_editorial_snapshot",
-  "reviewedAt": "2026-11-08",
+  "reviewedAt": "2026-11-09",
   "statusAuthority": "Public GitHub issue states are authoritative; this snapshot is not a live issue-state sync.",
   "scienceBoundary": "Project delivery is not evidence of improved prosperity, independent study approval or validated causal impact.",
   "legalStatus": "not_incorporated",
@@ -501,18 +501,36 @@
               "id": "F0-04.1-T01",
               "title": "Publish provisional decision rights, conflict and legal options policies",
               "status": "documented",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/25"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/25",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.1-T02",
               "title": "Arrange human-led independent governance review",
-              "status": "planned"
+              "status": "planned",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.1-T03",
               "title": "Establish secure human-owned safeguarding channel",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/26"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/26",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -527,28 +545,52 @@
               "title": "Compare CIO, charitable company, CIC and qualified fiscal-host options",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.2-T02",
               "title": "Draft international charitable purposes and constitution for legal review",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.2-T03",
               "title": "Map governance, tax, founder-employment and formation legal questions",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.2-T04",
               "title": "Publish reasoned legal-option choice for founder review",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/47",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -563,28 +605,52 @@
               "title": "Specify trustee/board capability and independence matrix",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.3-T02",
               "title": "Draft delegation, spending approvals and conflict-of-interest controls",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.3-T03",
               "title": "Prepare finance, anti-fraud, procurement and scientific independence policies",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.3-T04",
               "title": "Plan responsible safeguarding/accountability appointments without claiming they exist",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/48",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/76",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -599,28 +665,52 @@
               "title": "Model lean/base/expanded organisational and delivery costs",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.4-T02",
               "title": "Separate unrestricted core support from restricted grants and in-kind resources",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.4-T03",
               "title": "Model reserves, FX exposure, cash runway and zero-awards case",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.4-T04",
               "title": "Prepare documentation and accounting review gate",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/52",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/75",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -635,28 +725,52 @@
               "title": "Build dated, source-verified grant and funder eligibility pipeline",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.5-T02",
               "title": "Check geographic and organisation eligibility, overheads and deadlines",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.5-T03",
               "title": "Draft-only case for support and proposal/readiness templates",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.5-T04",
               "title": "Research potential fiscal hosts and research partners without outreach",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/49",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -671,28 +785,52 @@
               "title": "Document UK-headquartered global grant and service delivery pathways",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.6-T02",
               "title": "Write country-specific due diligence and legal/privacy safeguards checklist",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.6-T03",
               "title": "Specify partners, end-use of funds, impact monitoring and audit controls",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.6-T04",
               "title": "Compare UK/Brazil/Italy regulatory examples without choosing a pilot location",
               "status": "documented",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/50",
-              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77"
+              "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/77",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -706,25 +844,49 @@
               "id": "F0-04.7-T01",
               "title": "Assemble independent legal, finance and ethics review questions",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.7-T02",
               "title": "Publish go/no-go and founder decision record with dissent and uncertainties",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.7-T03",
               "title": "Prepare conditional registration or fiscal-host setup checklist",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.7-T04",
               "title": "Confirm funding, signing authority, safeguarding and partner gates before outreach",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/51",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         },
@@ -738,25 +900,49 @@
               "id": "F0-04.8-T01",
               "title": "Compare nonprofit, CIC, mission-driven Ltd, fiscal host and dual-entity eligibility, taxes and funding pathways",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.8-T02",
               "title": "Investigate institution-paid open research infrastructure/services, costs and actual customer evidence (not assumed)",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.8-T03",
               "title": "Review mission lock, scientific independence, intellectual property and conflicts for any paid offer",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             },
             {
               "id": "F0-04.8-T04",
               "title": "Defer founder legal/commercial model choice pending qualified legal, finance and market evidence",
               "status": "planned",
-              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54"
+              "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/54",
+              "assurance": {
+                "independentReview": "not_verified",
+                "ratified": false,
+                "operational": false,
+                "fieldAuthorised": false
+              }
             }
           ]
         }

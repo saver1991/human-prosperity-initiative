@@ -4,6 +4,7 @@ import {analyzeOutcomeScenario,simulateSyntheticOutcomes} from "/research-outcom
  */
 const form=document.querySelector("#outcome-demo");
 const status=document.querySelector("#outcome-demo-result");
+const method=document.querySelector("#outcome-method-detail");
 const indicator={id:"HPI-B-01",unit:"share",domain:"Benefits",status:"proposed_not_validated"};
 const pct=n=>Number(n).toFixed(2)+"%";
 const value=id=>{
@@ -27,6 +28,18 @@ function evaluate(){
   };
   const r=analyzeOutcomeScenario(scenario,indicator);
   const ci=r.uncertainty.difference;
+  if(method){
+   const a=r.reference,b=r.comparison;
+   method.textContent="Observed rate = received ÷ (eligible − missing follow-up). "+
+    "Reference: "+a.received+" ÷ ("+a.eligible+" − "+a.missingFollowup+") = "+
+    a.received+" / "+a.observed+" = "+pct(a.observedRate*100)+". "+
+    "Comparison: "+b.received+" ÷ ("+b.eligible+" − "+b.missingFollowup+") = "+
+    b.received+" / "+b.observed+" = "+pct(b.observedRate*100)+". "+
+    "Descriptive difference = comparison minus reference = "+
+    (r.observedDifferencePercentagePoints>=0?"+":"")+pct(r.observedDifferencePercentagePoints)+
+    " percentage points. Missing follow-up is excluded from these observed-rate denominators; "+
+    "worst/best case missingness bounds are displayed above. No causal inference.";
+  }
   status.textContent="SYNTHETIC ONLY — reference "+pct(r.reference.observedRate*100)+
    ", comparison "+pct(r.comparison.observedRate*100)+
    ". Observed difference "+(r.observedDifferencePercentagePoints>=0?"+":"")+
@@ -37,6 +50,7 @@ function evaluate(){
    pct(r.missingnessSensitivity.differencePercentagePoints.upper)+
    "]. No causal effectiveness or scientific validation is established.";
  }catch(error){
+  if(method)method.textContent="Cannot show a calculation breakdown for invalid synthetic counts.";
   status.textContent="Cannot evaluate synthetic example: "+error.message+
    ". No data were sent to a server.";
  }

@@ -4,6 +4,16 @@
 
 This document implements scoped F0-04.6 T01–T06 ([issue #50](https://github.com/saver1991/human-prosperity-initiative/issues/50)). Linked [per-country, machine-readable hard-stop register](F0-04-6-country-readiness-controls-v0.1.csv). See independent governance [F0-04.3](F0-04-3-board-independence-fiduciary-controls-v0.1.md), safeguarding [F0-04.1 #26](https://github.com/saver1991/human-prosperity-initiative/issues/26), methods [F0-03.1 #19](https://github.com/saver1991/human-prosperity-initiative/issues/19), budget [F0-04.4](F0-04-4-operating-budget-and-sustainability-v0.1.md), and [Newham desk/no-field gate](../../research/F0-05-newham-pension-credit-first-study-concept-v0.1.md).
 
+## Country readiness at a glance — no field activities authorised
+
+| Territory | Role in HPI desk research | Field status | What can be done now |
+| --- | --- | --- | --- |
+| **United Kingdom — Newham, London** | Selected initial public-source validation | **NO-GO FIELD** | Review lawful published sources and unresolved Pension Credit eligibility evidence only |
+| **Brazil — Recife** | Comparison candidate | **NO-GO FIELD** | Country and research-partner legal scoping from public sources only |
+| **Italy — Napoli / Naples** | Reserve comparison candidate | **NO-GO FIELD** | Country and research-partner legal scoping from public sources only |
+
+**No territory has a verified implementing partner, legal recipient authority, independent ethics approval or field budget.** Consult the [complete country readiness and hard-stop matrix](F0-04-6-country-readiness-controls-v0.1.csv); the matrix is not an activity licence or a grant eligibility certificate.
+
 ## 1. Legal seat is not where impact happens
 
 A *future* England-and-Wales CIO or charitable company could have **worldwide permissible beneficiaries and research scope** but must comply with each jurisdiction's legal, ethical, banking and data safeguards. A local registered NGO/university/public authority could deliver lawful work under a **signed monitored contract**; the UK trustees would remain responsible for proper funds/use. An alternative future model is an eligible university or nonprofit **fiscal host** which assumes explicitly agreed legal and grant responsibilities. Setting up a country branch/subsidiary is **not assumed**, and cannot be replaced by calling an individual volunteer an in-country partner.

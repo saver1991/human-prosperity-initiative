@@ -125,3 +125,19 @@ The original six phases remain represented; later versions refined the prioritie
 - Portfolio governance: [HubOS programme registration](https://github.com/saver1991/the-hub-os/issues/125) verified in Neon; authenticated production UI acceptance remains open.
 - Publishing: the HPI website automatically renders these repository documents and its research catalogue after each successful merge/deployment. Its [public activity page](https://human-prosperity-initiative.vercel.app/activity) reads public issue statuses with a short cache. SolOS's evidence view is pinned to a reviewed GitHub commit rather than automatically changing. Databases remain isolated.
 
+
+
+## QA-2026-11-09 — Browser-tested site remediation (issue #78)
+
+**Scope:** Technical and editorial corrections derived from a real Chromium production audit (14 PASS, 2 FAIL, one network/HAR subcheck blocked). This work does **not** turn HPI into an incorporated charity, research institution, grant recipient or authorised field programme. See the [tracked QA issue](https://github.com/saver1991/human-prosperity-initiative/issues/78) and [remediation PR](https://github.com/saver1991/human-prosperity-initiative/pull/79).
+
+| Priority | ID | Site acceptance contract |
+| --- | --- | --- |
+| P0 | WEB-01-A11Y | Skip link takes keyboard focus to the main landmark; Chromium regression included |
+| P0 | F0-04-STATUS | 21 documented out of 31 tasks (dated snapshot), 0 technical tasks complete and 10 other tasks; independently reviewed/ratified/operational/field authorisation displayed separately, all **NOT VERIFIED/NO** |
+| P1 | RT-01-EXPORT | JSON metadata link triggers a local file download, matching the existing CSV export |
+| P1 | WEB-01-NET | Real Chromium CI records a HAR plus unexpected HTTP 4xx/5xx, failed requests and simulated API 503 fallback; synthetic calculator must cause no network requests |
+| P1 | F0-04.6-UX | Newham/Recife/Naples listed up front as **NO-GO FIELD**, with full country matrix |
+| P2 | RT-01-METHOD-UI | Synthetic result displays observed follow-up denominator, exact rate arithmetic and missingness caveats; never represents causal benefit |
+
+**Acceptance layers:** publishing a document is not independent scientific review; a closed issue is not a board decision; a passing CI run is not legal registration or authorisation. F0-04.7 institutional decision and all real human protection gates remain open. The browser QA HAR covers the local generated site in CircleCI and **does not retrospectively establish the HAR of the original Work production session**.
