@@ -102,6 +102,7 @@ await cp("research-tools/outcome-evaluation.mjs","dist/research-outcome-evaluati
 await cp("research/synthetic-outcome-scenario-v1.json","dist/research-synthetic-outcome-template.json");
 await cp("research/notebooks/rt01-public-source-workflow.ipynb","dist/research-reproducibility-notebook.ipynb");
 await writeFile(ROOT+"/research-newham-validation.json",JSON.stringify(newhamDesk,null,2)+"\n");
+await cp("research/NEW-02-dwp-newham-local-official-facts-v0.2.json","dist/research-newham-dwp-official-facts.json");
 await writeFile(ROOT+"/research-newham-source-audit.json",newhamRaw,"utf8");
 await writeFile(ROOT+"/research-newham-prepilot-decision.json",JSON.stringify(prepilotResult,null,2)+"\n");
 const researchBundle=await generateResearchArtifacts({load:source=>readFile(source,"utf8")});
@@ -362,6 +363,9 @@ await publish("/research/newham-prepilot",shell({
  '<h2>Newham need is documented; eligibility is not</h2>'+
  '<p>In the 2025 English Indices of Deprivation, <strong>46.7%</strong> of Newham residents aged <strong>60+</strong> experience income deprivation; <strong>39.0%</strong> is the all-ages income deprivation proportion. Neither measures Pension Credit eligibility or local benefit receipt. The DWP <strong>62%</strong> take-up figure is for <strong>Great Britain</strong>, not Newham, and the council 2024/25 <strong>220</strong> supported claims is a service activity count, not verified awards.</p>'+
  '<p><a href="'+safe(prepilotResult.officialContext[0].url)+'" target="_blank" rel="noopener noreferrer">MHCLG source and 60+ Table 8</a> · <a href="'+safe(prepilotResult.officialContext[2].url)+'" target="_blank" rel="noopener noreferrer">DWP national take-up series</a></p>'+
+ '<h2>Newham Pension Credit: verified DWP local model, not a study outcome</h2>'+
+ '<p>The DWP <strong>2023/24 administrative local household model</strong>, released 30 October 2025, records Newham <strong>11,300</strong> estimated eligible households, <strong>8,800</strong> in receipt, <strong>2,500</strong> potentially eligible nonrecipients, and a <strong>78%</strong> estimated caseload receipt-rate. These are rounded ecological estimates, <strong>not</strong> verified actual eligibility, a current 2026 rate or a count of eligible HPI participants; the DWP model is not directly comparable to Great Britain FYE2025 62% survey-based take-up.</p>'+
+ '<p><a href="/research/new-02-newham-source-reconciliation-additionality-v0-2">Read NEW-02 source-verified desk audit ↗</a> · <a href="/research-newham-dwp-official-facts.json">Minimal provenance record (JSON) ↗</a> · <a href="https://www.gov.uk/government/statistics/households-potentially-eligible-for-pension-credit-2023-to-2024" target="_blank" rel="noopener noreferrer">DWP original source (external) ↗</a>. <strong>Actual study eligible/paid denominator: unknown. NO-GO for fieldwork.</strong></p>'+
  '<h2>Six-criterion assessment: no invented quantitative rating</h2>'+
  '<div class="doc-table-wrap" role="region" tabindex="0" aria-label="Unscored F0-02.5 criterion audit"><table><thead><tr><th scope="col">Criterion</th><th scope="col">Official weight</th><th scope="col">Independent score</th><th scope="col">Critical gate</th></tr></thead><tbody>'+
  prepilotResult.criterionStatus.map(x=>'<tr><th scope="row">'+safe(x.id)+'</th><td>'+safe(String(x.weightPercent))+'%</td><td>Not assessed</td><td>'+safe(x.gate)+'</td></tr>').join("")+

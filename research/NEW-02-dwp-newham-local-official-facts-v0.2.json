@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.2",
+  "caseId": "NEW-02-NEWHAM-PC-DWP-2023-24",
+  "evidenceAsOf": "2026-11-09",
+  "publisher": "Department for Work and Pensions",
+  "releaseDate": "2025-10-30",
+  "referenceFinancialYear": "2023/24",
+  "sourcePage": "https://www.gov.uk/government/statistics/households-potentially-eligible-for-pension-credit-2023-to-2024",
+  "sourceUrl": "https://assets.publishing.service.gov.uk/media/6900969fa6048928d3fc2ae5/households-potentially-eligible-for-pension-credit-2023-to-2024.ods",
+  "sourceSha256": "89f5a5fa831f21c4661d6e73ccb76878959e6ea721fb459b43aa3d9bcd96765c",
+  "sourceBytes": 135855,
+  "sourceFormat": "ODS",
+  "sourceLicense": "OGL-3.0 subject to exceptions for third-party content",
+  "licenseReference": "https://www.gov.uk/government/statistics/households-potentially-eligible-for-pension-credit-2023-to-2024/analysis-of-households-potentially-eligible-for-pension-credit-and-eligible-households-in-receipt-of-pension-credit-2023-to-2024",
+  "extraction": "Python 3 stdlib zipfile + ElementTree; SHA-256/CRC checked; official binary read from publisher; reusable scripts/verify_newham_dwp_ods.py; one automated reproducibility check, no independently appointed external reviewer",
+  "localAuthority": {
+    "name": "Newham",
+    "onsGssCode": "E09000025",
+    "onsCodeEvidenceUrl": "https://www.ons.gov.uk/explore-local-statistics/areas/E09000025-newham",
+    "onsCodePresentInDwpWorkbook": false,
+    "region": "London"
+  },
+  "caseload": {
+    "worksheet": "3a",
+    "physicalRow": 109,
+    "columns": {
+      "A": "London",
+      "B": "Newham",
+      "C": "11,300",
+      "D": "2,500",
+      "E": "8,800",
+      "F": "78%"
+    },
+    "sourceColumnDefinitions": {
+      "C": "All eligible",
+      "D": "Potentially eligible households",
+      "E": "Eligible households in receipt",
+      "F": "Receipt-rate (caseload)"
+    },
+    "allEligibleModelledHouseholds": 11300,
+    "potentiallyEligibleNotReceivingHouseholds": 2500,
+    "receivingHouseholds": 8800,
+    "administrativeCaseloadReceiptPct": 78,
+    "unit": "households",
+    "countPrecision": "rounded; row-level totals may vary from underlying estimates",
+    "statisticClass": "2023/24 DWP administrative model; ecological local estimate, not official survey-based national take-up"
+  },
+  "expenditure": {
+    "worksheet": "3b",
+    "physicalRow": 110,
+    "columns": {
+      "A": "London",
+      "B": "Newham",
+      "C": "8,328,000",
+      "D": "51,337,000",
+      "E": "86%"
+    },
+    "estimatedExpenditureReceiptPct": 86,
+    "unitsOfAmountsIndependentlyReconciled": false,
+    "sourceHeaderAnomaly": "3b field D is labelled Total amount claimed (£m), while displayed raw value is 51,337,000; do not silently rescale amounts",
+    "usableForHpiCostOrImpact": false
+  },
+  "contrasts": [
+    {
+      "source": "DWP official FYE2025 national Pension Credit take-up",
+      "geo": "Great Britain",
+      "pct": 62,
+      "unit": "pensioner benefit units",
+      "comparableWithLocalModel": false
+    },
+    {
+      "source": "Newham Council 2024/25 Our Newham Money",
+      "supportedClaims": 220,
+      "councilReportedExtraIncomeGbp": 748590,
+      "uniqueConfirmedAwardsIndependentlyVerified": false,
+      "causalHpiAttribution": false,
+      "overlapWithOtherCouncilPublicationNotRuledOut": true
+    }
+  ],
+  "hpiB01": {
+    "status": "candidate_primary_unmeasurable",
+    "eligibleParticipantDenominator": null,
+    "confirmedFirstPaidAwardNumerator": null,
+    "validatedOutcomeReceiptPct": null,
+    "causalImpact": null,
+    "reason": "No independently verified approved cohort of eligible participants linked to confirmed first payments, follow-up and lawful records. The DWP local ecological model cannot substitute for HPI-B-01."
+  },
+  "additionality": {
+    "result": "not_established",
+    "incumbentSupport": "Our Newham Money/LIFT and DWP campaigns already operate",
+    "recommendation": "desk research only; do not duplicate outreach",
+    "verifiedIndependentIncrementalEffect": null
+  },
+  "noFieldWork": true,
+  "noPersonalDataCollected": true,
+  "noPartnerContact": true,
+  "independentEthicsApproved": false,
+  "sourceLicensingReviewByCounsel": false,
+  "followupActions": [
+    "F0-03.1 methodology/community independent review #19",
+    "RT-GATE-01 research privacy/data rights #67",
+    "F0-05 design/go-no-go #11",
+    "F0-04 governance and safeguarding #26/#51"
+  ],
+  "limitations": [
+    "Admin missing savings and housing costs; potential eligibility may be misclassified",
+    "Not directly comparable to FYE2025 GB 62% due to geography, timeframe and unit",
+    "Rounded households and rates; no unjustified precision",
+    "No actual eligible/rewarded HPI cohort, no paid award verification, no causal or cost-effectiveness inference",
+    "No authority to contact residents or use personal claimant data"
+  ]
+}

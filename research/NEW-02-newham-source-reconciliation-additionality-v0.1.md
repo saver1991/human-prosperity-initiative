@@ -1,4 +1,4 @@
-# NEW-02 — Newham Pension Credit source reconciliation & additionality desk audit V0.1
+# NEW-02 — Newham Pension Credit source reconciliation & additionality desk audit V0.1\n\n**Superseded on 9 November 2026:** The original DWP ODS has since been downloaded, SHA-256 verified and the exact Newham rows extracted. This V0.1 document is preserved as the historical blocked audit, not the current outcome. [Read the NEW-02 V0.2 verified source and negative participant-outcome feasibility decision](NEW-02-newham-source-reconciliation-additionality-v0.2.md).
 
 **Date:** 7 November 2026. **Status:** SOURCE/METHOD AUDIT COMPLETE; EXACT NEWHAM DWP ODS ROW **NOT VERIFIED**; full NEW-02 **OPEN / BLOCKED ON SOURCE INGEST**. Scope is public-source desk research only. HPI is not a registered research sponsor or Newham partner and has no legal authority to identify or contact claimants.
 
