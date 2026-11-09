@@ -288,7 +288,7 @@
       "id": "F0-03",
       "kind": "research",
       "summary": "Define candidate dimensions and measures of prosperity without inventing a universal welfare score.",
-      "gate": "F0-03 V0.1 candidate framework and Newham context-specific public desk validation V0.2 technically delivered (PR #69). No eligible Newham population denominator, actual confirmed Pension Credit receipt rate, sampled participant outcome, validated causal effect or independent scientific/community signoff. Scientific F0-03 V1.0 remains blocked on F0-03.1 #19 and research ethics #67.",
+      "gate": "F0-03 candidate framework V0.1 and context-specific Newham measurement V0.2 published. Original 2023/24 DWP local model now verified (78% Newham household administrative model), which does NOT measure first Pension Credit payments in a verified HPI cohort. Primary participant denominator, paid-award numerator, causal effects, independent scientific/community critique and ethical permissions remain NULL/NOT OBTAINED. F0-03 V1.0 blocked on F0-03.1 #19 and RT-GATE #67.",
       "deliverables": [
         {
           "label": "Prosperity measurement V0.1",
@@ -373,7 +373,7 @@
       "id": "F0-03.1",
       "kind": "research",
       "summary": "Subject candidate metrics to independent statistical, ethical and affected-community scrutiny.",
-      "gate": "Scientific candidate framework V0.1, local Newham case V0.2 and external review question packet are technically published; **no actual independent methods expert or community reviewer has participated or signed off**. True F0-03 V1.0 remains unapproved and #19 OPEN.",
+      "gate": "Internal AI-assisted methodological challenge V0.2, dated original-source reconciliation and safe human-review process are PUBLISHED, not independently validated. NEW-02 verified 2023/24 DWP Newham modelled household caseload receipt of 78%, but no verified HPI-B-01 eligible participant cohort or first paid award records. Qualified independent methods review and protected community input: NOT OBTAINED (0 submitted). F0-03 scientific V1.0 NOT RATIFIED; F0-03.1 #19 remains OPEN. No ethics, legal/data, sponsor or field authority.",
       "deliverables": [
         {
           "label": "Critical methodological pre-review",
@@ -386,6 +386,14 @@
         {
           "label": "Newham independent reviewer challenge dossier (unsubmitted)",
           "url": "/research/f0-03-1-newham-independent-review-challenge-pack-v0-1"
+        },
+        {
+          "label": "Scientific reviewer readiness and evidence challenge V0.2 (internal preparation)",
+          "url": "/research/f0-03-1-newham-independent-review-readiness-v0-2"
+        },
+        {
+          "label": "External-methods review protocol V0.2 — public/non-sensitive only",
+          "url": "/research/f0-03-1-external-review-protocol-v0-2"
         }
       ],
       "epics": [
