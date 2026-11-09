@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.2",
+  "createdOn": "2026-11-09",
+  "initiative": "F0-03.1",
+  "scope": "independent scientific and community review PREPARATION, no independent review performed",
+  "reviewedSourceDocuments": [
+    "research/F0-03-prosperity-measurement-framework-v0.1.md",
+    "research/F0-03-indicator-catalog-v0.1.csv",
+    "research/F0-03-methodological-pre-review-2026-11-05.md",
+    "research/F0-03-review-disposition-v0.1.csv",
+    "research/F0-03-1-newham-independent-review-challenge-pack-v0.1.md",
+    "research/NEW-02-newham-source-reconciliation-additionality-v0.2.md",
+    "research/NEW-02-dwp-newham-local-official-facts-v0.2.json",
+    "research/F0-05-newham-pension-credit-first-study-concept-v0.1.md"
+  ],
+  "reviewArtifacts": [
+    "research/F0-03-1-newham-independent-review-readiness-v0.2.md",
+    "research/F0-03-1-external-review-protocol-v0.2.md",
+    "research/F0-03-independent-review-form.md"
+  ],
+  "methodology": {
+    "primaryOutcomeCandidate": "HPI-B-01",
+    "primaryOutcomeStatus": "candidate_primary_unmeasurable",
+    "candidateIndicatorCount": 15,
+    "compositeProsperityIndexApproved": false,
+    "prospectiveStudyRegistered": false,
+    "verifiedStudyEligibleDenominator": null,
+    "confirmedFirstPaidAwardNumerator": null,
+    "sampleSize": null,
+    "statisticalPower": null,
+    "causalEffect": null,
+    "measuredParticipantImpacts": null,
+    "measuredParticipantImpactsNote": "No participant outcome measurement conducted; not a measured zero effect"
+  },
+  "geographicalAggregateContext": {
+    "source": "DWP official local administrative model for 2023/24, published 2025-10-30",
+    "newhamModelledHouseholds": 11300,
+    "newhamModelledInReceipt": 8800,
+    "newhamModelledPotentialNonreceivers": 2500,
+    "newhamModelledReceiptPct": 78,
+    "expenditureReceiptPct": 86,
+    "geo": "Newham",
+    "sourceSha256": "89f5a5fa831f21c4661d6e73ccb76878959e6ea721fb459b43aa3d9bcd96765c",
+    "notHpiParticipantOutcomes": true,
+    "notComparableWithGbFye2025NationalRate": true
+  },
+  "reviewGates": {
+    "independentMethodsReview": "not_obtained",
+    "qualifiedIndependentReviewersAppointed": 0,
+    "communityReview": "not_obtained",
+    "protectedCommunityConsultations": 0,
+    "reviewsActuallyReceived": 0,
+    "ethicsApproval": false,
+    "approvedDataController": false,
+    "statutoryPartnerAppointed": false,
+    "safeguardingChannelVerified": false,
+    "verifiedDataAccessRights": false,
+    "fieldStudyAuthorised": false,
+    "scientificVersion1Ratified": false
+  },
+  "publicSubmissionMethod": "Public methodology-only GitHub issue #19 or PR, with consent to public non-sensitive publication; no private case data or participant recruitment",
+  "independentReviewEvidence": [],
+  "actualReviewerDispositionRecords": [],
+  "reviewChallenges": [
+    {
+      "id": "IR-01",
+      "title": "Population, statutory eligibility and household versus benefit-unit mismatch",
+      "question": "What is the actual independent benefit-unit eligibility definition and nonrecipient baseline sampling frame?",
+      "requiredEvidence": "independently verified participant eligibility; legal entitlement rules and dates; nonreceipt baseline",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-02",
+      "title": "First paid Pension Credit as primary outcome",
+      "question": "Can linked, verified first payments and unknown/pending/denied cases be recorded lawfully at fixed follow-up?",
+      "requiredEvidence": "verified first payment mechanism; de-duplication and paid/awarded distinction",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-03",
+      "title": "Independent additionality versus Our Newham Money/LIFT",
+      "question": "Does any extra HPI service answer a question not already solved by Newham Council and DWP?",
+      "requiredEvidence": "credible existing-programme evaluation audit and incremental intervention theory",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-04",
+      "title": "Comparator, assignment, estimand and nonwithholding",
+      "question": "Can a defensible comparison avoid denying legal entitlements or diverting existing support?",
+      "requiredEvidence": "approved comparator/assignment, ITT-or-alternative estimand and spillover model",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-05",
+      "title": "Missingness, attrition and precision",
+      "question": "What prespecified loss mechanisms and sensitivity bounds are required; is a sample/power analysis defensible?",
+      "requiredEvidence": "source feasibility, baseline rate under same definitions, missingness and effect threshold",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-06",
+      "title": "Bias and falsification",
+      "question": "What selection and calendar confounders, negative controls and pretrend falsification rules would invalidate any causal claim?",
+      "requiredEvidence": "bias graph or explicit causal assumptions and tests for chosen design",
+      "priority": "high",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-07",
+      "title": "Equity, disability, language and nonparticipant harms",
+      "question": "Which populations are systematically excluded or burdened, and how is small-cell safety achieved?",
+      "requiredEvidence": "human community accessibility assessment and disclosure controls",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-08",
+      "title": "Implementation economics and harms",
+      "question": "How will partner and claimant time costs, harms and null/negative incremental outcomes be recorded separately?",
+      "requiredEvidence": "audited operational costs and incident/safeguarding plan",
+      "priority": "high",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-09",
+      "title": "Local instrument validity and invariance",
+      "question": "Are autonomy and hardship surveys appropriate, translated, reliable and comparable in Newham?",
+      "requiredEvidence": "validated instruments and safeguarded local testing or exclusion",
+      "priority": "high",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-10",
+      "title": "Pre-specified outcomes and multiplicity",
+      "question": "Can one primary measure and analysis hierarchy be registered in advance with defensible power?",
+      "requiredEvidence": "protocol version, estimand, follow-up and prespecified analysis",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-11",
+      "title": "Controller, ethics, data rights and independence",
+      "question": "Who is legally accountable for personal records and independently approves method, data protection and ethics?",
+      "requiredEvidence": "qualified legal/privacy/ethics approvals and actual independent reviewers",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    },
+    {
+      "id": "IR-12",
+      "title": "Stop decision and review dissent",
+      "question": "What negative findings should require stopping or choosing a purely descriptive study?",
+      "requiredEvidence": "documented human-governed no-go decision and dissent",
+      "priority": "critical",
+      "status": "awaiting_actual_independent_review",
+      "reviewerReference": null,
+      "disposition": null,
+      "signoff": null
+    }
+  ],
+  "negativeFeasibility": {
+    "result": "NO_GO_FIELD",
+    "rationale": "No lawful independently verified eligible baseline cohort or confirmed first payments for HPI-B-01; insufficient evidence of additionality beyond existing services; no independent methods, ethics, community, sponsor or privacy permissions.",
+    "legitimateAlternative": "Publish a descriptive feasibility result or stop without starting a duplicative intervention"
+  },
+  "sourceQualityWarning": "Technical reproducibility is not peer review; this manifest is author-prepared and dated, not an external review or grant of permission."
+}
