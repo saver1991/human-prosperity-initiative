@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "reviewedAt": "2026-11-09",
+  "initiative": "F0-02.4",
+  "scientificReviewIssue": 19,
+  "ethicalConsultationExecutionIssue": 82,
+  "scope": "Documentary design deliverables T01–T04; does not approve research, recruit participants, contact partners, solicit funds or receive identifiable information",
+  "reviewType": "internal_AI_assisted",
+  "independenceStatus": "author_related_not_independent",
+  "sourceVersionReferences": [
+    "https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/the-research-provisions/principles-and-grounds-for-processing/",
+    "https://www.hra.nhs.uk/approvals-amendments/what-approvals-do-i-need/research-ethics-committee-review/non-nhs-research-projects/",
+    "https://www.newham.gov.uk/advice-support-benefits/newham-money",
+    "https://github.com/saver1991/human-prosperity-initiative/issues/19",
+    "https://github.com/saver1991/human-prosperity-initiative/issues/26",
+    "https://github.com/saver1991/human-prosperity-initiative/issues/67"
+  ],
+  "workstreams": [
+    {
+      "id": "F0-02.4-T01",
+      "name": "Partner eligibility and independence criteria",
+      "designStatus": "documented_unratified",
+      "evidence": "research/F0-02-4-ethical-partner-community-consultation-plan-v0.1.md",
+      "actualPartnerVerified": false
+    },
+    {
+      "id": "F0-02.4-T02",
+      "name": "Protected low-burden local community consultation including non-digital",
+      "designStatus": "documented_unratified",
+      "evidence": "research/F0-02-4-ethical-partner-community-consultation-plan-v0.1.md",
+      "actualCommunityConsultations": 0
+    },
+    {
+      "id": "F0-02.4-T03",
+      "name": "Lawful basis, data rights, participation and independent review distinctions",
+      "designStatus": "documented_unratified",
+      "evidence": "research/F0-02-4-ethical-partner-community-consultation-plan-v0.1.md",
+      "lawfulPersonalDataUseAuthorised": false
+    },
+    {
+      "id": "F0-02.4-T04",
+      "name": "Safeguarding, languages, access, conflict, grievance and stop",
+      "designStatus": "documented_unratified",
+      "evidence": "research/F0-02-4-ethical-partner-community-consultation-plan-v0.1.md",
+      "actualGrievanceChannelLive": false
+    }
+  ],
+  "scientificAudit": {
+    "source": "research/F0-03-1-adversarial-internal-science-critique-v0.3.md",
+    "criticalOrHighInternalFindings": 10,
+    "qualifiedExternalReviewerCount": 0,
+    "independentMethodsReview": "not_obtained",
+    "communityReview": "not_obtained",
+    "scientificVersion1Ratified": false,
+    "actualHpiOutcomeNumerator": null,
+    "actualHpiOutcomeDenominator": null,
+    "actualHpiEffect": null
+  },
+  "humanGates": {
+    "legalHostAuthorised": false,
+    "statutoryPartnerVerified": false,
+    "independentMethodsReviewObtained": false,
+    "protectedCommunityInputObtained": false,
+    "trainedSafeguardingLeadAssigned": false,
+    "protectedGrievanceChannelLive": false,
+    "accessibilityVerifiedWithPeople": false,
+    "privacyControllerAppointed": false,
+    "lawfulBasisApprovedForPersonalData": false,
+    "ethicsApplicabilityDeterminedBySponsor": false,
+    "ethicsDecisionApproved": false,
+    "participantRecruitmentApproved": false,
+    "fieldStudyAuthorised": false
+  },
+  "territories": [
+    {
+      "name": "Newham",
+      "role": "public_source_desk_research",
+      "status": "NO_GO_FIELD"
+    },
+    {
+      "name": "Recife",
+      "role": "comparison_candidate",
+      "status": "NO_GO_FIELD"
+    },
+    {
+      "name": "Naples",
+      "role": "reserve_candidate",
+      "status": "NO_GO_FIELD"
+    }
+  ],
+  "dataScope": {
+    "allowed": [
+      "non_personal_official_published_aggregates_with_source_terms",
+      "public_non_sensitive_voluntary_method_critique"
+    ],
+    "prohibited": [
+      "individual_entitlement_or_case_records",
+      "benefit_award_claimant_identity_or_payment_data",
+      "soliciting_vulnerable_people_for_research",
+      "nonconsensual_identifiable_testimonials",
+      "private_personal_data_in_github_or_chat"
+    ],
+    "controller": null,
+    "lawfulBasisForRealParticipantStudy": null
+  },
+  "decision": {
+    "documentation": "ready_for_technical_acceptance",
+    "externalConsultations": "not_started",
+    "realPartnerEngagement": "not_started",
+    "realResearch": "NO_GO_FIELD"
+  },
+  "notes": "No public research portal or GitHub issue is a human welfare helpline; methodological review and ethics/legal competence must be demonstrated independently."
+}
