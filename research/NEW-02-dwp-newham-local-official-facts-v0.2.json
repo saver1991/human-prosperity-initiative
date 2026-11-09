@@ -73,8 +73,8 @@
       "supportedClaims": 220,
       "councilReportedExtraIncomeGbp": 748590,
       "uniqueConfirmedAwardsIndependentlyVerified": false,
-      "potentiallyOverlapping": false,
-      "causalHpiAttribution": false
+      "causalHpiAttribution": false,
+      "overlapWithOtherCouncilPublicationNotRuledOut": true
     }
   ],
   "hpiB01": {
