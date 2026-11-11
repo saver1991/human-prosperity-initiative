@@ -96,6 +96,13 @@
       "followOn": "WEB-03.4"
     },
     {
+      "id": "IA-13",
+      "priority": "P0",
+      "title": "Live GitHub read-only issue and publication freshness APIs return 503 due to moved repository namespace and redirect-error semantics",
+      "evidenceKind": "observed_live_and_source",
+      "followOn": "WEB-03.1-urgent-operational-repair"
+    },
+    {
       "id": "IA-06",
       "priority": "P1",
       "title": "Current mission page presents historical charter V0.3 while V0.4 candidate exists",
@@ -198,10 +205,32 @@
     "browserCookieStorageRuntimeAudit": false,
     "legalReview": false,
     "redesignImplemented": false,
-    "privacyCookieTermsPagesPublished": false
+    "privacyCookieTermsPagesPublished": false,
+    "apiProductionRestored": false,
+    "apiProductionPostMergeVerificationPending": true
   },
   "deliverable": "docs/WEB-03-1-website-ia-and-experience-audit-v0.1.md",
   "roadmapIssue": 87,
   "hubosIssue": 150,
-  "scientificBoundary": "NO_GO_FIELD, validatedHumanImpact false; built research tools are not reviewed interventions"
+  "scientificBoundary": "NO_GO_FIELD, validatedHumanImpact false; built research tools are not reviewed interventions",
+  "observedApiFailuresBeforeFix": [
+    {
+      "route": "/api/issues",
+      "http": 503,
+      "error": "public_issues_temporarily_unavailable"
+    },
+    {
+      "route": "/api/freshness",
+      "http": 503,
+      "error": "status unknown; checkedLive false"
+    }
+  ],
+  "repairBranchScope": [
+    "api/issues.js",
+    "api/freshness.js",
+    "scripts/ops-watch.mjs",
+    "scripts/roadmap-model.mjs",
+    "tests/site.test.mjs",
+    "tests/roadmap-model.test.mjs"
+  ]
 }
