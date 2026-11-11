@@ -7,7 +7,7 @@ import {mkdir,writeFile} from "node:fs/promises";
 import {pathToFileURL} from "node:url";
 
 export const BASE="https://human-prosperity-initiative.vercel.app";
-export const REPO="https://api.github.com/repos/saver1991/human-prosperity-initiative";
+export const REPO="https://api.github.com/repos/svtmzt/human-prosperity-initiative";
 const SHA=/^[0-9a-f]{40}$/;
 const ROUTES=["/","/mission","/research","/library","/roadmap","/initiatives/web-02","/initiatives/f0-03-1","/status","/publication.json"];
 const STATUS_CONTEXTS=[

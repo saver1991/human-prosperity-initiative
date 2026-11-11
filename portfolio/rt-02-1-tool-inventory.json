@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "0.1",
+  "auditedOn": "2026-11-11",
+  "initiative": "RT-02.1",
+  "canonicalRepository": "svtmzt/human-prosperity-initiative",
+  "scope": "four HTTP-200 public tool experiences plus one Newham case-study and versioned developer CLI modules; static/HTML/source audit not human usability study",
+  "publicToolProducts": [
+    {
+      "id": "source-catalog",
+      "name": "Source Catalogue",
+      "route": "/research/source-catalog",
+      "httpObserved": 200,
+      "kind": "interactive_metadata_explorer",
+      "audience": [
+        "researchers",
+        "source_verifiers"
+      ],
+      "userInput": [
+        "text query",
+        "source type filter"
+      ],
+      "recordCount": 42,
+      "evidenceReferences": 39,
+      "unimportedDatasetCandidates": 3,
+      "dataType": "public citation and dataset candidate metadata only",
+      "rightsState": "mixed / unknown / not_reviewed",
+      "primaryCode": [
+        "site/research-catalog.js",
+        "research-tools/source-catalog.mjs"
+      ],
+      "downloads": [
+        "/research-source-catalog.json",
+        "/research-source-catalog.csv"
+      ],
+      "gaps": [
+        "TOOL-01",
+        "TOOL-02",
+        "TOOL-04",
+        "TOOL-05",
+        "TOOL-09"
+      ],
+      "scientificallyValidated": false,
+      "legalRightsIndependentlyApproved": false
+    },
+    {
+      "id": "synthetic-outcome-lab",
+      "name": "Synthetic Outcome Lab",
+      "route": "/research/outcome-lab",
+      "httpObserved": 200,
+      "kind": "interactive_client_side_synthetic_calculator",
+      "audience": [
+        "researchers",
+        "methods_learners"
+      ],
+      "userInput": [
+        "reference eligible",
+        "reference observed receipts",
+        "reference missing follow-up",
+        "comparison eligible",
+        "comparison observed receipts",
+        "comparison missing follow-up",
+        "calculate synthetic comparison",
+        "run seeded hypothetical simulation"
+      ],
+      "dataType": "entirely fictional synthetic group counts",
+      "primaryCode": [
+        "site/outcome-lab.js",
+        "research-tools/outcome-evaluation.mjs",
+        "research-tools/aggregate-outcomes.mjs"
+      ],
+      "downloads": [
+        "/research-synthetic-outcome-template.json"
+      ],
+      "outputs": [
+        "synthetic descriptive receipt rates",
+        "conditional Wilson intervals",
+        "Newcombe-Wilson comparison",
+        "missing follow-up sensitivity bounds",
+        "seeded hypothetical simulation"
+      ],
+      "browserOnlyClientCodeObserved": true,
+      "noNetworkOrStorageClaimOnlyCodeInspected": true,
+      "gaps": [
+        "TOOL-01",
+        "TOOL-03",
+        "TOOL-06",
+        "TOOL-09",
+        "TOOL-10"
+      ],
+      "scientificallyValidated": false,
+      "realBenefitOutcomeVerified": false
+    },
+    {
+      "id": "reproducibility",
+      "name": "Research Reproducibility",
+      "route": "/research/reproducibility",
+      "httpObserved": 200,
+      "kind": "read_only_reproducibility_artifact_viewer",
+      "audience": [
+        "data_scientists",
+        "auditors"
+      ],
+      "userInput": [],
+      "dataType": "version-pinned public source metadata and hypothetical outcomes",
+      "primaryCode": [
+        "research-tools/research-pipeline.mjs",
+        "scripts/rt01-pipeline-verify.mjs",
+        "scripts/rt01-repro-check.mjs"
+      ],
+      "downloads": [
+        "/research-pipeline-report.json",
+        "/research-pipeline-manifest.json",
+        "/research-citation-manifest.json",
+        "/research-data-dictionary.json",
+        "/research-revision-log.json",
+        "/research-reproducibility-notebook.ipynb"
+      ],
+      "gaps": [
+        "TOOL-01",
+        "TOOL-02",
+        "TOOL-07",
+        "TOOL-09"
+      ],
+      "scientificallyValidated": false,
+      "thirdPartyDataFullyRedistributable": false
+    },
+    {
+      "id": "responsible-tools",
+      "name": "Responsible Research Tools",
+      "route": "/research/responsible-tools",
+      "httpObserved": 200,
+      "kind": "read_only_research_ethics_policy",
+      "audience": [
+        "researchers",
+        "participants_questions",
+        "privacy_reviewers"
+      ],
+      "userInput": [],
+      "dataType": "public guidance on risk/rights; no individual cases",
+      "primaryCode": [
+        "research-tools/research-governance.mjs",
+        "scripts/rt01-governance-check.mjs"
+      ],
+      "downloads": [
+        "/research-governance-status.json",
+        "/responsible-tools.en.txt"
+      ],
+      "additionalPublicRoutes": [
+        "/research/responsible-tools/it"
+      ],
+      "gaps": [
+        "TOOL-01",
+        "TOOL-08",
+        "TOOL-09",
+        "TOOL-12"
+      ],
+      "qualifiedEthicsReviewObtained": false,
+      "independentAccessibilityTestingCompleted": false
+    }
+  ],
+  "relatedResearchCaseStudy": {
+    "name": "Newham desk study",
+    "routes": [
+      "/research/newham-pension-credit",
+      "/research/newham-prepilot"
+    ],
+    "kind": "descriptive_evidence_context_not_entitlement_checker",
+    "realParticipantCohortEligibilityDenominator": null,
+    "firstPaidAwardNumerator": null,
+    "sourceModelCaseloadPct": 78,
+    "year": "2023/24",
+    "scope": "DWP modelled household estimates, not a personal or HPI outcome"
+  },
+  "developerModules": [
+    "research-tools/indicator-contract.mjs",
+    "research-tools/evidence-provenance.mjs",
+    "research-tools/source-catalog.mjs",
+    "research-tools/outcome-evaluation.mjs",
+    "research-tools/aggregate-outcomes.mjs",
+    "research-tools/research-pipeline.mjs",
+    "research-tools/structured-evidence.mjs",
+    "research-tools/newham-desk-validation.mjs",
+    "research-tools/newham-prepilot-gate.mjs",
+    "research-tools/research-governance.mjs",
+    "scripts/verify_newham_dwp_ods.py"
+  ],
+  "currentPrimaryNavProvidesTools": false,
+  "followOnBacklog": [
+    {
+      "id": "RT-02.2",
+      "priority": "P0",
+      "topic": "Safe public Tools hub and onboarding"
+    },
+    {
+      "id": "RT-02.3",
+      "priority": "P1",
+      "topic": "Source Catalogue discovery and rights UX"
+    },
+    {
+      "id": "RT-02.4",
+      "priority": "P1",
+      "topic": "Synthetic Outcome Lab visualization and accessible interpretation"
+    },
+    {
+      "id": "RT-02.5",
+      "priority": "P1",
+      "topic": "Reproducibility onboarding and code-to-source tracing"
+    },
+    {
+      "id": "RT-02.6",
+      "priority": "P2",
+      "topic": "Conditional international prosperity data explorer discovery"
+    },
+    {
+      "id": "RT-02.7",
+      "priority": "P0",
+      "topic": "Accessibility, product QA, no personal data and scientific status guards"
+    }
+  ],
+  "verification": {
+    "httpRoutesObserved": true,
+    "sourceCodeInspected": true,
+    "independentScientificReview": false,
+    "humanUsabilitySessions": false,
+    "realAssistiveTechnologySessions": false,
+    "browserRuntimeStorageMeasured": false,
+    "fullThirdPartyDataRightsVerified": false,
+    "realParticipantsEnrolled": false,
+    "causalImpactVerified": false,
+    "toolsHubImplemented": false
+  },
+  "evidenceReport": "docs/RT-02-1-public-research-tools-product-inventory-v0.1.md",
+  "issue": 88,
+  "hubosIssue": 150,
+  "prohibitedClaims": [
+    "42 validated full datasets",
+    "real HPI benefit eligibility checker",
+    "real HPI poverty reduction or causal effect",
+    "science or privacy externally certified",
+    "legal permission to ingest claimant information"
+  ]
+}

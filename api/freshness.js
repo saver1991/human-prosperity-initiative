@@ -2,7 +2,7 @@
  * Compares the currently served production snapshot with public GitHub main.
  * No token, database, private account access, or background polling.
  */
-const SOURCE_URL="https://api.github.com/repos/saver1991/human-prosperity-initiative/commits/main";
+const SOURCE_URL="https://api.github.com/repos/svtmzt/human-prosperity-initiative/commits/main";
 const PRODUCTION_URL="https://human-prosperity-initiative.vercel.app/publication.json";
 const sha40=/^[0-9a-f]{40}$/;
 

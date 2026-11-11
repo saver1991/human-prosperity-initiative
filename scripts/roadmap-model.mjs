@@ -5,8 +5,8 @@ import {inspectPublicIssueFeed,reconcilePublicIssue} from "../site/progress-poli
 const STATUS=new Set(["planned","in_progress","review","documented","complete","aspirational","long_term","unknown","blocked"]);
 const LANES=new Set(["Now","Next","Later"]);
 const KINDS=new Set(["research","platform"]);
-const ISSUE=/^https:\/\/github\.com\/saver1991\/human-prosperity-initiative\/issues\/\d+$/;
-const PROOF=/^https:\/\/github\.com\/saver1991\/human-prosperity-initiative\/pull\/\d+$/;
+const ISSUE=/^https:\/\/github\.com\/(?:saver1991|svtmzt)\/human-prosperity-initiative\/issues\/\d+$/;
+const PROOF=/^https:\/\/github\.com\/(?:saver1991|svtmzt)\/human-prosperity-initiative\/pull\/\d+$/;
 const FIRST_PARTY=/^\/(?:[a-z0-9-]+\/?)*$/;
 const ID=/^[A-Z][A-Z0-9-]*(?:\.[0-9]+)*(?:-T[0-9]{2})?$/;
 function fail(message){throw new Error("Public roadmap contract: "+message)}

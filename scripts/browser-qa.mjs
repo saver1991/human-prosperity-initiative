@@ -55,8 +55,8 @@ const widths=[
  {name:"desktop",width:1440,height:900}
 ];
 const publicModel=JSON.parse(await readFile(resolve(distRoot,"public-roadmap.json"),"utf8"));
-if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length!==12)
- throw new Error("QA requires an explicit audited list of 12 first-party initiatives");
+if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length<12)
+ throw new Error("QA requires at least the 12 established initiatives and a valid expanded source model");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
 const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",

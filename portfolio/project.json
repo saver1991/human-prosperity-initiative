@@ -11,16 +11,16 @@
   "governanceSystem": "HubOS",
   "researchExecutionSystem": "SolOS",
   "sourceOfTruth": "GitHub HPI",
-  "reviewedAt": "2026-11-06",
+  "reviewedAt": "2026-11-11",
   "portfolioRecordId": "human-prosperity-initiative",
   "mode": "applied_poverty_reduction_with_long_term_systems_research",
   "currentInitiative": "F0-04",
   "publicUrls": {
     "website": "https://human-prosperity-initiative.vercel.app/",
-    "repository": "https://github.com/saver1991/human-prosperity-initiative",
+    "repository": "https://github.com/svtmzt/human-prosperity-initiative",
     "roadmap": "https://human-prosperity-initiative.vercel.app/roadmap",
     "research": "https://human-prosperity-initiative.vercel.app/research",
-    "community": "https://github.com/saver1991/human-prosperity-initiative/discussions"
+    "community": "https://github.com/svtmzt/human-prosperity-initiative/discussions"
   },
   "programmes": [
     {
@@ -242,6 +242,65 @@
       "pendingFounderApproval": []
     },
     {
+      "id": "WEB-03",
+      "name": "Public site experience, information architecture, accessibility and trust",
+      "status": "in_progress",
+      "priority": "P0",
+      "horizon": "Now",
+      "issue": 85,
+      "epics": [
+        {
+          "id": "WEB-03.1",
+          "name": "Current website IA/UX/source audit",
+          "issue": 87,
+          "status": "complete",
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-03.2",
+          "name": "Audience journeys, sitemap, taxonomy and version policy",
+          "issue": 85,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "WEB-03.3",
+          "name": "Design direction, templates and responsive wireframes",
+          "issue": 85,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "WEB-03.4",
+          "name": "Iterative navigation and page implementation",
+          "issue": 85,
+          "status": "planned",
+          "tasksPlanned": 5
+        },
+        {
+          "id": "WEB-03.5",
+          "name": "Content, mobile, visual and genuine accessibility QA",
+          "issue": 85,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "WEB-03.6",
+          "name": "Privacy, cookies, legal, copyright, help and trust pages",
+          "issue": 89,
+          "status": "planned",
+          "tasksPlanned": 6
+        },
+        {
+          "id": "WEB-03.7",
+          "name": "Content governance, correction, accessibility and localisation lifecycle",
+          "issue": 85,
+          "status": "planned",
+          "tasksPlanned": 3
+        }
+      ]
+    },
+    {
       "id": "F0-05",
       "name": "First study concept",
       "status": "in_progress",
@@ -307,6 +366,65 @@
           "name": "Privacy, accessibility and licensing",
           "issue": 59,
           "status": "complete",
+          "tasksPlanned": 4
+        }
+      ]
+    },
+    {
+      "id": "RT-02",
+      "name": "Usable public research tools and exploration experiences",
+      "status": "in_progress",
+      "priority": "P0",
+      "horizon": "Now",
+      "issue": 86,
+      "epics": [
+        {
+          "id": "RT-02.1",
+          "name": "Inventory and public usability audit of existing research instruments",
+          "issue": 88,
+          "status": "complete",
+          "tasksPlanned": 5
+        },
+        {
+          "id": "RT-02.2",
+          "name": "Tools hub, safe product onboarding and navigation",
+          "issue": 86,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-02.3",
+          "name": "Evidence Source Catalogue UX and data rights provenance",
+          "issue": 86,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-02.4",
+          "name": "Synthetic Outcome Lab explanations and safe visualizations",
+          "issue": 86,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-02.5",
+          "name": "Reproducibility experience and artifact lineage",
+          "issue": 86,
+          "status": "planned",
+          "tasksPlanned": 4
+        },
+        {
+          "id": "RT-02.6",
+          "name": "Conditional public Prosperity Data Explorer discovery",
+          "issue": 86,
+          "status": "planned",
+          "tasksPlanned": 3
+        },
+        {
+          "id": "RT-02.7",
+          "name": "Tools accessibility, data safety and regression QA",
+          "issue": 86,
+          "status": "planned",
           "tasksPlanned": 4
         }
       ]

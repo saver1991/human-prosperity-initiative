@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "0.1",
+  "createdOn": "2026-11-11",
+  "initiative": "WEB-03.6",
+  "issue": 89,
+  "scope": "planned editorial, institutional/legal and help destinations; none of the missing pages has been implemented under this initiative",
+  "publisherLegalEntityStatus": "not_incorporated",
+  "complianceApproved": false,
+  "legalAdviceObtained": false,
+  "existingRoutes": [
+    "/governance",
+    "/contribute",
+    "/library/documentation-license",
+    "/library/software-license",
+    "/research/responsible-tools"
+  ],
+  "proposedPages": [
+    {
+      "id": "privacy",
+      "route": "/privacy",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "data_flow_inventory_and_controller_legal_review"
+    },
+    {
+      "id": "cookies",
+      "route": "/cookies",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "runtime_storage_inventory_and_pecr_review"
+    },
+    {
+      "id": "cookie-settings",
+      "route": "/cookie-settings",
+      "priority": "P0",
+      "observedStatus": "conditional",
+      "implementationStatus": "planned",
+      "approvalGate": "non_exempt_storage_measured_and_consent_needed"
+    },
+    {
+      "id": "terms",
+      "route": "/terms",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "accurate_publisher_and_counsel_review"
+    },
+    {
+      "id": "legal",
+      "route": "/legal",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "publisher_identity_and_applicable_disclosure_review"
+    },
+    {
+      "id": "copyright-licenses",
+      "route": "/copyright",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "software_docs_media_dataset_rights_audit"
+    },
+    {
+      "id": "accessibility",
+      "route": "/accessibility",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "manual_assistive_technology_testing_and_real_feedback_route"
+    },
+    {
+      "id": "help",
+      "route": "/help",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "approved_help_content_no_fake_human_support"
+    },
+    {
+      "id": "contact",
+      "route": "/contact",
+      "priority": "P0",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "human_owned_private_channel_and_privacy_notice"
+    },
+    {
+      "id": "about",
+      "route": "/about",
+      "priority": "P1",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "verified_role_and_current_legal_status"
+    },
+    {
+      "id": "research-integrity",
+      "route": "/research-integrity",
+      "priority": "P1",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "versioned_sources_corrections_no_false_science"
+    },
+    {
+      "id": "safeguarding",
+      "route": "/safeguarding",
+      "priority": "P0",
+      "observedStatus": "conditional",
+      "implementationStatus": "planned",
+      "approvalGate": "real_trained_lead_confidential_incident_channel_issue26"
+    },
+    {
+      "id": "site-map",
+      "route": "/site-map",
+      "priority": "P2",
+      "observedStatus": "missing",
+      "implementationStatus": "planned",
+      "approvalGate": "canonical_route_and_redirect_review"
+    }
+  ],
+  "cookieConsentRequirement": "conditional_on_actual_non_exempt_technologies; no unverified assumptions that none or some cookies exist",
+  "formalPrivacyNoticeRequiresRealDataInventory": true,
+  "generalContactRequiresRealOwner": true,
+  "confidentialSafeguardingChannelPresent": false,
+  "independentManualAccessibilityApproval": false,
+  "productionReleaseTarget": "WEB-03.6 future implementation, not WEB-03.1 / RT-02.1 phase1",
+  "source": [
+    "https://ico.org.uk/for-organisations/advice-for-small-organisations/privacy-notices-and-cookies/how-to-write-a-privacy-notice-and-what-goes-in-it/",
+    "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/cookies-and-similar-technologies/",
+    "https://www.w3.org/WAI/test-evaluate/"
+  ],
+  "evidence": "docs/WEB-03-6-trust-legal-help-pages-register-v0.1.md"
+}

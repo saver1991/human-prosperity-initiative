@@ -1,0 +1,236 @@
+{
+  "schemaVersion": "0.1",
+  "auditedOn": "2026-11-11",
+  "initiative": "WEB-03.1",
+  "auditMethod": "production HTTP/HTML + HPI GitHub source files; not a visual or human usability/assistive tech audit",
+  "canonicalWebsite": "https://human-prosperity-initiative.vercel.app",
+  "canonicalRepository": "svtmzt/human-prosperity-initiative",
+  "source": [
+    "site/index.html",
+    "site/styles.css",
+    "scripts/build.mjs",
+    "scripts/site-content.mjs",
+    "portfolio/project.json",
+    "portfolio/public-roadmap.json"
+  ],
+  "observedGlobalNavigation": [
+    "Mission",
+    "Research",
+    "Roadmap",
+    "Library",
+    "Get involved"
+  ],
+  "presentRoutes": [
+    "/",
+    "/mission",
+    "/research",
+    "/roadmap",
+    "/library",
+    "/activity",
+    "/contribute",
+    "/governance",
+    "/status",
+    "/research/source-catalog",
+    "/research/outcome-lab",
+    "/research/reproducibility",
+    "/research/responsible-tools",
+    "/research/newham-prepilot",
+    "/research/newham-pension-credit"
+  ],
+  "testedMissingCandidateRoutes": [
+    "/about",
+    "/privacy",
+    "/privacy-policy",
+    "/cookies",
+    "/cookie-policy",
+    "/cookie-settings",
+    "/terms",
+    "/terms-of-use",
+    "/legal",
+    "/copyright",
+    "/accessibility",
+    "/accessibility-statement",
+    "/help",
+    "/help/faq",
+    "/faq",
+    "/contact"
+  ],
+  "separatelyExistingLicenceRoutes": [
+    "/library/documentation-license",
+    "/library/software-license"
+  ],
+  "findings": [
+    {
+      "id": "IA-01",
+      "priority": "P0",
+      "title": "Research and Library flat code-named source listings",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.2"
+    },
+    {
+      "id": "IA-02",
+      "priority": "P0",
+      "title": "No Tools or Projects primary-nav destinations",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.2"
+    },
+    {
+      "id": "IA-03",
+      "priority": "P0",
+      "title": "Candidate legal/help/contact/accessibility paths returned 404",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.6"
+    },
+    {
+      "id": "IA-04",
+      "priority": "P0",
+      "title": "Newham old report contradicts NEW-02 DWP row extraction",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.4"
+    },
+    {
+      "id": "IA-05",
+      "priority": "P0",
+      "title": "Site/source paths still include previous saver1991 GitHub owner after canonical svtmzt move",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.4"
+    },
+    {
+      "id": "IA-13",
+      "priority": "P0",
+      "title": "Live GitHub read-only issue and publication freshness APIs return 503 due to moved repository namespace and redirect-error semantics",
+      "evidenceKind": "observed_live_and_source",
+      "followOn": "WEB-03.1-urgent-operational-repair"
+    },
+    {
+      "id": "IA-06",
+      "priority": "P1",
+      "title": "Current mission page presents historical charter V0.3 while V0.4 candidate exists",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.2"
+    },
+    {
+      "id": "IA-07",
+      "priority": "P1",
+      "title": "Home is mission narrative but has limited direct tool/project task flows",
+      "evidenceKind": "reasoned_from_markup",
+      "followOn": "WEB-03.3"
+    },
+    {
+      "id": "IA-08",
+      "priority": "P1",
+      "title": "Tool/result source and scientific status not consistently surfaced on listings",
+      "evidenceKind": "observed",
+      "followOn": "RT-02.2"
+    },
+    {
+      "id": "IA-09",
+      "priority": "P1",
+      "title": "No accepted actual screen reader user assessment",
+      "evidenceKind": "open_external_gate",
+      "followOn": "WEB-03.5"
+    },
+    {
+      "id": "IA-10",
+      "priority": "P1",
+      "title": "Partial Italian translations without unified language plan",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.7"
+    },
+    {
+      "id": "IA-11",
+      "priority": "P2",
+      "title": "No verified Help/FAQ/Glossary first-party page",
+      "evidenceKind": "observed",
+      "followOn": "WEB-03.6"
+    },
+    {
+      "id": "IA-12",
+      "priority": "P2",
+      "title": "Source/editorial update process permits contradictory active/historical pages",
+      "evidenceKind": "reasoned_from_markup",
+      "followOn": "WEB-03.7"
+    }
+  ],
+  "proposedPrimaryNav": [
+    "Mission",
+    "Projects",
+    "Research",
+    "Tools",
+    "Get involved",
+    "About & Governance"
+  ],
+  "proposedSecondary": [
+    "Roadmap",
+    "Library",
+    "Activity",
+    "Publication Status",
+    "Help",
+    "Contact only once human-owned",
+    "Privacy",
+    "Cookies",
+    "Terms",
+    "Legal & Copyright",
+    "Accessibility",
+    "Research integrity"
+  ],
+  "targetJourneys": [
+    {
+      "id": "visitor",
+      "goal": "understand mission and current results without code names",
+      "status": "proposed_not_usability_tested"
+    },
+    {
+      "id": "researcher",
+      "goal": "verify question, source, time, denominators and independent review status",
+      "status": "proposed_not_usability_tested"
+    },
+    {
+      "id": "tool_user",
+      "goal": "launch an instrument safely with clear data category and outputs",
+      "status": "proposed_not_usability_tested"
+    },
+    {
+      "id": "collaborator",
+      "goal": "understand safe contribution channels without falsely implying support or recruitment",
+      "status": "proposed_not_usability_tested"
+    }
+  ],
+  "verification": {
+    "routeHtmlStatusChecked": true,
+    "repoSourceInspected": true,
+    "actualHumanUsabilityTesting": false,
+    "visualScreenshotOrDesignCritique": false,
+    "humanAssistiveTechnologyTesting": false,
+    "browserCookieStorageRuntimeAudit": false,
+    "legalReview": false,
+    "redesignImplemented": false,
+    "privacyCookieTermsPagesPublished": false,
+    "apiProductionRestored": false,
+    "apiProductionPostMergeVerificationPending": true
+  },
+  "deliverable": "docs/WEB-03-1-website-ia-and-experience-audit-v0.1.md",
+  "roadmapIssue": 87,
+  "hubosIssue": 150,
+  "scientificBoundary": "NO_GO_FIELD, validatedHumanImpact false; built research tools are not reviewed interventions",
+  "observedApiFailuresBeforeFix": [
+    {
+      "route": "/api/issues",
+      "http": 503,
+      "error": "public_issues_temporarily_unavailable"
+    },
+    {
+      "route": "/api/freshness",
+      "http": 503,
+      "error": "status unknown; checkedLive false"
+    }
+  ],
+  "repairBranchScope": [
+    "api/issues.js",
+    "api/freshness.js",
+    "scripts/ops-watch.mjs",
+    "scripts/roadmap-model.mjs",
+    "tests/site.test.mjs",
+    "tests/roadmap-model.test.mjs"
+  ]
+}
