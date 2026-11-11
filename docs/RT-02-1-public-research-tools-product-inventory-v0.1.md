@@ -68,7 +68,7 @@ This is a design specification, **not** the actual new Tools homepage or impleme
 
 ## 5. Data integrity and scientific non-negotiables
 
-The [DWP Newham 2023/24 local model](NEW-02-newham-source-reconciliation-additionality-v0.2.md) verified 11,300 modelled eligible households, 8,800 modelled recipients, 2,500 potentially eligible nonrecipients and **78% administrative modelled household receipt**; **86%** is a separate *expenditure* proportion; **62%** is a different official GB FYE2025 survey-based benefit-unit rate. None gives actual verified HPI participant eligibility, first paid award or causal impact. HPI-B-01 remains `proposed_not_validated` and actual cohort denominator/numerator NULL.
+The [DWP Newham 2023/24 local model](../research/NEW-02-newham-source-reconciliation-additionality-v0.2.md) verified 11,300 modelled eligible households, 8,800 modelled recipients, 2,500 potentially eligible nonrecipients and **78% administrative modelled household receipt**; **86%** is a separate *expenditure* proportion; **62%** is a different official GB FYE2025 survey-based benefit-unit rate. None gives actual verified HPI participant eligibility, first paid award or causal impact. HPI-B-01 remains `proposed_not_validated` and actual cohort denominator/numerator NULL.
 
 Never present a synthetic sample as a real HPI recipient, infer an individual benefit entitlement, claim a charity/partner identity, import sensitive records to GitHub or ChatGPT, or say source link = permission to redistribute source data. All future real study uses remain **NO-GO FIELD** pending independent scientific, community, safeguarding, privacy and sponsor approvals.
 
