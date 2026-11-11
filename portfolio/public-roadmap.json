@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "sourceKind": "versioned_public_editorial_snapshot",
-  "reviewedAt": "2026-11-09",
+  "reviewedAt": "2026-11-11",
   "statusAuthority": "Public GitHub issue states are authoritative; this snapshot is not a live issue-state sync.",
   "scienceBoundary": "Project delivery is not evidence of improved prosperity, independent study approval or validated causal impact.",
   "legalStatus": "not_incorporated",
@@ -1351,6 +1351,279 @@
       ]
     },
     {
+      "id": "WEB-03",
+      "kind": "platform",
+      "summary": "Make HPI understandable, trustworthy, navigable and accessible for the public, researchers, tool users and potential collaborators, without confusing technical work with real social outcomes.",
+      "gate": "Phase 1 WEB-03.1 source/route/HTML IA audit and narrowly scoped GitHub API owner incident fix prepared in PR #90. Audit is NOT a visual or human accessibility/user test. No redesign of primary navigation and NO actual privacy, cookies, legal or help pages have been implemented; policy texts need true controller/data inventory and qualified review. WEB-03.2–.7 remain planned. Human impact/scientific/ethics claims are NOT approved.",
+      "deliverables": [
+        {
+          "label": "WEB-03.1 — Audited site routes, IA, journeys, content and UX risk V0.1",
+          "url": "/library/docs/web-03-1-website-ia-and-experience-audit-v0-1"
+        },
+        {
+          "label": "WEB-03.6 — Legal, privacy, cookies, accessibility and Help page scope (PLAN ONLY)",
+          "url": "/library/docs/web-03-6-trust-legal-help-pages-register-v0-1"
+        },
+        {
+          "label": "Existing public website",
+          "url": "/"
+        },
+        {
+          "label": "Current public research index, awaiting IA redesign",
+          "url": "/research"
+        }
+      ],
+      "epics": [
+        {
+          "id": "WEB-03.1",
+          "title": "P0 Phase-1 evidence-backed current experience and IA audit",
+          "status": "complete",
+          "issue": 87,
+          "tasks": [
+            {
+              "id": "WEB-03.1-T01",
+              "title": "Verify real primary routes, navigation, footer, expected legal/help path 404s, source architecture and broken read-only GitHub status APIs",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/87",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "WEB-03.1-T02",
+              "title": "Map current content taxonomies, duplicates, technical filenames, legacy Newham claims and canonical repo-owner drift",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/87",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "WEB-03.1-T03",
+              "title": "Define four public/researcher/tool/collaborator task journeys with falsifiable success criteria rather than claimed user-test results",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/87",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "WEB-03.1-T04",
+              "title": "Record severity-ranked findings, accessibility boundaries, target IA and next-phase acceptance",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/87",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "WEB-03.1-T05",
+              "title": "Publish first-party audit and evidence manifest, restore 503 status APIs with Node/Chromium/production QA",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/87",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.2",
+          "title": "Audience-led sitemap, content hierarchy and canonical status",
+          "status": "planned",
+          "issue": 85,
+          "tasks": [
+            {
+              "id": "WEB-03.2-T01",
+              "title": "Define primary Mission, Projects, Research, Tools, Get involved, About & Governance IA and secondary Roadmap/Library/Help",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.2-T02",
+              "title": "Specify canonical latest-vs-historical research sources, titles, redirects, breadcrumbs, search and SEO migration",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.2-T03",
+              "title": "Validate 4 task journeys using real user study methods when possible, with no invented user approvals",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.2-T04",
+              "title": "Publish typed page/sitemap/content ownership contract for implementation",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.3",
+          "title": "Design and accessible responsive page templates",
+          "status": "planned",
+          "issue": 85,
+          "tasks": [
+            {
+              "id": "WEB-03.3-T01",
+              "title": "Compare three coherent design directions grounded in existing site and select reviewable target",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.3-T02",
+              "title": "Define home, project, research, tool, help and legal page templates with clear content priority",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.3-T03",
+              "title": "Check type, contrast, focus, mobile/zoom, reduced motion and disclosure designs before code changes",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.3-T04",
+              "title": "Record founder design acceptance and component/asset provenance without fake user research",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.4",
+          "title": "Incremental first-party navigation and site redesign",
+          "status": "planned",
+          "issue": 85,
+          "tasks": [
+            {
+              "id": "WEB-03.4-T01",
+              "title": "Implement audience-led home and stable /projects, /tools plus refined /research and secondary /library without breaking deep links",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.4-T02",
+              "title": "Correct stale Newham source claims with visible supersession to verified NEW-02 row and no merged model denominators",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.4-T03",
+              "title": "Normalise active GitHub canonical owner references while retaining historic citations and URL redirects",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.4-T04",
+              "title": "Implement clear metadata/review states, breadcrumbs, source hierarchies and readable SEO headings",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.4-T05",
+              "title": "Run first-party route, source, no-PII, progressive disclosure and responsive QA",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.5",
+          "title": "Visual, mobile and human accessibility acceptance",
+          "status": "planned",
+          "issue": 85,
+          "tasks": [
+            {
+              "id": "WEB-03.5-T01",
+              "title": "Run automated WCAG 2.2 AA axe/Chromium, keyboard, zoom, reflow and semantic heading checks",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.5-T02",
+              "title": "Perform genuine VoiceOver/TalkBack/NVDA assistive-technology sessions, not just automated approximation",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.5-T03",
+              "title": "Test representative tasks and informed comprehension with actual diverse users when safely feasible",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.5-T04",
+              "title": "Document, remediate and publish honest nonconformance/limitations without blanket certification",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.6",
+          "title": "Real privacy, cookies, legal, copyright, accessibility, help and trust destinations",
+          "status": "planned",
+          "issue": 89,
+          "tasks": [
+            {
+              "id": "WEB-03.6-T01",
+              "title": "Inventory actual site personal-data, hosting logs, source rights and runtime storage/cookies; identify real operator/controller and legal reviewers",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            },
+            {
+              "id": "WEB-03.6-T02",
+              "title": "Author verified /privacy, /cookies and conditional settings/consent based on actual exempt/non-exempt technologies",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            },
+            {
+              "id": "WEB-03.6-T03",
+              "title": "Prepare accurate /terms, /legal, /copyright or licenses that disclose true unincorporated status and software/document/data rights",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            },
+            {
+              "id": "WEB-03.6-T04",
+              "title": "Build /accessibility with actual test status, /help with task FAQs and safe source corrections",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            },
+            {
+              "id": "WEB-03.6-T05",
+              "title": "Add /about, /contact and safeguarding information only with verified real publisher/human-owned contact and qualified approval",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            },
+            {
+              "id": "WEB-03.6-T06",
+              "title": "Integrate nav/footer/canonical routes and verify privacy/consent, mobile, keyboard, source evidence and review dates",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/89"
+            }
+          ]
+        },
+        {
+          "id": "WEB-03.7",
+          "title": "Editorial updates, localisation and corrections governance",
+          "status": "planned",
+          "issue": 85,
+          "tasks": [
+            {
+              "id": "WEB-03.7-T01",
+              "title": "Create current/superseded source rule and contradiction check for key scientific claim summaries",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.7-T02",
+              "title": "Define multilingual rollout and translation/source review without inventing local community coverage",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            },
+            {
+              "id": "WEB-03.7-T03",
+              "title": "Publish ownership, periodic maintenance, safe feedback and correction history",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "F0-05",
       "kind": "research",
       "summary": "Define a falsifiable, ethically viable first study concept only after quality-screened evidence and suitable research partners.",
@@ -1633,6 +1906,265 @@
               "status": "complete",
               "sourceIssue": "https://github.com/saver1991/human-prosperity-initiative/issues/59",
               "evidence": "https://github.com/saver1991/human-prosperity-initiative/pull/66"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "RT-02",
+      "kind": "platform",
+      "summary": "Turn technically delivered RT-01 research components into discoverable, clearly labelled and practically usable public tools without presenting synthetic models as independently validated human outcomes.",
+      "gate": "RT-02.1 verified four public HTTP-200 tools (Source Catalogue, Synthetic Outcome Lab, Reproducibility, Responsible Tools), additional Newham case and source-level modules. 39 reference metadata + 3 *dataset candidates* are not full validated datasets; Outcome Lab is SYNTHETIC ONLY. No top-level Tools hub yet. No individual records, real participant outcome, approved causal impact, independent ethics/source rights or human accessibility sign-off. RT-02.2–.7 remain future work.",
+      "deliverables": [
+        {
+          "label": "RT-02.1 — Evidence-based public tools/product inventory V0.1",
+          "url": "/library/docs/rt-02-1-public-research-tools-product-inventory-v0-1"
+        },
+        {
+          "label": "Existing metadata Source Catalogue",
+          "url": "/research/source-catalog"
+        },
+        {
+          "label": "Existing synthetic Outcome Lab",
+          "url": "/research/outcome-lab"
+        },
+        {
+          "label": "Existing research reproducibility portal",
+          "url": "/research/reproducibility"
+        },
+        {
+          "label": "Existing responsible tools guidance",
+          "url": "/research/responsible-tools"
+        }
+      ],
+      "epics": [
+        {
+          "id": "RT-02.1",
+          "title": "P0 Phase-1 inventory and product usability gap audit",
+          "status": "complete",
+          "issue": 88,
+          "tasks": [
+            {
+              "id": "RT-02.1-T01",
+              "title": "Inspect four working first-party research-tool experiences, user inputs, public routes and data/output modalities",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/88",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "RT-02.1-T02",
+              "title": "Map developer source code, CLI/CI contracts, downloadable assets and source/legal rights constraints",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/88",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "RT-02.1-T03",
+              "title": "Differentiate metadata candidates, synthetic calculator values, source reproducibility and actual field outcomes",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/88",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "RT-02.1-T04",
+              "title": "Prioritise discoverability, interface/accessibility, guidance, export and no-personal-data gaps",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/88",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            },
+            {
+              "id": "RT-02.1-T05",
+              "title": "Publish first-party tools inventory, linked roadmap, deterministic manifests and CI/production verification",
+              "status": "complete",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/88",
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/90"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.2",
+          "title": "Safe, discoverable Tools landing and task guidance",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.2-T01",
+              "title": "Create /tools first-party hub, categorical cards, input data labels and audience tasks",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.2-T02",
+              "title": "Unify routes between Tool, Research case, Method, Source, Download and Help",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.2-T03",
+              "title": "Make clear real-vs-synthetic and author-review approval states at point of use",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.2-T04",
+              "title": "Verify accessibility, device responsiveness and unchanged research data protections",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.3",
+          "title": "Source Catalogue source/rights and discovery experience",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.3-T01",
+              "title": "Specify useful filters for source kind, geography, rights, year and study quality supported by actual metadata",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.3-T02",
+              "title": "Expose original publisher, licence/unknown rights and non-imported dataset candidate statuses",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.3-T03",
+              "title": "Support useful safe results, export, no-match, corrections and canonical navigation",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.3-T04",
+              "title": "Test against malformed or unsafe source, unlicensed data import and false verification claims",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.4",
+          "title": "Synthetic outcome visualization and guided scenarios",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.4-T01",
+              "title": "Prototype responsive visuals and accessible text alternatives from existing synthetic calculations",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.4-T02",
+              "title": "Provide example/scenario comparison and truthful uncertainty/missingness interpretation",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.4-T03",
+              "title": "Design safe export that cannot suggest invented participant or causal outcomes",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.4-T04",
+              "title": "Test null/adverse outcomes, missingness, keyboard/zoom, assistive tech and no networked PII",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.5",
+          "title": "Open reproducibility task flow and provenance",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.5-T01",
+              "title": "Build simple artifact-to-source lineage with current SHA, source dates and rights",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.5-T02",
+              "title": "Provide copyable reproducibility steps and optional safe notebook examples",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.5-T03",
+              "title": "Expose corrections/retractions and source version changes transparently",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.5-T04",
+              "title": "Verify exact downloads, generated file names, no false data rights or scientific approval",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.6",
+          "title": "Conditional international public Prosperity Data Explorer discovery",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.6-T01",
+              "title": "Research concrete potential users and actual public aggregate licensing with Newham/other jurisdictions",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.6-T02",
+              "title": "Assess useful comparable dimensions, measurement limitations and privacy/rights before any build commitment",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.6-T03",
+              "title": "Publish GO/NO-GO discovery decision and budget; no paid API or personal dataset assumed",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            }
+          ]
+        },
+        {
+          "id": "RT-02.7",
+          "title": "User-centred quality, privacy and accessibility evidence",
+          "status": "planned",
+          "issue": 86,
+          "tasks": [
+            {
+              "id": "RT-02.7-T01",
+              "title": "Ensure research products keep scope/caveat labels and use only approved safe public/synthetic metadata",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.7-T02",
+              "title": "Automate cross-browser, JSON/download, negative data, keyboard, reflow and zero-PII checks",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.7-T03",
+              "title": "Obtain human assistive-tech and usability feedback rather than interpreting CI as full accessibility approval",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
+            },
+            {
+              "id": "RT-02.7-T04",
+              "title": "Maintain distinct technical tool, source rights, scientific independence and field NO-GO gates",
+              "status": "planned",
+              "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/86"
             }
           ]
         }
