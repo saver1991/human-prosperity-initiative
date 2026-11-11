@@ -1,5 +1,5 @@
 /** No secrets and no GitHub write permissions. Vercel's cache bounds anonymous API usage. */
-const PUBLIC_ISSUES="https://api.github.com/repos/saver1991/human-prosperity-initiative/issues?state=all&sort=updated&direction=desc&per_page=100";
+const PUBLIC_ISSUES="https://api.github.com/repos/svtmzt/human-prosperity-initiative/issues?state=all&sort=updated&direction=desc&per_page=100";
 export async function getPublicIssueFeed(fetcher=fetch){
  const response=await fetcher(PUBLIC_ISSUES,{method:"GET",redirect:"error",headers:{
   accept:"application/vnd.github+json","x-github-api-version":"2022-11-28",
