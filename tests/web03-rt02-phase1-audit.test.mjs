@@ -68,7 +68,7 @@ test("WEB-03.6 identifies conditional legal and support content but never publis
  assert.equal(policies.proposedPages.find(x=>x.id==="safeguarding").observedStatus,"conditional");
 });
 
-test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and future policy changes as planned",()=>{
+test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and future policy changes as planned",async()=>{
  const p=new Map(project.initiatives.map(x=>[x.id,x]));
  const r=new Map(publicRoadmap.initiatives.map(x=>[x.id,x]));
  assert.equal(p.size,14);
