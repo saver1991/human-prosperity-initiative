@@ -124,7 +124,7 @@ test("CSV tables escape untrusted values and reject malformed source",()=>{
 });
 test("live issue feed is narrowly scoped and never exposes issue body",async()=>{
  const feed=await getPublicIssueFeed(async (url,options)=>{
-  assert.match(url,/api.github.com\/repos\/saver1991\/human-prosperity-initiative\/issues/);
+  assert.match(url,/api.github.com\/repos\/svtmzt\/human-prosperity-initiative\/issues/);
   assert.equal(options.method,"GET");
   assert.equal(options.redirect,"error");
   assert.equal(options.headers.authorization,undefined);
