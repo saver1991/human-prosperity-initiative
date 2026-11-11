@@ -52,7 +52,7 @@ test("built site has an accessible public roadmap, versioned source and valid pr
  assert.ok(html.includes('<link rel="canonical" href="https://human-prosperity-initiative.vercel.app/roadmap">'));
  assert.ok(html.includes('href="/roadmap.css"'));
  assert.ok(source.includes("Canonical programme plan"));
- assert.equal(published.initiatives.length,12);
+ assert.equal(published.initiatives.length,model.initiatives.length);
  assert.equal(published.issueSync,"not_live");
  assert.equal(published.validatedHumanImpact,false);
 });
