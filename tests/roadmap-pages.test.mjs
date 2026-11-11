@@ -15,7 +15,7 @@ test("roadmap renders three navigable horizons with separate scientific and plat
  assert.ok(html.includes('id="stage-later"'));
  assert.ok(html.includes("Scientific programme"));
  assert.ok(html.includes("Public website &amp; operations"));
- assert.ok(html.includes("12</strong><span>Tracked initiatives"));
+ assert.ok(html.includes(model.initiatives.length+"</strong><span>Tracked initiatives"));
  assert.ok(html.includes("31</strong><span>WEB-02 defined tasks"));
  assert.ok(html.includes('href="/library/docs/roadmap-source"'));
  assert.ok(html.includes('href="/library/docs/web-02-public-roadmap-data-contract"'));
