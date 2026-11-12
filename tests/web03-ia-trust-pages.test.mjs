@@ -27,7 +27,7 @@ test("WEB-03.2 canonical six-area IA preserves existing paths and does not adver
  const js=JSON.parse(await read("dist/site-information-architecture.json"));
  assert.deepEqual(js,ia);
  const siteMap=await read("dist/site-map.html");
- assert.match(siteMap,/Projects and Tools homepage is planned/i);
+ assert.match(siteMap,/Next design phase/i);
  assert.doesNotMatch(siteMap,/href="\/projects"/);
  assert.doesNotMatch(siteMap,/href="\/tools"/);
  const sitemap=await read("dist/sitemap.xml");
