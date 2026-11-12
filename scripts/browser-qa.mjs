@@ -212,6 +212,16 @@ if(route==="/research/source-catalog"){
    }
    await page.close();
   }
+  if(viewport.name==="mobile"){
+   const menuPage=await context.newPage();
+   await menuPage.goto(base+"/",{waitUntil:"networkidle"});
+   await menuPage.locator(".mobile-menu summary").focus();
+   await menuPage.keyboard.press("Enter");
+   record("mobile native menu keyboard disclosure",await menuPage.locator(".mobile-menu").evaluate(el=>el.open));
+   await menuPage.getByRole("navigation",{name:"Mobile navigation"}).getByRole("link",{name:"Projects"}).click();
+   record("mobile Projects hub navigation",new URL(menuPage.url()).pathname==="/projects");
+   await menuPage.close();
+  }
   if(viewport.name==="desktop"){
    const page=await context.newPage();
    await page.goto(base+"/");
@@ -384,8 +394,9 @@ if(route==="/research/source-catalog"){
     layout.width<=layout.viewport+2,JSON.stringify(layout));
    record(scenario.name+" "+route+" accessible landmarks",
     layout.headings===1&&layout.main&&layout.navigation,JSON.stringify(layout));
-   const navSnapshot=await page.getByRole("navigation",{name:"Main navigation"}).ariaSnapshot();
-   const labels=["Mission","Research","Roadmap","Library","Get involved"];
+   await page.locator(".mobile-menu summary").click();
+   const navSnapshot=await page.getByRole("navigation",{name:"Mobile navigation"}).ariaSnapshot();
+   const labels=["Mission","Projects","Research","Tools","Get involved","About & governance"];
    record(scenario.name+" "+route+" navigation accessible names",
     labels.every(label=>navSnapshot.includes('link "'+label+'"')),
     navSnapshot.slice(0,420));
