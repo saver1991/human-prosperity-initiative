@@ -60,6 +60,11 @@ const docLinks=[...routes].map(([source,url])=>({source,url,title:sourceTitle(so
 const safe=escapeHtml;
 const stamp='Published from GitHub '+safe(revision==="local-build"?"working tree":revision.slice(0,9))+" · "+safe(publishedAt.slice(0,16).replace("T"," "))+" UTC";
 const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/research">Research</a><a href="/roadmap">Roadmap</a><a href="/library">Library</a><a href="/contribute">Get involved</a></nav>';
+const trustFooter='<nav class="wrap trust-footer" aria-label="Help, trust and legal information">'+
+ '<div class="trust-footer-group"><h2>Understand HPI</h2><a href="/about">About HPI</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/research-integrity">Research integrity</a><a href="/site-map">Site map</a></div>'+
+ '<div class="trust-footer-group"><h2>Help & accessibility</h2><a href="/help">Help & FAQ</a><a href="/contact">Contact & support status</a><a href="/accessibility">Accessibility</a><a href="/contribute">Contribute</a><a href="/activity">Activity</a></div>'+
+ '<div class="trust-footer-group"><h2>Legal & privacy</h2><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/terms">Terms & limitations</a><a href="/legal">Legal & publisher</a><a href="/copyright">Copyright & licences</a></div>'+
+ '</nav>';
 function shell({title,description,section,body,route,lang="en",script="",stylesheet="",breadcrumb=""}){
  return '<!doctype html><html lang="'+lang+'"><head><meta charset="utf-8">'+
   '<meta name="viewport" content="width=device-width, initial-scale=1">'+
@@ -79,7 +84,7 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   '<span class="section-label">'+safe(section)+'</span><h1>'+safe(title)+'</h1>'+
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
   '<div class="wrap content-layout">'+body+'</div></main>'+
-  '<footer class="footer"><div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
+  '<footer class="footer">'+trustFooter+'<div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
   '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · <a href="/status">Publication status</a> · '+stamp+'</span></div></footer>'+
   '</body></html>';
 }
@@ -115,20 +120,25 @@ await writeFile(ROOT+"/research-source-catalog.csv",catalogCsvExport(sourceCatal
 await writeFile(ROOT+"/research-governance-status.json",JSON.stringify(governance,null,2)+"\n");
 await cp("research/responsible-tools.en.txt","dist/responsible-tools.en.txt");
 await cp("research/responsible-tools.it.txt","dist/responsible-tools.it.txt");
+await cp("portfolio/web-03-2-information-architecture.json","dist/site-information-architecture.json");
+await cp("portfolio/web-03-6-legal-help-page-register.json","dist/site-trust-page-status.json");
 const sectionFor=source=>source.startsWith("research/")?"Research":
+ source.startsWith("docs/site-pages/")?"Help, trust & public information":
  source.startsWith("docs/")?"Documentation":"Community and governance";
 for(const entry of docLinks){
  const text=content.get(entry.source);
  const rendered=entry.source.endsWith(".csv")?renderCsv(text):
   entry.source==="LICENSE"?'<pre class="doc-code">'+safe(text)+'</pre>':
   renderMarkdown(text,entry.source,routes,{skipFirstHeading:true});
- const description="Canonical HPI "+(entry.source.endsWith(".csv")?"data table":"document")+
+ const description=entry.source.startsWith("docs/site-pages/")?
+  "Public HPI information, dated and source-traceable. HPI is not incorporated; privacy, legal and human accessibility approvals are pending unless explicitly evidenced.":
+  "Canonical HPI "+(entry.source.endsWith(".csv")?"data table":"document")+
   " · Automatically published from the public GitHub source. Research findings and plans are provisional unless explicitly reviewed.";
  const article='<article class="doc-content">'+rendered+'</article>'+
   '<aside class="doc-side"><div class="doc-side-card"><strong>Published source</strong><p>'+safe(entry.source)+'</p>'+
   '<p>This page is generated directly from the public repository. It is not a separate copy to maintain.</p>'+
   '<a href="/library">Browse all documents ↗</a>'+
-  '<a href="https://github.com/saver1991/human-prosperity-initiative/blob/main/'+encodeURI(entry.source)+'" target="_blank" rel="noopener noreferrer">View or propose edits on GitHub ↗</a>'+
+  '<a href="https://github.com/svtmzt/human-prosperity-initiative/blob/main/'+encodeURI(entry.source)+'" target="_blank" rel="noopener noreferrer">View or propose edits on GitHub ↗</a>'+
   '</div></aside>';
  await publish(entry.url,shell({title:entry.title,description,section:sectionFor(entry.source),
   body:article,route:entry.url,lang:entry.source==="docs/charter.it.md"?"it":"en"}));
@@ -142,7 +152,7 @@ await publish("/library/docs/roadmap-source",shell({
  body:'<article class="doc-content">'+renderMarkdown(content.get("docs/roadmap.md"),"docs/roadmap.md",routes,{skipFirstHeading:true})+'</article>'+
  '<aside class="doc-side"><div class="doc-side-card"><strong>Canonical source</strong><p>docs/roadmap.md · versioned public repository</p>'+
  '<a href="/roadmap">Return to the visual roadmap ↗</a>'+
- '<a href="https://github.com/saver1991/human-prosperity-initiative/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer">Edit or inspect source on GitHub ↗</a></div></aside>'
+ '<a href="https://github.com/svtmzt/human-prosperity-initiative/blob/main/docs/roadmap.md" target="_blank" rel="noopener noreferrer">Edit or inspect source on GitHub ↗</a></div></aside>'
 }));
 await publish("/roadmap",shell({
  title:"Our public roadmap",section:"Project roadmap",
@@ -454,6 +464,8 @@ for(const [placeholder,replacement] of substitutions){
  if(!homepage.includes(placeholder))throw new Error("Homepage placeholder missing: "+placeholder);
  homepage=homepage.replaceAll(placeholder,replacement);
 }
+if(!homepage.includes('<div class="wrap footer-bottom">'))throw Error("Homepage trust/footer insertion target missing");
+homepage=homepage.replace('<div class="wrap footer-bottom">',trustFooter+'<div class="wrap footer-bottom">');
 await publish("/",homepage);
 const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+

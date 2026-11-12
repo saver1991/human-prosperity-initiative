@@ -136,3 +136,14 @@
 .issue-actions a{font-size:12px;font-weight:790;line-height:1.5;min-height:44px;display:inline-flex;align-items:center;overflow-wrap:anywhere;text-underline-offset:.18em}
 .issue-actions .issue-local{color:#285c42}
 .issue-actions .issue-discuss{color:#4b5e61}
+
+
+/* WEB-03.6: consistent first-party trust/help/footer navigation on home and all generated pages. */
+.trust-footer{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(20px,4vw,80px);row-gap:30px;border-top:1px solid #ffffff26;padding:32px 0 38px}
+.trust-footer-group{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
+.trust-footer-group h2{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--lime);margin:0 0 11px;font-weight:800}
+.trust-footer-group a{color:#e7f0f1;font-size:14px;line-height:1.6;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.17em;overflow-wrap:anywhere;padding:2px 0}
+.trust-footer-group a:hover{text-decoration-thickness:2px}
+.trust-footer-group a:focus-visible{background:#20394c;color:white;outline:3px solid #7cbfe9;outline-offset:3px}
+@media(max-width:760px){.trust-footer{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:30px}.trust-footer-group:last-child{grid-column:1/-1}}
+@media(max-width:420px){.trust-footer{grid-template-columns:1fr}.trust-footer-group:last-child{grid-column:auto}}

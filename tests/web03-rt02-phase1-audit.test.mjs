@@ -63,7 +63,13 @@ test("WEB-03.6 identifies conditional legal and support content but never publis
  assert.equal(policies.independentManualAccessibilityApproval,false);
  const ids=policies.proposedPages.map(p=>p.id);
  for(const id of ["privacy","cookies","terms","legal","copyright-licenses","accessibility","help","contact","about"])assert.ok(ids.includes(id));
- assert.ok(policies.proposedPages.every(x=>x.implementationStatus==="planned"));
+ assert.equal(policies.complianceApproved,false);
+ assert.equal(policies.actualPrivacyControllerNamed,false);
+ assert.equal(policies.actualPrivateContactChannel,false);
+ assert.equal(policies.fullProviderStorageAuditPassed,false);
+ assert.equal(policies.technicalPagesCreated,11);
+ assert.equal(policies.proposedPages.filter(x=>x.implementationStatus==="published_interim_source_based").length,11);
+ assert.equal(policies.proposedPages.filter(x=>x.id==="safeguarding"||x.id==="cookie-settings").every(x=>x.implementationStatus==="deferred_until_real_need_and_authorisation"),true);
  assert.equal(policies.proposedPages.find(x=>x.id==="cookie-settings").observedStatus,"conditional");
  assert.equal(policies.proposedPages.find(x=>x.id==="safeguarding").observedStatus,"conditional");
 });
@@ -86,16 +92,16 @@ test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and fut
   assert.equal(e.status,"complete");
   assert.equal(e.tasks.length,5);
   for(const t of e.tasks){assert.equal(t.status,"complete");assert.equal(t.evidence,"https://github.com/svtmzt/human-prosperity-initiative/pull/90")}
-  assert.ok(x.epics.filter(ep=>ep.id!==first).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
+  assert.ok(x.epics.filter(ep=>![first,"WEB-03.2","WEB-03.6"].includes(ep.id)).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
  }
  const legal=r.get("WEB-03").epics.find(x=>x.id==="WEB-03.6");
  assert.equal(legal.issue,89);
- assert.equal(legal.status,"planned");
+ assert.equal(legal.status,"in_progress");
  assert.equal(legal.tasks.length,6);
  assert.equal(project.legalEntityStatus,"not_incorporated");
- assert.match(r.get("WEB-03").gate,/No redesign/i);
+ assert.match(r.get("WEB-03").gate,/primary navigation redesign/i);
  assert.match(r.get("RT-02").gate,/SYNTHETIC ONLY/);
- assert.equal(publicRoadmap.reviewedAt,"2026-11-11");
+ assert.equal(publicRoadmap.reviewedAt,"2026-11-12");
  assert.match(await read("docs/roadmap.md"),/public experience and usable tools roadmap/);
 });
 

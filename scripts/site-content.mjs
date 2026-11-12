@@ -1,13 +1,15 @@
 import path from "node:path";
 
 export const ORIGIN = "https://human-prosperity-initiative.vercel.app";
-const HPI_REPO = "saver1991/human-prosperity-initiative";
+const HPI_REPO = "svtmzt/human-prosperity-initiative";
+const HPI_PREVIOUS_REPO = "saver1991/human-prosperity-initiative";
 const ROOT_PAGES = new Map([
  ["docs/charter.en.md","/mission"], ["docs/charter.it.md","/mission/it"],
  ["docs/roadmap.md","/roadmap"], ["GOVERNANCE.md","/governance"],
  ["CONTRIBUTING.md","/contribute"], ["README.md","/library/readme"],
  ["CODE_OF_CONDUCT.md","/library/code-of-conduct"],
- ["LICENSE-DOCS.md","/library/documentation-license"],["LICENSE","/library/software-license"]
+ ["LICENSE-DOCS.md","/library/documentation-license"],["LICENSE","/library/software-license"],
+ ...["privacy","cookies","terms","legal","copyright","accessibility","help","contact","about","research-integrity","site-map"].map(name=>["docs/site-pages/"+name+".md","/"+name])
 ]);
 export const STATIC_ROUTES = ["/","/mission","/roadmap","/research","/governance","/contribute","/library","/activity","/status"];
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, ch=>({
@@ -52,8 +54,9 @@ export function resolveLink(destination,source,routes){
   if(url.protocol==="https:"&&url.hostname==="human-prosperity-initiative.vercel.app"&&
      !url.username&&!url.password)
    return {href:url.pathname+url.search+url.hash,external:false};
-  if(url.hostname==="github.com"&&url.pathname.startsWith("/"+HPI_REPO+"/")){
-   const rest=url.pathname.slice(("/"+HPI_REPO+"/").length);
+  const repoOwner=[HPI_REPO,HPI_PREVIOUS_REPO].find(repo=>url.pathname.startsWith("/"+repo+"/"));
+  if(url.hostname==="github.com"&&repoOwner){
+   const rest=url.pathname.slice(("/"+repoOwner+"/").length);
    if(rest.startsWith("blob/main/")){
     const sourcePath=decodeURIComponent(rest.slice("blob/main/".length));
     if(routes.has(sourcePath))return {href:routes.get(sourcePath)+frag,external:false};

@@ -60,7 +60,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length<12)
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
 const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
- "/library","/activity","/status","/contribute","/governance",...initiativeRoutes];
+ "/library","/activity","/status","/contribute","/governance","/privacy","/cookies","/help","/contact","/accessibility","/legal",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
  automationScope:"Chromium axe WCAG 2.2 AA; zoom-equivalent reflow; CSS text-resize stress; ARIA snapshots; keyboard traversal. Not a real screen reader or OS zoom audit."};
