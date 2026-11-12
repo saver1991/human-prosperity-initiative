@@ -1354,7 +1354,7 @@
       "id": "WEB-03",
       "kind": "platform",
       "summary": "Make HPI understandable, trustworthy, navigable and accessible for the public, researchers, tool users and potential collaborators, without confusing technical work with real social outcomes.",
-      "gate": "WEB-03.1/.2 documented and source-verified. WEB-03.3 visual templates implemented with final founder visual sign-off still pending; WEB-03.4 audience-led home, Projects, Tools discovery and Research navigation implemented subject to per-commit CircleCI/Vercel acceptance; WEB-03.5 automated Chromium/axe QA executed through release checks but genuine VoiceOver/NVDA/TalkBack and diverse real-user comprehension studies NOT PERFORMED. WEB-03.6 eleven first-party trust pages live; real publisher/controller, host storage and retention, protected contact and qualified legal review PENDING. WEB-03.7 editorial updates, source supersession and translation governance implemented as source policies, not staffed processes. No real beneficiary impact, scientific field approval, HPI legal incorporation or RT-02 tool UX completion implied.",
+      "gate": "WEB-03.3 visual templates and WEB-03.4 Projects/Tools public navigation implemented; WEB-03.7 editorial updates delivered, subject to exact-SHA QA and deployment. Final founder visual approval, real-user usability sessions and actual NVDA/VoiceOver/TalkBack tests remain OPEN under WEB-03.3/5. The 11 WEB-03.6 trust/legal/help pages remain INTERIM: actual controller, host cookie/storage/retention audit, private reporting contact and qualified legal review remain PENDING. RT-02 tool UX is not included. No incorporated charity, fieldwork, independent science sign-off or measured beneficiary outcomes.",
       "deliverables": [
         {
           "label": "WEB-03.1 — Audited site routes, IA, journeys, content and UX risk V0.1",
@@ -1363,14 +1363,6 @@
         {
           "label": "WEB-03.6 — Legal, privacy, cookies, accessibility and Help page scope (PLAN ONLY)",
           "url": "/library/docs/web-03-6-trust-legal-help-pages-register-v0-1"
-        },
-        {
-          "label": "Existing public website",
-          "url": "/"
-        },
-        {
-          "label": "Current public research index, awaiting IA redesign",
-          "url": "/research"
         },
         {
           "label": "WEB-03.2 — Audience-led sitemap, canonical routes and migration contract V1",
@@ -1516,21 +1508,21 @@
               "title": "Compare three coherent design directions grounded in existing site and select reviewable target",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.3-T02",
               "title": "Define home, project, research, tool, help and legal page templates with clear content priority",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.3-T03",
               "title": "Check type, contrast, focus, mobile/zoom, reduced motion and disclosure designs before code changes",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.3-T04",
@@ -1551,35 +1543,35 @@
               "title": "Implement audience-led home and stable /projects, /tools plus refined /research and secondary /library without breaking deep links",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.4-T02",
               "title": "Correct stale Newham source claims with visible supersession to verified NEW-02 row and no merged model denominators",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.4-T03",
               "title": "Normalise active GitHub canonical owner references while retaining historic citations and URL redirects",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.4-T04",
               "title": "Implement clear metadata/review states, breadcrumbs, source hierarchies and readable SEO headings",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.4-T05",
               "title": "Run first-party route, source, no-PII, progressive disclosure and responsive QA",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             }
           ]
         },
@@ -1594,7 +1586,7 @@
               "title": "Run automated WCAG 2.2 AA axe/Chromium, keyboard, zoom, reflow and semantic heading checks",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.5-T02",
@@ -1613,7 +1605,7 @@
               "title": "Document, remediate and publish honest nonconformance/limitations without blanket certification",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             }
           ]
         },
@@ -1676,21 +1668,21 @@
               "title": "Create current/superseded source rule and contradiction check for key scientific claim summaries",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.7-T02",
               "title": "Define multilingual rollout and translation/source review without inventing local community coverage",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             },
             {
               "id": "WEB-03.7-T03",
               "title": "Publish ownership, periodic maintenance, safe feedback and correction history",
               "status": "complete",
               "sourceIssue": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
-              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/issues/85"
+              "evidence": "https://github.com/svtmzt/human-prosperity-initiative/pull/94"
             }
           ]
         }
