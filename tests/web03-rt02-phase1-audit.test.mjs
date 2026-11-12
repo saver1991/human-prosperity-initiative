@@ -99,7 +99,7 @@ test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and fut
  assert.equal(legal.status,"in_progress");
  assert.equal(legal.tasks.length,6);
  assert.equal(project.legalEntityStatus,"not_incorporated");
- assert.match(r.get("WEB-03").gate,/No redesign/i);
+ assert.match(r.get("WEB-03").gate,/primary navigation redesign/i);
  assert.match(r.get("RT-02").gate,/SYNTHETIC ONLY/);
  assert.equal(publicRoadmap.reviewedAt,"2026-11-11");
  assert.match(await read("docs/roadmap.md"),/public experience and usable tools roadmap/);
