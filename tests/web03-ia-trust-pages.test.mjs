@@ -27,12 +27,12 @@ test("WEB-03.2 canonical six-area IA preserves existing paths and does not adver
  const js=JSON.parse(await read("dist/site-information-architecture.json"));
  assert.deepEqual(js,ia);
  const siteMap=await read("dist/site-map.html");
- assert.match(siteMap,/Next design phase/i);
- assert.doesNotMatch(siteMap,/href="\/projects"/);
- assert.doesNotMatch(siteMap,/href="\/tools"/);
+ assert.match(siteMap,/Current status/i);
+ assert.match(siteMap,/href="\/projects"/);
+ assert.match(siteMap,/href="\/tools"/);
  const sitemap=await read("dist/sitemap.xml");
- assert.doesNotMatch(sitemap,/<loc>https:\/\/human-prosperity-initiative.vercel.app\/projects<\/loc>/);
- assert.doesNotMatch(sitemap,/<loc>https:\/\/human-prosperity-initiative.vercel.app\/tools<\/loc>/);
+ assert.match(sitemap,/<loc>https:\/\/human-prosperity-initiative.vercel.app\/projects<\/loc>/);
+ assert.match(sitemap,/<loc>https:\/\/human-prosperity-initiative.vercel.app\/tools<\/loc>/);
 });
 
 test("WEB-03.6 publishes all 11 useful first-party human trust pages and canonical routes",async()=>{
@@ -141,4 +141,37 @@ test("every CircleCI job checks out the current canonical repository without old
  const current="https://github.com/svtmzt/human-prosperity-initiative.git";
  assert.equal(config.split(current).length-1,3);
  assert.ok(!config.includes("https://github.com/saver1991/human-prosperity-initiative.git"));
+});
+
+test("WEB-03.4 added audience-led project and tool discovery, with safe Newham chronology",async()=>{
+ const home=await read("dist/index.html");
+ const projects=await read("dist/projects.html");
+ const newham=await read("dist/projects/newham.html");
+ const tools=await read("dist/tools.html");
+ const updates=await read("dist/updates.html");
+ const archive=await read("dist/research/newham-pension-credit.html");
+ const research=await read("dist/research.html");
+ const status=JSON.parse(await read("dist/site-web-03-technical-acceptance.json"));
+ for(const route of ["/projects","/projects/newham","/tools","/updates"]){
+  assert.ok(home.includes('href="'+(route==="/projects/newham"?"/projects":route)+'"')||route==="/projects/newham",route);
+  assert.ok((await read("dist/sitemap.xml")).includes("<loc>https://human-prosperity-initiative.vercel.app"+route+"</loc>"),route);
+ }
+ assert.match(home,/aria-label="Mobile navigation"/);
+ assert.match(home,/class="mobile-menu"/);
+ assert.match(home,/href="\/projects"/);
+ assert.match(home,/href="\/tools"/);
+ assert.match(projects,/NO-GO|no.*field/i);
+ assert.match(newham,/11,300/);
+ assert.match(newham,/8,800/);
+ assert.match(newham,/78%/);
+ assert.match(newham,/86%/);
+ assert.match(newham,/62%/);
+ assert.match(newham,/not.*HPI impact|not.*HPI results/i);
+ assert.match(tools,/SYNTHETIC ONLY/);
+ assert.match(research,/Evidence before claims/);
+ assert.match(archive,/Supersession, 9 November 2026/);
+ assert.match(updates,/Website updates are not human outcomes/);
+ assert.equal(status.humanSignoffs.manualScreenReader,false);
+ assert.equal(status.humanSignoffs.professionalLegal,false);
+ assert.equal(status.dataControls.analyticsInstalled,false);
 });
