@@ -73,7 +73,7 @@ test("privacy, cookie and accessibility disclosures never invent approved legal 
  for(const marker of ["interim","Vercel","GitHub","lawful basis","retention","not yet","controller"]){
   assert.ok(privacy.toLowerCase().includes(marker.toLowerCase()),"privacy "+marker);
  }
- for(const marker of ["no cookies","host","not yet","consent","not a statement"]){
+ for(const marker of ["no cookies","host","not yet","consent","a statement that no cookies exist"]){
   assert.ok(cookies.toLowerCase().includes(marker.toLowerCase()),"cookie "+marker);
  }
  assert.match(cookies,/29 April 2026/);
