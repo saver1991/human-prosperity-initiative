@@ -15,7 +15,7 @@ jobs:
             set -euo pipefail
             test -n "$CIRCLE_SHA1"
             git init -q
-            git remote add origin https://github.com/saver1991/human-prosperity-initiative.git
+            git remote add origin https://github.com/svtmzt/human-prosperity-initiative.git
             git fetch -q --depth=1 origin "$CIRCLE_SHA1"
             git checkout -q --detach FETCH_HEAD
             test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"
@@ -47,7 +47,7 @@ jobs:
             set -euo pipefail
             test -n "$CIRCLE_SHA1"
             git init -q
-            git remote add origin https://github.com/saver1991/human-prosperity-initiative.git
+            git remote add origin https://github.com/svtmzt/human-prosperity-initiative.git
             git fetch -q --depth=1 origin "$CIRCLE_SHA1"
             git checkout -q --detach FETCH_HEAD
             test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"
@@ -74,7 +74,7 @@ jobs:
             set -euo pipefail
             test -n "$CIRCLE_SHA1"
             git init -q
-            git remote add origin https://github.com/saver1991/human-prosperity-initiative.git
+            git remote add origin https://github.com/svtmzt/human-prosperity-initiative.git
             git fetch -q --depth=1 origin "$CIRCLE_SHA1"
             git checkout -q --detach FETCH_HEAD
             test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"

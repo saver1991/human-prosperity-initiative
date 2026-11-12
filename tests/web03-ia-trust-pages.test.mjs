@@ -134,3 +134,11 @@ test("published browser scripts do not knowingly add third-party tracking or bro
  assert.equal(legal.proposedPages.find(x=>x.id==="cookie-settings").implementationStatus,"deferred_until_real_need_and_authorisation");
  assert.equal(legal.proposedPages.find(x=>x.id==="safeguarding").implementationStatus,"deferred_until_real_need_and_authorisation");
 });
+
+
+test("every CircleCI job checks out the current canonical repository without old-owner redirects",async()=>{
+ const config=await read(".circleci/config.yml");
+ const current="https://github.com/svtmzt/human-prosperity-initiative.git";
+ assert.equal(config.split(current).length-1,3);
+ assert.ok(!config.includes("https://github.com/saver1991/human-prosperity-initiative.git"));
+});
