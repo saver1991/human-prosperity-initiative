@@ -19,105 +19,116 @@
       "id": "privacy",
       "route": "/privacy",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "data_flow_inventory_and_controller_legal_review"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "data_flow_inventory_and_controller_legal_review",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "cookies",
       "route": "/cookies",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "runtime_storage_inventory_and_pecr_review"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "runtime_storage_inventory_and_pecr_review",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "cookie-settings",
       "route": "/cookie-settings",
       "priority": "P0",
       "observedStatus": "conditional",
-      "implementationStatus": "planned",
+      "implementationStatus": "deferred_until_real_need_and_authorisation",
       "approvalGate": "non_exempt_storage_measured_and_consent_needed"
     },
     {
       "id": "terms",
       "route": "/terms",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "accurate_publisher_and_counsel_review"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "accurate_publisher_and_counsel_review",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "legal",
       "route": "/legal",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "publisher_identity_and_applicable_disclosure_review"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "publisher_identity_and_applicable_disclosure_review",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "copyright-licenses",
       "route": "/copyright",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "software_docs_media_dataset_rights_audit"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "software_docs_media_dataset_rights_audit",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "accessibility",
       "route": "/accessibility",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "manual_assistive_technology_testing_and_real_feedback_route"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "manual_assistive_technology_testing_and_real_feedback_route",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "help",
       "route": "/help",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "approved_help_content_no_fake_human_support"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "approved_help_content_no_fake_human_support",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "contact",
       "route": "/contact",
       "priority": "P0",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "human_owned_private_channel_and_privacy_notice"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "human_owned_private_channel_and_privacy_notice",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "about",
       "route": "/about",
       "priority": "P1",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "verified_role_and_current_legal_status"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "verified_role_and_current_legal_status",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "research-integrity",
       "route": "/research-integrity",
       "priority": "P1",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "versioned_sources_corrections_no_false_science"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "versioned_sources_corrections_no_false_science",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     },
     {
       "id": "safeguarding",
       "route": "/safeguarding",
       "priority": "P0",
       "observedStatus": "conditional",
-      "implementationStatus": "planned",
+      "implementationStatus": "deferred_until_real_need_and_authorisation",
       "approvalGate": "real_trained_lead_confidential_incident_channel_issue26"
     },
     {
       "id": "site-map",
       "route": "/site-map",
       "priority": "P2",
-      "observedStatus": "missing",
-      "implementationStatus": "planned",
-      "approvalGate": "canonical_route_and_redirect_review"
+      "observedStatus": "previously_missing_now_implemented_pending_QA",
+      "implementationStatus": "published_interim_source_based",
+      "approvalGate": "canonical_route_and_redirect_review",
+      "approvalStatus": "human_legal_or_operational_review_pending"
     }
   ],
   "cookieConsentRequirement": "conditional_on_actual_non_exempt_technologies; no unverified assumptions that none or some cookies exist",
@@ -125,11 +136,31 @@
   "generalContactRequiresRealOwner": true,
   "confidentialSafeguardingChannelPresent": false,
   "independentManualAccessibilityApproval": false,
-  "productionReleaseTarget": "WEB-03.6 future implementation, not WEB-03.1 / RT-02.1 phase1",
+  "productionReleaseTarget": "WEB-03.6 phase-2 pages under review: require CI and actual production status before marking technically released",
   "source": [
     "https://ico.org.uk/for-organisations/advice-for-small-organisations/privacy-notices-and-cookies/how-to-write-a-privacy-notice-and-what-goes-in-it/",
     "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guide-to-pecr/cookies-and-similar-technologies/",
     "https://www.w3.org/WAI/test-evaluate/"
   ],
-  "evidence": "docs/WEB-03-6-trust-legal-help-pages-register-v0.1.md"
+  "evidence": "docs/WEB-03-6-trust-legal-help-pages-register-v0.1.md",
+  "reviewedAt": "2026-11-12",
+  "sourceAudit": {
+    "browserOwnedSourceScriptsReviewed": true,
+    "verifiedAbsenceOfSiteSpecificAdAnalyticsStorageCalls": true,
+    "fullHostCookieStorageAudit": false,
+    "realControllerAndContactVerified": false,
+    "projectHosting": "Vercel",
+    "readOnlySourceStatusGitHub": "svtmzt/human-prosperity-initiative",
+    "latestICOStorageGuidance": "https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/",
+    "vercelRuntimeLogsDoc": "https://vercel.com/docs/logs/runtime",
+    "fullProviderRetentionAndTransferReview": false
+  },
+  "verifiedQualifiedLegalReview": false,
+  "actualPrivacyControllerNamed": false,
+  "actualPrivateContactChannel": false,
+  "fullProviderStorageAuditPassed": false,
+  "humanAccessibilityConformanceCertified": false,
+  "technicalPagesCreated": 11,
+  "technicalPublicationScope": "source_backed_interim_transparency_and_help_without_regulatory_completion",
+  "notes": "A published privacy transparency page without lawful basis/contact/retention verification is NOT a complete UK GDPR privacy notice. Cookie consent UI is conditional on real non-exempt SAT use; no fake banner. Contact is a truthful availability page and NOT a private contact method."
 }
