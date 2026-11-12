@@ -1,0 +1,304 @@
+{
+  "schemaVersion": "1.0",
+  "reviewedAt": "2026-11-12",
+  "decision": "source_and_audience_led_ia_contract_accepted_for_staged_implementation_not_ux_validation",
+  "issue": 91,
+  "sourceReports": [
+    "docs/WEB-03-1-website-ia-and-experience-audit-v0.1.md",
+    "docs/WEB-03-2-information-architecture-and-migration-v1.md"
+  ],
+  "productStage": "design_only",
+  "publicPrimaryNavigationCurrently": [
+    "Mission",
+    "Research",
+    "Roadmap",
+    "Library",
+    "Get involved"
+  ],
+  "targetPrimaryNavigation": [
+    {
+      "id": "mission",
+      "label": "Mission",
+      "route": "/mission",
+      "state": "existing",
+      "purpose": "Purpose and two horizons"
+    },
+    {
+      "id": "projects",
+      "label": "Projects",
+      "route": "/projects",
+      "state": "planned_WEB-03.4",
+      "purpose": "Current project evidence and limitations"
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "route": "/research",
+      "state": "existing_needs_editorial_restructure",
+      "purpose": "Research topics, sources, critiques"
+    },
+    {
+      "id": "tools",
+      "label": "Tools",
+      "route": "/tools",
+      "state": "planned_RT-02.2",
+      "purpose": "Safe working tools, no personal data"
+    },
+    {
+      "id": "contribute",
+      "label": "Get involved",
+      "route": "/contribute",
+      "state": "existing",
+      "purpose": "Public non-sensitive contribution"
+    },
+    {
+      "id": "about",
+      "label": "About & Governance",
+      "route": "/about",
+      "state": "published_WEB-03.6",
+      "purpose": "Organisational status, transparency"
+    }
+  ],
+  "secondaryNavigation": [
+    {
+      "route": "/roadmap",
+      "state": "existing"
+    },
+    {
+      "route": "/library",
+      "state": "existing"
+    },
+    {
+      "route": "/activity",
+      "state": "existing"
+    },
+    {
+      "route": "/status",
+      "state": "existing"
+    },
+    {
+      "route": "/privacy",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/cookies",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/terms",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/legal",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/copyright",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/accessibility",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/help",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/contact",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/research-integrity",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/site-map",
+      "state": "published_WEB-03.6"
+    },
+    {
+      "route": "/governance",
+      "state": "existing"
+    }
+  ],
+  "contentTypes": [
+    {
+      "id": "home",
+      "includes": [
+        "plain_language_mission",
+        "actual_status",
+        "task_paths"
+      ]
+    },
+    {
+      "id": "project",
+      "includes": [
+        "source_date",
+        "denominator",
+        "reported_measure",
+        "review_status",
+        "harm_risk",
+        "current_vs_historical"
+      ]
+    },
+    {
+      "id": "research",
+      "includes": [
+        "studies",
+        "evidence_limits",
+        "source_and_methods",
+        "critical_review"
+      ]
+    },
+    {
+      "id": "tool",
+      "includes": [
+        "data_classification",
+        "demo",
+        "input_output",
+        "no_personal_data",
+        "reproducibility",
+        "rights"
+      ]
+    },
+    {
+      "id": "trust_and_help",
+      "includes": [
+        "last_updated",
+        "human_ownership_or_missing",
+        "real_current_status",
+        "pending_decisions"
+      ]
+    },
+    {
+      "id": "archive",
+      "includes": [
+        "original_source",
+        "original_date",
+        "supersession_link",
+        "technical_id"
+      ]
+    }
+  ],
+  "journeys": [
+    {
+      "id": "visitor",
+      "entry": "/",
+      "steps": [
+        "/mission",
+        "/research/newham-prepilot",
+        "/about"
+      ],
+      "outcome": "distinguish open research from real impact and incorporation",
+      "observedByUsers": false
+    },
+    {
+      "id": "researcher",
+      "entry": "/research",
+      "steps": [
+        "/research/newham-prepilot",
+        "/research/new-02-newham-source-reconciliation-additionality-v0-2",
+        "/research-integrity"
+      ],
+      "outcome": "distinguish DWP administrative household estimate from actual HPI cohort result",
+      "observedByUsers": false
+    },
+    {
+      "id": "tool_user",
+      "entry": "/",
+      "steps": [
+        "/tools",
+        "/research/outcome-lab",
+        "/research/reproducibility"
+      ],
+      "plannedStep": "/tools",
+      "outcome": "find synthetic-only tool and limitations",
+      "observedByUsers": false
+    },
+    {
+      "id": "contributor",
+      "entry": "/",
+      "steps": [
+        "/contribute",
+        "/help",
+        "/contact"
+      ],
+      "outcome": "provide non-sensitive input and understand no confidential case channel",
+      "observedByUsers": false
+    }
+  ],
+  "plannedRoutes": [
+    "/projects",
+    "/projects/newham",
+    "/tools"
+  ],
+  "preservedRoutes": [
+    "/",
+    "/mission",
+    "/mission/it",
+    "/research",
+    "/library",
+    "/roadmap",
+    "/activity",
+    "/status",
+    "/governance",
+    "/contribute",
+    "/research/source-catalog",
+    "/research/outcome-lab",
+    "/research/reproducibility",
+    "/research/responsible-tools",
+    "/research/newham-pension-credit",
+    "/research/newham-prepilot"
+  ],
+  "contentIntegrityGates": {
+    "newhamSourceHistoricalMustBeClearlyMarked": true,
+    "realHpiOutcomeNumerator": null,
+    "realHpiOutcomeDenominator": null,
+    "independentHumanMethodsReview": false,
+    "scientificVersion1Ratified": false,
+    "fieldStudyAuthorised": false
+  },
+  "redirectCandidates": [
+    {
+      "from": "/privacy-policy",
+      "to": "/privacy",
+      "status": "not_implemented"
+    },
+    {
+      "from": "/cookie-policy",
+      "to": "/cookies",
+      "status": "not_implemented"
+    },
+    {
+      "from": "/terms-of-use",
+      "to": "/terms",
+      "status": "not_implemented"
+    },
+    {
+      "from": "/accessibility-statement",
+      "to": "/accessibility",
+      "status": "not_implemented"
+    },
+    {
+      "from": "/faq",
+      "to": "/help",
+      "status": "not_implemented"
+    }
+  ],
+  "implementation": {
+    "WEB-03.2": "design_source_and_machine_contract_delivered",
+    "WEB-03.3": "awaiting_visual_design_acceptance",
+    "WEB-03.4": "not_started_primary_nav_redesign",
+    "WEB-03.5": "real_user_screen_reader_acceptance_pending",
+    "WEB-03.6": "public_information_pages_implemented_statutory_signoffs_pending",
+    "RT-02.2": "tools_hub_planned"
+  },
+  "sourceGithub": "https://github.com/svtmzt/human-prosperity-initiative",
+  "portfolioTracking": "https://github.com/svtmzt/the-hub-os/issues/150",
+  "humanAcceptance": {
+    "userJourneyStudy": false,
+    "accessibilityScreenReader": false,
+    "qualifiedLegalReview": false,
+    "safeguardingServiceVerified": false
+  }
+}
