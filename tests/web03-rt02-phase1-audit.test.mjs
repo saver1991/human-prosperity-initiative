@@ -92,14 +92,27 @@ test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and fut
   assert.equal(e.status,"complete");
   assert.equal(e.tasks.length,5);
   for(const t of e.tasks){assert.equal(t.status,"complete");assert.equal(t.evidence,"https://github.com/svtmzt/human-prosperity-initiative/pull/90")}
-  assert.ok(x.epics.filter(ep=>![first,"WEB-03.2","WEB-03.6"].includes(ep.id)).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
+  if(parent==="RT-02"){
+   assert.ok(x.epics.filter(ep=>ep.id!==first).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
+  }else{
+   const statuses=new Map(x.epics.map(ep=>[ep.id,ep.status]));
+   assert.equal(statuses.get("WEB-03.2"),"complete");
+   assert.equal(statuses.get("WEB-03.3"),"in_progress");
+   assert.equal(statuses.get("WEB-03.4"),"complete");
+   assert.equal(statuses.get("WEB-03.5"),"in_progress");
+   assert.equal(statuses.get("WEB-03.6"),"in_progress");
+   assert.equal(statuses.get("WEB-03.7"),"complete");
+   const human=x.epics.find(ep=>ep.id==="WEB-03.5");
+   assert.equal(human.tasks.find(t=>t.id==="WEB-03.5-T02").status,"planned");
+   assert.equal(human.tasks.find(t=>t.id==="WEB-03.5-T03").status,"planned");
+  }
  }
  const legal=r.get("WEB-03").epics.find(x=>x.id==="WEB-03.6");
  assert.equal(legal.issue,89);
  assert.equal(legal.status,"in_progress");
  assert.equal(legal.tasks.length,6);
  assert.equal(project.legalEntityStatus,"not_incorporated");
- assert.match(r.get("WEB-03").gate,/primary navigation redesign/i);
+ assert.match(r.get("WEB-03").gate,/Projects\/Tools public navigation implemented/i);
  assert.match(r.get("RT-02").gate,/SYNTHETIC ONLY/);
  assert.equal(publicRoadmap.reviewedAt,"2026-11-12");
  assert.match(await read("docs/roadmap.md"),/public experience and usable tools roadmap/);
