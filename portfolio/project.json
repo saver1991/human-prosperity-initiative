@@ -11,7 +11,7 @@
   "governanceSystem": "HubOS",
   "researchExecutionSystem": "SolOS",
   "sourceOfTruth": "GitHub HPI",
-  "reviewedAt": "2026-11-11",
+  "reviewedAt": "2026-11-12",
   "portfolioRecordId": "human-prosperity-initiative",
   "mode": "applied_poverty_reduction_with_long_term_systems_research",
   "currentInitiative": "F0-04",
@@ -259,8 +259,8 @@
         {
           "id": "WEB-03.2",
           "name": "Audience journeys, sitemap, taxonomy and version policy",
-          "issue": 85,
-          "status": "planned",
+          "issue": 91,
+          "status": "complete",
           "tasksPlanned": 4
         },
         {
@@ -288,7 +288,7 @@
           "id": "WEB-03.6",
           "name": "Privacy, cookies, legal, copyright, help and trust pages",
           "issue": 89,
-          "status": "planned",
+          "status": "in_progress",
           "tasksPlanned": 6
         },
         {
