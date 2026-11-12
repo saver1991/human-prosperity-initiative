@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "reviewedAt": "2026-11-12",
+  "initiative": "WEB-03",
+  "status": "technical_implementation_pending_exact_commit_CI",
+  "deploymentAuthority": "https://github.com/svtmzt/human-prosperity-initiative/issues/85",
+  "routes": [
+    "/",
+    "/mission",
+    "/projects",
+    "/projects/newham",
+    "/research",
+    "/tools",
+    "/contribute",
+    "/about",
+    "/updates",
+    "/help",
+    "/contact",
+    "/privacy",
+    "/cookies",
+    "/terms",
+    "/legal",
+    "/accessibility",
+    "/research-integrity"
+  ],
+  "design": {
+    "approach": "continuity_first_evidence_led",
+    "implementationApproval": "user_authorised_WEB-03_development",
+    "founderVisualAcceptance": false
+  },
+  "publishedInformationDoesNotEstablish": {
+    "incorporatedLegalEntity": true,
+    "independentMethodsReview": true,
+    "fieldStudyAuthorisation": true,
+    "measuredHumanOutcomes": true
+  },
+  "humanSignoffs": {
+    "professionalLegal": false,
+    "actualControllerVerified": false,
+    "privateContactOperational": false,
+    "fullHostingSATAndRetentionAudit": false,
+    "manualScreenReader": false,
+    "diverseRealUserStudy": false,
+    "qualifiedEditorialOwnerAppointed": false
+  },
+  "dataControls": {
+    "publicOrSyntheticOnly": true,
+    "noNewPersonalCaseCollection": true,
+    "analyticsInstalled": false,
+    "consentBannerImplemented": false
+  },
+  "rt02Scope": "tools_discovery_only; individual_product_ux_improvements_deliberately_deferred",
+  "acceptance": "automated_build_and_browser_tests_required_before_technical_done"
+}
