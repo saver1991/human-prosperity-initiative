@@ -11,7 +11,7 @@ const ROOT_PAGES = new Map([
  ["LICENSE-DOCS.md","/library/documentation-license"],["LICENSE","/library/software-license"],
  ...["privacy","cookies","terms","legal","copyright","accessibility","help","contact","about","research-integrity","site-map"].map(name=>["docs/site-pages/"+name+".md","/"+name])
 ]);
-export const STATIC_ROUTES = ["/","/mission","/roadmap","/research","/governance","/contribute","/library","/activity","/status"];
+export const STATIC_ROUTES = ["/","/mission","/projects","/projects/newham","/roadmap","/research","/tools","/updates","/governance","/contribute","/library","/activity","/status"];
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, ch=>({
  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
 })[ch]);
