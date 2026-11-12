@@ -63,7 +63,13 @@ test("WEB-03.6 identifies conditional legal and support content but never publis
  assert.equal(policies.independentManualAccessibilityApproval,false);
  const ids=policies.proposedPages.map(p=>p.id);
  for(const id of ["privacy","cookies","terms","legal","copyright-licenses","accessibility","help","contact","about"])assert.ok(ids.includes(id));
- assert.ok(policies.proposedPages.every(x=>x.implementationStatus==="planned"));
+ assert.equal(policies.complianceApproved,false);
+ assert.equal(policies.actualPrivacyControllerNamed,false);
+ assert.equal(policies.actualPrivateContactChannel,false);
+ assert.equal(policies.fullProviderStorageAuditPassed,false);
+ assert.equal(policies.technicalPagesCreated,11);
+ assert.equal(policies.proposedPages.filter(x=>x.implementationStatus==="published_interim_source_based").length,11);
+ assert.equal(policies.proposedPages.filter(x=>x.id==="safeguarding"||x.id==="cookie-settings").every(x=>x.implementationStatus==="deferred_until_real_need_and_authorisation"),true);
  assert.equal(policies.proposedPages.find(x=>x.id==="cookie-settings").observedStatus,"conditional");
  assert.equal(policies.proposedPages.find(x=>x.id==="safeguarding").observedStatus,"conditional");
 });
