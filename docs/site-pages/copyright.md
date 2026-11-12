@@ -6,7 +6,7 @@
 
 **Software** published in the [HPI repository](https://github.com/svtmzt/human-prosperity-initiative) is licensed under the [MIT licence](https://human-prosperity-initiative.vercel.app/library/software-license). This generally permits use, modification and distribution subject to its conditions.
 
-**Original documentation and diagrams** are generally available under [Creative Commons Attribution 4.0 International](https://human-prosperity-initiative.vercel.app/library/documentation-license), unless a particular file declares different terms. Credit **Human Prosperity Initiative contributors**, link to the source and identify modifications when reusing eligible HPI materials.
+**Original documentation and diagrams** are generally available under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://human-prosperity-initiative.vercel.app/library/documentation-license), unless a particular file declares different terms. Credit **Human Prosperity Initiative contributors**, link to the source and identify modifications when reusing eligible HPI materials.
 
 ## Other people's materials
 
