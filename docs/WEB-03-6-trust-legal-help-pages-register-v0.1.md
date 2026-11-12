@@ -50,3 +50,8 @@
 - [WCAG 2.2](https://www.w3.org/TR/WCAG22/): technical design target, not verified compliance at this planning phase.
 
 **Completion definition:** this V0.1 page inventory/requirements is **documented**. WEB-03.6 itself stays **PLANNED / OPEN** until the actual pages exist and real duties are confirmed and appropriately reviewed. The Phase 1 audits WEB-03.1 and RT-02.1 may close after CI independently of this future work.
+
+
+## Dated update — 12 November 2026 (supersedes the initial 404 findings for publication scope)
+
+The original **11 November 2026** table above records a true historical audit of missing paths. A follow-on [implementation V0.2](WEB-03-6-site-trust-help-implementation-v0.2.md) and [PR #92](https://github.com/svtmzt/human-prosperity-initiative/pull/92) add **eleven** first-party interim help/legal/trust pages with a shared global footer. After production acceptance, those paths should be HTTP 200; the old 404 observations should **not** be read as current page status. A missing real publisher/controller, lawful basis, provider storage/retention checks, private contact, ethics and independent accessibility acceptance means the current privacy/cookies/terms statements are **interim disclosures, not confirmed legal compliance**. The human part of [WEB-03.6 #89](https://github.com/svtmzt/human-prosperity-initiative/issues/89) remains open. Final ICO 2026 [SAT guidance](https://ico.org.uk/for-organisations/direct-marketing-and-privacy-and-electronic-communications/guidance-on-the-use-of-storage-and-access-technologies/) (29 April 2026) is the current reference, not an unfinished older draft.
