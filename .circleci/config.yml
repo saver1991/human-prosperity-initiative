@@ -21,7 +21,25 @@ jobs:
             test "$(git rev-parse HEAD)" = "$CIRCLE_SHA1"
       - run:
           name: Build and test HPI website
-          command: npm run check
+          command: |
+            set -euo pipefail
+            mkdir -p test-results
+            set +e
+            npm run check > /tmp/hpi-web03-check.log 2>&1
+            code=$?
+            set -e
+            tail -n 90 /tmp/hpi-web03-check.log
+            node -e '
+              const fs=require("node:fs");
+              const result=Number(process.argv[1]);
+              const log=fs.readFileSync("/tmp/hpi-web03-check.log","utf8");
+              const esc=s=>s.replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+              const xml="<testsuite tests=\"1\" failures=\""+(result?1:0)+"\"><testcase name=\"npm run check\">"+(result?"<failure>"+esc(log.slice(-10000))+"</failure>":"")+"</testcase></testsuite>";
+              fs.writeFileSync("test-results/web03-check.xml",xml);
+            ' "$code"
+            exit "$code"
+      - store_test_results:
+          path: test-results
       - run:
           name: Archive exact public-source research artifact attestations (RT-01.3)
           command: npm run research:pipeline:archive

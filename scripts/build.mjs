@@ -3,6 +3,7 @@ import path from "node:path";
 import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,renderCsv,parseCsv,sourceTitle} from "./site-content.mjs";
 import {buildPublicRoadmap} from "./roadmap-model.mjs";
 import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
+import {publishWeb03Pages} from "./web03-pages.mjs";
 import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
 import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
@@ -59,9 +60,10 @@ if(!researchTopics.length)throw new Error("No source-derived research areas foun
 const docLinks=[...routes].map(([source,url])=>({source,url,title:sourceTitle(source,content.get(source))}));
 const safe=escapeHtml;
 const stamp='Published from GitHub '+safe(revision==="local-build"?"working tree":revision.slice(0,9))+" · "+safe(publishedAt.slice(0,16).replace("T"," "))+" UTC";
-const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/research">Research</a><a href="/roadmap">Roadmap</a><a href="/library">Library</a><a href="/contribute">Get involved</a></nav>';
+const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/projects">Projects</a><a href="/research">Research</a><a href="/tools">Tools</a><a href="/contribute">Get involved</a><a href="/about">About & governance</a></nav>';
+const mobileNav='<details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="/mission">Mission</a><a href="/projects">Projects</a><a href="/research">Research</a><a href="/tools">Tools</a><a href="/contribute">Get involved</a><a href="/about">About & governance</a><a href="/roadmap">Public roadmap</a><a href="/library">Knowledge library</a><a href="/help">Help</a></nav></details>';
 const trustFooter='<nav class="wrap trust-footer" aria-label="Help, trust and legal information">'+
- '<div class="trust-footer-group"><h2>Understand HPI</h2><a href="/about">About HPI</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/research-integrity">Research integrity</a><a href="/site-map">Site map</a></div>'+
+ '<div class="trust-footer-group"><h2>Understand HPI</h2><a href="/about">About HPI</a><a href="/projects">Projects</a><a href="/tools">Tools</a><a href="/updates">Editorial updates</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/research-integrity">Research integrity</a><a href="/site-map">Site map</a></div>'+
  '<div class="trust-footer-group"><h2>Help & accessibility</h2><a href="/help">Help & FAQ</a><a href="/contact">Contact & support status</a><a href="/accessibility">Accessibility</a><a href="/contribute">Contribute</a><a href="/activity">Activity</a></div>'+
  '<div class="trust-footer-group"><h2>Legal & privacy</h2><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/terms">Terms & limitations</a><a href="/legal">Legal & publisher</a><a href="/copyright">Copyright & licences</a></div>'+
  '</nav>';
@@ -78,12 +80,12 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   (script?'<script src="'+safe(script)+'" '+(["/progress.js","/outcome-lab.js"].includes(script)?'type="module"':"defer")+'></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
-  nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
+  nav+mobileNav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
   '<main id="main" tabindex="-1" class="content-page"><section class="content-hero"><div class="wrap">'+
   '<div class="content-breadcrumb">'+(breadcrumb||'<a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section))+'</div>'+
   '<span class="section-label">'+safe(section)+'</span><h1>'+safe(title)+'</h1>'+
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
-  '<div class="wrap content-layout">'+body+'</div></main>'+
+  '<div class="wrap content-layout">'+(route==="/mission"?'<div class="mission-status-note" role="note"><strong>Working charter, not ratified.</strong> The current <a href="/library/docs/founding-charter-ratification-candidate-v0-4">V0.4 candidate</a> supersedes some historical V0.3 wording below. Independent review and founding approval remain outstanding.</div>':"")+body+'</div></main>'+
   '<footer class="footer">'+trustFooter+'<div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
   '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · <a href="/status">Publication status</a> · '+stamp+'</span></div></footer>'+
   '</body></html>';
@@ -122,6 +124,7 @@ await cp("research/responsible-tools.en.txt","dist/responsible-tools.en.txt");
 await cp("research/responsible-tools.it.txt","dist/responsible-tools.it.txt");
 await cp("portfolio/web-03-2-information-architecture.json","dist/site-information-architecture.json");
 await cp("portfolio/web-03-6-legal-help-page-register.json","dist/site-trust-page-status.json");
+await cp("portfolio/web-03-technical-acceptance.json","dist/site-web-03-technical-acceptance.json");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/site-pages/")?"Help, trust & public information":
  source.startsWith("docs/")?"Documentation":"Community and governance";
@@ -183,8 +186,8 @@ function cards(items){
 }
 await publish("/research",shell({
  title:"Research & evidence",section:"Research library",
- description:"Explore every published HPI research document, study note, evidence register and reproducible protocol. New source files appear here automatically on deployment.",
- route:"/research",body:'<div class="index-content"><p class="doc-count">'+
+ description:"Understand the questions, Newham evidence, independent review and open-science sources before exploring the complete research archive.",
+ route:"/research",body:'<div class="index-content"><section class="editorial-intro"><span class="eyebrow-dark">RESEARCH / DISCOVERY STAGE</span><h2>Evidence before claims.</h2><p>The first Newham case uses published historical estimates to test research feasibility. No field intervention, independent scientific approval or HPI participant impact is established.</p><div class="editorial-actions"><a href="/projects/newham">Understand the Newham project</a><a href="/research/new-02-newham-source-reconciliation-additionality-v0-2">Check the DWP source</a><a href="/research/f0-03-1-newham-independent-review-readiness-v0-2">Review scientific limitations</a></div></section><p class="doc-count">'+
  docLinks.filter(x=>x.source.startsWith("research/")).length+" research resources · "+
  (evidence.length-1)+" evidence ledger entries</p>"+
  '<p class="status-note">F0-02 remains preliminary. No systematic review or field experiment has been completed.</p>'+
@@ -354,8 +357,8 @@ await publish("/research/newham-pension-credit",shell({
   '<tr><th scope="row">Council residents supported to claim (2024/25)</th><td><strong>220 residents</strong></td><td>Newham local service output, not independently verified awards.</td><td>'+newhamLink("NEWHAM-PC-SUPPORTED-FYE2025")+'</td></tr>'+
   '<tr><th scope="row">Council-reported additional income (2024/25)</th><td><strong>£748,590</strong></td><td>Same council report, not audited HPI impact or costs of programme operation.</td><td>'+newhamLink("NEWHAM-PC-REPORTED-INCOME-FYE2025")+'</td></tr>'+
   '</tbody></table></div>'+
-  '<h2>The primary HPI-B-01 outcome is not yet measurable</h2>'+
-  '<p><strong>Not measured:</strong> locally established eligible household denominator, verified receipt numerator, follow-up, comparator, accessibility and lawful equity groups. The DWP 2023/24 local potential-receipt tables are published but their precise Newham row has not been extracted for this exercise; they have a different model and period from the national DWP 62% rate.</p>'+
+  '<p class="status-note"><strong>Supersession, 9 November 2026:</strong> the earlier report predates verification of the Newham source row. The <a href="/research/new-02-newham-source-reconciliation-additionality-v0-2">newer NEW-02 reconciliation</a> verifies the official 2023/24 model. These estimates are not an HPI study outcome.</p>'+'<h2>The primary HPI-B-01 outcome is not yet measurable</h2>'+
+  '<p><strong>Not measured:</strong> locally established eligible household denominator, verified receipt numerator, follow-up, comparator, accessibility and lawful equity groups. The earlier desk report preceded extraction of the DWP Newham row. That row was verified in NEW-02: the 2023/24 model estimates 11,300 eligible households and 8,800 in receipt (78% rounded). It is not an HPI participant outcome, and it is not comparable to the GB 62% survey figure.</p>'+
   '<p>Audited <strong>'+safe(String(newhamDesk.indicatorReadiness.candidateCount))+' draft indicators</strong>; <strong>zero</strong> independently validated local primary outcome values. This is useful evidence of what information is still needed, not an effect size or failed social intervention.</p>'+
   '<h2>Responsible next steps</h2><p>Maintain the existing Our Newham Money service as context, establish whether independent research would add value, and only later—subject to local partner rights and external methods/ethics review—consider a prespecified comparison of verified receipt versus existing support. No legally owed benefits may be withheld.</p>'+
   '<p><a href="/research/f0-03-newham-pension-credit-desk-validation-v0-2">Full scientific desk report and possible protocol</a> · '+
@@ -399,6 +402,7 @@ await publish("/research/newham-prepilot",shell({
  '</ul>'+
  '<p><a href="/research/responsible-tools">Review independent legal, data, scientific and accessibility gates</a></p></div>'
 }));
+await publishWeb03Pages({publish,shell});
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -466,6 +470,7 @@ for(const [placeholder,replacement] of substitutions){
 }
 if(!homepage.includes('<div class="wrap footer-bottom">'))throw Error("Homepage trust/footer insertion target missing");
 homepage=homepage.replace('<div class="wrap footer-bottom">',trustFooter+'<div class="wrap footer-bottom">');
+homepage=homepage.replaceAll("https://github.com/saver1991/human-prosperity-initiative","https://github.com/svtmzt/human-prosperity-initiative");
 await publish("/",homepage);
 const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
