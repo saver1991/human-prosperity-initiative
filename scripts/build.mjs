@@ -4,6 +4,7 @@ import {ORIGIN,STATIC_ROUTES,buildRouteIndex,escapeHtml,slug,renderMarkdown,rend
 import {buildPublicRoadmap} from "./roadmap-model.mjs";
 import {renderRoadmapOverview,renderInitiativeDetail} from "./roadmap-pages.mjs";
 import {publishWeb03Pages} from "./web03-pages.mjs";
+import {enhanceRt02Products} from "./rt02-products.mjs";
 import {buildSourceCatalog,catalogCsvExport} from "../research-tools/source-catalog.mjs";
 import {getCandidateIndicator} from "../research-tools/indicator-contract.mjs";
 import {generateResearchArtifacts,PUBLIC_OUTPUTS} from "../research-tools/research-pipeline.mjs";
@@ -403,6 +404,7 @@ await publish("/research/newham-prepilot",shell({
  '<p><a href="/research/responsible-tools">Review independent legal, data, scientific and accessibility gates</a></p></div>'
 }));
 await publishWeb03Pages({publish,shell});
+await enhanceRt02Products({publish,shell,sourceCatalog,revision,safe});
 await publish("/library",shell({
  title:"Open knowledge library",section:"Published documents",
  description:"Browse research, the founding charter, governance and all public documents. Newly added Markdown and CSV files are automatically included.",
@@ -472,7 +474,7 @@ if(!homepage.includes('<div class="wrap footer-bottom">'))throw Error("Homepage 
 homepage=homepage.replace('<div class="wrap footer-bottom">',trustFooter+'<div class="wrap footer-bottom">');
 homepage=homepage.replaceAll("https://github.com/saver1991/human-prosperity-initiative","https://github.com/svtmzt/human-prosperity-initiative");
 await publish("/",homepage);
-const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
+const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it","/tools/glossary",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
  allRoutes.map(route=>'<url><loc>'+ORIGIN+(route==="/"?"/":route)+'</loc></url>').join("")+
  '</urlset>\n';

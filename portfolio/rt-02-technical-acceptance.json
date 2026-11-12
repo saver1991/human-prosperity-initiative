@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "0.1",
+  "asOf": "2026-11-12",
+  "initiative": "RT-02",
+  "scope": "proposed_technical_branch_not_deployed",
+  "siteAvailabilityConfirmed": false,
+  "previewReady": false,
+  "productionAccepted": false,
+  "trackedEpics": [
+    "RT-02.2",
+    "RT-02.3",
+    "RT-02.4",
+    "RT-02.5",
+    "RT-02.6",
+    "RT-02.7"
+  ],
+  "outputs": {
+    "toolsHub": "/tools",
+    "glossary": "/tools/glossary",
+    "sourceCatalogue": "/research/source-catalog",
+    "syntheticLab": "/research/outcome-lab",
+    "reproducibility": "/research/reproducibility",
+    "responsibleResearch": "/research/responsible-tools"
+  },
+  "researchBoundaries": {
+    "researchDataType": "public_metadata_and_fictional_synthetic_only",
+    "thirdPartyDataIngested": false,
+    "personalDataPermitted": false,
+    "measuredBenefitOutcomes": false,
+    "fieldworkAuthorised": false,
+    "explorerBuildAuthorised": false,
+    "dataRightsApproved": false,
+    "independentScienceApproved": false,
+    "independentEthicsApproved": false
+  },
+  "humanAcceptance": {
+    "representativeUsers": false,
+    "manualVoiceOver": false,
+    "manualNVDA": false,
+    "manualTalkBack": false,
+    "qualifiedLegal": false,
+    "confidentialContact": false,
+    "fullProviderStorageAudit": false
+  },
+  "sourceDocuments": [
+    "docs/RT-02-1-public-research-tools-product-inventory-v0.1.md",
+    "docs/RT-02-6-data-explorer-discovery-v0.1.md",
+    "docs/RT-02-2-to-7-delivery-report-v0.1.md"
+  ]
+}
