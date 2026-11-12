@@ -32,7 +32,7 @@ export async function publishWeb03Pages({publish,shell}){
  }));
  await publish("/tools",shell({
   title:"Research tools",section:"Open research tools",route:"/tools",
-  description:"Find four existing public-source and synthetic research utilities, their safe inputs and methodological limits. Full tool UX improvements are separately planned under RT-02.",
+  description:"Find four existing public-source and synthetic research utilities, their safe inputs and methodological limits. Task-led tool guidance, safe source exploration and synthetic-only illustrations; independent human and data-rights approvals remain pending.",
   breadcrumb:'<a href="/">Home</a> / Tools',
   body:`<div class="index-content"><section class="editorial-intro"><span class="eyebrow-dark">PUBLIC SOURCES + SYNTHETIC MODELS</span><h2>Explore the evidence. Challenge the method.</h2><p>These are existing technical research utilities, not individual benefit eligibility checks. Do not submit personal, financial, welfare or health records. Data rights and independent scientific approval remain separate gates.</p></section>`+
   featureGrid([

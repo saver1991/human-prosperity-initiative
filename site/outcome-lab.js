@@ -6,6 +6,30 @@ const form=document.querySelector("#outcome-demo");
 const status=document.querySelector("#outcome-demo-result");
 const method=document.querySelector("#outcome-method-detail");
 const indicator={id:"HPI-B-01",unit:"share",domain:"Benefits",status:"proposed_not_validated"};
+const visual=document.querySelector("#synthetic-comparison-visual");
+const exportButton=document.querySelector("#export-synthetic-csv");
+let csv=null;
+function renderComparison(result){
+ if(!visual)return;
+ const ref=result.reference.observedRate*100,cmp=result.comparison.observedRate*100;
+ const values=[ref,cmp];
+ const meters=[...visual.querySelectorAll("meter")];
+ meters.forEach((el,i)=>{el.value=Math.max(0,Math.min(100,values[i]));el.textContent=values[i].toFixed(2)+" percent";});
+ const labels=[...visual.querySelectorAll("[data-synthetic-rate]")];
+ labels.forEach((el,i)=>{el.textContent=values[i].toFixed(2)+"%";});
+ const cells=[...visual.querySelectorAll("[data-synthetic-table]")];
+ const rows=[result.reference,result.comparison];
+ cells.forEach((el,i)=>{const v=rows[Math.floor(i/3)];const key=i%3;el.textContent=key===0?String(v.eligible):key===1?String(v.missingFollowup):String(v.observed);});
+ visual.hidden=false;
+ csv=[["status","group","eligible_synthetic","missing_followup_synthetic","observed_synthetic","received_synthetic","observed_rate_percent"],...rows.map((v,i)=>["SYNTHETIC_ONLY",i===0?"reference":"comparison",v.eligible,v.missingFollowup,v.observed,v.received,(v.observedRate*100).toFixed(2)])].map(r=>r.join(",")).join("\n")+"\n";
+ if(exportButton)exportButton.disabled=false;
+}
+exportButton?.addEventListener("click",()=>{
+ if(!csv)return;
+ const url=URL.createObjectURL(new Blob([csv],{type:"text/csv;charset=utf-8"}));
+ const a=document.createElement("a");a.href=url;a.download="hpi-synthetic-example-only.csv";a.click();
+ URL.revokeObjectURL(url);
+});
 const pct=n=>Number(n).toFixed(2)+"%";
 const value=id=>{
  const raw=document.getElementById(id)?.value;
@@ -49,7 +73,10 @@ function evaluate(){
    pct(r.missingnessSensitivity.differencePercentagePoints.lower)+", "+
    pct(r.missingnessSensitivity.differencePercentagePoints.upper)+
    "]. No causal effectiveness or scientific validation is established.";
+  renderComparison(r);
  }catch(error){
+  if(visual)visual.hidden=true;
+  csv=null;if(exportButton)exportButton.disabled=true;
   if(method)method.textContent="Cannot show a calculation breakdown for invalid synthetic counts.";
   status.textContent="Cannot evaluate synthetic example: "+error.message+
    ". No data were sent to a server.";

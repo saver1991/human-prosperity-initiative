@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length<12)
  throw new Error("QA requires at least the 12 established initiatives and a valid expanded source model");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/projects","/projects/newham","/tools","/updates","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
+const routes=["/","/mission","/projects","/projects/newham","/tools","/tools/glossary","/updates","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance","/privacy","/cookies","/help","/contact","/accessibility","/legal",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -95,6 +95,7 @@ try{
    record(viewport.name+" "+route+" no JS errors",!errors.length,errors.join(" | "));
    
    if(route==="/research/outcome-lab"){
+    record(viewport.name+" lab has accessible synthetic chart",await page.locator("#synthetic-comparison-visual meter").count()===2);
     await page.locator("#comp-received").fill("2");
     await page.locator('#outcome-demo button[type="submit"]').click();
     record(viewport.name+" synthetic outcome lab reports negative findings without causal claims",
@@ -155,6 +156,7 @@ if(route==="/research/newham-pension-credit"){
       await page.locator('main a[href="/research/f0-03-newham-pension-credit-desk-validation-v0-2"]').count()===1);
    }
 if(route==="/research/reproducibility"){
+    record(viewport.name+" pipeline provides pinned reproducibility steps",await page.locator("#rt02-reproduce-commands").count()===1);
     const body=(await page.locator("main").textContent())||"";
     record(viewport.name+" research pipeline maintains scientific trust boundaries",
       body.includes("Technical reproducibility only")&&body.includes("NOT_SUPPORTED")&&
@@ -165,6 +167,7 @@ if(route==="/research/reproducibility"){
       await page.locator('main table th[scope="col"]').count()===3);
    }
 if(route==="/research/source-catalog"){
+    record(viewport.name+" source catalogue has provenance filters",await page.locator("#source-geography, #source-rights, #source-review, #source-year").count()===4);
     await page.locator("#source-filter").fill("pension");
     record(viewport.name+" source catalogue filters dataset candidates by query",
      await page.locator("[data-source-record]:visible").count()>=1);
@@ -176,8 +179,14 @@ if(route==="/research/source-catalog"){
     record(viewport.name+" source catalogue announces filtered count",
      status.includes("3 of 42"));
     await page.locator("#source-kind").selectOption("all");
+    await page.locator("#source-filter").fill("HPI-THIS-IS-NOT-A-REAL-SOURCE");
+    record(viewport.name+" catalogue empty state is accessible",await page.locator("#source-no-results").isVisible());
+    await page.locator("#source-filter").fill("");
    }
 
+   if(route==="/tools/glossary"){
+    record(viewport.name+" glossary defines rights and scientific boundaries",(await page.locator("main").textContent()).includes("Dataset candidate")&& (await page.locator("main").textContent()).includes("Synthetic only"));
+   }
    if(route==="/roadmap"||route.startsWith("/initiatives/")){
     const seo=await page.evaluate(()=>({
      canonical:document.querySelector('link[rel="canonical"]')?.getAttribute("href"),

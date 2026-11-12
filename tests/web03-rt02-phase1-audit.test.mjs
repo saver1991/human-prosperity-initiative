@@ -93,7 +93,16 @@ test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and fut
   assert.equal(e.tasks.length,5);
   for(const t of e.tasks){assert.equal(t.status,"complete");assert.equal(t.evidence,"https://github.com/svtmzt/human-prosperity-initiative/pull/90")}
   if(parent==="RT-02"){
-   assert.ok(x.epics.filter(ep=>ep.id!==first).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
+   const status=new Map(x.epics.map(ep=>[ep.id,ep.status]));
+   assert.equal(status.get("RT-02.2"),"complete");
+   assert.equal(status.get("RT-02.3"),"complete");
+   assert.equal(status.get("RT-02.4"),"in_progress");
+   assert.equal(status.get("RT-02.5"),"complete");
+   assert.equal(status.get("RT-02.6"),"in_progress");
+   assert.equal(status.get("RT-02.7"),"in_progress");
+   assert.equal(x.epics.find(ep=>ep.id==="RT-02.4").tasks.find(t=>t.id==="RT-02.4-T04").status,"planned");
+   assert.equal(x.epics.find(ep=>ep.id==="RT-02.7").tasks.find(t=>t.id==="RT-02.7-T03").status,"planned");
+   assert.equal(x.epics.find(ep=>ep.id==="RT-02.6").tasks.find(t=>t.id==="RT-02.6-T01").status,"planned");
   }else{
    const statuses=new Map(x.epics.map(ep=>[ep.id,ep.status]));
    assert.equal(statuses.get("WEB-03.2"),"complete");
