@@ -1354,7 +1354,7 @@
       "id": "WEB-03",
       "kind": "platform",
       "summary": "Make HPI understandable, trustworthy, navigable and accessible for the public, researchers, tool users and potential collaborators, without confusing technical work with real social outcomes.",
-      "gate": "WEB-03.3 visual templates and WEB-03.4 Projects/Tools public navigation implemented; WEB-03.7 editorial updates delivered, subject to exact-SHA QA and deployment. Final founder visual approval, real-user usability sessions and actual NVDA/VoiceOver/TalkBack tests remain OPEN under WEB-03.3/5. The 11 WEB-03.6 trust/legal/help pages remain INTERIM: actual controller, host cookie/storage/retention audit, private reporting contact and qualified legal review remain PENDING. RT-02 tool UX is not included. No incorporated charity, fieldwork, independent science sign-off or measured beneficiary outcomes.",
+      "gate": "WEB-03.3 visual templates and WEB-03.4 Projects/Tools public navigation implemented; WEB-03.7 editorial updates delivered, subject to exact-SHA QA and deployment. Final founder visual approval, real-user usability sessions and actual NVDA/VoiceOver/TalkBack tests remain OPEN under WEB-03.3/5. The 11 WEB-03.6 trust/legal/help pages remain INTERIM: actual controller, host cookie/storage/retention audit, private reporting contact and qualified legal review remain PENDING. RT-02 tool UX is not included. No incorporated charity, fieldwork, independent science sign-off or measured beneficiary outcomes. Research and participant fieldwork remain NO_GO_FIELD.",
       "deliverables": [
         {
           "label": "WEB-03.1 — Audited site routes, IA, journeys, content and UX risk V0.1",
