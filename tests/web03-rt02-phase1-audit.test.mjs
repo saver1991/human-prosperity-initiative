@@ -92,11 +92,11 @@ test("canonical HPI model registers bounded completed WEB-03.1 / RT-02.1 and fut
   assert.equal(e.status,"complete");
   assert.equal(e.tasks.length,5);
   for(const t of e.tasks){assert.equal(t.status,"complete");assert.equal(t.evidence,"https://github.com/svtmzt/human-prosperity-initiative/pull/90")}
-  assert.ok(x.epics.filter(ep=>ep.id!==first).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
+  assert.ok(x.epics.filter(ep=>![first,"WEB-03.2","WEB-03.6"].includes(ep.id)).every(ep=>ep.status==="planned"&&ep.tasks.every(t=>t.status==="planned")));
  }
  const legal=r.get("WEB-03").epics.find(x=>x.id==="WEB-03.6");
  assert.equal(legal.issue,89);
- assert.equal(legal.status,"planned");
+ assert.equal(legal.status,"in_progress");
  assert.equal(legal.tasks.length,6);
  assert.equal(project.legalEntityStatus,"not_incorporated");
  assert.match(r.get("WEB-03").gate,/No redesign/i);
