@@ -59,7 +59,7 @@ if(!Array.isArray(publicModel.initiatives)||publicModel.initiatives.length<12)
  throw new Error("QA requires at least the 12 established initiatives and a valid expanded source model");
 const initiativeRoutes=publicModel.initiatives.map(x=>
  "/initiatives/"+String(x.id).toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""));
-const routes=["/","/mission","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
+const routes=["/","/mission","/projects","/projects/newham","/tools","/updates","/roadmap","/research","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/responsible-tools","/research/responsible-tools/it","/research/newham-pension-credit","/research/newham-prepilot","/research/evidence-ledger",
  "/library","/activity","/status","/contribute","/governance","/privacy","/cookies","/help","/contact","/accessibility","/legal",...initiativeRoutes];
 const report={source:"local-generated-site",browser:"chromium",viewports:widths,
  checkedRoutes:routes,checks:[],violations:[],screenshots:[],status:"in_progress",
@@ -191,13 +191,13 @@ if(route==="/research/source-catalog"){
     record(viewport.name+" "+route+" accessible page title, description and internal navigation",
      Boolean(seo.title&&seo.description&&seo.linkCount>=4),JSON.stringify(seo));
    }
-   if(["mobile","desktop"].includes(viewport.name)&&["/","/research","/roadmap","/activity","/initiatives/web-02"].includes(route)){
+   if(["mobile","desktop"].includes(viewport.name)&&["/","/projects","/projects/newham","/tools","/research","/roadmap","/activity","/initiatives/web-02"].includes(route)){
     const screenshot=viewport.name+"-"+(route==="/"? "home":route.slice(1).replaceAll("/","-"))+".png";
     await page.screenshot({path:resolve(output,screenshot),fullPage:true});
     report.screenshots.push(screenshot);
    }
    if((viewport.name==="desktop"||viewport.name==="mobile")&&
-      (["/","/mission","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)||
+      (["/","/mission","/projects","/projects/newham","/tools","/updates","/research","/roadmap","/research/evidence-ledger","/library","/activity","/status"].includes(route)||
       initiativeRoutes.includes(route))){
     const result=await new AxeBuilder({page}).withTags(["wcag2a","wcag2aa","wcag21aa","wcag22aa"]).analyze();
     const serious=result.violations;
@@ -368,7 +368,7 @@ if(route==="/research/source-catalog"){
   const context=await browser.newContext({
    viewport:{width:scenario.width,height:900},reducedMotion:"reduce",deviceScaleFactor:1
   });
-  for(const route of ["/","/mission","/research","/research/evidence-ledger",
+  for(const route of ["/","/mission","/projects","/projects/newham","/tools","/updates","/research","/research/evidence-ledger",
    "/library","/activity","/status","/contribute","/governance","/roadmap","/initiatives/web-02","/initiatives/f0-03-1"]){
    const page=await context.newPage();
    const response=await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
@@ -441,7 +441,7 @@ if(route==="/research/source-catalog"){
  // technology's semantic tree. It is not NVDA/VoiceOver speech validation.
  const keyboardContext=await browser.newContext({viewport:{width:1440,height:900},
   reducedMotion:"reduce",deviceScaleFactor:1});
- for(const route of ["/","/research","/status","/roadmap","/initiatives/web-02","/initiatives/f0-03-1"]){
+ for(const route of ["/","/projects","/projects/newham","/tools","/updates","/research","/status","/roadmap","/initiatives/web-02","/initiatives/f0-03-1"]){
   const page=await keyboardContext.newPage();
   await page.goto(base+route,{waitUntil:"networkidle",timeout:20000});
   const mainSnapshot=await page.locator("main").ariaSnapshot();
@@ -449,7 +449,7 @@ if(route==="/research/source-catalog"){
    /heading ".+" \[level=1\]/.test(mainSnapshot),mainSnapshot.slice(0,400));
   const navSnapshot=await page.getByRole("navigation",{name:"Main navigation"}).ariaSnapshot();
   record("assistive-semantics "+route+" named navigation",
-   navSnapshot.includes('link "Research"')&&navSnapshot.includes('link "Roadmap"'),
+   navSnapshot.includes('link "Research"')&&navSnapshot.includes('link "Projects"')&&navSnapshot.includes('link "Tools"'),
    navSnapshot.slice(0,350));
   const focus=[];
   for(let i=0;i<12;i++){
