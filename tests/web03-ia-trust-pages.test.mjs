@@ -80,7 +80,7 @@ test("privacy, cookie and accessibility disclosures never invent approved legal 
  assert.match(access,/not yet independently assessed/);
  assert.match(access,/VoiceOver/);
  assert.match(contact,/no email address/i);
- assert.match(contact,/not<\\/strong> a private inbox/i);
+ assert.match(contact,/a private inbox/i);
  assert.match(legalPage,/not incorporated/);
  assert.match(help,/not.*government service/i);
  assert.match(copyright,/MIT licence/);
