@@ -59,9 +59,10 @@ if(!researchTopics.length)throw new Error("No source-derived research areas foun
 const docLinks=[...routes].map(([source,url])=>({source,url,title:sourceTitle(source,content.get(source))}));
 const safe=escapeHtml;
 const stamp='Published from GitHub '+safe(revision==="local-build"?"working tree":revision.slice(0,9))+" · "+safe(publishedAt.slice(0,16).replace("T"," "))+" UTC";
-const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/research">Research</a><a href="/roadmap">Roadmap</a><a href="/library">Library</a><a href="/contribute">Get involved</a></nav>';
+const nav='<nav aria-label="Main navigation"><a href="/mission">Mission</a><a href="/projects">Projects</a><a href="/research">Research</a><a href="/tools">Tools</a><a href="/contribute">Get involved</a><a href="/about">About & governance</a></nav>';
+const mobileNav='<details class="mobile-menu"><summary>Menu</summary><nav aria-label="Mobile navigation"><a href="/mission">Mission</a><a href="/projects">Projects</a><a href="/research">Research</a><a href="/tools">Tools</a><a href="/contribute">Get involved</a><a href="/about">About & governance</a><a href="/roadmap">Public roadmap</a><a href="/library">Knowledge library</a><a href="/help">Help</a></nav></details>';
 const trustFooter='<nav class="wrap trust-footer" aria-label="Help, trust and legal information">'+
- '<div class="trust-footer-group"><h2>Understand HPI</h2><a href="/about">About HPI</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/research-integrity">Research integrity</a><a href="/site-map">Site map</a></div>'+
+ '<div class="trust-footer-group"><h2>Understand HPI</h2><a href="/about">About HPI</a><a href="/projects">Projects</a><a href="/tools">Tools</a><a href="/updates">Editorial updates</a><a href="/governance">Governance</a><a href="/roadmap">Roadmap</a><a href="/research-integrity">Research integrity</a><a href="/site-map">Site map</a></div>'+
  '<div class="trust-footer-group"><h2>Help & accessibility</h2><a href="/help">Help & FAQ</a><a href="/contact">Contact & support status</a><a href="/accessibility">Accessibility</a><a href="/contribute">Contribute</a><a href="/activity">Activity</a></div>'+
  '<div class="trust-footer-group"><h2>Legal & privacy</h2><a href="/privacy">Privacy</a><a href="/cookies">Cookies</a><a href="/terms">Terms & limitations</a><a href="/legal">Legal & publisher</a><a href="/copyright">Copyright & licences</a></div>'+
  '</nav>';
@@ -78,12 +79,12 @@ function shell({title,description,section,body,route,lang="en",script="",stylesh
   (script?'<script src="'+safe(script)+'" '+(["/progress.js","/outcome-lab.js"].includes(script)?'type="module"':"defer")+'></script>':"")+
   '</head><body><a class="skip" href="#main">Skip to main content</a>'+
   '<header class="header"><div class="wrap head-inner"><a class="logo" href="/" aria-label="HPI. Human Prosperity Initiative home"><span class="symbol" aria-hidden="true">✳</span> HPI<span class="lime">.</span><small>Human Prosperity<br>Initiative</small></a>'+
-  nav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
+  nav+mobileNav+'<a class="nav-cta" href="/activity">Live progress ↗</a></div></header>'+
   '<main id="main" tabindex="-1" class="content-page"><section class="content-hero"><div class="wrap">'+
   '<div class="content-breadcrumb">'+(breadcrumb||'<a href="/">Home</a> / <a href="/library">Knowledge library</a> / '+safe(section))+'</div>'+
   '<span class="section-label">'+safe(section)+'</span><h1>'+safe(title)+'</h1>'+
   '<p class="content-lede">'+safe(description)+'</p></div></section>'+
-  '<div class="wrap content-layout">'+body+'</div></main>'+
+  '<div class="wrap content-layout">'+(route==="/mission"?'<div class="mission-status-note" role="note"><strong>Working charter, not ratified.</strong> The current <a href="/library/docs/founding-charter-ratification-candidate-v0-4">V0.4 candidate</a> supersedes some historical V0.3 wording below. Independent review and founding approval remain outstanding.</div>':"")+body+'</div></main>'+
   '<footer class="footer">'+trustFooter+'<div class="wrap footer-bottom"><span>© 2026 HPI contributors · Working name, not a registered foundation</span>'+
   '<span><a href="/library">Knowledge library</a> · <a href="/activity">Activity</a> · <a href="/status">Publication status</a> · '+stamp+'</span></div></footer>'+
   '</body></html>';
@@ -122,6 +123,7 @@ await cp("research/responsible-tools.en.txt","dist/responsible-tools.en.txt");
 await cp("research/responsible-tools.it.txt","dist/responsible-tools.it.txt");
 await cp("portfolio/web-03-2-information-architecture.json","dist/site-information-architecture.json");
 await cp("portfolio/web-03-6-legal-help-page-register.json","dist/site-trust-page-status.json");
+await cp("portfolio/web-03-technical-acceptance.json","dist/site-web-03-technical-acceptance.json");
 const sectionFor=source=>source.startsWith("research/")?"Research":
  source.startsWith("docs/site-pages/")?"Help, trust & public information":
  source.startsWith("docs/")?"Documentation":"Community and governance";
@@ -466,6 +468,7 @@ for(const [placeholder,replacement] of substitutions){
 }
 if(!homepage.includes('<div class="wrap footer-bottom">'))throw Error("Homepage trust/footer insertion target missing");
 homepage=homepage.replace('<div class="wrap footer-bottom">',trustFooter+'<div class="wrap footer-bottom">');
+homepage=homepage.replaceAll("https://github.com/saver1991/human-prosperity-initiative","https://github.com/svtmzt/human-prosperity-initiative");
 await publish("/",homepage);
 const allRoutes=[...new Set([...STATIC_ROUTES,...routes.values(),"/library/docs/roadmap-source","/research/source-catalog","/research/outcome-lab","/research/reproducibility","/research/newham-pension-credit","/research/newham-prepilot","/research/responsible-tools","/research/responsible-tools/it",...publicRoadmap.initiatives.map(x=>"/initiatives/"+slug(x.id))])].sort();
 const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+
